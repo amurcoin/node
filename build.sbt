@@ -109,7 +109,7 @@ inConfig(Test)(
 
 inConfig(Linux)(
   Seq(
-    maintainer := "wavesplatform.com",
+    maintainer := "amurcoin.io",
     packageSummary := "Waves node",
     packageDescription := "Waves node"
   ))
