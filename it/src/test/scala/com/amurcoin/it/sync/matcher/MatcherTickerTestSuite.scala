@@ -64,7 +64,7 @@ class MatcherTickerTestSuite
         matcherNode
           .matcherGet(s"/matcher/orderbook/${usdWavesPair.amountAssetStr}/${usdWavesPair.priceAssetStr}/status", statusCode = 301)
           .getHeader("Location")
-          .contains(s"WAVES/${usdWavesPair.amountAssetStr}"))
+          .contains(s"AMURCOIN/${usdWavesPair.amountAssetStr}"))
 
       //TODO: add error message after fix of https://wavesplatform.atlassian.net/browse/NODE-1151
 //      SyncMatcherHttpApi.assertNotFoundAndMessage(matcherNode.placeOrder(aliceNode, usdWavesPair, OrderType.BUY, 200, 1.waves), "")
@@ -236,7 +236,7 @@ object MatcherTickerTestSuite {
 
   private val updatedMatcherConfig = parseString(s"""
                                                     |waves.matcher {
-                                                    |  price-assets = [ "$UsdId", "WAVES"]
+                                                    |  price-assets = [ "$UsdId", "AMURCOIN"]
                                                     |}
      """.stripMargin)
 

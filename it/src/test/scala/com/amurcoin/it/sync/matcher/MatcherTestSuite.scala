@@ -61,7 +61,7 @@ class MatcherTestSuite extends FreeSpec with Matchers with BeforeAndAfterAll wit
       markets.amountAssetName shouldBe amountAssetName
       markets.amountAssetInfo shouldBe Some(AssetDecimalsInfo(aliceCoinDecimals))
 
-      markets.priceAssetName shouldBe "WAVES"
+      markets.priceAssetName shouldBe "AMURCOIN"
       markets.priceAssetInfo shouldBe Some(AssetDecimalsInfo(8))
     }
 
@@ -246,7 +246,7 @@ class MatcherTestSuite extends FreeSpec with Matchers with BeforeAndAfterAll wit
       }
 
       "request order book for blacklisted pair" in {
-        val f = matcherNode.matcherGetStatusCode(s"/matcher/orderbook/$ForbiddenAssetId/WAVES", 404)
+        val f = matcherNode.matcherGetStatusCode(s"/matcher/orderbook/$ForbiddenAssetId/AMURCOIN", 404)
         f.message shouldBe s"Invalid Asset ID: $ForbiddenAssetId"
       }
 

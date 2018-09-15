@@ -50,7 +50,7 @@ class CancelOrderTestSuite extends FreeSpec with Matchers with BeforeAndAfterAll
 
   }
 
-  "Alice and Bob trade WAVES-USD" - {
+  "Alice and Bob trade AMURCOIN-USD" - {
     "place usd-waves order" in {
       // Alice wants to sell USD for Waves
       val orderId1      = matcherNode.placeOrder(bobNode, wavesUsdPair, OrderType.SELL, 800, 100.waves).message.id
@@ -167,7 +167,7 @@ object CancelOrderTestSuite {
 
   private val updatedMatcherConfig = parseString(s"""
        |waves.matcher {
-       |  price-assets = [ "$UsdId", "WAVES"]
+       |  price-assets = [ "$UsdId", "AMURCOIN"]
        |}
      """.stripMargin)
 

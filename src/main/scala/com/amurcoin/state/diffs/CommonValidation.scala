@@ -234,7 +234,7 @@ object CommonValidation {
             restFeeAmount >= 0,
             (),
             GenericError(
-              s"Fee in ${feeAssetId.fold("WAVES")(_.toString)} for ${tx.builder.classTag} does not exceed minimal value of $minimumFee WAVES: $feeAmount")
+              s"Fee in ${feeAssetId.fold("AMURCOIN")(_.toString)} for ${tx.builder.classTag} does not exceed minimal value of $minimumFee AMURCOIN: $feeAmount")
           )
         } yield (None, restFeeAmount)
       }

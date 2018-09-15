@@ -45,7 +45,7 @@ class OrderBookActorSpecification
 
   var eventsProbe = TestProbe()
 
-  val pair                   = AssetPair(Some(ByteStr("BTC".getBytes)), Some(ByteStr("WAVES".getBytes)))
+  val pair                   = AssetPair(Some(ByteStr("BTC".getBytes)), Some(ByteStr("AMURCOIN".getBytes)))
   val blockchain: Blockchain = stub[Blockchain]
   val hugeAmount             = Long.MaxValue / 2
   (blockchain.portfolio _)
@@ -55,7 +55,7 @@ class OrderBookActorSpecification
                 LeaseBalance.empty,
                 Map(
                   ByteStr("BTC".getBytes)   -> hugeAmount,
-                  ByteStr("WAVES".getBytes) -> hugeAmount
+                  ByteStr("AMURCOIN".getBytes) -> hugeAmount
                 )))
   val issueTransaction: IssueTransactionV1 = IssueTransactionV1
     .selfSigned(PrivateKeyAccount("123".getBytes), "MinerReward".getBytes, Array.empty, 10000000000L, 8.toByte, true, 100000L, 10000L)
@@ -414,7 +414,7 @@ class OrderBookActorSpecification
     }
 
     "buy small amount of pricey asset" in {
-      val p = AssetPair(Some(ByteStr("WAVES".getBytes)), Some(ByteStr("USD".getBytes)))
+      val p = AssetPair(Some(ByteStr("AMURCOIN".getBytes)), Some(ByteStr("USD".getBytes)))
       val b = rawBuy(p, 280, 700000L)
       val s = rawSell(p, 280, 30000000000L)
       actor ! s
