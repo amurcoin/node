@@ -71,7 +71,7 @@ class OrdersFromScriptedAccTestSuite
     "Alice place sell order, but Bob cannot place order, because his acc is scripted" in {
       // Alice places sell order
       val aliceOrder = matcherNode
-        .placeOrder(aliceNode, aliceWavesPair, OrderType.SELL, 2.waves * Order.PriceConstant, 500, version = 1, 10.minutes)
+        .placeOrder(aliceNode, aliceWavesPair, OrderType.SELL, 2.amurcoin * Order.PriceConstant, 500, version = 1, 10.minutes)
 
       aliceOrder.status shouldBe "OrderAccepted"
 
@@ -84,7 +84,7 @@ class OrdersFromScriptedAccTestSuite
       // Alice check that order is correct
       val orders = matcherNode.orderBook(aliceWavesPair)
       orders.asks.head.amount shouldBe 500
-      orders.asks.head.price shouldBe 2.waves * Order.PriceConstant
+      orders.asks.head.price shouldBe 2.amurcoin * Order.PriceConstant
 
       // sell order should be in the aliceNode orderbook
       matcherNode.fullOrderHistory(aliceNode).head.status shouldBe "Accepted"
@@ -92,7 +92,7 @@ class OrdersFromScriptedAccTestSuite
       // Bob gets error message
       assertBadRequestAndResponse(
         matcherNode
-          .placeOrder(bobNode, aliceWavesPair, OrderType.BUY, 2.waves * Order.PriceConstant, 500, version = 1, 10.minutes),
+          .placeOrder(bobNode, aliceWavesPair, OrderType.BUY, 2.amurcoin * Order.PriceConstant, 500, version = 1, 10.minutes),
         "Trading on scripted account isn't allowed yet."
       )
 
@@ -107,7 +107,7 @@ object OrdersFromScriptedAccTestSuite {
   import NodeConfigs.Default
 
   private val matcherConfig = ConfigFactory.parseString(s"""
-                                                           |waves {
+                                                           |amurcoin {
                                                            |  matcher {
                                                            |    enable = yes
                                                            |    account = 3HmFkAoQRs4Y3PE2uR6ohN7wS4VqPBGKv7k
@@ -124,7 +124,7 @@ object OrdersFromScriptedAccTestSuite {
                                                            |}""".stripMargin)
 
   private val nonGeneratingPeersConfig = ConfigFactory.parseString(
-    """waves {
+    """amurcoin {
       | matcher.order-cleanup-interval = 30s
       | miner.enable=no
       |}""".stripMargin

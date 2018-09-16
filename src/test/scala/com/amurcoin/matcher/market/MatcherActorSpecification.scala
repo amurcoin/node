@@ -192,7 +192,7 @@ class MatcherActorSpecification
 
   "GetMarketsResponse" should {
     "serialize to json" in {
-      val waves  = "AMURCOIN"
+      val amurcoin  = "AMURCOIN"
       val a1Name = "BITCOIN"
       val a1     = strToSomeAssetId(a1Name)
 
@@ -204,10 +204,10 @@ class MatcherActorSpecification
 
       val now = NTP.correctedTime()
       val json =
-        GetMarketsResponse(Array(), Seq(MarketData(pair1, a1Name, waves, now, None, None), MarketData(pair2, a1Name, a2Name, now, None, None))).json
+        GetMarketsResponse(Array(), Seq(MarketData(pair1, a1Name, amurcoin, now, None, None), MarketData(pair2, a1Name, a2Name, now, None, None))).json
 
       ((json \ "markets")(0) \ "priceAsset").as[String] shouldBe AssetPair.WavesName
-      ((json \ "markets")(0) \ "priceAssetName").as[String] shouldBe waves
+      ((json \ "markets")(0) \ "priceAssetName").as[String] shouldBe amurcoin
       ((json \ "markets")(0) \ "amountAsset").as[String] shouldBe a1.get.base58
       ((json \ "markets")(0) \ "amountAssetName").as[String] shouldBe a1Name
       ((json \ "markets")(0) \ "created").as[Long] shouldBe now

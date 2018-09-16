@@ -4,18 +4,18 @@ import com.amurcoin.state.DataEntry
 import com.amurcoin.it.util._
 
 package object sync {
-  val minFee                     = 0.001.waves
-  val leasingFee                 = 0.002.waves
-  val smartFee                   = 0.004.waves
-  val issueFee                   = 1.waves
-  val burnFee                    = 1.waves
-  val sponsorFee                 = 1.waves
-  val transferAmount             = 10.waves
+  val minFee                     = 0.001.amurcoin
+  val leasingFee                 = 0.002.amurcoin
+  val smartFee                   = 0.004.amurcoin
+  val issueFee                   = 1.amurcoin
+  val burnFee                    = 1.amurcoin
+  val sponsorFee                 = 1.amurcoin
+  val transferAmount             = 10.amurcoin
   val leasingAmount              = transferAmount
   val issueAmount                = transferAmount
-  val massTransferFeePerTransfer = 0.0005.waves
+  val massTransferFeePerTransfer = 0.0005.amurcoin
   val someAssetAmount            = 100000
-  val matcherFee                 = 0.003.waves
+  val matcherFee                 = 0.003.amurcoin
 
   def calcDataFee(data: List[DataEntry[_]]): Long = {
     val dataSize = data.map(_.toBytes.length).sum + 128

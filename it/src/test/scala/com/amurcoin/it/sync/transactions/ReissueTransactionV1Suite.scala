@@ -7,7 +7,7 @@ import com.amurcoin.it.sync._
 
 class ReissueTransactionV1Suite extends BaseTransactionSuite {
 
-  test("asset reissue changes issuer's asset balance; issuer's waves balance is decreased by fee") {
+  test("asset reissue changes issuer's asset balance; issuer's amurcoin balance is decreased by fee") {
 
     val (balance, effectiveBalance) = notMiner.accountBalances(firstAddress)
 
@@ -41,14 +41,14 @@ class ReissueTransactionV1Suite extends BaseTransactionSuite {
   test("not able to reissue if cannot pay fee - insufficient funds") {
 
     val (balance, effectiveBalance) = notMiner.accountBalances(firstAddress)
-    val reissueFee                  = effectiveBalance + 1.waves
+    val reissueFee                  = effectiveBalance + 1.amurcoin
 
     val issuedAssetId = sender.issue(firstAddress, "name3", "description3", someAssetAmount, decimals = 2, reissuable = true, issueFee).id
 
     nodes.waitForHeightAriseAndTxPresent(issuedAssetId)
 
     assertBadRequestAndMessage(sender.reissue(firstAddress, issuedAssetId, someAssetAmount, reissuable = true, fee = reissueFee),
-                               "negative waves balance")
+                               "negative amurcoin balance")
     nodes.waitForHeightArise()
 
     notMiner.assertAssetBalance(firstAddress, issuedAssetId, someAssetAmount)

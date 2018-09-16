@@ -6,10 +6,10 @@ import com.amurcoin.api.http.ApiKeyNotValid
 
 class DebugApiRouteSpec extends RouteSpec("/debug") with RestAPISettingsHelper with TestWallet {
   private val sampleConfig  = com.typesafe.config.ConfigFactory.load()
-  private val wavesSettings = WavesSettings.fromConfig(sampleConfig)
+  private val amurcoinSettings = WavesSettings.fromConfig(sampleConfig)
   private val configObject  = sampleConfig.root()
   private val route =
-    DebugApiRoute(wavesSettings, null, null, null, null, null, null, null, null, null, null, null, null, null, configObject).route
+    DebugApiRoute(amurcoinSettings, null, null, null, null, null, null, null, null, null, null, null, null, null, configObject).route
 
   routePath("/configInfo") - {
     "requires api-key header" in {

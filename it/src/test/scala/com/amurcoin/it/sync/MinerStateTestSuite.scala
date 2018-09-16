@@ -14,7 +14,7 @@ class MinerStateTestSuite extends FunSuite with CancelAfterFailure with NodesFro
 
   override protected def nodeConfigs: Seq[Config] = Configs
 
-  private val transferAmount = 1000.waves
+  private val transferAmount = 1000.amurcoin
 
   private def miner               = nodes.head
   private def nodeWithZeroBalance = nodes.last
@@ -41,7 +41,7 @@ class MinerStateTestSuite extends FunSuite with CancelAfterFailure with NodesFro
 object MinerStateTestSuite {
   import com.amurcoin.it.NodeConfigs._
   private val minerConfig = ConfigFactory.parseString(s"""
-    |waves {
+    |amurcoin {
     |  synchronization.synchronization-timeout = 10s
     |  blockchain.custom.functionality {
     |    pre-activated-features.1 = 0
@@ -51,7 +51,7 @@ object MinerStateTestSuite {
     |}""".stripMargin)
 
   private val notMinerConfig = ConfigFactory.parseString(s"""
-    |waves {
+    |amurcoin {
     |  synchronization.synchronization-timeout = 10s
     |  blockchain.custom.functionality {
     |    pre-activated-features.1 = 0

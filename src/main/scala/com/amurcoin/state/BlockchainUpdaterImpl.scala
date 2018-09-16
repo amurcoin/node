@@ -481,8 +481,8 @@ class BlockchainUpdaterImpl(blockchain: Blockchain, settings: WavesSettings, tim
   override def assetDistribution(assetId: AssetId): Map[Address, Long] =
     blockchain.assetDistribution(assetId) ++ changedBalances(_.assets.getOrElse(assetId, 0L) != 0, portfolio(_).assets.getOrElse(assetId, 0L))
 
-  override def wavesDistribution(height: Int): Map[Address, Long] = ngState.fold(blockchain.wavesDistribution(height)) { ng =>
-    val innerDistribution = blockchain.wavesDistribution(height)
+  override def amurcoinDistribution(height: Int): Map[Address, Long] = ngState.fold(blockchain.amurcoinDistribution(height)) { ng =>
+    val innerDistribution = blockchain.amurcoinDistribution(height)
     if (height < this.height) innerDistribution
     else {
       innerDistribution ++ changedBalances(_.balance != 0, portfolio(_).balance)

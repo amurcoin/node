@@ -57,7 +57,7 @@ case class DebugApiRoute(ws: WavesSettings,
 
   private lazy val configStr             = configRoot.render(ConfigRenderOptions.concise().setJson(true).setFormatted(true))
   private lazy val fullConfig: JsValue   = Json.parse(configStr)
-  private lazy val wavesConfig: JsObject = Json.obj("waves" -> (fullConfig \ "waves").get)
+  private lazy val amurcoinConfig: JsObject = Json.obj("amurcoin" -> (fullConfig \ "amurcoin").get)
 
   override val settings = ws.restAPISettings
   override lazy val route: Route = pathPrefix("debug") {
@@ -143,7 +143,7 @@ case class DebugApiRoute(ws: WavesSettings,
   @ApiOperation(value = "State", notes = "Get current state", httpMethod = "GET")
   @ApiResponses(Array(new ApiResponse(code = 200, message = "Json state")))
   def state: Route = (path("state") & get & withAuth) {
-    complete(ng.wavesDistribution(ng.height).map { case (a, b) => a.stringRepr -> b })
+    complete(ng.amurcoinDistribution(ng.height).map { case (a, b) => a.stringRepr -> b })
   }
 
   @Path("/stateWaves/{height}")
@@ -153,7 +153,7 @@ case class DebugApiRoute(ws: WavesSettings,
       new ApiImplicitParam(name = "height", value = "height", required = true, dataType = "integer", paramType = "path")
     ))
   def stateWaves: Route = (path("stateWaves" / IntNumber) & get & withAuth) { height =>
-    complete(ng.wavesDistribution(height).map { case (a, b) => a.stringRepr -> b })
+    complete(ng.amurcoinDistribution(height).map { case (a, b) => a.stringRepr -> b })
   }
 
   private def rollbackToBlock(blockId: ByteStr, returnTransactionsToUtx: Boolean): Future[ToResponseMarshallable] = {
@@ -266,7 +266,7 @@ case class DebugApiRoute(ws: WavesSettings,
       new ApiResponse(code = 200, message = "Json state")
     ))
   def configInfo: Route = (path("configInfo") & get & parameter('full.as[Boolean]) & withAuth) { full =>
-    complete(if (full) fullConfig else wavesConfig)
+    complete(if (full) fullConfig else amurcoinConfig)
   }
 
   @Path("/rollback-to/{signature}")

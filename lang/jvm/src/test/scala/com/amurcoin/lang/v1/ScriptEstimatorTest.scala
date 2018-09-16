@@ -7,7 +7,7 @@ import com.amurcoin.lang.v1.compiler.Terms._
 import com.amurcoin.lang.v1.compiler.{CompilerContext, CompilerV1}
 import com.amurcoin.lang.v1.evaluator.ctx._
 import com.amurcoin.lang.v1.evaluator.ctx.impl.PureContext
-import com.amurcoin.lang.v1.evaluator.ctx.impl.waves.Types.transferTransactionType
+import com.amurcoin.lang.v1.evaluator.ctx.impl.amurcoin.Types.transferTransactionType
 import com.amurcoin.lang.v1.parser.Parser
 import com.amurcoin.lang.v1.testing.ScriptGen
 import com.amurcoin.lang._

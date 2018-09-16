@@ -33,23 +33,23 @@ object ExtractInfo extends App with ScorexLogging {
   }
 
   val benchSettings = Settings.fromConfig(ConfigFactory.load())
-  val wavesSettings = {
+  val amurcoinSettings = {
     val config = loadConfig(ConfigFactory.parseFile(new File(args.head)))
     WavesSettings.fromConfig(config)
   }
 
   AddressScheme.current = new AddressScheme {
-    override val chainId: Byte = wavesSettings.blockchainSettings.addressSchemeCharacter.toByte
+    override val chainId: Byte = amurcoinSettings.blockchainSettings.addressSchemeCharacter.toByte
   }
 
   val db: DB = {
-    val dir = new File(wavesSettings.dataDirectory)
-    if (!dir.isDirectory) throw new IllegalArgumentException(s"Can't find directory at '${wavesSettings.dataDirectory}'")
+    val dir = new File(amurcoinSettings.dataDirectory)
+    if (!dir.isDirectory) throw new IllegalArgumentException(s"Can't find directory at '${amurcoinSettings.dataDirectory}'")
     LevelDBFactory.factory.open(dir, new Options)
   }
 
   try {
-    val state = new LevelDBWriter(db, wavesSettings.blockchainSettings.functionalitySettings)
+    val state = new LevelDBWriter(db, amurcoinSettings.blockchainSettings.functionalitySettings)
 
     def nonEmptyBlockHeights(from: Int): Iterator[Integer] =
       for {

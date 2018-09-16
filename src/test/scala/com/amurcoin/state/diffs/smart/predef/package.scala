@@ -138,9 +138,9 @@ package object predef {
        |   case _ => false
        | }
        |
-       | let balances = assetBalance(tx.sender, unit) > 0 && wavesBalance(tx.sender) != 0
+       | let balances = assetBalance(tx.sender, unit) > 0 && amurcoinBalance(tx.sender) != 0
        |
-       | let waves = txById && entries && balances && aFromPK && aFromStrOrRecip && height > 0
+       | let amurcoin = txById && entries && balances && aFromPK && aFromStrOrRecip && height > 0
        |
        | # Crypto context
        | let bks = blake2b256(base58'') != base58'' && keccak256(base58'') != base58'' && sha256(base58'') != base58''
@@ -150,7 +150,7 @@ package object predef {
        |
        | let crypto = bks && sig && str58 && str64
        |
-       | if rnd then pure && waves else crypto
+       | if rnd then pure && amurcoin else crypto
     """.stripMargin
 
 }

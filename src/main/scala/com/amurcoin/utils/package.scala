@@ -11,7 +11,7 @@ import com.amurcoin.lang.v1.compiler.CompilerContext
 import com.amurcoin.lang.v1.compiler.CompilerContext._
 import com.amurcoin.lang.v1.compiler.Terms.TRUE
 import com.amurcoin.lang.v1.evaluator.ctx._
-import com.amurcoin.lang.v1.evaluator.ctx.impl.waves.WavesContext
+import com.amurcoin.lang.v1.evaluator.ctx.impl.amurcoin.WavesContext
 import com.amurcoin.lang.v1.evaluator.ctx.impl.{CryptoContext, PureContext}
 import com.amurcoin.lang.v1.{FunctionHeader, ScriptEstimator}
 import com.amurcoin.transaction.smart.{BlockchainContext, WavesEnvironment}
@@ -52,7 +52,7 @@ package object utils extends ScorexLogging {
   def forceStopApplication(reason: ApplicationStopReason = Default): Unit =
     new Thread(() => {
       System.exit(reason.code)
-    }, "waves-platform-shutdown-thread").start()
+    }, "amurcoin-platform-shutdown-thread").start()
 
   def humanReadableSize(bytes: Long, si: Boolean = true): String = {
     val (baseValue, unitStrings) =

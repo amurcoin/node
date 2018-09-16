@@ -22,16 +22,16 @@ trait MatcherTestData {
   val accountGen: Gen[PrivateKeyAccount] = bytes32gen.map(seed => PrivateKeyAccount(seed))
   val positiveLongGen: Gen[Long]         = Gen.choose(1, Long.MaxValue)
 
-  val wavesAssetGen: Gen[Option[Array[Byte]]] = Gen.const(None)
-  val assetIdGen: Gen[Option[Array[Byte]]]    = Gen.frequency((1, wavesAssetGen), (10, bytes32gen.map(Some(_))))
+  val amurcoinAssetGen: Gen[Option[Array[Byte]]] = Gen.const(None)
+  val assetIdGen: Gen[Option[Array[Byte]]]    = Gen.frequency((1, amurcoinAssetGen), (10, bytes32gen.map(Some(_))))
 
   val assetPairGen = Gen.zip(assetIdGen, assetIdGen).suchThat(p => p._1 != p._2).map(p => AssetPair(p._1.map(ByteStr(_)), p._2.map(ByteStr(_))))
 
   val maxTimeGen: Gen[Long]     = Gen.choose(10000L, Order.MaxLiveTime).map(_ + NTP.correctedTime())
   val createdTimeGen: Gen[Long] = Gen.choose(0L, 10000L).map(NTP.correctedTime() - _)
 
-  val config = loadConfig(ConfigFactory.parseString("""waves {
-      |  directory: "/tmp/waves-test"
+  val config = loadConfig(ConfigFactory.parseString("""amurcoin {
+      |  directory: "/tmp/amurcoin-test"
       |  matcher {
       |    enable: yes
       |    account: ""

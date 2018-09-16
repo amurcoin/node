@@ -67,21 +67,21 @@ class Docker(suiteConfig: Config = empty, tag: String = "", enableProfiling: Boo
   private[it] val configTemplate = parseResources("template.conf")
 
   AddressScheme.current = new AddressScheme {
-    override val chainId = configTemplate.as[String]("waves.blockchain.custom.address-scheme-character").charAt(0).toByte
+    override val chainId = configTemplate.as[String]("amurcoin.blockchain.custom.address-scheme-character").charAt(0).toByte
   }
 
   private[it] val genesisOverride = {
     val genesisTs          = System.currentTimeMillis()
-    val timestampOverrides = parseString(s"""waves.blockchain.custom.genesis {
+    val timestampOverrides = parseString(s"""amurcoin.blockchain.custom.genesis {
          |  timestamp = $genesisTs
          |  block-timestamp = $genesisTs
          |}""".stripMargin)
 
     val genesisConfig    = configTemplate.withFallback(timestampOverrides)
-    val gs               = genesisConfig.as[GenesisSettings]("waves.blockchain.custom.genesis")
+    val gs               = genesisConfig.as[GenesisSettings]("amurcoin.blockchain.custom.genesis")
     val genesisSignature = Block.genesis(gs).explicitGet().uniqueId
 
-    timestampOverrides.withFallback(parseString(s"waves.blockchain.custom.genesis.signature = $genesisSignature"))
+    timestampOverrides.withFallback(parseString(s"amurcoin.blockchain.custom.genesis.signature = $genesisSignature"))
   }
 
   // a random network in 10.x.x.x range
@@ -90,7 +90,7 @@ class Docker(suiteConfig: Config = empty, tag: String = "", enableProfiling: Boo
   private val networkPrefix = s"${InetAddress.getByAddress(toByteArray(networkSeed)).getHostAddress}/28"
 
   private val logDir: Coeval[Path] = Coeval.evalOnce {
-    val r = Option(System.getProperty("waves.it.logging.dir"))
+    val r = Option(System.getProperty("amurcoin.it.logging.dir"))
       .map(Paths.get(_))
       .getOrElse(Paths.get(System.getProperty("user.dir"), "target", "logs"))
 
@@ -100,8 +100,8 @@ class Docker(suiteConfig: Config = empty, tag: String = "", enableProfiling: Boo
 
   private def ipForNode(nodeId: Int) = InetAddress.getByAddress(toByteArray(nodeId & 0xF | networkSeed)).getHostAddress
 
-  private lazy val wavesNetwork: Network = {
-    val networkName = s"waves-${hashCode().toLong.toHexString}"
+  private lazy val amurcoinNetwork: Network = {
+    val networkName = s"amurcoin-${hashCode().toLong.toHexString}"
 
     def network: Option[Network] =
       try {
@@ -220,9 +220,9 @@ class Docker(suiteConfig: Config = empty, tag: String = "", enableProfiling: Boo
         .withFallback(defaultReference())
         .resolve()
 
-      val restApiPort    = actualConfig.getString("waves.rest-api.port")
-      val networkPort    = actualConfig.getString("waves.network.port")
-      val matcherApiPort = actualConfig.getString("waves.matcher.port")
+      val restApiPort    = actualConfig.getString("amurcoin.rest-api.port")
+      val networkPort    = actualConfig.getString("amurcoin.network.port")
+      val matcherApiPort = actualConfig.getString("amurcoin.matcher.port")
 
       val portBindings = new ImmutableMap.Builder[String, java.util.List[PortBinding]]()
         .put(s"$ProfilerPort", singletonList(PortBinding.randomPort("0.0.0.0")))
@@ -236,14 +236,14 @@ class Docker(suiteConfig: Config = empty, tag: String = "", enableProfiling: Boo
         .portBindings(portBindings)
         .build()
 
-      val nodeName   = actualConfig.getString("waves.network.node-name")
+      val nodeName   = actualConfig.getString("amurcoin.network.node-name")
       val nodeNumber = nodeName.replace("node", "").toInt
       val ip         = ipForNode(nodeNumber)
 
       val javaOptions = Option(System.getenv("CONTAINER_JAVA_OPTS")).getOrElse("")
       val configOverrides: String = {
         var config = s"$javaOptions ${renderProperties(asProperties(overrides))} " +
-          s"-Dlogback.stdout.level=TRACE -Dlogback.file.level=OFF -Dwaves.network.declared-address=$ip:$networkPort "
+          s"-Dlogback.stdout.level=TRACE -Dlogback.file.level=OFF -Damurcoin.network.declared-address=$ip:$networkPort "
 
         if (enableProfiling) {
           config += s"-agentpath:/usr/local/YourKit-JavaProfiler-2018.04/bin/linux-x86-64/libyjpagent.so=port=$ProfilerPort,listen=all," +
@@ -260,14 +260,14 @@ class Docker(suiteConfig: Config = empty, tag: String = "", enableProfiling: Boo
         .image("com.amurcoin/it:latest")
         .exposedPorts(s"$ProfilerPort", restApiPort, networkPort, matcherApiPort)
         .networkingConfig(ContainerConfig.NetworkingConfig.create(Map(
-          wavesNetwork.name() -> endpointConfigFor(nodeName)
+          amurcoinNetwork.name() -> endpointConfigFor(nodeName)
         ).asJava))
         .hostConfig(hostConfig)
         .env(s"AMURCOIN_OPTS=$configOverrides")
         .build()
 
       val containerId = {
-        val containerName = s"${wavesNetwork.name()}-$nodeName"
+        val containerName = s"${amurcoinNetwork.name()}-$nodeName"
         dumpContainers(
           client.listContainers(DockerClient.ListContainersParam.filter("name", containerName)),
           "Containers with same name"
@@ -300,21 +300,21 @@ class Docker(suiteConfig: Config = empty, tag: String = "", enableProfiling: Boo
     val containerInfo = inspectContainer(containerId)
     val ports         = containerInfo.networkSettings().ports()
 
-    val wavesIpAddress = containerInfo.networkSettings().networks().get(wavesNetwork.name()).ipAddress()
+    val amurcoinIpAddress = containerInfo.networkSettings().networks().get(amurcoinNetwork.name()).ipAddress()
 
     NodeInfo(
       new URL(s"http://localhost:${extractHostPort(ports, restApiPort)}"),
       new URL(s"http://localhost:${extractHostPort(ports, matcherApiPort)}"),
       new InetSocketAddress("localhost", extractHostPort(ports, networkPort)),
-      new InetSocketAddress(wavesIpAddress, networkPort)
+      new InetSocketAddress(amurcoinIpAddress, networkPort)
     )
   }
 
   private def inspectContainer(containerId: String): ContainerInfo = {
     val containerInfo = client.inspectContainer(containerId)
-    if (containerInfo.networkSettings().networks().asScala.contains(wavesNetwork.name())) containerInfo
+    if (containerInfo.networkSettings().networks().asScala.contains(amurcoinNetwork.name())) containerInfo
     else {
-      log.debug(s"Container $containerId has not connected to the network ${wavesNetwork.name()} yet, retry")
+      log.debug(s"Container $containerId has not connected to the network ${amurcoinNetwork.name()} yet, retry")
       Thread.sleep(1000)
       inspectContainer(containerId)
     }
@@ -376,11 +376,11 @@ class Docker(suiteConfig: Config = empty, tag: String = "", enableProfiling: Boo
       }
 
       try {
-        client.removeNetwork(wavesNetwork.id)
+        client.removeNetwork(amurcoinNetwork.id)
       } catch {
         case NonFatal(e) =>
           // https://github.com/moby/moby/issues/17217
-          log.warn(s"Can not remove network ${wavesNetwork.name()}", e)
+          log.warn(s"Can not remove network ${amurcoinNetwork.name()}", e)
       }
 
       http.close()
@@ -468,7 +468,7 @@ class Docker(suiteConfig: Config = empty, tag: String = "", enableProfiling: Boo
 
   def disconnectFromNetwork(node: DockerNode): Unit = disconnectFromNetwork(node.containerId)
 
-  private def disconnectFromNetwork(containerId: String): Unit = client.disconnectFromNetwork(containerId, wavesNetwork.id())
+  private def disconnectFromNetwork(containerId: String): Unit = client.disconnectFromNetwork(containerId, amurcoinNetwork.id())
 
   def restartContainer(node: DockerNode): DockerNode = {
     val id            = node.containerId
@@ -492,7 +492,7 @@ class Docker(suiteConfig: Config = empty, tag: String = "", enableProfiling: Boo
 
   private def connectToNetwork(node: DockerNode): Unit = {
     client.connectToNetwork(
-      wavesNetwork.id(),
+      amurcoinNetwork.id(),
       NetworkConnection
         .builder()
         .containerId(node.containerId)
@@ -549,12 +549,12 @@ class Docker(suiteConfig: Config = empty, tag: String = "", enableProfiling: Boo
   private def updateStartScript(node: DockerNode): Unit = {
     val id = node.containerId
 
-    log.debug("Make backup copy of /opt/waves/start-waves.sh")
+    log.debug("Make backup copy of /opt/amurcoin/start-amurcoin.sh")
     val cpCmd: Array[String] =
       Array(
         "sh",
         "-c",
-        s"""cp /opt/waves/start-waves.sh /opt/waves/start-waves.sh.bk"""
+        s"""cp /opt/amurcoin/start-amurcoin.sh /opt/amurcoin/start-amurcoin.sh.bk"""
       )
     val execCpCmd = client.execCreate(id, cpCmd).id()
     client.execStart(execCpCmd)
@@ -564,10 +564,10 @@ class Docker(suiteConfig: Config = empty, tag: String = "", enableProfiling: Boo
       Array(
         "sh",
         "-c",
-        s"""rm /opt/waves/start-waves.sh && echo '#!/bin/bash' >> /opt/waves/start-waves.sh &&
-             |echo 'java ${renderProperties(asProperties(genesisOverride))} -cp /opt/waves/waves.jar com.amurcoin.matcher.MigrationTool /opt/waves/template.conf cb > /opt/waves/migration-tool.log' >> /opt/waves/start-waves.sh &&
-             |echo 'less /opt/waves/migration-tool.log | grep -ir completed && cp /opt/waves/start-waves.sh.bk /opt/waves/start-waves.sh && chmod +x /opt/waves/start-waves.sh' >> /opt/waves/start-waves.sh &&
-             |chmod +x /opt/waves/start-waves.sh
+        s"""rm /opt/amurcoin/start-amurcoin.sh && echo '#!/bin/bash' >> /opt/amurcoin/start-amurcoin.sh &&
+             |echo 'java ${renderProperties(asProperties(genesisOverride))} -cp /opt/amurcoin/amurcoin.jar com.amurcoin.matcher.MigrationTool /opt/amurcoin/template.conf cb > /opt/amurcoin/migration-tool.log' >> /opt/amurcoin/start-amurcoin.sh &&
+             |echo 'less /opt/amurcoin/migration-tool.log | grep -ir completed && cp /opt/amurcoin/start-amurcoin.sh.bk /opt/amurcoin/start-amurcoin.sh && chmod +x /opt/amurcoin/start-amurcoin.sh' >> /opt/amurcoin/start-amurcoin.sh &&
+             |chmod +x /opt/amurcoin/start-amurcoin.sh
            """.stripMargin
       )
     val execScriptCmd = client.execCreate(id, scriptCmd).id()
@@ -577,7 +577,7 @@ class Docker(suiteConfig: Config = empty, tag: String = "", enableProfiling: Boo
 }
 
 object Docker {
-  private val ContainerRoot      = Paths.get("/opt/waves")
+  private val ContainerRoot      = Paths.get("/opt/amurcoin")
   private val ProfilerController = ContainerRoot.resolve("yjp-controller-api-redist.jar")
   private val ProfilerPort       = 10001
   private val jsonMapper         = new ObjectMapper

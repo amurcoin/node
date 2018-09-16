@@ -44,17 +44,17 @@ class RoundingIssuesTestSuite
     val aliceBalanceBefore = matcherNode.accountBalances(aliceNode.address)._1
     val bobBalanceBefore   = matcherNode.accountBalances(bobNode.address)._1
 
-    val counter   = matcherNode.prepareOrder(aliceNode, wavesUsdPair, OrderType.BUY, 238, 3100000000L)
+    val counter   = matcherNode.prepareOrder(aliceNode, amurcoinUsdPair, OrderType.BUY, 238, 3100000000L)
     val counterId = matcherNode.placeOrder(counter).message.id
 
-    val submitted   = matcherNode.prepareOrder(bobNode, wavesUsdPair, OrderType.SELL, 235, 425532L)
+    val submitted   = matcherNode.prepareOrder(bobNode, amurcoinUsdPair, OrderType.SELL, 235, 425532L)
     val submittedId = matcherNode.placeOrder(submitted).message.id
 
     val filledAmount = 420169L
-    matcherNode.waitOrderStatusAndAmount(wavesUsdPair, submittedId, "Filled", Some(filledAmount), 1.minute)
-    matcherNode.waitOrderStatusAndAmount(wavesUsdPair, counterId, "PartiallyFilled", Some(filledAmount), 1.minute)
+    matcherNode.waitOrderStatusAndAmount(amurcoinUsdPair, submittedId, "Filled", Some(filledAmount), 1.minute)
+    matcherNode.waitOrderStatusAndAmount(amurcoinUsdPair, counterId, "PartiallyFilled", Some(filledAmount), 1.minute)
 
-    matcherNode.cancelOrder(aliceNode, wavesUsdPair, Some(counterId))
+    matcherNode.cancelOrder(aliceNode, amurcoinUsdPair, Some(counterId))
     val tx = matcherNode.transactionsByOrder(counterId).head
 
     matcherNode.waitForTransaction(tx.id)
@@ -94,20 +94,20 @@ class RoundingIssuesTestSuite
   }
 
   "should correctly fill 2 counter orders" in {
-    val counter1 = matcherNode.prepareOrder(bobNode, wavesUsdPair, OrderType.SELL, 60L, 98333333L)
+    val counter1 = matcherNode.prepareOrder(bobNode, amurcoinUsdPair, OrderType.SELL, 60L, 98333333L)
     matcherNode.placeOrder(counter1).message.id
 
-    val counter2   = matcherNode.prepareOrder(bobNode, wavesUsdPair, OrderType.SELL, 70L, 100000000L)
+    val counter2   = matcherNode.prepareOrder(bobNode, amurcoinUsdPair, OrderType.SELL, 70L, 100000000L)
     val counter2Id = matcherNode.placeOrder(counter2).message.id
 
-    val submitted   = matcherNode.prepareOrder(aliceNode, wavesUsdPair, OrderType.BUY, 1000L, 100000000L)
+    val submitted   = matcherNode.prepareOrder(aliceNode, amurcoinUsdPair, OrderType.BUY, 1000L, 100000000L)
     val submittedId = matcherNode.placeOrder(submitted).message.id
 
-    matcherNode.waitOrderStatusAndAmount(wavesUsdPair, counter2Id, "PartiallyFilled", Some(2857143L), 1.minute)
-    matcherNode.waitOrderStatusAndAmount(wavesUsdPair, submittedId, "Filled", Some(99523810L), 1.minute)
+    matcherNode.waitOrderStatusAndAmount(amurcoinUsdPair, counter2Id, "PartiallyFilled", Some(2857143L), 1.minute)
+    matcherNode.waitOrderStatusAndAmount(amurcoinUsdPair, submittedId, "Filled", Some(99523810L), 1.minute)
 
     withClue("orderBook check") {
-      val ob = matcherNode.orderBook(wavesUsdPair)
+      val ob = matcherNode.orderBook(amurcoinUsdPair)
       ob.bids shouldBe empty
       ob.asks shouldBe List(LevelResponse(70L, 97142857L)) // = 100000000 - 2857143
     }
@@ -123,9 +123,9 @@ object RoundingIssuesTestSuite {
   private val ForbiddenAssetId = "FdbnAsset"
   private val Decimals: Byte   = 2
 
-  private val minerDisabled = parseString("waves.miner.enable = no")
+  private val minerDisabled = parseString("amurcoin.miner.enable = no")
   private val matcherConfig = parseString(s"""
-                                             |waves.matcher {
+                                             |amurcoin.matcher {
                                              |  enable = yes
                                              |  account = 3HmFkAoQRs4Y3PE2uR6ohN7wS4VqPBGKv7k
                                              |  bind-address = "0.0.0.0"
@@ -152,7 +152,7 @@ object RoundingIssuesTestSuite {
       quantity = defaultAssetQuantity,
       decimals = Decimals,
       reissuable = false,
-      fee = 1.waves,
+      fee = 1.amurcoin,
       timestamp = System.currentTimeMillis()
     )
     .right
@@ -168,7 +168,7 @@ object RoundingIssuesTestSuite {
       quantity = defaultAssetQuantity,
       decimals = 8,
       reissuable = false,
-      fee = 1.waves,
+      fee = 1.amurcoin,
       timestamp = System.currentTimeMillis()
     )
     .right
@@ -184,7 +184,7 @@ object RoundingIssuesTestSuite {
       quantity = defaultAssetQuantity,
       decimals = 8,
       reissuable = false,
-      fee = 1.waves,
+      fee = 1.amurcoin,
       timestamp = System.currentTimeMillis()
     )
     .right
@@ -192,7 +192,7 @@ object RoundingIssuesTestSuite {
 
   val BtcId: AssetId = IssueBtcTx.id()
 
-  val wavesUsdPair = AssetPair(
+  val amurcoinUsdPair = AssetPair(
     amountAsset = None,
     priceAsset = Some(UsdId)
   )
@@ -203,7 +203,7 @@ object RoundingIssuesTestSuite {
   )
 
   private val updatedMatcherConfig = parseString(s"""
-                                                    |waves.matcher {
+                                                    |amurcoin.matcher {
                                                     |  price-assets = ["$UsdId", "$BtcId", "AMURCOIN"]
                                                     |}
      """.stripMargin)

@@ -114,7 +114,7 @@ class RollbackSpec extends FreeSpec with Matchers with WithState with Transactio
         }
     }
 
-    "waves balances" in forAll(accountGen, positiveLongGen, accountGen, Gen.nonEmptyListOf(Gen.choose(1, 10))) {
+    "amurcoin balances" in forAll(accountGen, positiveLongGen, accountGen, Gen.nonEmptyListOf(Gen.choose(1, 10))) {
       case (sender, initialBalance, recipient, txCount) =>
         withDomain() { d =>
           d.appendBlock(genesisBlock(nextTs, sender, initialBalance))

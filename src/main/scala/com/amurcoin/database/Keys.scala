@@ -24,8 +24,8 @@ object Keys {
 
   def heightOf(blockId: ByteStr): Key[Option[Int]] = Key.opt[Int](hash(4, blockId), Ints.fromByteArray, Ints.toByteArray)
 
-  def wavesBalanceHistory(addressId: BigInt): Key[Seq[Int]] = historyKey(5, addressId.toByteArray)
-  def wavesBalance(addressId: BigInt)(height: Int): Key[Long] =
+  def amurcoinBalanceHistory(addressId: BigInt): Key[Seq[Int]] = historyKey(5, addressId.toByteArray)
+  def amurcoinBalance(addressId: BigInt)(height: Int): Key[Long] =
     Key(hAddr(6, height, addressId), Option(_).fold(0L)(Longs.fromByteArray), Longs.toByteArray)
 
   def assetList(addressId: BigInt): Key[Set[ByteStr]]                         = Key(addr(7, addressId), readTxIds(_).toSet, assets => writeTxIds(assets.toSeq))

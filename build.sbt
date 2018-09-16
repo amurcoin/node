@@ -35,7 +35,7 @@ val versionSource = Def.task {
 }
 val network = SettingKey[Network]("network")
 network := { Network(sys.props.get("network")) }
-name := "waves"
+name := "amurcoin"
 normalizedName := s"${name.value}${network.value.packageSuffix}"
 
 git.useGitDescribe := true
@@ -83,7 +83,7 @@ val aopMerge: MergeStrategy = new MergeStrategy {
 inTask(assembly)(
   Seq(
     test := {},
-    assemblyJarName := s"waves-all-${version.value}.jar",
+    assemblyJarName := s"amurcoin-all-${version.value}.jar",
     assemblyMergeStrategy := {
       case PathList("META-INF", "io.netty.versions.properties") => MergeStrategy.concat
       case PathList("META-INF", "aop.xml")                      => aopMerge
@@ -114,14 +114,14 @@ inConfig(Linux)(
     packageDescription := "Waves node"
   ))
 
-bashScriptExtraDefines += s"""addJava "-Dwaves.directory=/var/lib/${normalizedName.value}""""
+bashScriptExtraDefines += s"""addJava "-Damurcoin.directory=/var/lib/${normalizedName.value}""""
 
 val linuxScriptPattern = "bin/(.+)".r
 val batScriptPattern   = "bin/([^.]+)\\.bat".r
 
 inConfig(Universal)(
   Seq(
-    mappings += (baseDirectory.value / s"waves-${network.value}.conf" -> "doc/waves.conf.sample"),
+    mappings += (baseDirectory.value / s"amurcoin-${network.value}.conf" -> "doc/amurcoin.conf.sample"),
     mappings := {
       val scriptSuffix = network.value.packageSuffix
       mappings.value.map {

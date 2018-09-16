@@ -59,21 +59,21 @@ class TradeBalanceAndRoundingTestSuite
 
     log.debug(s"correctedSellAmount: $correctedSellAmount, adjustedAmount: $adjustedAmount, adjustedTotal: $adjustedTotal")
 
-    "place usd-waves order" in {
+    "place usd-amurcoin order" in {
       // Alice wants to sell USD for Waves
 
-      val bobOrder1   = matcherNode.prepareOrder(bobNode, wavesUsdPair, OrderType.SELL, price, sellOrderAmount)
+      val bobOrder1   = matcherNode.prepareOrder(bobNode, amurcoinUsdPair, OrderType.SELL, price, sellOrderAmount)
       val bobOrder1Id = matcherNode.placeOrder(bobOrder1).message.id
-      matcherNode.waitOrderStatus(wavesUsdPair, bobOrder1Id, "Accepted", 1.minute)
+      matcherNode.waitOrderStatus(amurcoinUsdPair, bobOrder1Id, "Accepted", 1.minute)
       matcherNode.reservedBalance(bobNode)("AMURCOIN") shouldBe sellOrderAmount + matcherFee
-      matcherNode.tradableBalance(bobNode, wavesUsdPair)("AMURCOIN") shouldBe bobWavesBalanceBefore - (sellOrderAmount + matcherFee)
+      matcherNode.tradableBalance(bobNode, amurcoinUsdPair)("AMURCOIN") shouldBe bobWavesBalanceBefore - (sellOrderAmount + matcherFee)
 
-      val aliceOrder   = matcherNode.prepareOrder(aliceNode, wavesUsdPair, OrderType.BUY, price, buyOrderAmount)
+      val aliceOrder   = matcherNode.prepareOrder(aliceNode, amurcoinUsdPair, OrderType.BUY, price, buyOrderAmount)
       val aliceOrderId = matcherNode.placeOrder(aliceOrder).message.id
-      matcherNode.waitOrderStatusAndAmount(wavesUsdPair, aliceOrderId, "Filled", Some(420169L), 1.minute)
+      matcherNode.waitOrderStatusAndAmount(amurcoinUsdPair, aliceOrderId, "Filled", Some(420169L), 1.minute)
 
       // Bob wants to buy some USD
-      matcherNode.waitOrderStatusAndAmount(wavesUsdPair, bobOrder1Id, "PartiallyFilled", Some(420169L), 1.minute)
+      matcherNode.waitOrderStatusAndAmount(amurcoinUsdPair, bobOrder1Id, "PartiallyFilled", Some(420169L), 1.minute)
 
       // Each side get fair amount of assets
       val exchangeTx = matcherNode.transactionsByOrder(aliceOrder.idStr()).headOption.getOrElse(fail("Expected an exchange transaction"))
@@ -92,7 +92,7 @@ class TradeBalanceAndRoundingTestSuite
       markets.priceAssetInfo shouldBe Some(AssetDecimalsInfo(Decimals))
     }
 
-    "check usd and waves balance after fill" in {
+    "check usd and amurcoin balance after fill" in {
       val aliceWavesBalanceAfter = matcherNode.accountBalances(aliceNode.address)._1
       val aliceUsdBalance        = matcherNode.assetBalance(aliceNode.address, UsdId.base58).balance
 
@@ -110,7 +110,7 @@ class TradeBalanceAndRoundingTestSuite
 
     "check filled amount and tradable balance" in {
       val bobsOrderId  = matcherNode.fullOrderHistory(bobNode).head.id
-      val filledAmount = matcherNode.orderStatus(bobsOrderId, wavesUsdPair).filledAmount.getOrElse(0L)
+      val filledAmount = matcherNode.orderStatus(bobsOrderId, amurcoinUsdPair).filledAmount.getOrElse(0L)
 
       filledAmount shouldBe adjustedAmount
     }
@@ -124,49 +124,49 @@ class TradeBalanceAndRoundingTestSuite
       matcherNode.reservedBalance(aliceNode) shouldBe empty
     }
 
-    "check waves-usd tradable balance" in {
+    "check amurcoin-usd tradable balance" in {
       val expectedBobTradableBalance = bobWavesBalanceBefore - (correctedSellAmount + matcherFee)
-      matcherNode.tradableBalance(bobNode, wavesUsdPair)("AMURCOIN") shouldBe expectedBobTradableBalance
-      matcherNode.tradableBalance(aliceNode, wavesUsdPair)("AMURCOIN") shouldBe aliceNode.accountBalances(aliceNode.address)._1
+      matcherNode.tradableBalance(bobNode, amurcoinUsdPair)("AMURCOIN") shouldBe expectedBobTradableBalance
+      matcherNode.tradableBalance(aliceNode, amurcoinUsdPair)("AMURCOIN") shouldBe aliceNode.accountBalances(aliceNode.address)._1
 
       val orderId = matcherNode.fullOrderHistory(bobNode).head.id
       matcherNode.fullOrderHistory(bobNode).size should be(1)
-      matcherNode.cancelOrder(bobNode, wavesUsdPair, Some(orderId))
-      matcherNode.waitOrderStatus(wavesUsdPair, orderId, "Cancelled", 1.minute)
-      matcherNode.tradableBalance(bobNode, wavesUsdPair)("AMURCOIN") shouldBe bobNode.accountBalances(bobNode.address)._1
+      matcherNode.cancelOrder(bobNode, amurcoinUsdPair, Some(orderId))
+      matcherNode.waitOrderStatus(amurcoinUsdPair, orderId, "Cancelled", 1.minute)
+      matcherNode.tradableBalance(bobNode, amurcoinUsdPair)("AMURCOIN") shouldBe bobNode.accountBalances(bobNode.address)._1
     }
   }
 
   "Alice and Bob trade AMURCOIN-USD check CELLING" - {
     val price2           = 289
-    val buyOrderAmount2  = 0.07.waves
-    val sellOrderAmount2 = 3.waves
+    val buyOrderAmount2  = 0.07.amurcoin
+    val sellOrderAmount2 = 3.amurcoin
 
     val correctedSellAmount2 = correctAmount(sellOrderAmount2, price2)
 
-    "place usd-waves order" in {
+    "place usd-amurcoin order" in {
       nodes.waitForHeightArise()
       // Alice wants to sell USD for Waves
       val bobWavesBalanceBefore = matcherNode.accountBalances(bobNode.address)._1
-      matcherNode.tradableBalance(bobNode, wavesUsdPair)("AMURCOIN")
-      val bobOrder1   = matcherNode.prepareOrder(bobNode, wavesUsdPair, OrderType.SELL, price2, sellOrderAmount2)
+      matcherNode.tradableBalance(bobNode, amurcoinUsdPair)("AMURCOIN")
+      val bobOrder1   = matcherNode.prepareOrder(bobNode, amurcoinUsdPair, OrderType.SELL, price2, sellOrderAmount2)
       val bobOrder1Id = matcherNode.placeOrder(bobOrder1).message.id
-      matcherNode.waitOrderStatus(wavesUsdPair, bobOrder1Id, "Accepted", 1.minute)
+      matcherNode.waitOrderStatus(amurcoinUsdPair, bobOrder1Id, "Accepted", 1.minute)
 
       matcherNode.reservedBalance(bobNode)("AMURCOIN") shouldBe correctedSellAmount2 + matcherFee
-      matcherNode.tradableBalance(bobNode, wavesUsdPair)("AMURCOIN") shouldBe bobWavesBalanceBefore - (correctedSellAmount2 + matcherFee)
+      matcherNode.tradableBalance(bobNode, amurcoinUsdPair)("AMURCOIN") shouldBe bobWavesBalanceBefore - (correctedSellAmount2 + matcherFee)
 
-      val aliceOrder   = matcherNode.prepareOrder(aliceNode, wavesUsdPair, OrderType.BUY, price2, buyOrderAmount2)
+      val aliceOrder   = matcherNode.prepareOrder(aliceNode, amurcoinUsdPair, OrderType.BUY, price2, buyOrderAmount2)
       val aliceOrderId = matcherNode.placeOrder(aliceOrder).message.id
-      matcherNode.waitOrderStatus(wavesUsdPair, aliceOrderId, "Filled", 1.minute)
+      matcherNode.waitOrderStatus(amurcoinUsdPair, aliceOrderId, "Filled", 1.minute)
 
       // Bob wants to buy some USD
-      matcherNode.waitOrderStatus(wavesUsdPair, bobOrder1Id, "PartiallyFilled", 1.minute)
+      matcherNode.waitOrderStatus(amurcoinUsdPair, bobOrder1Id, "PartiallyFilled", 1.minute)
 
       // Each side get fair amount of assets
       val exchangeTx = matcherNode.transactionsByOrder(aliceOrder.idStr()).headOption.getOrElse(fail("Expected an exchange transaction"))
       nodes.waitForHeightAriseAndTxPresent(exchangeTx.id)
-      matcherNode.cancelOrder(bobNode, wavesUsdPair, Some(bobOrder1Id))
+      matcherNode.cancelOrder(bobNode, amurcoinUsdPair, Some(bobOrder1Id))
     }
 
   }
@@ -216,7 +216,7 @@ class TradeBalanceAndRoundingTestSuite
     val wctWavesSellAmount = 2
     val wctWavesPrice      = 11234560000000L
 
-    "bob lease all waves exact half matcher fee" in {
+    "bob lease all amurcoin exact half matcher fee" in {
       val leasingAmount = bobNode.accountBalances(bobNode.address)._1 - leasingFee - matcherFee / 2
       val leaseTxId =
         bobNode.lease(bobNode.address, matcherNode.address, leasingAmount, leasingFee).id
@@ -235,14 +235,14 @@ class TradeBalanceAndRoundingTestSuite
   }
 
   "Submitted order Canceled during match" in {
-    val bobOrder   = matcherNode.prepareOrder(matcherNode, wavesUsdPair, OrderType.SELL, 10L, 10000000L)
+    val bobOrder   = matcherNode.prepareOrder(matcherNode, amurcoinUsdPair, OrderType.SELL, 10L, 10000000L)
     val bobOrderId = matcherNode.placeOrder(bobOrder).message.id
-    matcherNode.waitOrderStatus(wavesUsdPair, bobOrderId, "Accepted", 1.minute)
+    matcherNode.waitOrderStatus(amurcoinUsdPair, bobOrderId, "Accepted", 1.minute)
 
-    val aliceOrder   = matcherNode.prepareOrder(aliceNode, wavesUsdPair, OrderType.BUY, 1000L, 100000L)
+    val aliceOrder   = matcherNode.prepareOrder(aliceNode, amurcoinUsdPair, OrderType.BUY, 1000L, 100000L)
     val aliceOrderId = matcherNode.placeOrder(aliceOrder).message.id
 
-    matcherNode.waitOrderStatus(wavesUsdPair, aliceOrderId, "Cancelled", 1.minute)
+    matcherNode.waitOrderStatus(amurcoinUsdPair, aliceOrderId, "Cancelled", 1.minute)
 
     withClue("Alice's reserved balance:") {
       matcherNode.reservedBalance(aliceNode) shouldBe empty
@@ -254,7 +254,7 @@ class TradeBalanceAndRoundingTestSuite
     val order = aliceOrders.find(_.id == aliceOrderId).getOrElse(throw new IllegalStateException(s"Alice should have the $aliceOrderId order"))
     order.status shouldBe "Cancelled"
 
-    matcherNode.cancelOrder(matcherNode, wavesUsdPair, Some(bobOrderId))
+    matcherNode.cancelOrder(matcherNode, amurcoinUsdPair, Some(bobOrderId))
   }
 
   def correctAmount(a: Long, price: Long): Long = {
@@ -278,9 +278,9 @@ object TradeBalanceAndRoundingTestSuite {
   private val ForbiddenAssetId = "FdbnAsset"
   val Decimals: Byte           = 2
 
-  private val minerDisabled = parseString("waves.miner.enable = no")
+  private val minerDisabled = parseString("amurcoin.miner.enable = no")
   private val matcherConfig = parseString(s"""
-                                             |waves.matcher {
+                                             |amurcoin.matcher {
                                              |  enable = yes
                                              |  account = 3HmFkAoQRs4Y3PE2uR6ohN7wS4VqPBGKv7k
                                              |  bind-address = "0.0.0.0"
@@ -308,7 +308,7 @@ object TradeBalanceAndRoundingTestSuite {
       quantity = defaultAssetQuantity,
       decimals = Decimals,
       reissuable = false,
-      fee = 1.waves,
+      fee = 1.amurcoin,
       timestamp = System.currentTimeMillis()
     )
     .right
@@ -322,7 +322,7 @@ object TradeBalanceAndRoundingTestSuite {
       quantity = defaultAssetQuantity,
       decimals = Decimals,
       reissuable = false,
-      fee = 1.waves,
+      fee = 1.amurcoin,
       timestamp = System.currentTimeMillis()
     )
     .right
@@ -341,13 +341,13 @@ object TradeBalanceAndRoundingTestSuite {
     priceAsset = None
   )
 
-  val wavesUsdPair = AssetPair(
+  val amurcoinUsdPair = AssetPair(
     amountAsset = None,
     priceAsset = Some(UsdId)
   )
 
   private val updatedMatcherConfig = parseString(s"""
-                                                    |waves.matcher {
+                                                    |amurcoin.matcher {
                                                     |  price-assets = ["$UsdId", "AMURCOIN"]
                                                     |}
      """.stripMargin)

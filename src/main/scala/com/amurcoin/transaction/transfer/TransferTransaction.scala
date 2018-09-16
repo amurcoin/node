@@ -62,7 +62,7 @@ object TransferTransaction {
 
   def validate(amount: Long, feeAmount: Long, attachment: Array[Byte]): Either[ValidationError, Unit] = {
     (
-      validateAmount(amount, "waves"),
+      validateAmount(amount, "amurcoin"),
       validateFee(feeAmount),
       validateAttachment(attachment),
       validateSum(Seq(amount, feeAmount))

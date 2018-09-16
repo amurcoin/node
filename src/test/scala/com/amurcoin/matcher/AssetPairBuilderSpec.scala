@@ -34,7 +34,7 @@ class AssetPairBuilderSpec extends FreeSpec with Matchers with MockFactory {
       b("8LQW8f7P5d5PZM7GtZEBgaqRPGSzS3DfPuiXrURJ4AJS"),
     )
 
-  private val priceAssets = ConfigFactory.parseString(s"""waves.matcher {
+  private val priceAssets = ConfigFactory.parseString(s"""amurcoin.matcher {
        |  blacklisted-assets = [$Asset3]
        |  blacklisted-names = ["name$$"]
        |  price-assets = [${predefinedPriceAssets.mkString(",")}]

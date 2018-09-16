@@ -43,7 +43,7 @@ class OrderExclusionTestSuite
     "sell order could be placed and status it's correct" in {
       // Alice places sell order
       val aliceOrder = matcherNode
-        .placeOrder(aliceNode, aliceWavesPair, OrderType.SELL, 2.waves * Order.PriceConstant, 500, 2: Byte, 70.seconds)
+        .placeOrder(aliceNode, aliceWavesPair, OrderType.SELL, 2.amurcoin * Order.PriceConstant, 500, 2: Byte, 70.seconds)
 
       aliceOrder.status shouldBe "OrderAccepted"
 
@@ -56,7 +56,7 @@ class OrderExclusionTestSuite
       // Alice check that order is correct
       val orders = matcherNode.orderBook(aliceWavesPair)
       orders.asks.head.amount shouldBe 500
-      orders.asks.head.price shouldBe 2.waves * Order.PriceConstant
+      orders.asks.head.price shouldBe 2.amurcoin * Order.PriceConstant
 
       // sell order should be in the aliceNode orderbook
       matcherNode.fullOrderHistory(aliceNode).head.status shouldBe "Accepted"
@@ -75,7 +75,7 @@ object OrderExclusionTestSuite {
   import NodeConfigs.Default
 
   private val matcherConfig = ConfigFactory.parseString(s"""
-       |waves {
+       |amurcoin {
        |  matcher {
        |    enable = yes
        |    account = 3HmFkAoQRs4Y3PE2uR6ohN7wS4VqPBGKv7k
@@ -92,7 +92,7 @@ object OrderExclusionTestSuite {
        |}""".stripMargin)
 
   private val nonGeneratingPeersConfig = ConfigFactory.parseString(
-    """waves {
+    """amurcoin {
       | matcher.order-cleanup-interval = 30s
       | miner.enable=no
       |}""".stripMargin

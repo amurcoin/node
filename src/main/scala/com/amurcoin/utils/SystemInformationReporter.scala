@@ -7,14 +7,14 @@ object SystemInformationReporter extends ScorexLogging {
     val resolved = config.resolve()
     val configForLogs = {
       val orig = Seq(
-        "waves",
+        "amurcoin",
         "metrics"
       ).foldLeft(ConfigFactory.empty()) { case (r, path) => r.withFallback(resolved.withOnlyPath(path)) }
 
       Seq(
-        "waves.custom.genesis",
-        "waves.wallet",
-        "waves.rest-api.api-key-hash",
+        "amurcoin.custom.genesis",
+        "amurcoin.wallet",
+        "amurcoin.rest-api.api-key-hash",
         "metrics.influx-db",
       ).foldLeft(orig)(_.withoutPath(_))
     }

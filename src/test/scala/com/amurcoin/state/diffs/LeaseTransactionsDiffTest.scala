@@ -21,7 +21,7 @@ class LeaseTransactionsDiffTest extends PropSpec with PropertyChecks with Matche
 
   def total(l: LeaseBalance): Long = l.in - l.out
 
-  property("can lease/cancel lease preserving waves invariant") {
+  property("can lease/cancel lease preserving amurcoin invariant") {
 
     val sunnyDayLeaseLeaseCancel: Gen[(GenesisTransaction, LeaseTransaction, LeaseCancelTransaction)] = for {
       master    <- accountGen
@@ -62,7 +62,7 @@ class LeaseTransactionsDiffTest extends PropSpec with PropertyChecks with Matche
     fee2             <- smallFeeGen
     unlease2         <- createLeaseCancel(master, lease.id(), fee2, ts + 1)
     // ensure recipient has enough effective balance
-    payment <- wavesTransferGeneratorP(master, recpient) suchThat (_.amount > lease.amount)
+    payment <- amurcoinTransferGeneratorP(master, recpient) suchThat (_.amount > lease.amount)
   } yield (genesis, payment, lease, unlease, unlease2)
 
   property("cannot cancel lease twice after allowMultipleLeaseCancelTransactionUntilTimestamp") {

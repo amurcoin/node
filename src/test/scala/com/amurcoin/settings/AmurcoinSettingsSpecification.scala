@@ -9,13 +9,13 @@ class WavesSettingsSpecification extends FlatSpec with Matchers {
   private val home = System.getProperty("user.home")
 
   private def config(configName: String) =
-    WavesSettings.fromConfig(ConfigFactory.parseFile(new File(s"waves-$configName.conf")).withFallback(ConfigFactory.load()))
+    WavesSettings.fromConfig(ConfigFactory.parseFile(new File(s"amurcoin-$configName.conf")).withFallback(ConfigFactory.load()))
 
   def testConfig(configName: String)(additionalChecks: WavesSettings => Unit = _ => ()) {
     "WavesSettings" should s"read values from default config with $configName overrides" in {
       val settings = config(configName)
 
-      settings.directory should be(home + "/waves")
+      settings.directory should be(home + "/amurcoin")
       settings.networkSettings should not be null
       settings.walletSettings should not be null
       settings.blockchainSettings should not be null
@@ -34,7 +34,7 @@ class WavesSettingsSpecification extends FlatSpec with Matchers {
   testConfig("devnet")()
 
   "WavesSettings" should "resolve folders correctly" in {
-    val config = loadConfig(ConfigFactory.parseString(s"""waves {
+    val config = loadConfig(ConfigFactory.parseString(s"""amurcoin {
          |  directory = "/xxx"
          |  data-directory = "/xxx/data"
          |}""".stripMargin))

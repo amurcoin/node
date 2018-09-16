@@ -171,7 +171,7 @@ object MatcherMassOrdersTestSuite {
   import NodeConfigs.Default
 
   private val matcherConfig = ConfigFactory.parseString(s"""
-       |waves.matcher {
+       |amurcoin.matcher {
        |  enable = yes
        |  account = 3HmFkAoQRs4Y3PE2uR6ohN7wS4VqPBGKv7k
        |  bind-address = "0.0.0.0"
@@ -181,7 +181,7 @@ object MatcherMassOrdersTestSuite {
        |  rest-order-limit=$orderLimit
        |}""".stripMargin)
 
-  private val minerDisabled = parseString("waves.miner.enable = no")
+  private val minerDisabled = parseString("amurcoin.miner.enable = no")
 
   private val Configs: Seq[Config] = (Default.last +: Random.shuffle(Default.init).take(3))
     .zip(Seq(matcherConfig, minerDisabled, minerDisabled, empty()))

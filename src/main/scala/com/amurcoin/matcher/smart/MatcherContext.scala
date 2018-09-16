@@ -7,8 +7,8 @@ import com.amurcoin.lang.Global
 import com.amurcoin.lang.v1.compiler.Types.{FINAL, UNIT}
 import com.amurcoin.lang.v1.evaluator.FunctionIds._
 import com.amurcoin.lang.v1.evaluator.ctx._
-import com.amurcoin.lang.v1.evaluator.ctx.impl.waves.Bindings.orderObject
-import com.amurcoin.lang.v1.evaluator.ctx.impl.waves.Types._
+import com.amurcoin.lang.v1.evaluator.ctx.impl.amurcoin.Bindings.orderObject
+import com.amurcoin.lang.v1.evaluator.ctx.impl.amurcoin.Types._
 import com.amurcoin.lang.v1.evaluator.ctx.impl.{CryptoContext, PureContext}
 import com.amurcoin.lang.v1.{CTX, FunctionHeader}
 import com.amurcoin.transaction.assets.exchange.Order
@@ -60,7 +60,7 @@ object MatcherContext {
     val addressFromStringF: BaseFunction    = inaccessibleUserFunction("addressFromStringF")
     val addressFromRecipientF: BaseFunction = inaccessibleFunction("addressFromRecipientF", ADDRESSFROMRECIPIENT)
     val assetBalanceF: BaseFunction         = inaccessibleFunction("assetBalanceF", ACCOUNTASSETBALANCE)
-    val wavesBalanceF: BaseFunction         = inaccessibleUserFunction("wavesBalanceF")
+    val amurcoinBalanceF: BaseFunction         = inaccessibleUserFunction("amurcoinBalanceF")
 
     val functions = Seq(
       txByIdF,
@@ -73,7 +73,7 @@ object MatcherContext {
       addressFromStringF,
       addressFromRecipientF,
       assetBalanceF,
-      wavesBalanceF
+      amurcoinBalanceF
     )
 
     val matcherContext = CTX(matcherTypes, matcherVars, functions).evaluationContext

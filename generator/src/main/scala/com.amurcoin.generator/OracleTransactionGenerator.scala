@@ -20,7 +20,7 @@ class OracleTransactionGenerator(settings: Settings, val accounts: Seq[PrivateKe
 
     val script = Gen.oracleScript(oracle, settings.requiredData)
 
-    val enoughFee = 0.005.waves
+    val enoughFee = 0.005.amurcoin
 
     val setScript: Transaction =
       SetScriptTransaction
@@ -35,7 +35,7 @@ class OracleTransactionGenerator(settings: Settings, val accounts: Seq[PrivateKe
       List
         .fill(settings.transactions) {
           TransferTransactionV2
-            .selfSigned(2, None, scriptedAccount, oracle, 1.waves, System.currentTimeMillis(), None, enoughFee, Array.emptyByteArray)
+            .selfSigned(2, None, scriptedAccount, oracle, 1.amurcoin, System.currentTimeMillis(), None, enoughFee, Array.emptyByteArray)
             .explicitGet()
         }
 

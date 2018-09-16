@@ -18,7 +18,7 @@ import scala.util.{Failure, Success}
 package object http {
 
   val Waves: Long  = 100000000L
-  val ApiKeyHeader = api_key("ridethewaves!")
+  val ApiKeyHeader = api_key("ridetheamurcoin!")
 
   def sameSignature(target: Array[Byte])(actual: Array[Byte]): Boolean = target sameElements actual
 

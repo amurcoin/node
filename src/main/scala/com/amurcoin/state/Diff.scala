@@ -99,15 +99,15 @@ object Sponsorship {
       .getOrElse(Int.MaxValue)
 
   def toWaves(assetFee: Long, sponsorship: Long): Long = {
-    val waves = (BigDecimal(assetFee) * BigDecimal(Sponsorship.FeeUnit)) / BigDecimal(sponsorship)
-    if (waves > Long.MaxValue) {
+    val amurcoin = (BigDecimal(assetFee) * BigDecimal(Sponsorship.FeeUnit)) / BigDecimal(sponsorship)
+    if (amurcoin > Long.MaxValue) {
       throw new java.lang.ArithmeticException("Overflow")
     }
-    waves.toLong
+    amurcoin.toLong
   }
 
-  def fromWaves(wavesFee: Long, sponsorship: Long): Long = {
-    val assetFee = (BigDecimal(wavesFee) / BigDecimal(Sponsorship.FeeUnit)) * BigDecimal(sponsorship)
+  def fromWaves(amurcoinFee: Long, sponsorship: Long): Long = {
+    val assetFee = (BigDecimal(amurcoinFee) / BigDecimal(Sponsorship.FeeUnit)) * BigDecimal(sponsorship)
     if (assetFee > Long.MaxValue) {
       throw new java.lang.ArithmeticException("Overflow")
     }

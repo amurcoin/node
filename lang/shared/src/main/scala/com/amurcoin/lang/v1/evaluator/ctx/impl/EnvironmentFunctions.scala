@@ -2,7 +2,7 @@ package com.amurcoin.lang.v1.evaluator.ctx.impl
 
 import com.amurcoin.lang.ExecutionError
 import com.amurcoin.lang.v1.evaluator.ctx.CaseObj
-import com.amurcoin.lang.v1.evaluator.ctx.impl.waves.Types
+import com.amurcoin.lang.v1.evaluator.ctx.impl.amurcoin.Types
 import com.amurcoin.lang.v1.traits.domain.Recipient
 import com.amurcoin.lang.v1.traits.domain.Recipient.{Address, Alias}
 import com.amurcoin.lang.v1.traits.{DataType, Environment}

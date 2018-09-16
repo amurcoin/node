@@ -41,13 +41,13 @@ class BlockchainUpdaterSponsoredFeeBlockTest
     alice                       <- accountGen
     bob                         <- accountGen
     (feeAsset, sponsorTx, _, _) <- sponsorFeeCancelSponsorFeeGen(alice)
-    wavesFee                    = Sponsorship.toWaves(sponsorTx.minSponsoredAssetFee.get, sponsorTx.minSponsoredAssetFee.get)
+    amurcoinFee                    = Sponsorship.toWaves(sponsorTx.minSponsoredAssetFee.get, sponsorTx.minSponsoredAssetFee.get)
     genesis: GenesisTransaction = GenesisTransaction.create(master, ENOUGH_AMT, ts).explicitGet()
     masterToAlice: TransferTransactionV1 = TransferTransactionV1
       .selfSigned(None,
                   master,
                   alice,
-                  feeAsset.fee + sponsorTx.fee + transferAssetWavesFee + wavesFee,
+                  feeAsset.fee + sponsorTx.fee + transferAssetWavesFee + amurcoinFee,
                   ts + 1,
                   None,
                   transferAssetWavesFee,
@@ -103,7 +103,7 @@ class BlockchainUpdaterSponsoredFeeBlockTest
 
   val SponsoredActivatedAt0WavesSettings: WavesSettings = settings.copy(blockchainSettings = SponsoredFeeActivatedAt0BlockchainSettings)
 
-  property("not enough waves to sponsor sponsored tx") {
+  property("not enough amurcoin to sponsor sponsored tx") {
     scenario(sponsorPreconditions, SponsoredActivatedAt0WavesSettings) {
       case (domain, (genesis, masterToAlice, feeAsset, sponsor, aliceToBob, bobToMaster, bobToMaster2)) =>
         val (block0, microBlocks) = chainBaseAndMicro(randomSig, genesis, Seq(masterToAlice, feeAsset, sponsor).map(Seq(_)))
@@ -123,7 +123,7 @@ class BlockchainUpdaterSponsoredFeeBlockTest
         domain.blockchainUpdater.processBlock(block1).explicitGet()
         domain.blockchainUpdater.processBlock(block2).explicitGet()
         domain.blockchainUpdater.processBlock(block3).explicitGet()
-        domain.blockchainUpdater.processBlock(block4) should produce("negative waves balance" /*"unavailable funds"*/ )
+        domain.blockchainUpdater.processBlock(block4) should produce("negative amurcoin balance" /*"unavailable funds"*/ )
 
     }
   }

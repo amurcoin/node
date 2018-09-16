@@ -97,7 +97,7 @@ class AliasTransactionSuite extends BaseTransactionSuite with TableDrivenPropert
     val aliasFee  = calcAliasFee(thirdAddress, thirdAddressAlias)
     val aliasFull = fullAliasByAddress(thirdAddress, thirdAddressAlias)
     //lease maximum value, to pass next thirdAddress
-    val leasingAmount = balance1 - minFee - 0.5.waves
+    val leasingAmount = balance1 - minFee - 0.5.amurcoin
 
     val leasingTx = sender.lease(firstAddress, aliasFull, leasingAmount, minFee).id
     nodes.waitForHeightAriseAndTxPresent(leasingTx)
@@ -111,7 +111,7 @@ class AliasTransactionSuite extends BaseTransactionSuite with TableDrivenPropert
   test("Not able to create alias when insufficient funds") {
     val balance = notMiner.accountBalances(firstAddress)._1
     val alias   = randomAlias()
-    assertBadRequestAndMessage(sender.createAlias(firstAddress, alias, balance + minFee), "State check failed. Reason: negative waves balance")
+    assertBadRequestAndMessage(sender.createAlias(firstAddress, alias, balance + minFee), "State check failed. Reason: negative amurcoin balance")
   }
 
   private def calcAliasFee(address: String, alias: String): Long = {

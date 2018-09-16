@@ -86,9 +86,9 @@ object MatcherMigrationTestSuite {
   import com.amurcoin.it.NodeConfigs._
 
   val genesisTs             = System.currentTimeMillis()
-  private val minerDisabled = parseString("waves.miner.enable = no")
+  private val minerDisabled = parseString("amurcoin.miner.enable = no")
   private val matcherConfig = parseString(s"""
-                                             |waves.matcher {
+                                             |amurcoin.matcher {
                                              |  enable = yes
                                              |  account = 3HmFkAoQRs4Y3PE2uR6ohN7wS4VqPBGKv7k
                                              |  bind-address = "0.0.0.0"

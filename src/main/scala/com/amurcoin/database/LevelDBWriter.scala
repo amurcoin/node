@@ -146,13 +146,13 @@ class LevelDBWriter(writableDB: DB, fs: FunctionalitySettings, val maxCacheSize:
     addressId(address).fold(0L) { addressId =>
       mayBeAssetId match {
         case Some(assetId) => db.fromHistory(Keys.assetBalanceHistory(addressId, assetId), Keys.assetBalance(addressId, assetId)).getOrElse(0L)
-        case None          => db.fromHistory(Keys.wavesBalanceHistory(addressId), Keys.wavesBalance(addressId)).getOrElse(0L)
+        case None          => db.fromHistory(Keys.amurcoinBalanceHistory(addressId), Keys.amurcoinBalance(addressId)).getOrElse(0L)
       }
     }
   }
 
   private def loadLposPortfolio(db: ReadOnlyDB, addressId: BigInt) = Portfolio(
-    db.fromHistory(Keys.wavesBalanceHistory(addressId), Keys.wavesBalance(addressId)).getOrElse(0L),
+    db.fromHistory(Keys.amurcoinBalanceHistory(addressId), Keys.amurcoinBalance(addressId)).getOrElse(0L),
     db.fromHistory(Keys.leaseBalanceHistory(addressId), Keys.leaseBalance(addressId)).getOrElse(LeaseBalance.empty),
     Map.empty
   )
@@ -197,7 +197,7 @@ class LevelDBWriter(writableDB: DB, fs: FunctionalitySettings, val maxCacheSize:
   override protected def doAppend(block: Block,
                                   carry: Long,
                                   newAddresses: Map[Address, BigInt],
-                                  wavesBalances: Map[BigInt, Long],
+                                  amurcoinBalances: Map[BigInt, Long],
                                   assetBalances: Map[BigInt, Map[ByteStr, Long]],
                                   leaseBalances: Map[BigInt, LeaseBalance],
                                   leaseStates: Map[ByteStr, Boolean],
@@ -225,14 +225,14 @@ class LevelDBWriter(writableDB: DB, fs: FunctionalitySettings, val maxCacheSize:
     val threshold = height - 2000
 
     val newAddressesForWaves = ArrayBuffer.empty[BigInt]
-    val updatedBalanceAddresses = for ((addressId, balance) <- wavesBalances) yield {
-      val kwbh = Keys.wavesBalanceHistory(addressId)
+    val updatedBalanceAddresses = for ((addressId, balance) <- amurcoinBalances) yield {
+      val kwbh = Keys.amurcoinBalanceHistory(addressId)
       val wbh  = rw.get(kwbh)
       if (wbh.isEmpty) {
         newAddressesForWaves += addressId
       }
-      rw.put(Keys.wavesBalance(addressId)(height), balance)
-      expiredKeys ++= updateHistory(rw, wbh, kwbh, threshold, Keys.wavesBalance(addressId))
+      rw.put(Keys.amurcoinBalance(addressId)(height), balance)
+      expiredKeys ++= updateHistory(rw, wbh, kwbh, threshold, Keys.amurcoinBalance(addressId))
       addressId
     }
 
@@ -388,8 +388,8 @@ class LevelDBWriter(writableDB: DB, fs: FunctionalitySettings, val maxCacheSize:
               rw.filterHistory(Keys.assetBalanceHistory(addressId, assetId), currentHeight)
             }
 
-            rw.delete(Keys.wavesBalance(addressId)(currentHeight))
-            rw.filterHistory(Keys.wavesBalanceHistory(addressId), currentHeight)
+            rw.delete(Keys.amurcoinBalance(addressId)(currentHeight))
+            rw.filterHistory(Keys.amurcoinBalanceHistory(addressId), currentHeight)
 
             rw.delete(Keys.leaseBalance(addressId)(currentHeight))
             rw.filterHistory(Keys.leaseBalanceHistory(addressId), currentHeight)
@@ -565,11 +565,11 @@ class LevelDBWriter(writableDB: DB, fs: FunctionalitySettings, val maxCacheSize:
 
   override def balanceSnapshots(address: Address, from: Int, to: Int): Seq[BalanceSnapshot] = readOnly { db =>
     db.get(Keys.addressId(address)).fold(Seq(BalanceSnapshot(1, 0, 0, 0))) { addressId =>
-      val wbh = slice(db.get(Keys.wavesBalanceHistory(addressId)), from, to)
+      val wbh = slice(db.get(Keys.amurcoinBalanceHistory(addressId)), from, to)
       val lbh = slice(db.get(Keys.leaseBalanceHistory(addressId)), from, to)
       for {
         (wh, lh) <- merge(wbh, lbh)
-        wb = balanceAtHeightCache.get((wh, addressId), () => db.get(Keys.wavesBalance(addressId)(wh)))
+        wb = balanceAtHeightCache.get((wh, addressId), () => db.get(Keys.amurcoinBalance(addressId)(wh)))
         lb = leaseBalanceAtHeightCache.get((lh, addressId), () => db.get(Keys.leaseBalance(addressId)(lh)))
       } yield BalanceSnapshot(wh.max(lh), wb, lb.in, lb.out)
     }
@@ -649,13 +649,13 @@ class LevelDBWriter(writableDB: DB, fs: FunctionalitySettings, val maxCacheSize:
     } yield db.get(Keys.idToAddress(addressId)) -> balance).toMap.seq
   }
 
-  override def wavesDistribution(height: Int): Map[Address, Long] = readOnly { db =>
+  override def amurcoinDistribution(height: Int): Map[Address, Long] = readOnly { db =>
     (for {
       seqNr     <- (1 to db.get(Keys.addressesForWavesSeqNr)).par
       addressId <- db.get(Keys.addressesForWaves(seqNr)).par
-      history = db.get(Keys.wavesBalanceHistory(addressId))
+      history = db.get(Keys.amurcoinBalanceHistory(addressId))
       actualHeight <- history.partition(_ > height)._2.headOption
-      balance = db.get(Keys.wavesBalance(addressId)(actualHeight))
+      balance = db.get(Keys.amurcoinBalance(addressId)(actualHeight))
       if balance > 0
     } yield db.get(Keys.idToAddress(addressId)) -> balance).toMap.seq
   }

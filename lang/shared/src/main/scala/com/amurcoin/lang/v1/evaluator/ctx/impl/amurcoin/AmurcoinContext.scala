@@ -1,4 +1,4 @@
-package com.amurcoin.lang.v1.evaluator.ctx.impl.waves
+package com.amurcoin.lang.v1.evaluator.ctx.impl.amurcoin
 
 import cats.data.EitherT
 import cats.implicits._
@@ -246,7 +246,7 @@ object WavesContext {
         case _ => ???
       }
 
-    val wavesBalanceF: UserFunction = UserFunction("wavesBalance", LONG, "addressOrAlias" -> addressOrAliasType) {
+    val amurcoinBalanceF: UserFunction = UserFunction("amurcoinBalance", LONG, "addressOrAlias" -> addressOrAliasType) {
       case aoa :: Nil => FUNCTION_CALL(assetBalanceF.header, List(aoa, REF("unit")))
       case _          => ???
     }
@@ -280,9 +280,9 @@ object WavesContext {
       addressFromStringF,
       addressFromRecipientF,
       assetBalanceF,
-      wavesBalanceF
+      amurcoinBalanceF
     )
 
-    CTX(Types.wavesTypes, vars, functions)
+    CTX(Types.amurcoinTypes, vars, functions)
   }
 }

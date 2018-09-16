@@ -46,7 +46,7 @@ object CommonValidation {
           Left(
             GenericError(
               "Attempt to transfer unavailable funds: Transaction application leads to " +
-                s"negative waves balance to (at least) temporary negative state, current balance equals $oldWavesBalance, " +
+                s"negative amurcoin balance to (at least) temporary negative state, current balance equals $oldWavesBalance, " +
                 s"spends equals ${spendings.balance}, result is $newWavesBalance"))
         } else if (spendings.assets.nonEmpty) {
           val oldAssetBalances = blockchain.portfolio(sender).assets
@@ -170,12 +170,12 @@ object CommonValidation {
             case Some(assetId) =>
               for {
                 assetInfo <- blockchain.assetDescription(assetId).toRight(GenericError(s"Asset $assetId does not exist, cannot be used to pay fees"))
-                wavesFee <- Either.cond(
+                amurcoinFee <- Either.cond(
                   assetInfo.sponsorship > 0,
                   feeInUnits * Sponsorship.FeeUnit,
                   GenericError(s"Asset $assetId is not sponsored, cannot be used to pay fees")
                 )
-              } yield (Some((assetId, assetInfo)), wavesFee)
+              } yield (Some((assetId, assetInfo)), amurcoinFee)
           }
         } yield r
 
@@ -221,12 +221,12 @@ object CommonValidation {
             case Some(x) =>
               for {
                 assetInfo <- blockchain.assetDescription(x).toRight(GenericError(s"Asset $x does not exist, cannot be used to pay fees"))
-                wavesFee <- Either.cond(
+                amurcoinFee <- Either.cond(
                   assetInfo.sponsorship > 0,
                   Sponsorship.toWaves(feeAmount, assetInfo.sponsorship),
                   GenericError(s"Asset $x is not sponsored, cannot be used to pay fees")
                 )
-              } yield wavesFee
+              } yield amurcoinFee
           }
           minimumFee    = feeInUnits * Sponsorship.FeeUnit
           restFeeAmount = feeAmount - minimumFee

@@ -1,4 +1,4 @@
-package com.amurcoin.lang.v1.evaluator.ctx.impl.waves
+package com.amurcoin.lang.v1.evaluator.ctx.impl.amurcoin
 
 import com.amurcoin.lang.v1.evaluator.ctx.CaseObj
 import com.amurcoin.lang.v1.evaluator.ctx.impl.PureContext.fromOption

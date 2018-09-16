@@ -17,7 +17,7 @@ import scala.util.{Failure, Random, Try}
 
 class DataTransactionSuite extends BaseTransactionSuite {
 
-  test("sender's waves balance is decreased by fee.") {
+  test("sender's amurcoin balance is decreased by fee.") {
     val (balance1, eff1) = notMiner.accountBalances(firstAddress)
     val entry            = IntegerDataEntry("int", 0xcafebabe)
     val data             = List(entry)
@@ -27,15 +27,15 @@ class DataTransactionSuite extends BaseTransactionSuite {
     notMiner.assertBalances(firstAddress, balance1 - transferFee, eff1 - transferFee)
   }
 
-  test("cannot transact without having enough waves") {
+  test("cannot transact without having enough amurcoin") {
     val (balance1, eff1) = notMiner.accountBalances(firstAddress)
 
     val data = List(BooleanDataEntry("bool", false))
-    assertBadRequestAndResponse(sender.putData(firstAddress, data, balance1 + 1), "negative waves balance")
+    assertBadRequestAndResponse(sender.putData(firstAddress, data, balance1 + 1), "negative amurcoin balance")
     nodes.waitForHeightArise()
     notMiner.assertBalances(firstAddress, balance1, eff1)
 
-    val leaseAmount = 1.waves
+    val leaseAmount = 1.amurcoin
     val leaseId     = sender.lease(firstAddress, secondAddress, leaseAmount, minFee).id
     nodes.waitForHeightAriseAndTxPresent(leaseId)
 

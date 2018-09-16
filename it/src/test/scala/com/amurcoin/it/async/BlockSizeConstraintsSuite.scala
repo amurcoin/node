@@ -51,7 +51,7 @@ object BlockSizeConstraintsSuite {
                                                              |  request-timeout = 60s
                                                              |}
                                                              |
-                                                             |waves {
+                                                             |amurcoin {
                                                              |  network.enable-peers-exchange = no
                                                              |
                                                              |  miner {

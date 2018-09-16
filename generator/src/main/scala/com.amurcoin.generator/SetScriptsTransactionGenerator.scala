@@ -20,17 +20,17 @@ class SetScriptsTransactionGenerator(settings: SetScriptsTransactionGenerator.Se
   private def generate(settings: SetScriptsTransactionGenerator.Settings): Seq[Transaction] = {
     val bank = accounts.head
 
-    val fee = 0.005.waves
+    val fee = 0.005.amurcoin
 
     val script: Script = Gen.script(settings.complexity)
 
     val setScripts = Range(0, settings.scripts).map { _ =>
-      SetScriptTransaction.selfSigned(1, bank, Some(script), 1.waves, System.currentTimeMillis()).explicitGet()
+      SetScriptTransaction.selfSigned(1, bank, Some(script), 1.amurcoin, System.currentTimeMillis()).explicitGet()
     }
 
     val txs = Range(0, settings.transfers).map { i =>
       TransferTransactionV2
-        .selfSigned(2, None, bank, bank, 1.waves - 2 * fee - i, System.currentTimeMillis(), None, fee, Array.emptyByteArray)
+        .selfSigned(2, None, bank, bank, 1.amurcoin - 2 * fee - i, System.currentTimeMillis(), None, fee, Array.emptyByteArray)
         .explicitGet()
     }
 

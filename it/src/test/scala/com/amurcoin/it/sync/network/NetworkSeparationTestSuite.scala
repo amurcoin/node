@@ -79,7 +79,7 @@ class NetworkSeparationTestSuite
 object NetworkSeparationTestSuite {
   import com.amurcoin.it.NodeConfigs._
   private val withFeatureConfig = ConfigFactory.parseString(s"""
-                                                                |waves {
+                                                                |amurcoin {
                                                                 |  synchronization.synchronization-timeout = 10s
                                                                 |  blockchain.custom.functionality {
                                                                 |    pre-activated-features = {
@@ -91,7 +91,7 @@ object NetworkSeparationTestSuite {
                                                                 |}""".stripMargin)
 
   private val woFeatureConfig = ConfigFactory.parseString(s"""
-                                                            |waves {
+                                                            |amurcoin {
                                                             |  synchronization.synchronization-timeout = 10s
                                                             |  blockchain.custom.functionality {
                                                             |    pre-activated-features = {

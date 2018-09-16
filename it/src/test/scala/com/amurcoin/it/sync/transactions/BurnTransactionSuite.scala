@@ -10,7 +10,7 @@ class BurnTransactionSuite extends BaseTransactionSuite {
 
   private val decimals: Byte = 2
 
-  test("burning assets changes issuer's asset balance; issuer's waves balance is decreased by fee") {
+  test("burning assets changes issuer's asset balance; issuer's amurcoin balance is decreased by fee") {
     for (v <- supportedVersions) {
       val (balance, effectiveBalance) = notMiner.accountBalances(firstAddress)
       val issuedAssetId               = sender.issue(firstAddress, s"name+$v", "description", issueAmount, decimals, reissuable = false, fee = issueFee).id

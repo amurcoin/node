@@ -12,14 +12,14 @@ import io.swagger.annotations._
 import javax.ws.rs.Path
 import com.amurcoin.wallet.Wallet
 
-@Path("/waves")
-@Api(value = "waves")
+@Path("/amurcoin")
+@Api(value = "amurcoin")
 @Deprecated
 case class WavesApiRoute(settings: RestAPISettings, wallet: Wallet, utx: UtxPool, allChannels: ChannelGroup, time: Time)
     extends ApiRoute
     with BroadcastRoute {
 
-  override lazy val route = pathPrefix("waves") {
+  override lazy val route = pathPrefix("amurcoin") {
     externalPayment ~ signPayment ~ broadcastSignedPayment ~ payment ~ createdSignedPayment
   }
 

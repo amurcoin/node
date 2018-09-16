@@ -3,7 +3,7 @@ package com.amurcoin.transaction.smart
 import cats.kernel.Monoid
 import com.amurcoin.lang.Global
 import com.amurcoin.lang.v1.evaluator.ctx.EvaluationContext
-import com.amurcoin.lang.v1.evaluator.ctx.impl.waves.WavesContext
+import com.amurcoin.lang.v1.evaluator.ctx.impl.amurcoin.WavesContext
 import com.amurcoin.lang.v1.evaluator.ctx.impl.{CryptoContext, PureContext}
 import com.amurcoin.state._
 import com.amurcoin.transaction._
