@@ -1,4 +1,4 @@
-package com.wavesplatform.matcher
+package com.amurcoin.matcher
 
 import java.io.File
 import java.util.{HashMap => JHashMap}
@@ -6,17 +6,17 @@ import java.util.{HashMap => JHashMap}
 import com.google.common.base.Charsets.UTF_8
 import com.google.common.primitives.Shorts
 import com.typesafe.config.ConfigFactory
-import com.wavesplatform.account.{Address, AddressScheme}
-import com.wavesplatform.crypto.DigestSize
-import com.wavesplatform.database.DBExt
-import com.wavesplatform.db.openDB
-import com.wavesplatform.matcher.api.DBUtils
-import com.wavesplatform.matcher.model.{LimitOrder, OrderInfo}
-import com.wavesplatform.settings.{WavesSettings, loadConfig}
-import com.wavesplatform.state.{ByteStr, EitherExt2}
-import com.wavesplatform.transaction.AssetId
-import com.wavesplatform.transaction.assets.exchange.AssetPair
-import com.wavesplatform.utils.ScorexLogging
+import com.amurcoin.account.{Address, AddressScheme}
+import com.amurcoin.crypto.DigestSize
+import com.amurcoin.database.DBExt
+import com.amurcoin.db.openDB
+import com.amurcoin.matcher.api.DBUtils
+import com.amurcoin.matcher.model.{LimitOrder, OrderInfo}
+import com.amurcoin.settings.{WavesSettings, loadConfig}
+import com.amurcoin.state.{ByteStr, EitherExt2}
+import com.amurcoin.transaction.AssetId
+import com.amurcoin.transaction.assets.exchange.AssetPair
+import com.amurcoin.utils.ScorexLogging
 import org.iq80.leveldb.DB
 
 import scala.collection.JavaConverters._

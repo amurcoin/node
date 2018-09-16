@@ -1,4 +1,4 @@
-package com.wavesplatform
+package com.amurcoin
 
 trait Shutdownable {
   def shutdown(): Unit

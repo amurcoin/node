@@ -1,21 +1,21 @@
-package com.wavesplatform.http
+package com.amurcoin.http
 
-import com.wavesplatform.http.ApiMarshallers._
-import com.wavesplatform.lang.v1.compiler.Terms._
-import com.wavesplatform.state.diffs.CommonValidation
-import com.wavesplatform.state.{Blockchain, EitherExt2}
-import com.wavesplatform.utils.Base58
-import com.wavesplatform.utx.UtxPool
-import com.wavesplatform.{NoShrink, TestTime, TestWallet, crypto}
+import com.amurcoin.http.ApiMarshallers._
+import com.amurcoin.lang.v1.compiler.Terms._
+import com.amurcoin.state.diffs.CommonValidation
+import com.amurcoin.state.{Blockchain, EitherExt2}
+import com.amurcoin.utils.Base58
+import com.amurcoin.utx.UtxPool
+import com.amurcoin.{NoShrink, TestTime, TestWallet, crypto}
 import io.netty.channel.group.ChannelGroup
 import org.scalacheck.Gen
 import org.scalamock.scalatest.PathMockFactory
 import org.scalatest.prop.PropertyChecks
 import play.api.libs.json._
-import com.wavesplatform.account.Address
-import com.wavesplatform.api.http.{AddressApiRoute, ApiKeyNotValid}
-import com.wavesplatform.settings.TestFunctionalitySettings
-import com.wavesplatform.transaction.smart.script.v1.ScriptV1
+import com.amurcoin.account.Address
+import com.amurcoin.api.http.{AddressApiRoute, ApiKeyNotValid}
+import com.amurcoin.settings.TestFunctionalitySettings
+import com.amurcoin.transaction.smart.script.v1.ScriptV1
 
 class AddressRouteSpec
     extends RouteSpec("/addresses")

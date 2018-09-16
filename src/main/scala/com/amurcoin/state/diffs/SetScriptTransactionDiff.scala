@@ -1,8 +1,8 @@
-package com.wavesplatform.state.diffs
+package com.amurcoin.state.diffs
 
-import com.wavesplatform.state.{Diff, LeaseBalance, Portfolio}
-import com.wavesplatform.transaction.ValidationError
-import com.wavesplatform.transaction.smart.SetScriptTransaction
+import com.amurcoin.state.{Diff, LeaseBalance, Portfolio}
+import com.amurcoin.transaction.ValidationError
+import com.amurcoin.transaction.smart.SetScriptTransaction
 
 import scala.util.Right
 

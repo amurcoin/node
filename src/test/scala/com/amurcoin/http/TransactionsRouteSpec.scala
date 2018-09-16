@@ -1,18 +1,18 @@
-package com.wavesplatform.http
+package com.amurcoin.http
 
 import akka.http.scaladsl.model.StatusCodes
-import com.wavesplatform.account.PublicKeyAccount
-import com.wavesplatform.api.http.{InvalidAddress, InvalidSignature, TooBigArrayAllocation, TransactionsApiRoute}
-import com.wavesplatform.features.BlockchainFeatures
-import com.wavesplatform.http.ApiMarshallers._
-import com.wavesplatform.lang.v1.compiler.Terms.TRUE
-import com.wavesplatform.settings.{TestFunctionalitySettings, WalletSettings}
-import com.wavesplatform.state.{AssetDescription, Blockchain, ByteStr}
-import com.wavesplatform.transaction.smart.script.v1.ScriptV1
-import com.wavesplatform.utils.Base58
-import com.wavesplatform.utx.UtxPool
-import com.wavesplatform.wallet.Wallet
-import com.wavesplatform.{BlockGen, NoShrink, TestTime, TransactionGen}
+import com.amurcoin.account.PublicKeyAccount
+import com.amurcoin.api.http.{InvalidAddress, InvalidSignature, TooBigArrayAllocation, TransactionsApiRoute}
+import com.amurcoin.features.BlockchainFeatures
+import com.amurcoin.http.ApiMarshallers._
+import com.amurcoin.lang.v1.compiler.Terms.TRUE
+import com.amurcoin.settings.{TestFunctionalitySettings, WalletSettings}
+import com.amurcoin.state.{AssetDescription, Blockchain, ByteStr}
+import com.amurcoin.transaction.smart.script.v1.ScriptV1
+import com.amurcoin.utils.Base58
+import com.amurcoin.utx.UtxPool
+import com.amurcoin.wallet.Wallet
+import com.amurcoin.{BlockGen, NoShrink, TestTime, TransactionGen}
 import io.netty.channel.group.ChannelGroup
 import org.scalacheck.Gen._
 import org.scalamock.scalatest.MockFactory

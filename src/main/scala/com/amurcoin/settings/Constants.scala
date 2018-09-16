@@ -1,7 +1,7 @@
-package com.wavesplatform.settings
+package com.amurcoin.settings
 
-import com.wavesplatform.Version
-import com.wavesplatform.utils.ScorexLogging
+import com.amurcoin.Version
+import com.amurcoin.utils.ScorexLogging
 
 /**
   * System constants here.

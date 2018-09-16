@@ -1,7 +1,7 @@
-package com.wavesplatform.lang
+package com.amurcoin.lang
 
-import com.wavesplatform.lang.v1.traits.domain.{Ord, Recipient, Tx}
-import com.wavesplatform.lang.v1.traits.{DataType, Environment}
+import com.amurcoin.lang.v1.traits.domain.{Ord, Recipient, Tx}
+import com.amurcoin.lang.v1.traits.{DataType, Environment}
 import shapeless.{:+:, CNil}
 
 object WavesContext {

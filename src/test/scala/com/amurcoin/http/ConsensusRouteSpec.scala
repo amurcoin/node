@@ -1,15 +1,15 @@
-package com.wavesplatform.http
+package com.amurcoin.http
 
 import akka.http.scaladsl.server.Route
-import com.wavesplatform.BlockGen
-import com.wavesplatform.db.WithState
-import com.wavesplatform.http.ApiMarshallers._
-import com.wavesplatform.settings.FunctionalitySettings
-import com.wavesplatform.state._
+import com.amurcoin.BlockGen
+import com.amurcoin.db.WithState
+import com.amurcoin.http.ApiMarshallers._
+import com.amurcoin.settings.FunctionalitySettings
+import com.amurcoin.state._
 import org.scalatest.prop.PropertyChecks
 import play.api.libs.json.JsObject
-import com.wavesplatform.api.http.BlockDoesNotExist
-import com.wavesplatform.consensus.nxt.api.http.NxtConsensusApiRoute
+import com.amurcoin.api.http.BlockDoesNotExist
+import com.amurcoin.consensus.nxt.api.http.NxtConsensusApiRoute
 
 class ConsensusRouteSpec
     extends RouteSpec("/consensus")

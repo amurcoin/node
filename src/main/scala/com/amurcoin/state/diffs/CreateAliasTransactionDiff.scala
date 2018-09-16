@@ -1,10 +1,10 @@
-package com.wavesplatform.state.diffs
+package com.amurcoin.state.diffs
 
-import com.wavesplatform.features.BlockchainFeatures
-import com.wavesplatform.state.{Blockchain, Diff, LeaseBalance, Portfolio}
-import com.wavesplatform.transaction.ValidationError.GenericError
-import com.wavesplatform.transaction.{CreateAliasTransaction, ValidationError}
-import com.wavesplatform.features.FeatureProvider._
+import com.amurcoin.features.BlockchainFeatures
+import com.amurcoin.state.{Blockchain, Diff, LeaseBalance, Portfolio}
+import com.amurcoin.transaction.ValidationError.GenericError
+import com.amurcoin.transaction.{CreateAliasTransaction, ValidationError}
+import com.amurcoin.features.FeatureProvider._
 
 import scala.util.Right
 

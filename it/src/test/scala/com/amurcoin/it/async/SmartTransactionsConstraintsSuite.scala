@@ -1,19 +1,19 @@
-package com.wavesplatform.it.async
+package com.amurcoin.it.async
 
 import com.typesafe.config.Config
-import com.wavesplatform.it.api.AsyncHttpApi._
-import com.wavesplatform.it.transactions.NodesFromDocker
-import com.wavesplatform.it.{NodeConfigs, TransferSending}
-import com.wavesplatform.lang.v1.compiler.Terms
-import com.wavesplatform.mining.MiningConstraints.MaxScriptRunsInBlock
-import com.wavesplatform.state.EitherExt2
+import com.amurcoin.it.api.AsyncHttpApi._
+import com.amurcoin.it.transactions.NodesFromDocker
+import com.amurcoin.it.{NodeConfigs, TransferSending}
+import com.amurcoin.lang.v1.compiler.Terms
+import com.amurcoin.mining.MiningConstraints.MaxScriptRunsInBlock
+import com.amurcoin.state.EitherExt2
 import org.scalatest._
 import play.api.libs.json.{JsNumber, Json}
-import com.wavesplatform.account.PrivateKeyAccount
-import com.wavesplatform.api.http.assets.SignedSetScriptRequest
-import com.wavesplatform.utils.Base58
-import com.wavesplatform.transaction.smart.SetScriptTransaction
-import com.wavesplatform.transaction.smart.script.v1.ScriptV1
+import com.amurcoin.account.PrivateKeyAccount
+import com.amurcoin.api.http.assets.SignedSetScriptRequest
+import com.amurcoin.utils.Base58
+import com.amurcoin.transaction.smart.SetScriptTransaction
+import com.amurcoin.transaction.smart.script.v1.ScriptV1
 
 import scala.concurrent.Await.result
 import scala.concurrent.ExecutionContext.Implicits.global

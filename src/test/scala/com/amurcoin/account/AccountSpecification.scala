@@ -1,9 +1,9 @@
-package com.wavesplatform.account
+package com.amurcoin.account
 
-import com.wavesplatform.crypto
+import com.amurcoin.crypto
 import org.scalatest.prop.PropertyChecks
 import org.scalatest.{Matchers, PropSpec}
-import com.wavesplatform.utils.Base58
+import com.amurcoin.utils.Base58
 
 class AccountSpecification extends PropSpec with PropertyChecks with Matchers {
 

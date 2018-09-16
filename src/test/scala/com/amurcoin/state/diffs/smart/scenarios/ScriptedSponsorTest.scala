@@ -1,22 +1,22 @@
-package com.wavesplatform.state.diffs.smart.scenarios
+package com.amurcoin.state.diffs.smart.scenarios
 
-import com.wavesplatform.features.BlockchainFeatures
-import com.wavesplatform.lagonaki.mocks.TestBlock
-import com.wavesplatform.settings.TestFunctionalitySettings
-import com.wavesplatform.state._
-import com.wavesplatform.transaction.assets.{IssueTransactionV1, SponsorFeeTransaction}
-import com.wavesplatform.transaction.smart.SetScriptTransaction
-import com.wavesplatform.transaction.smart.script.ScriptCompiler
-import com.wavesplatform.transaction.transfer.{TransferTransaction, TransferTransactionV2}
-import com.wavesplatform.transaction.{GenesisTransaction, Transaction}
-import com.wavesplatform.{NoShrink, TransactionGen}
+import com.amurcoin.features.BlockchainFeatures
+import com.amurcoin.lagonaki.mocks.TestBlock
+import com.amurcoin.settings.TestFunctionalitySettings
+import com.amurcoin.state._
+import com.amurcoin.transaction.assets.{IssueTransactionV1, SponsorFeeTransaction}
+import com.amurcoin.transaction.smart.SetScriptTransaction
+import com.amurcoin.transaction.smart.script.ScriptCompiler
+import com.amurcoin.transaction.transfer.{TransferTransaction, TransferTransactionV2}
+import com.amurcoin.transaction.{GenesisTransaction, Transaction}
+import com.amurcoin.{NoShrink, TransactionGen}
 import org.scalacheck.Gen
 import org.scalatest.prop.PropertyChecks
 import org.scalatest.{Matchers, PropSpec}
 
 class ScriptedSponsorTest extends PropSpec with PropertyChecks with Matchers with TransactionGen with NoShrink {
 
-  import com.wavesplatform.state.diffs._
+  import com.amurcoin.state.diffs._
 
   val ENOUGH_FEE: Long = 100000000
 

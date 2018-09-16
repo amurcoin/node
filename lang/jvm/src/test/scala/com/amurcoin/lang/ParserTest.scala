@@ -1,11 +1,11 @@
-package com.wavesplatform.lang
+package com.amurcoin.lang
 
-import com.wavesplatform.lang.Common._
-import com.wavesplatform.lang.v1.parser.BinaryOperation._
-import com.wavesplatform.lang.v1.parser.Expressions.Pos.AnyPos
-import com.wavesplatform.lang.v1.parser.Expressions._
-import com.wavesplatform.lang.v1.parser.{BinaryOperation, Parser}
-import com.wavesplatform.lang.v1.testing.ScriptGenParser
+import com.amurcoin.lang.Common._
+import com.amurcoin.lang.v1.parser.BinaryOperation._
+import com.amurcoin.lang.v1.parser.Expressions.Pos.AnyPos
+import com.amurcoin.lang.v1.parser.Expressions._
+import com.amurcoin.lang.v1.parser.{BinaryOperation, Parser}
+import com.amurcoin.lang.v1.testing.ScriptGenParser
 import fastparse.core.Parsed.{Failure, Success}
 import org.scalacheck.Gen
 import org.scalatest.exceptions.TestFailedException

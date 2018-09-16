@@ -1,6 +1,6 @@
-package com.wavesplatform.network
+package com.amurcoin.network
 
-import com.wavesplatform.network.PipelineInitializer.HandlerWrapper
+import com.amurcoin.network.PipelineInitializer.HandlerWrapper
 import io.netty.channel.{Channel, ChannelHandler, ChannelInitializer}
 import io.netty.util.concurrent.EventExecutorGroup
 

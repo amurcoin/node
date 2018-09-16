@@ -1,8 +1,8 @@
-package com.wavesplatform.account
+package com.amurcoin.account
 
-import com.wavesplatform.crypto
-import com.wavesplatform.utils.Base58
-import com.wavesplatform.transaction.ValidationError.GenericError
+import com.amurcoin.crypto
+import com.amurcoin.utils.Base58
+import com.amurcoin.transaction.ValidationError.GenericError
 
 import scala.util.{Failure, Success}
 

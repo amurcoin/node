@@ -1,4 +1,4 @@
-package com.wavesplatform.serialization
+package com.amurcoin.serialization
 
 import monix.eval.Coeval
 import play.api.libs.json.JsObject

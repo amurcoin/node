@@ -1,4 +1,4 @@
-package com.wavesplatform.network.message
+package com.amurcoin.network.message
 
 import scala.reflect.ClassTag
 import scala.util.Try

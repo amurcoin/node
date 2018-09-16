@@ -1,29 +1,29 @@
-package com.wavesplatform.mining
+package com.amurcoin.mining
 
 import cats.data.EitherT
 import cats.implicits._
-import com.wavesplatform.consensus.{GeneratingBalanceProvider, PoSSelector}
-import com.wavesplatform.features.BlockchainFeatures
-import com.wavesplatform.features.FeatureProvider._
-import com.wavesplatform.metrics.{BlockStats, HistogramExt, Instrumented}
-import com.wavesplatform.network._
-import com.wavesplatform.settings.{FunctionalitySettings, WavesSettings}
-import com.wavesplatform.state._
-import com.wavesplatform.state.appender.{BlockAppender, MicroblockAppender}
-import com.wavesplatform.utx.UtxPool
+import com.amurcoin.consensus.{GeneratingBalanceProvider, PoSSelector}
+import com.amurcoin.features.BlockchainFeatures
+import com.amurcoin.features.FeatureProvider._
+import com.amurcoin.metrics.{BlockStats, HistogramExt, Instrumented}
+import com.amurcoin.network._
+import com.amurcoin.settings.{FunctionalitySettings, WavesSettings}
+import com.amurcoin.state._
+import com.amurcoin.state.appender.{BlockAppender, MicroblockAppender}
+import com.amurcoin.utx.UtxPool
 import io.netty.channel.group.ChannelGroup
 import kamon.Kamon
 import kamon.metric.MeasurementUnit
 import monix.eval.Task
 import monix.execution.cancelables.{CompositeCancelable, SerialCancelable}
 import monix.execution.schedulers.SchedulerService
-import com.wavesplatform.account.{Address, PrivateKeyAccount, PublicKeyAccount}
-import com.wavesplatform.block.Block._
-import com.wavesplatform.block.{Block, MicroBlock}
-import com.wavesplatform.consensus.nxt.NxtLikeConsensusBlockData
-import com.wavesplatform.utils.{ScorexLogging, Time}
-import com.wavesplatform.transaction._
-import com.wavesplatform.wallet.Wallet
+import com.amurcoin.account.{Address, PrivateKeyAccount, PublicKeyAccount}
+import com.amurcoin.block.Block._
+import com.amurcoin.block.{Block, MicroBlock}
+import com.amurcoin.consensus.nxt.NxtLikeConsensusBlockData
+import com.amurcoin.utils.{ScorexLogging, Time}
+import com.amurcoin.transaction._
+import com.amurcoin.wallet.Wallet
 
 import scala.collection.mutable.{Map => MMap}
 import scala.concurrent.Await

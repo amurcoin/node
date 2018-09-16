@@ -1,14 +1,14 @@
-package com.wavesplatform.it.sync.matcher
+package com.amurcoin.it.sync.matcher
 
 import com.typesafe.config.{Config, ConfigFactory}
-import com.wavesplatform.it.api.SyncHttpApi._
-import com.wavesplatform.it.api.SyncMatcherHttpApi._
-import com.wavesplatform.it.sync._
-import com.wavesplatform.it.transactions.NodesFromDocker
-import com.wavesplatform.it.{TransferSending, _}
-import com.wavesplatform.state.ByteStr
+import com.amurcoin.it.api.SyncHttpApi._
+import com.amurcoin.it.api.SyncMatcherHttpApi._
+import com.amurcoin.it.sync._
+import com.amurcoin.it.transactions.NodesFromDocker
+import com.amurcoin.it.{TransferSending, _}
+import com.amurcoin.state.ByteStr
 import org.scalatest.concurrent.Eventually
-import com.wavesplatform.transaction.assets.exchange.{AssetPair, OrderType}
+import com.amurcoin.transaction.assets.exchange.{AssetPair, OrderType}
 import org.scalatest.{BeforeAndAfterAll, CancelAfterFailure, FreeSpec, Matchers}
 
 import scala.concurrent.duration._
@@ -83,7 +83,7 @@ class MatcherMigrationTestSuite
 
 object MatcherMigrationTestSuite {
   import ConfigFactory._
-  import com.wavesplatform.it.NodeConfigs._
+  import com.amurcoin.it.NodeConfigs._
 
   val genesisTs             = System.currentTimeMillis()
   private val minerDisabled = parseString("waves.miner.enable = no")

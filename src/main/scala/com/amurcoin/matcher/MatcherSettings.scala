@@ -1,4 +1,4 @@
-package com.wavesplatform.matcher
+package com.amurcoin.matcher
 
 import java.io.File
 

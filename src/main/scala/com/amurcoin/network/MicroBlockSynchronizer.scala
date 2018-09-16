@@ -1,18 +1,18 @@
-package com.wavesplatform.network
+package com.amurcoin.network
 
 import java.util.concurrent.TimeUnit
 
 import com.google.common.cache.{Cache, CacheBuilder}
-import com.wavesplatform.metrics.BlockStats
-import com.wavesplatform.settings.SynchronizationSettings.MicroblockSynchronizerSettings
-import com.wavesplatform.state.ByteStr
+import com.amurcoin.metrics.BlockStats
+import com.amurcoin.settings.SynchronizationSettings.MicroblockSynchronizerSettings
+import com.amurcoin.state.ByteStr
 import io.netty.channel._
 import monix.eval.{Coeval, Task}
 import monix.execution.CancelableFuture
 import monix.execution.schedulers.SchedulerService
 import monix.reactive.Observable
-import com.wavesplatform.block.Block.BlockId
-import com.wavesplatform.block.MicroBlock
+import com.amurcoin.block.Block.BlockId
+import com.amurcoin.block.MicroBlock
 
 import scala.collection.mutable.{Set => MSet}
 import scala.concurrent.duration.FiniteDuration

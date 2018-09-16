@@ -1,9 +1,9 @@
-package com.wavesplatform.network
+package com.amurcoin.network
 
 import com.google.common.cache.CacheBuilder
-import com.wavesplatform.network.InvalidBlockStorageImpl._
-import com.wavesplatform.state.ByteStr
-import com.wavesplatform.transaction.ValidationError
+import com.amurcoin.network.InvalidBlockStorageImpl._
+import com.amurcoin.state.ByteStr
+import com.amurcoin.transaction.ValidationError
 
 import scala.concurrent.duration.FiniteDuration
 

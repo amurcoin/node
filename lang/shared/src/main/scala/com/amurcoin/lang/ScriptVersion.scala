@@ -1,7 +1,7 @@
-package com.wavesplatform.lang
+package com.amurcoin.lang
 
-import com.wavesplatform.lang.v1.compiler.Terms
-import com.wavesplatform.lang.v1.evaluator.ctx.EvaluationContext
+import com.amurcoin.lang.v1.compiler.Terms
+import com.amurcoin.lang.v1.evaluator.ctx.EvaluationContext
 
 sealed trait ScriptVersion { self =>
   type ExprT

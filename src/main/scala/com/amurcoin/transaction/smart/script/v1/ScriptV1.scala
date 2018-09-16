@@ -1,14 +1,14 @@
-package com.wavesplatform.transaction.smart.script.v1
+package com.amurcoin.transaction.smart.script.v1
 
-import com.wavesplatform.crypto
-import com.wavesplatform.lang.ScriptVersion.Versions.V1
-import com.wavesplatform.lang.v1.compiler.Terms._
-import com.wavesplatform.lang.v1.evaluator.FunctionIds._
-import com.wavesplatform.lang.v1.{FunctionHeader, ScriptEstimator, Serde}
-import com.wavesplatform.state.ByteStr
-import com.wavesplatform.utils.functionCosts
+import com.amurcoin.crypto
+import com.amurcoin.lang.ScriptVersion.Versions.V1
+import com.amurcoin.lang.v1.compiler.Terms._
+import com.amurcoin.lang.v1.evaluator.FunctionIds._
+import com.amurcoin.lang.v1.{FunctionHeader, ScriptEstimator, Serde}
+import com.amurcoin.state.ByteStr
+import com.amurcoin.utils.functionCosts
 import monix.eval.Coeval
-import com.wavesplatform.transaction.smart.script.Script
+import com.amurcoin.transaction.smart.script.Script
 
 object ScriptV1 {
   private val checksumLength = 4

@@ -1,11 +1,11 @@
-package com.wavesplatform
+package com.amurcoin
 
 import java.io.IOException
 import java.nio.file.attribute.BasicFileAttributes
 import java.nio.file.{FileVisitResult, Files, Path, SimpleFileVisitor}
 
-import com.wavesplatform.settings.{GenesisSettings, GenesisTransactionSettings}
-import com.wavesplatform.account.Address
+import com.amurcoin.settings.{GenesisSettings, GenesisTransactionSettings}
+import com.amurcoin.account.Address
 
 import scala.concurrent.duration._
 

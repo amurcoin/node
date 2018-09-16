@@ -1,15 +1,15 @@
-package com.wavesplatform
+package com.amurcoin
 
 import com.typesafe.config.ConfigFactory
-import com.wavesplatform.account.PrivateKeyAccount
-import com.wavesplatform.block.{Block, MicroBlock}
-import com.wavesplatform.consensus.nxt.NxtLikeConsensusBlockData
-import com.wavesplatform.features.BlockchainFeatures
-import com.wavesplatform.lagonaki.mocks.TestBlock
-import com.wavesplatform.settings.{BlockchainSettings, TestFunctionalitySettings, WavesSettings}
-import com.wavesplatform.state._
-import com.wavesplatform.transaction.Transaction
-import com.wavesplatform.crypto._
+import com.amurcoin.account.PrivateKeyAccount
+import com.amurcoin.block.{Block, MicroBlock}
+import com.amurcoin.consensus.nxt.NxtLikeConsensusBlockData
+import com.amurcoin.features.BlockchainFeatures
+import com.amurcoin.lagonaki.mocks.TestBlock
+import com.amurcoin.settings.{BlockchainSettings, TestFunctionalitySettings, WavesSettings}
+import com.amurcoin.state._
+import com.amurcoin.transaction.Transaction
+import com.amurcoin.crypto._
 
 package object history {
   val MaxTransactionsPerBlockDiff = 10

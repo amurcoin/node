@@ -1,12 +1,12 @@
-package com.wavesplatform.it.async
+package com.amurcoin.it.async
 
 import com.typesafe.config.Config
-import com.wavesplatform.it.api.AsyncHttpApi._
-import com.wavesplatform.it.api._
-import com.wavesplatform.it.transactions.NodesFromDocker
-import com.wavesplatform.it.util._
-import com.wavesplatform.it.{Node, NodeConfigs, ReportingTestName}
-import com.wavesplatform.utils.ScorexLogging
+import com.amurcoin.it.api.AsyncHttpApi._
+import com.amurcoin.it.api._
+import com.amurcoin.it.transactions.NodesFromDocker
+import com.amurcoin.it.util._
+import com.amurcoin.it.{Node, NodeConfigs, ReportingTestName}
+import com.amurcoin.utils.ScorexLogging
 import org.scalatest.{BeforeAndAfterAll, CancelAfterFailure, FreeSpec, Matchers}
 
 import scala.concurrent.ExecutionContext.Implicits.global

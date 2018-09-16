@@ -1,9 +1,9 @@
-package com.wavesplatform.lang.v1.testing
+package com.amurcoin.lang.v1.testing
 
-import com.wavesplatform.lang.v1.parser.Parser.keywords
-import com.wavesplatform.lang.v1.parser.BinaryOperation
-import com.wavesplatform.lang.v1.parser.BinaryOperation._
-import com.wavesplatform.lang.v1.parser.Expressions._
+import com.amurcoin.lang.v1.parser.Parser.keywords
+import com.amurcoin.lang.v1.parser.BinaryOperation
+import com.amurcoin.lang.v1.parser.BinaryOperation._
+import com.amurcoin.lang.v1.parser.Expressions._
 import org.scalacheck._
 import scodec.bits.ByteVector
 import scorex.crypto.encode.Base58

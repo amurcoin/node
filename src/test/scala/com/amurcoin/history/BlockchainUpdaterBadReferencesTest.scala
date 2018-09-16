@@ -1,14 +1,14 @@
-package com.wavesplatform.history
+package com.amurcoin.history
 
-import com.wavesplatform.TransactionGen
-import com.wavesplatform.state._
-import com.wavesplatform.state.diffs._
+import com.amurcoin.TransactionGen
+import com.amurcoin.state._
+import com.amurcoin.state.diffs._
 import org.scalacheck.Gen
 import org.scalatest._
 import org.scalatest.prop.PropertyChecks
-import com.wavesplatform.transaction.GenesisTransaction
-import com.wavesplatform.transaction.transfer._
-import com.wavesplatform.features.BlockchainFeatures
+import com.amurcoin.transaction.GenesisTransaction
+import com.amurcoin.transaction.transfer._
+import com.amurcoin.features.BlockchainFeatures
 
 class BlockchainUpdaterBadReferencesTest
     extends PropSpec

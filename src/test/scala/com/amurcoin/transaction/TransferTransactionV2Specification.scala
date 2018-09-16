@@ -1,10 +1,10 @@
-package com.wavesplatform.transaction
+package com.amurcoin.transaction
 
-import com.wavesplatform.TransactionGen
-import com.wavesplatform.account.{Address, PublicKeyAccount}
-import com.wavesplatform.state._
-import com.wavesplatform.transaction.transfer._
-import com.wavesplatform.utils.Base58
+import com.amurcoin.TransactionGen
+import com.amurcoin.account.{Address, PublicKeyAccount}
+import com.amurcoin.state._
+import com.amurcoin.transaction.transfer._
+import com.amurcoin.utils.Base58
 import org.scalacheck.Gen
 import org.scalatest._
 import org.scalatest.prop.PropertyChecks

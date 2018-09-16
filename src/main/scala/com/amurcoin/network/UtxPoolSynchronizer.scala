@@ -1,15 +1,15 @@
-package com.wavesplatform.network
+package com.amurcoin.network
 
 import java.util.concurrent.TimeUnit
 
 import com.google.common.cache.CacheBuilder
-import com.wavesplatform.settings.SynchronizationSettings.UtxSynchronizerSettings
-import com.wavesplatform.state.ByteStr
-import com.wavesplatform.utx.UtxPool
+import com.amurcoin.settings.SynchronizationSettings.UtxSynchronizerSettings
+import com.amurcoin.state.ByteStr
+import com.amurcoin.utx.UtxPool
 import io.netty.channel.Channel
 import io.netty.channel.group.{ChannelGroup, ChannelMatcher}
 import monix.execution.{CancelableFuture, Scheduler}
-import com.wavesplatform.transaction.Transaction
+import com.amurcoin.transaction.Transaction
 
 object UtxPoolSynchronizer {
   def start(utx: UtxPool,

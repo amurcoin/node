@@ -1,7 +1,7 @@
-package com.wavesplatform.settings
+package com.amurcoin.settings
 
 import com.typesafe.config.Config
-import com.wavesplatform.state.ByteStr
+import com.amurcoin.state.ByteStr
 import net.ceedubs.ficus.Ficus._
 
 case class CheckpointsSettings(publicKey: ByteStr)

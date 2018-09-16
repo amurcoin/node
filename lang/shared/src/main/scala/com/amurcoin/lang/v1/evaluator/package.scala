@@ -1,9 +1,9 @@
-package com.wavesplatform.lang.v1
+package com.amurcoin.lang.v1
 
 import cats.data.EitherT
-import com.wavesplatform.lang.{ExecutionError, TrampolinedExecResult}
-import com.wavesplatform.lang.v1.evaluator.ctx.EvaluationContext
-import com.wavesplatform.lang.v1.task.TaskM
+import com.amurcoin.lang.{ExecutionError, TrampolinedExecResult}
+import com.amurcoin.lang.v1.evaluator.ctx.EvaluationContext
+import com.amurcoin.lang.v1.task.TaskM
 import monix.eval.Coeval
 
 package object evaluator {

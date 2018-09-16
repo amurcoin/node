@@ -1,4 +1,4 @@
-package com.wavesplatform.it
+package com.amurcoin.it
 
 import java.net.{InetSocketAddress, URL}
 

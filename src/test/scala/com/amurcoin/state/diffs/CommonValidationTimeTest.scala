@@ -1,9 +1,9 @@
-package com.wavesplatform.state.diffs
+package com.amurcoin.state.diffs
 
-import com.wavesplatform.db.WithState
-import com.wavesplatform.settings.TestFunctionalitySettings
-import com.wavesplatform.state._
-import com.wavesplatform.{NoShrink, TransactionGen}
+import com.amurcoin.db.WithState
+import com.amurcoin.settings.TestFunctionalitySettings
+import com.amurcoin.state._
+import com.amurcoin.{NoShrink, TransactionGen}
 import org.scalacheck.Gen
 import org.scalatest.prop.PropertyChecks
 import org.scalatest.{Matchers, PropSpec}

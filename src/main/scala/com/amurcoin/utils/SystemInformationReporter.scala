@@ -1,4 +1,4 @@
-package com.wavesplatform.utils
+package com.amurcoin.utils
 
 import com.typesafe.config.{Config, ConfigFactory, ConfigRenderOptions}
 

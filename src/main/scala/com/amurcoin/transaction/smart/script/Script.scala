@@ -1,12 +1,12 @@
-package com.wavesplatform.transaction.smart.script
+package com.amurcoin.transaction.smart.script
 
-import com.wavesplatform.lang.ScriptVersion.Versions.V1
-import com.wavesplatform.lang.Versioned
-import com.wavesplatform.lang.v1.compiler.Terms
-import com.wavesplatform.state.ByteStr
+import com.amurcoin.lang.ScriptVersion.Versions.V1
+import com.amurcoin.lang.Versioned
+import com.amurcoin.lang.v1.compiler.Terms
+import com.amurcoin.state.ByteStr
 import monix.eval.Coeval
-import com.wavesplatform.utils.Base64
-import com.wavesplatform.transaction.ValidationError.ScriptParseError
+import com.amurcoin.utils.Base64
+import com.amurcoin.transaction.ValidationError.ScriptParseError
 
 trait Script extends Versioned {
   val expr: version.ExprT

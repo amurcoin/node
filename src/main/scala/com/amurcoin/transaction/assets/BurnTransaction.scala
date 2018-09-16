@@ -1,12 +1,12 @@
-package com.wavesplatform.transaction.assets
+package com.amurcoin.transaction.assets
 
 import com.google.common.primitives.{Bytes, Longs}
-import com.wavesplatform.state.ByteStr
+import com.amurcoin.state.ByteStr
 import monix.eval.Coeval
 import play.api.libs.json.{JsObject, Json}
-import com.wavesplatform.account.PublicKeyAccount
-import com.wavesplatform.transaction._
-import com.wavesplatform.crypto._
+import com.amurcoin.account.PublicKeyAccount
+import com.amurcoin.transaction._
+import com.amurcoin.crypto._
 
 trait BurnTransaction extends ProvenTransaction with VersionedTransaction {
 

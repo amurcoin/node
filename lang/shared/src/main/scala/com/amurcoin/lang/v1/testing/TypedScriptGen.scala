@@ -1,11 +1,11 @@
-package com.wavesplatform.lang.v1.testing
+package com.amurcoin.lang.v1.testing
 
-import com.wavesplatform.lang.v1.FunctionHeader
-import com.wavesplatform.lang.v1.compiler.Terms._
-import com.wavesplatform.lang.v1.compiler.Types._
+import com.amurcoin.lang.v1.FunctionHeader
+import com.amurcoin.lang.v1.compiler.Terms._
+import com.amurcoin.lang.v1.compiler.Types._
 import org.scalacheck._
 import scodec.bits.ByteVector
-import com.wavesplatform.lang.v1.evaluator.FunctionIds._
+import com.amurcoin.lang.v1.evaluator.FunctionIds._
 
 trait TypedScriptGen {
 

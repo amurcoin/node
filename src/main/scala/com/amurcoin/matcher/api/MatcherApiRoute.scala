@@ -1,4 +1,4 @@
-package com.wavesplatform.matcher.api
+package com.amurcoin.matcher.api
 
 import java.util.concurrent.Executors
 
@@ -8,24 +8,24 @@ import akka.http.scaladsl.server.{Directive1, Route}
 import akka.pattern.ask
 import akka.util.Timeout
 import com.google.common.primitives.Longs
-import com.wavesplatform.account.PublicKeyAccount
-import com.wavesplatform.api.http._
-import com.wavesplatform.crypto
-import com.wavesplatform.matcher.market.MatcherActor.{GetMarkets, GetMarketsResponse}
-import com.wavesplatform.matcher.market.MatcherTransactionWriter.GetTransactionsByOrder
-import com.wavesplatform.matcher.market.OrderBookActor._
-import com.wavesplatform.matcher.market.OrderHistoryActor._
-import com.wavesplatform.matcher.model.MatcherModel.{Level, Price}
-import com.wavesplatform.matcher.model.{LevelAgg, LimitOrder, OrderBook, OrderInfo}
-import com.wavesplatform.matcher.{AssetPairBuilder, MatcherSettings}
-import com.wavesplatform.metrics.TimerExt
-import com.wavesplatform.settings.RestAPISettings
-import com.wavesplatform.state.ByteStr
-import com.wavesplatform.transaction.assets.exchange.OrderJson._
-import com.wavesplatform.transaction.assets.exchange.{AssetPair, Order}
-import com.wavesplatform.state.Blockchain
-import com.wavesplatform.utils.{Base58, NTP, ScorexLogging}
-import com.wavesplatform.wallet.Wallet
+import com.amurcoin.account.PublicKeyAccount
+import com.amurcoin.api.http._
+import com.amurcoin.crypto
+import com.amurcoin.matcher.market.MatcherActor.{GetMarkets, GetMarketsResponse}
+import com.amurcoin.matcher.market.MatcherTransactionWriter.GetTransactionsByOrder
+import com.amurcoin.matcher.market.OrderBookActor._
+import com.amurcoin.matcher.market.OrderHistoryActor._
+import com.amurcoin.matcher.model.MatcherModel.{Level, Price}
+import com.amurcoin.matcher.model.{LevelAgg, LimitOrder, OrderBook, OrderInfo}
+import com.amurcoin.matcher.{AssetPairBuilder, MatcherSettings}
+import com.amurcoin.metrics.TimerExt
+import com.amurcoin.settings.RestAPISettings
+import com.amurcoin.state.ByteStr
+import com.amurcoin.transaction.assets.exchange.OrderJson._
+import com.amurcoin.transaction.assets.exchange.{AssetPair, Order}
+import com.amurcoin.state.Blockchain
+import com.amurcoin.utils.{Base58, NTP, ScorexLogging}
+import com.amurcoin.wallet.Wallet
 import io.swagger.annotations._
 import javax.ws.rs.Path
 import kamon.Kamon
@@ -146,7 +146,7 @@ case class MatcherApiRoute(wallet: Wallet,
         value = "Json with data",
         required = true,
         paramType = "body",
-        dataType = "com.wavesplatform.transaction.assets.exchange.Order"
+        dataType = "com.amurcoin.transaction.assets.exchange.Order"
       )
     ))
   def place: Route = path("orderbook") {
@@ -179,7 +179,7 @@ case class MatcherApiRoute(wallet: Wallet,
         value = "Json with data",
         required = true,
         paramType = "body",
-        dataType = "com.wavesplatform.matcher.api.CancelOrderRequest"
+        dataType = "com.amurcoin.matcher.api.CancelOrderRequest"
       )
     ))
   def cancelAll: Route = (path("orderbook" / "cancel") & post) {
@@ -229,7 +229,7 @@ case class MatcherApiRoute(wallet: Wallet,
         value = "Json with data",
         required = true,
         paramType = "body",
-        dataType = "com.wavesplatform.matcher.api.CancelOrderRequest"
+        dataType = "com.amurcoin.matcher.api.CancelOrderRequest"
       )
     ))
   def cancel: Route = (path("orderbook" / AssetPairPM / "cancel") & post) { p =>
@@ -282,7 +282,7 @@ case class MatcherApiRoute(wallet: Wallet,
         value = "Json with data",
         required = true,
         paramType = "body",
-        dataType = "com.wavesplatform.matcher.api.CancelOrderRequest"
+        dataType = "com.amurcoin.matcher.api.CancelOrderRequest"
       )
     ))
   def historyDelete: Route = (path("orderbook" / AssetPairPM / "delete") & post) { p =>

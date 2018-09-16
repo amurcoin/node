@@ -1,11 +1,11 @@
-package com.wavesplatform.state.diffs.smart.predef
+package com.amurcoin.state.diffs.smart.predef
 
-import com.wavesplatform.account.{Address, Alias}
-import com.wavesplatform.state._
-import com.wavesplatform.transaction.assets.exchange.Order
-import com.wavesplatform.transaction.smart.BlockchainContext.In
-import com.wavesplatform.transaction.{Proofs, ProvenTransaction, VersionedTransaction}
-import com.wavesplatform.{NoShrink, TransactionGen}
+import com.amurcoin.account.{Address, Alias}
+import com.amurcoin.state._
+import com.amurcoin.transaction.assets.exchange.Order
+import com.amurcoin.transaction.smart.BlockchainContext.In
+import com.amurcoin.transaction.{Proofs, ProvenTransaction, VersionedTransaction}
+import com.amurcoin.{NoShrink, TransactionGen}
 import org.scalacheck.Gen
 import org.scalatest.prop.PropertyChecks
 import org.scalatest.{Matchers, PropSpec}

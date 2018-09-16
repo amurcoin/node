@@ -1,14 +1,14 @@
-package com.wavesplatform.it
+package com.amurcoin.it
 
 import java.net.{InetSocketAddress, URL}
 
 import com.typesafe.config.Config
-import com.wavesplatform.account.{PrivateKeyAccount, PublicKeyAccount}
-import com.wavesplatform.it.util.GlobalTimer
-import com.wavesplatform.settings.WavesSettings
-import com.wavesplatform.state.EitherExt2
-import com.wavesplatform.transaction.FeeCalculator
-import com.wavesplatform.utils.{Base58, LoggerFacade}
+import com.amurcoin.account.{PrivateKeyAccount, PublicKeyAccount}
+import com.amurcoin.it.util.GlobalTimer
+import com.amurcoin.settings.WavesSettings
+import com.amurcoin.state.EitherExt2
+import com.amurcoin.transaction.FeeCalculator
+import com.amurcoin.utils.{Base58, LoggerFacade}
 import org.asynchttpclient.Dsl.{config => clientConfig, _}
 import org.asynchttpclient._
 import org.slf4j.LoggerFactory

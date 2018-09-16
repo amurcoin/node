@@ -1,16 +1,16 @@
-package com.wavesplatform.transaction
+package com.amurcoin.transaction
 
-import com.wavesplatform.TransactionGen
-import com.wavesplatform.account.{PrivateKeyAccount, PublicKeyAccount}
-import com.wavesplatform.state.{ByteStr, EitherExt2}
-import com.wavesplatform.transaction.ValidationError.OrderValidationError
-import com.wavesplatform.transaction.assets.exchange.{Order, _}
-import com.wavesplatform.utils.{Base58, NTP}
+import com.amurcoin.TransactionGen
+import com.amurcoin.account.{PrivateKeyAccount, PublicKeyAccount}
+import com.amurcoin.state.{ByteStr, EitherExt2}
+import com.amurcoin.transaction.ValidationError.OrderValidationError
+import com.amurcoin.transaction.assets.exchange.{Order, _}
+import com.amurcoin.utils.{Base58, NTP}
 import org.scalacheck.Gen
 import org.scalatest._
 import org.scalatest.prop.PropertyChecks
 import play.api.libs.json.Json
-import com.wavesplatform.OrderOps._
+import com.amurcoin.OrderOps._
 
 class ExchangeTransactionSpecification extends PropSpec with PropertyChecks with Matchers with TransactionGen {
 

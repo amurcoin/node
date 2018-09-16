@@ -1,6 +1,6 @@
-package com.wavesplatform.lang.v1.traits
+package com.amurcoin.lang.v1.traits
 
-import com.wavesplatform.lang.v1.compiler.Types._
+import com.amurcoin.lang.v1.compiler.Types._
 
 sealed abstract case class DataType(innerType: REAL)
 object DataType {

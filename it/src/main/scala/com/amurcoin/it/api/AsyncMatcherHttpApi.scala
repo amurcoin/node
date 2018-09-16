@@ -1,16 +1,16 @@
-package com.wavesplatform.it.api
+package com.amurcoin.it.api
 
 import com.google.common.primitives.Longs
-import com.wavesplatform.account.{PrivateKeyAccount, PublicKeyAccount}
-import com.wavesplatform.crypto
-import com.wavesplatform.http.api_key
-import com.wavesplatform.it.Node
-import com.wavesplatform.it.api.AsyncHttpApi.NodeAsyncHttpApi
-import com.wavesplatform.matcher.api.CancelOrderRequest
-import com.wavesplatform.state.ByteStr
-import com.wavesplatform.transaction.Proofs
-import com.wavesplatform.transaction.assets.exchange.{AssetPair, Order, OrderType}
-import com.wavesplatform.utils.Base58
+import com.amurcoin.account.{PrivateKeyAccount, PublicKeyAccount}
+import com.amurcoin.crypto
+import com.amurcoin.http.api_key
+import com.amurcoin.it.Node
+import com.amurcoin.it.api.AsyncHttpApi.NodeAsyncHttpApi
+import com.amurcoin.matcher.api.CancelOrderRequest
+import com.amurcoin.state.ByteStr
+import com.amurcoin.transaction.Proofs
+import com.amurcoin.transaction.assets.exchange.{AssetPair, Order, OrderType}
+import com.amurcoin.utils.Base58
 import org.asynchttpclient.Dsl.{get => _get}
 import org.asynchttpclient.util.HttpConstants
 import org.asynchttpclient.{RequestBuilder, Response}

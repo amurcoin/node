@@ -1,11 +1,11 @@
-package com.wavesplatform.state
+package com.amurcoin.state
 
-import com.wavesplatform.account.{Address, Alias}
-import com.wavesplatform.block.{Block, BlockHeader}
-import com.wavesplatform.state.reader.LeaseDetails
-import com.wavesplatform.transaction.lease.LeaseTransaction
-import com.wavesplatform.transaction.smart.script.Script
-import com.wavesplatform.transaction.{AssetId, Transaction, ValidationError}
+import com.amurcoin.account.{Address, Alias}
+import com.amurcoin.block.{Block, BlockHeader}
+import com.amurcoin.state.reader.LeaseDetails
+import com.amurcoin.transaction.lease.LeaseTransaction
+import com.amurcoin.transaction.smart.script.Script
+import com.amurcoin.transaction.{AssetId, Transaction, ValidationError}
 
 trait Blockchain {
   def height: Int

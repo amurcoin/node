@@ -1,22 +1,22 @@
-package com.wavesplatform.state.diffs.smart.scenarios
+package com.amurcoin.state.diffs.smart.scenarios
 
-import com.wavesplatform.lang.Global.MaxBase58Bytes
-import com.wavesplatform.lang.v1.compiler.CompilerV1
-import com.wavesplatform.lang.v1.parser.Parser
-import com.wavesplatform.state._
-import com.wavesplatform.state.diffs._
-import com.wavesplatform.state.diffs.smart.smartEnabledFS
-import com.wavesplatform.utils.dummyCompilerContext
-import com.wavesplatform.{NoShrink, TransactionGen}
+import com.amurcoin.lang.Global.MaxBase58Bytes
+import com.amurcoin.lang.v1.compiler.CompilerV1
+import com.amurcoin.lang.v1.parser.Parser
+import com.amurcoin.state._
+import com.amurcoin.state.diffs._
+import com.amurcoin.state.diffs.smart.smartEnabledFS
+import com.amurcoin.utils.dummyCompilerContext
+import com.amurcoin.{NoShrink, TransactionGen}
 import org.scalacheck.Gen
 import org.scalatest.prop.PropertyChecks
 import org.scalatest.{Matchers, PropSpec}
-import com.wavesplatform.api.http.ScriptExecutionError
-import com.wavesplatform.lagonaki.mocks.TestBlock
-import com.wavesplatform.transaction.smart.SetScriptTransaction
-import com.wavesplatform.transaction.smart.script.v1.ScriptV1
-import com.wavesplatform.transaction.transfer._
-import com.wavesplatform.transaction.{CreateAliasTransaction, DataTransaction, GenesisTransaction, Proofs}
+import com.amurcoin.api.http.ScriptExecutionError
+import com.amurcoin.lagonaki.mocks.TestBlock
+import com.amurcoin.transaction.smart.SetScriptTransaction
+import com.amurcoin.transaction.smart.script.v1.ScriptV1
+import com.amurcoin.transaction.transfer._
+import com.amurcoin.transaction.{CreateAliasTransaction, DataTransaction, GenesisTransaction, Proofs}
 
 class OracleDataTest extends PropSpec with PropertyChecks with Matchers with TransactionGen with NoShrink {
   val preconditions

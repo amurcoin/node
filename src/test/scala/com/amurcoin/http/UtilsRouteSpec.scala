@@ -1,19 +1,19 @@
-package com.wavesplatform.http
+package com.amurcoin.http
 
-import com.wavesplatform.crypto
-import com.wavesplatform.http.ApiMarshallers._
-import com.wavesplatform.lang.v1.compiler.Terms._
-import com.wavesplatform.lang.v1.evaluator.FunctionIds._
-import com.wavesplatform.lang.v1.evaluator.ctx.impl.PureContext
-import com.wavesplatform.state.EitherExt2
-import com.wavesplatform.state.diffs.CommonValidation
-import com.wavesplatform.utils.{Base58, Time}
+import com.amurcoin.crypto
+import com.amurcoin.http.ApiMarshallers._
+import com.amurcoin.lang.v1.compiler.Terms._
+import com.amurcoin.lang.v1.evaluator.FunctionIds._
+import com.amurcoin.lang.v1.evaluator.ctx.impl.PureContext
+import com.amurcoin.state.EitherExt2
+import com.amurcoin.state.diffs.CommonValidation
+import com.amurcoin.utils.{Base58, Time}
 import org.scalacheck.Gen
 import org.scalatest.prop.PropertyChecks
 import play.api.libs.json.{JsObject, JsValue}
-import com.wavesplatform.api.http.{TooBigArrayAllocation, UtilsApiRoute}
-import com.wavesplatform.transaction.smart.script.Script
-import com.wavesplatform.transaction.smart.script.v1.ScriptV1
+import com.amurcoin.api.http.{TooBigArrayAllocation, UtilsApiRoute}
+import com.amurcoin.transaction.smart.script.Script
+import com.amurcoin.transaction.smart.script.v1.ScriptV1
 
 class UtilsRouteSpec extends RouteSpec("/utils") with RestAPISettingsHelper with PropertyChecks {
   private val route = UtilsApiRoute(

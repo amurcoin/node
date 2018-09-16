@@ -1,8 +1,8 @@
-package com.wavesplatform.network
+package com.amurcoin.network
 
-import com.wavesplatform.state.ByteStr
-import com.wavesplatform.transaction.ValidationError
-import com.wavesplatform.transaction.ValidationError.GenericError
+import com.amurcoin.state.ByteStr
+import com.amurcoin.transaction.ValidationError
+import com.amurcoin.transaction.ValidationError.GenericError
 
 class InMemoryInvalidBlockStorage extends InvalidBlockStorage {
 

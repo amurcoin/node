@@ -1,17 +1,17 @@
-package com.wavesplatform.state.diffs
+package com.amurcoin.state.diffs
 
 import cats._
-import com.wavesplatform.features.BlockchainFeatures
-import com.wavesplatform.state._
-import com.wavesplatform.{NoShrink, TransactionGen}
+import com.amurcoin.features.BlockchainFeatures
+import com.amurcoin.state._
+import com.amurcoin.{NoShrink, TransactionGen}
 import org.scalacheck.Gen
 import org.scalatest.prop.PropertyChecks
 import org.scalatest.{Matchers, PropSpec}
-import com.wavesplatform.account.PrivateKeyAccount
-import com.wavesplatform.settings.TestFunctionalitySettings
-import com.wavesplatform.lagonaki.mocks.TestBlock
-import com.wavesplatform.transaction.assets.IssueTransaction
-import com.wavesplatform.transaction.{CreateAliasTransaction, CreateAliasTransactionV1, GenesisTransaction}
+import com.amurcoin.account.PrivateKeyAccount
+import com.amurcoin.settings.TestFunctionalitySettings
+import com.amurcoin.lagonaki.mocks.TestBlock
+import com.amurcoin.transaction.assets.IssueTransaction
+import com.amurcoin.transaction.{CreateAliasTransaction, CreateAliasTransactionV1, GenesisTransaction}
 
 class CreateAliasTransactionDiffTest extends PropSpec with PropertyChecks with Matchers with TransactionGen with NoShrink {
 

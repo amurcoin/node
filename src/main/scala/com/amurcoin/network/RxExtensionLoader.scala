@@ -1,20 +1,20 @@
-package com.wavesplatform.network
+package com.amurcoin.network
 
-import com.wavesplatform.network.RxExtensionLoader.ApplierState.Buffer
-import com.wavesplatform.network.RxExtensionLoader.LoaderState.WithPeer
-import com.wavesplatform.network.RxScoreObserver.{ChannelClosedAndSyncWith, SyncWith}
-import com.wavesplatform.state.ByteStr
-import com.wavesplatform.utils.ScorexLogging
+import com.amurcoin.network.RxExtensionLoader.ApplierState.Buffer
+import com.amurcoin.network.RxExtensionLoader.LoaderState.WithPeer
+import com.amurcoin.network.RxScoreObserver.{ChannelClosedAndSyncWith, SyncWith}
+import com.amurcoin.state.ByteStr
+import com.amurcoin.utils.ScorexLogging
 import io.netty.channel._
 import monix.eval.{Coeval, Task}
 import monix.execution.CancelableFuture
 import monix.execution.schedulers.SchedulerService
 import monix.reactive.subjects.{ConcurrentSubject, Subject}
 import monix.reactive.{Observable, Observer}
-import com.wavesplatform.block.Block
-import com.wavesplatform.block.Block.BlockId
-import com.wavesplatform.transaction.ValidationError
-import com.wavesplatform.transaction.ValidationError.GenericError
+import com.amurcoin.block.Block
+import com.amurcoin.block.Block.BlockId
+import com.amurcoin.transaction.ValidationError
+import com.amurcoin.transaction.ValidationError.GenericError
 
 import scala.concurrent.duration._
 

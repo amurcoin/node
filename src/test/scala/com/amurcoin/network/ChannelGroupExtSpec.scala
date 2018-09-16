@@ -1,4 +1,4 @@
-package com.wavesplatform.network
+package com.amurcoin.network
 
 import java.util.concurrent.ConcurrentHashMap
 

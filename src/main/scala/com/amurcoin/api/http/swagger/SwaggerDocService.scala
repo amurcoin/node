@@ -1,11 +1,11 @@
-package com.wavesplatform.api.http.swagger
+package com.amurcoin.api.http.swagger
 
 import akka.actor.ActorSystem
 import akka.stream.ActorMaterializer
 import com.github.swagger.akka.model.{Info, License}
 import com.github.swagger.akka.{HasActorSystem, SwaggerHttpService}
-import com.wavesplatform.Version
-import com.wavesplatform.settings.RestAPISettings
+import com.amurcoin.Version
+import com.amurcoin.settings.RestAPISettings
 import io.swagger.models.{Scheme, Swagger}
 
 import scala.reflect.runtime.universe.Type
@@ -21,7 +21,7 @@ class SwaggerDocService(val actorSystem: ActorSystem, val materializer: ActorMat
     "Waves Full Node",
     "License: Apache License, Version 2.0",
     None,
-    Some(License("Apache License, Version 2.0", "https://github.com/wavesplatform/Waves/blob/master/LICENSE"))
+    Some(License("Apache License, Version 2.0", "https://github.com/amurcoin/Waves/blob/master/LICENSE"))
   )
 
   //Let swagger-ui determine the host and port

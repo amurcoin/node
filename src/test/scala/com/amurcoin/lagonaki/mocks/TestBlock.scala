@@ -1,11 +1,11 @@
-package com.wavesplatform.lagonaki.mocks
+package com.amurcoin.lagonaki.mocks
 
-import com.wavesplatform.state._
-import com.wavesplatform.account.PrivateKeyAccount
-import com.wavesplatform.block._
-import com.wavesplatform.consensus.nxt.NxtLikeConsensusBlockData
-import com.wavesplatform.transaction.Transaction
-import com.wavesplatform.crypto._
+import com.amurcoin.state._
+import com.amurcoin.account.PrivateKeyAccount
+import com.amurcoin.block._
+import com.amurcoin.consensus.nxt.NxtLikeConsensusBlockData
+import com.amurcoin.transaction.Transaction
+import com.amurcoin.crypto._
 import scala.util.{Random, Try}
 
 object TestBlock {

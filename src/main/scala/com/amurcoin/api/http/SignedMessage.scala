@@ -1,4 +1,4 @@
-package com.wavesplatform.api.http
+package com.amurcoin.api.http
 
 import play.api.libs.json.{JsPath, Reads}
 import play.api.libs.functional.syntax._

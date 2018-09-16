@@ -1,6 +1,6 @@
-package com.wavesplatform.lang
+package com.amurcoin.lang
 
-import com.wavesplatform.lang.v1.BaseGlobal
+import com.amurcoin.lang.v1.BaseGlobal
 
 import scala.scalajs.js.JSConverters._
 import scala.scalajs.js.typedarray.{ArrayBuffer, Int8Array}

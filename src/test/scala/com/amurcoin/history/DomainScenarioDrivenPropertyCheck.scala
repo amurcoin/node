@@ -1,7 +1,7 @@
-package com.wavesplatform.history
+package com.amurcoin.history
 
-import com.wavesplatform.db.WithState
-import com.wavesplatform.settings.WavesSettings
+import com.amurcoin.db.WithState
+import com.amurcoin.settings.WavesSettings
 import org.scalacheck.Gen
 import org.scalatest.Assertion
 import org.scalatest.prop.GeneratorDrivenPropertyChecks

@@ -1,17 +1,17 @@
-package com.wavesplatform.network
+package com.amurcoin.network
 
 import java.net.{InetAddress, InetSocketAddress}
 import java.util
 
 import com.google.common.primitives.{Bytes, Ints}
-import com.wavesplatform.mining.Miner.MaxTransactionsPerMicroblock
-import com.wavesplatform.state.ByteStr
-import com.wavesplatform.account.PublicKeyAccount
-import com.wavesplatform.block.{Block, MicroBlock}
-import com.wavesplatform.network.message.Message._
-import com.wavesplatform.network.message._
-import com.wavesplatform.transaction.{Transaction, TransactionParsers}
-import com.wavesplatform.crypto._
+import com.amurcoin.mining.Miner.MaxTransactionsPerMicroblock
+import com.amurcoin.state.ByteStr
+import com.amurcoin.account.PublicKeyAccount
+import com.amurcoin.block.{Block, MicroBlock}
+import com.amurcoin.network.message.Message._
+import com.amurcoin.network.message._
+import com.amurcoin.transaction.{Transaction, TransactionParsers}
+import com.amurcoin.crypto._
 import scala.util.Try
 
 object GetPeersSpec extends MessageSpec[GetPeers.type] {
@@ -189,7 +189,7 @@ object CheckpointSpec extends MessageSpec[Checkpoint] {
 object TransactionSpec extends MessageSpec[Transaction] {
   override val messageCode: MessageCode = 25: Byte
 
-  // Modeled after Data Transaction https://wavesplatform.atlassian.net/wiki/spaces/MAIN/pages/119734321/Data+Transaction
+  // Modeled after Data Transaction https://amurcoin.atlassian.net/wiki/spaces/MAIN/pages/119734321/Data+Transaction
   override val maxLength: Int = 150 * 1024
 
   override def deserializeData(bytes: Array[Byte]): Try[Transaction] =

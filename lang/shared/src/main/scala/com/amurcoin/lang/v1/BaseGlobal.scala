@@ -1,4 +1,4 @@
-package com.wavesplatform.lang.v1
+package com.amurcoin.lang.v1
 
 /**
   * This is a hack class for IDEA. The Global class is in JS/JVM modules.

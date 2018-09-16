@@ -1,23 +1,23 @@
-package com.wavesplatform.matcher.model
+package com.amurcoin.matcher.model
 
 import cats.implicits._
 import cats.kernel.Monoid
-import com.wavesplatform.account.Address
-import com.wavesplatform.database.{DBExt, RW}
-import com.wavesplatform.matcher.api.DBUtils
-import com.wavesplatform.matcher.model.Events._
-import com.wavesplatform.matcher.model.LimitOrder.{Filled, OrderStatus}
-import com.wavesplatform.matcher.{MatcherKeys, MatcherSettings, OrderAssets}
-import com.wavesplatform.metrics.TimerExt
-import com.wavesplatform.state._
-import com.wavesplatform.transaction.AssetId
-import com.wavesplatform.transaction.assets.exchange.Order
+import com.amurcoin.account.Address
+import com.amurcoin.database.{DBExt, RW}
+import com.amurcoin.matcher.api.DBUtils
+import com.amurcoin.matcher.model.Events._
+import com.amurcoin.matcher.model.LimitOrder.{Filled, OrderStatus}
+import com.amurcoin.matcher.{MatcherKeys, MatcherSettings, OrderAssets}
+import com.amurcoin.metrics.TimerExt
+import com.amurcoin.state._
+import com.amurcoin.transaction.AssetId
+import com.amurcoin.transaction.assets.exchange.Order
 import kamon.Kamon
 import org.iq80.leveldb.DB
 
 class OrderHistory(db: DB, settings: MatcherSettings) {
   import OrderHistory._
-  import com.wavesplatform.matcher.MatcherKeys._
+  import com.amurcoin.matcher.MatcherKeys._
 
   private val timer               = Kamon.timer("matcher.order-history.impl")
   private val saveOpenVolumeTimer = timer.refine("action" -> "save-open-volume")

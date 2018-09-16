@@ -1,18 +1,18 @@
-package com.wavesplatform.matcher.model
+package com.amurcoin.matcher.model
 
 import java.io.NotSerializableException
 
 import akka.serialization._
-import com.wavesplatform.matcher.market.MatcherActor.OrderBookCreated
-import com.wavesplatform.matcher.market.OrderBookActor.Snapshot
-import com.wavesplatform.matcher.market.{MatcherActor, OrderBookActor}
-import com.wavesplatform.matcher.model.Events._
-import com.wavesplatform.matcher.model.MatcherModel.{Level, Price}
+import com.amurcoin.matcher.market.MatcherActor.OrderBookCreated
+import com.amurcoin.matcher.market.OrderBookActor.Snapshot
+import com.amurcoin.matcher.market.{MatcherActor, OrderBookActor}
+import com.amurcoin.matcher.model.Events._
+import com.amurcoin.matcher.model.MatcherModel.{Level, Price}
 import play.api.libs.functional.syntax._
 import play.api.libs.json.Reads._
 import play.api.libs.json._
-import com.wavesplatform.transaction.assets.exchange.OrderJson._
-import com.wavesplatform.transaction.assets.exchange.{AssetPair, Order}
+import com.amurcoin.transaction.assets.exchange.OrderJson._
+import com.amurcoin.transaction.assets.exchange.{AssetPair, Order}
 
 import scala.collection.immutable.TreeMap
 

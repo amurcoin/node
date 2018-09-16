@@ -1,12 +1,12 @@
-package com.wavesplatform.transaction
+package com.amurcoin.transaction
 
-import com.wavesplatform.utils.base58Length
-import com.wavesplatform.transaction.assets._
-import com.wavesplatform.transaction.assets.exchange.{ExchangeTransactionV1, ExchangeTransactionV2}
-import com.wavesplatform.transaction.lease.{LeaseCancelTransactionV1, LeaseCancelTransactionV2, LeaseTransactionV1, LeaseTransactionV2}
-import com.wavesplatform.transaction.smart.SetScriptTransaction
-import com.wavesplatform.transaction.transfer._
-import com.wavesplatform.crypto._
+import com.amurcoin.utils.base58Length
+import com.amurcoin.transaction.assets._
+import com.amurcoin.transaction.assets.exchange.{ExchangeTransactionV1, ExchangeTransactionV2}
+import com.amurcoin.transaction.lease.{LeaseCancelTransactionV1, LeaseCancelTransactionV2, LeaseTransactionV1, LeaseTransactionV2}
+import com.amurcoin.transaction.smart.SetScriptTransaction
+import com.amurcoin.transaction.transfer._
+import com.amurcoin.crypto._
 
 import scala.util.{Failure, Success, Try}
 

@@ -1,19 +1,19 @@
-package com.wavesplatform.transaction.transfer
+package com.amurcoin.transaction.transfer
 
 import cats.implicits._
 import com.google.common.primitives.{Bytes, Longs, Shorts}
-import com.wavesplatform.account.{AddressOrAlias, PrivateKeyAccount, PublicKeyAccount}
-import com.wavesplatform.crypto
-import com.wavesplatform.serialization.Deser
-import com.wavesplatform.state._
-import com.wavesplatform.transaction.ValidationError.Validation
-import com.wavesplatform.transaction._
-import com.wavesplatform.transaction.transfer.MassTransferTransaction.{ParsedTransfer, toJson}
-import com.wavesplatform.utils.Base58
+import com.amurcoin.account.{AddressOrAlias, PrivateKeyAccount, PublicKeyAccount}
+import com.amurcoin.crypto
+import com.amurcoin.serialization.Deser
+import com.amurcoin.state._
+import com.amurcoin.transaction.ValidationError.Validation
+import com.amurcoin.transaction._
+import com.amurcoin.transaction.transfer.MassTransferTransaction.{ParsedTransfer, toJson}
+import com.amurcoin.utils.Base58
 import io.swagger.annotations.{ApiModel, ApiModelProperty}
 import monix.eval.Coeval
 import play.api.libs.json.{Format, JsObject, JsValue, Json}
-import com.wavesplatform.crypto._
+import com.amurcoin.crypto._
 
 import scala.annotation.meta.field
 import scala.util.{Either, Failure, Success, Try}

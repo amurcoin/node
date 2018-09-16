@@ -1,12 +1,12 @@
-package com.wavesplatform.it.async
+package com.amurcoin.it.async
 
 import java.util.concurrent.TimeoutException
 
 import com.typesafe.config.{Config, ConfigFactory}
-import com.wavesplatform.it._
-import com.wavesplatform.it.api.AsyncHttpApi._
-import com.wavesplatform.it.transactions.NodesFromDocker
-import com.wavesplatform.it.util._
+import com.amurcoin.it._
+import com.amurcoin.it.api.AsyncHttpApi._
+import com.amurcoin.it.transactions.NodesFromDocker
+import com.amurcoin.it.util._
 import org.scalatest._
 
 import scala.concurrent.ExecutionContext.Implicits.global

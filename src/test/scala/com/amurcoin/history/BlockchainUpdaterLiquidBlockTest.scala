@@ -1,18 +1,18 @@
-package com.wavesplatform.history
+package com.amurcoin.history
 
-import com.wavesplatform._
-import com.wavesplatform.state._
-import com.wavesplatform.state.diffs.ENOUGH_AMT
+import com.amurcoin._
+import com.amurcoin.state._
+import com.amurcoin.state.diffs.ENOUGH_AMT
 import org.scalacheck.Gen
 import org.scalatest._
 import org.scalatest.prop.PropertyChecks
-import com.wavesplatform.account.PrivateKeyAccount
-import com.wavesplatform.block.{Block, MicroBlock, SignerData}
-import com.wavesplatform.consensus.nxt.NxtLikeConsensusBlockData
-import com.wavesplatform.lagonaki.mocks.TestBlock
-import com.wavesplatform.transaction.ValidationError.GenericError
-import com.wavesplatform.transaction.transfer._
-import com.wavesplatform.transaction.{GenesisTransaction, Transaction}
+import com.amurcoin.account.PrivateKeyAccount
+import com.amurcoin.block.{Block, MicroBlock, SignerData}
+import com.amurcoin.consensus.nxt.NxtLikeConsensusBlockData
+import com.amurcoin.lagonaki.mocks.TestBlock
+import com.amurcoin.transaction.ValidationError.GenericError
+import com.amurcoin.transaction.transfer._
+import com.amurcoin.transaction.{GenesisTransaction, Transaction}
 
 class BlockchainUpdaterLiquidBlockTest extends PropSpec with PropertyChecks with DomainScenarioDrivenPropertyCheck with Matchers with TransactionGen {
 

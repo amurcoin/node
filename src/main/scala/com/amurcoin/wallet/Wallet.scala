@@ -1,17 +1,17 @@
-package com.wavesplatform.wallet
+package com.amurcoin.wallet
 
 import java.io.File
 
 import com.google.common.primitives.{Bytes, Ints}
-import com.wavesplatform.crypto
-import com.wavesplatform.settings.WalletSettings
-import com.wavesplatform.state.ByteStr
-import com.wavesplatform.utils.{JsonFileStorage, _}
+import com.amurcoin.crypto
+import com.amurcoin.settings.WalletSettings
+import com.amurcoin.state.ByteStr
+import com.amurcoin.utils.{JsonFileStorage, _}
 import play.api.libs.json._
-import com.wavesplatform.account.{Address, PrivateKeyAccount}
-import com.wavesplatform.transaction.ValidationError
-import com.wavesplatform.transaction.ValidationError.MissingSenderPrivateKey
-import com.wavesplatform.utils.randomBytes
+import com.amurcoin.account.{Address, PrivateKeyAccount}
+import com.amurcoin.transaction.ValidationError
+import com.amurcoin.transaction.ValidationError.MissingSenderPrivateKey
+import com.amurcoin.utils.randomBytes
 
 import scala.collection.concurrent.TrieMap
 import scala.util.control.NonFatal

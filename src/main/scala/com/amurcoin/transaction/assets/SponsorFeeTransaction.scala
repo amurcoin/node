@@ -1,13 +1,13 @@
-package com.wavesplatform.transaction.assets
+package com.amurcoin.transaction.assets
 
 import com.google.common.primitives.{Bytes, Longs}
-import com.wavesplatform.crypto
-import com.wavesplatform.state._
+import com.amurcoin.crypto
+import com.amurcoin.state._
 import monix.eval.Coeval
 import play.api.libs.json.{JsObject, Json}
-import com.wavesplatform.account.{PrivateKeyAccount, PublicKeyAccount}
-import com.wavesplatform.transaction._
-import com.wavesplatform.crypto._
+import com.amurcoin.account.{PrivateKeyAccount, PublicKeyAccount}
+import com.amurcoin.transaction._
+import com.amurcoin.crypto._
 import scala.util.{Failure, Success, Try}
 
 case class SponsorFeeTransaction private (version: Byte,

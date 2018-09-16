@@ -1,8 +1,8 @@
-package com.wavesplatform.transaction.api.http.leasing
+package com.amurcoin.transaction.api.http.leasing
 
 import org.scalatest.{FunSuite, Matchers}
 import play.api.libs.json.Json
-import com.wavesplatform.api.http.leasing.{LeaseCancelV1Request, LeaseV1Request, SignedLeaseCancelV1Request, SignedLeaseV1Request}
+import com.amurcoin.api.http.leasing.{LeaseCancelV1Request, LeaseV1Request, SignedLeaseCancelV1Request, SignedLeaseV1Request}
 
 class LeaseV1RequestsTests extends FunSuite with Matchers {
 

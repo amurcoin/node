@@ -1,13 +1,13 @@
-package com.wavesplatform.generator
+package com.amurcoin.generator
 
 import com.typesafe.config.Config
-import com.wavesplatform.account.{Address, PrivateKeyAccount}
-import com.wavesplatform.state._
-import com.wavesplatform.transaction.Transaction
-import com.wavesplatform.transaction.assets.IssueTransactionV1
-import com.wavesplatform.transaction.lease.LeaseTransactionV1
-import com.wavesplatform.transaction.transfer.TransferTransactionV1
-import com.wavesplatform.utils.TimeImpl
+import com.amurcoin.account.{Address, PrivateKeyAccount}
+import com.amurcoin.state._
+import com.amurcoin.transaction.Transaction
+import com.amurcoin.transaction.assets.IssueTransactionV1
+import com.amurcoin.transaction.lease.LeaseTransactionV1
+import com.amurcoin.transaction.transfer.TransferTransactionV1
+import com.amurcoin.utils.TimeImpl
 import net.ceedubs.ficus.readers.ValueReader
 import net.ceedubs.ficus.Ficus._
 

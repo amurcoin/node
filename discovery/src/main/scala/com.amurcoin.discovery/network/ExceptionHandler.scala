@@ -1,4 +1,4 @@
-package com.wavesplatform.discovery.network
+package com.amurcoin.discovery.network
 
 import java.net.SocketAddress
 

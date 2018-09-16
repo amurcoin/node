@@ -1,13 +1,13 @@
-package com.wavesplatform.api.http.assets
+package com.amurcoin.api.http.assets
 
 import cats.implicits._
 import io.swagger.annotations.{ApiModel, ApiModelProperty}
 import play.api.libs.json._
-import com.wavesplatform.account.PublicKeyAccount
-import com.wavesplatform.api.http.BroadcastRequest
-import com.wavesplatform.transaction.transfer.MassTransferTransaction.Transfer
-import com.wavesplatform.transaction.transfer._
-import com.wavesplatform.transaction.{AssetIdStringLength, Proofs, ValidationError}
+import com.amurcoin.account.PublicKeyAccount
+import com.amurcoin.api.http.BroadcastRequest
+import com.amurcoin.transaction.transfer.MassTransferTransaction.Transfer
+import com.amurcoin.transaction.transfer._
+import com.amurcoin.transaction.{AssetIdStringLength, Proofs, ValidationError}
 
 object SignedMassTransferRequest {
   implicit val reads = Json.reads[SignedMassTransferRequest]

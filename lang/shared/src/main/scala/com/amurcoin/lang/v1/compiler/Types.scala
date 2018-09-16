@@ -1,4 +1,4 @@
-package com.wavesplatform.lang.v1.compiler
+package com.amurcoin.lang.v1.compiler
 
 object Types {
 

@@ -1,6 +1,6 @@
-package com.wavesplatform.wallet
+package com.amurcoin.wallet
 
-import com.wavesplatform.utils._
+import com.amurcoin.utils._
 
 object PasswordProvider extends ScorexLogging {
 

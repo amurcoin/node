@@ -1,8 +1,8 @@
-package com.wavesplatform.network
+package com.amurcoin.network
 
 import java.util.concurrent.ConcurrentHashMap
 
-import com.wavesplatform.{TransactionGen, Version}
+import com.amurcoin.{TransactionGen, Version}
 import io.netty.buffer.{ByteBuf, Unpooled}
 import io.netty.channel.Channel
 import io.netty.channel.embedded.EmbeddedChannel

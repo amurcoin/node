@@ -1,15 +1,15 @@
-package com.wavesplatform.api.http.assets
+package com.amurcoin.api.http.assets
 
 import cats.implicits._
 import io.swagger.annotations.ApiModelProperty
 import play.api.libs.json.{Format, Json}
-import com.wavesplatform.account.PublicKeyAccount
-import com.wavesplatform.api.http.BroadcastRequest
-import com.wavesplatform.transaction.{ValidationError, Proofs}
-import com.wavesplatform.transaction.assets.exchange.{ExchangeTransaction, ExchangeTransactionV2, Order}
+import com.amurcoin.account.PublicKeyAccount
+import com.amurcoin.api.http.BroadcastRequest
+import com.amurcoin.transaction.{ValidationError, Proofs}
+import com.amurcoin.transaction.assets.exchange.{ExchangeTransaction, ExchangeTransactionV2, Order}
 
 object SignedExchangeRequestV2 {
-  implicit val orderFormat: Format[Order]                                   = com.wavesplatform.transaction.assets.exchange.OrderJson.orderFormat
+  implicit val orderFormat: Format[Order]                                   = com.amurcoin.transaction.assets.exchange.OrderJson.orderFormat
   implicit val signedExchangeRequestFormat: Format[SignedExchangeRequestV2] = Json.format
 }
 

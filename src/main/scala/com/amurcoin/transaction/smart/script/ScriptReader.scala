@@ -1,11 +1,11 @@
-package com.wavesplatform.transaction.smart.script
+package com.amurcoin.transaction.smart.script
 
-import com.wavesplatform.crypto
-import com.wavesplatform.lang.ScriptVersion
-import com.wavesplatform.lang.ScriptVersion.Versions.V1
-import com.wavesplatform.lang.v1.Serde
-import com.wavesplatform.transaction.ValidationError.ScriptParseError
-import com.wavesplatform.transaction.smart.script.v1.ScriptV1
+import com.amurcoin.crypto
+import com.amurcoin.lang.ScriptVersion
+import com.amurcoin.lang.ScriptVersion.Versions.V1
+import com.amurcoin.lang.v1.Serde
+import com.amurcoin.transaction.ValidationError.ScriptParseError
+import com.amurcoin.transaction.smart.script.v1.ScriptV1
 
 object ScriptReader {
 

@@ -1,21 +1,21 @@
-package com.wavesplatform
+package com.amurcoin
 
 import java.io._
 
 import com.google.common.primitives.Ints
 import com.typesafe.config.ConfigFactory
-import com.wavesplatform.account.{Address, AddressScheme}
-import com.wavesplatform.block.Block
-import com.wavesplatform.consensus.PoSSelector
-import com.wavesplatform.db.openDB
-import com.wavesplatform.history.{CheckpointServiceImpl, StorageFactory}
-import com.wavesplatform.mining.MultiDimensionalMiningConstraint
-import com.wavesplatform.settings.{WavesSettings, loadConfig}
-import com.wavesplatform.state.ByteStr
-import com.wavesplatform.state.appender.BlockAppender
-import com.wavesplatform.transaction.Transaction
-import com.wavesplatform.utils._
-import com.wavesplatform.utx.UtxPool
+import com.amurcoin.account.{Address, AddressScheme}
+import com.amurcoin.block.Block
+import com.amurcoin.consensus.PoSSelector
+import com.amurcoin.db.openDB
+import com.amurcoin.history.{CheckpointServiceImpl, StorageFactory}
+import com.amurcoin.mining.MultiDimensionalMiningConstraint
+import com.amurcoin.settings.{WavesSettings, loadConfig}
+import com.amurcoin.state.ByteStr
+import com.amurcoin.state.appender.BlockAppender
+import com.amurcoin.transaction.Transaction
+import com.amurcoin.utils._
+import com.amurcoin.utx.UtxPool
 import monix.execution.Scheduler
 import org.slf4j.bridge.SLF4JBridgeHandler
 import scala.concurrent.Await

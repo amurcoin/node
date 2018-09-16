@@ -1,14 +1,14 @@
-package com.wavesplatform.it.sync.transactions
+package com.amurcoin.it.sync.transactions
 
-import com.wavesplatform.api.http.assets.{SignedExchangeRequest, SignedExchangeRequestV2}
-import com.wavesplatform.it.api.SyncHttpApi._
-import com.wavesplatform.it.util._
-import com.wavesplatform.it.sync._
-import com.wavesplatform.it.transactions.BaseTransactionSuite
-import com.wavesplatform.transaction.assets.IssueTransactionV1
-import com.wavesplatform.transaction.assets.exchange._
-import com.wavesplatform.transaction.assets.exchange.OrderJson._
-import com.wavesplatform.utils.{Base58, NTP}
+import com.amurcoin.api.http.assets.{SignedExchangeRequest, SignedExchangeRequestV2}
+import com.amurcoin.it.api.SyncHttpApi._
+import com.amurcoin.it.util._
+import com.amurcoin.it.sync._
+import com.amurcoin.it.transactions.BaseTransactionSuite
+import com.amurcoin.transaction.assets.IssueTransactionV1
+import com.amurcoin.transaction.assets.exchange._
+import com.amurcoin.transaction.assets.exchange.OrderJson._
+import com.amurcoin.utils.{Base58, NTP}
 import play.api.libs.json._
 
 class ExchangeTransactionSuite extends BaseTransactionSuite {

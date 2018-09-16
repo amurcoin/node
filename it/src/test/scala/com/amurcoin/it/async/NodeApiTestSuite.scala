@@ -1,8 +1,8 @@
-package com.wavesplatform.it.async
+package com.amurcoin.it.async
 
-import com.wavesplatform.it.api.AsyncHttpApi._
-import com.wavesplatform.it.{DockerBased, NodeConfigs}
-import com.wavesplatform.utils.ScorexLogging
+import com.amurcoin.it.api.AsyncHttpApi._
+import com.amurcoin.it.{DockerBased, NodeConfigs}
+import com.amurcoin.utils.ScorexLogging
 import org.scalatest.{FreeSpec, Matchers}
 
 import scala.concurrent.ExecutionContext.Implicits.global

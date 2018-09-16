@@ -1,13 +1,13 @@
-package com.wavesplatform.api.http
+package com.amurcoin.api.http
 
 import java.util.NoSuchElementException
 
 import akka.http.scaladsl.marshalling.ToResponseMarshallable
 import akka.http.scaladsl.server._
-import com.wavesplatform.crypto
-import com.wavesplatform.http.{ApiMarshallers, PlayJsonException, api_key, deprecated_api_key}
-import com.wavesplatform.settings.RestAPISettings
-import com.wavesplatform.utils.Base58
+import com.amurcoin.crypto
+import com.amurcoin.http.{ApiMarshallers, PlayJsonException, api_key, deprecated_api_key}
+import com.amurcoin.settings.RestAPISettings
+import com.amurcoin.utils.Base58
 import play.api.libs.json.{JsResultException, Reads}
 
 trait ApiRoute extends Directives with CommonApiFunctions with ApiMarshallers {

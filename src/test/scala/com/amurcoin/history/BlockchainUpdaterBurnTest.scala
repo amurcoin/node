@@ -1,16 +1,16 @@
-package com.wavesplatform.history
+package com.amurcoin.history
 
-import com.wavesplatform.TransactionGen
-import com.wavesplatform.features.BlockchainFeatures
-import com.wavesplatform.settings.{BlockchainSettings, WavesSettings}
-import com.wavesplatform.state._
-import com.wavesplatform.state.diffs.{ENOUGH_AMT, produce}
+import com.amurcoin.TransactionGen
+import com.amurcoin.features.BlockchainFeatures
+import com.amurcoin.settings.{BlockchainSettings, WavesSettings}
+import com.amurcoin.state._
+import com.amurcoin.state.diffs.{ENOUGH_AMT, produce}
 import org.scalacheck.Gen
 import org.scalatest.prop.PropertyChecks
 import org.scalatest.{Matchers, PropSpec}
-import com.wavesplatform.transaction.GenesisTransaction
-import com.wavesplatform.transaction.assets.{BurnTransactionV1, IssueTransactionV1, ReissueTransactionV1}
-import com.wavesplatform.transaction.transfer.TransferTransactionV1
+import com.amurcoin.transaction.GenesisTransaction
+import com.amurcoin.transaction.assets.{BurnTransactionV1, IssueTransactionV1, ReissueTransactionV1}
+import com.amurcoin.transaction.transfer.TransferTransactionV1
 
 class BlockchainUpdaterBurnTest extends PropSpec with PropertyChecks with DomainScenarioDrivenPropertyCheck with Matchers with TransactionGen {
 

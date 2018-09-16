@@ -1,8 +1,8 @@
-package com.wavesplatform.settings
+package com.amurcoin.settings
 
 import com.typesafe.config.ConfigFactory
-import com.wavesplatform.network.InvalidBlockStorageImpl.InvalidBlockStorageSettings
-import com.wavesplatform.settings.SynchronizationSettings.{HistoryReplierSettings, MicroblockSynchronizerSettings, UtxSynchronizerSettings}
+import com.amurcoin.network.InvalidBlockStorageImpl.InvalidBlockStorageSettings
+import com.amurcoin.settings.SynchronizationSettings.{HistoryReplierSettings, MicroblockSynchronizerSettings, UtxSynchronizerSettings}
 import org.scalatest.{FlatSpec, Matchers}
 
 import scala.concurrent.duration._

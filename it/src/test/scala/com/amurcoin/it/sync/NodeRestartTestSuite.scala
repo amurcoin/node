@@ -1,9 +1,9 @@
-package com.wavesplatform.it.sync
+package com.amurcoin.it.sync
 
 import com.typesafe.config.{Config, ConfigFactory}
-import com.wavesplatform.it.api.SyncHttpApi._
-import com.wavesplatform.it.transactions.NodesFromDocker
-import com.wavesplatform.it.{ReportingTestName, WaitForHeight2}
+import com.amurcoin.it.api.SyncHttpApi._
+import com.amurcoin.it.transactions.NodesFromDocker
+import com.amurcoin.it.{ReportingTestName, WaitForHeight2}
 import org.scalatest.{CancelAfterFailure, FreeSpec, Matchers}
 
 class NodeRestartTestSuite extends FreeSpec with Matchers with WaitForHeight2 with CancelAfterFailure with ReportingTestName with NodesFromDocker {
@@ -29,7 +29,7 @@ class NodeRestartTestSuite extends FreeSpec with Matchers with WaitForHeight2 wi
 }
 
 object NodeRestartTestSuite {
-  import com.wavesplatform.it.NodeConfigs._
+  import com.amurcoin.it.NodeConfigs._
   private val FirstNode = ConfigFactory.parseString(s"""
                                                          |waves {
                                                          |  synchronization.synchronization-timeout = 10s

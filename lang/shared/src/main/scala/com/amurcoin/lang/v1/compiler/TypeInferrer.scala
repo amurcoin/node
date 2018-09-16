@@ -1,8 +1,8 @@
-package com.wavesplatform.lang.v1.compiler
+package com.amurcoin.lang.v1.compiler
 
-import com.wavesplatform.lang.v1.compiler.Types._
-import com.wavesplatform.lang._
-import com.wavesplatform.lang.v1.evaluator.ctx.DefinedType
+import com.amurcoin.lang.v1.compiler.Types._
+import com.amurcoin.lang._
+import com.amurcoin.lang.v1.evaluator.ctx.DefinedType
 
 object TypeInferrer {
 

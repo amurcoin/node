@@ -1,16 +1,16 @@
-package com.wavesplatform.transaction.smart
+package com.amurcoin.transaction.smart
 
 import cats.implicits._
-import com.wavesplatform.crypto
-import com.wavesplatform.metrics._
-import com.wavesplatform.state._
-import com.wavesplatform.transaction.ValidationError.{GenericError, ScriptExecutionError, TransactionNotAllowedByScript}
-import com.wavesplatform.transaction._
-import com.wavesplatform.transaction.assets._
-import com.wavesplatform.transaction.assets.exchange.{ExchangeTransaction, Order}
-import com.wavesplatform.transaction.smart.script.{Script, ScriptRunner}
-import com.wavesplatform.transaction.transfer._
-import com.wavesplatform.utils.ScorexLogging
+import com.amurcoin.crypto
+import com.amurcoin.metrics._
+import com.amurcoin.state._
+import com.amurcoin.transaction.ValidationError.{GenericError, ScriptExecutionError, TransactionNotAllowedByScript}
+import com.amurcoin.transaction._
+import com.amurcoin.transaction.assets._
+import com.amurcoin.transaction.assets.exchange.{ExchangeTransaction, Order}
+import com.amurcoin.transaction.smart.script.{Script, ScriptRunner}
+import com.amurcoin.transaction.transfer._
+import com.amurcoin.utils.ScorexLogging
 import kamon.Kamon
 import shapeless.{:+:, CNil, Coproduct}
 

@@ -1,12 +1,12 @@
-package com.wavesplatform.transaction.assets
+package com.amurcoin.transaction.assets
 
 import com.google.common.primitives.Bytes
-import com.wavesplatform.account.{PrivateKeyAccount, PublicKeyAccount}
-import com.wavesplatform.crypto
-import com.wavesplatform.crypto.SignatureLength
-import com.wavesplatform.state.ByteStr
-import com.wavesplatform.transaction._
-import com.wavesplatform.transaction.smart.script.Script
+import com.amurcoin.account.{PrivateKeyAccount, PublicKeyAccount}
+import com.amurcoin.crypto
+import com.amurcoin.crypto.SignatureLength
+import com.amurcoin.state.ByteStr
+import com.amurcoin.transaction._
+import com.amurcoin.transaction.smart.script.Script
 import monix.eval.Coeval
 
 import scala.util.{Failure, Success, Try}

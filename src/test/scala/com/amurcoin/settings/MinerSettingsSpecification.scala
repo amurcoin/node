@@ -1,4 +1,4 @@
-package com.wavesplatform.settings
+package com.amurcoin.settings
 
 import com.typesafe.config.ConfigFactory
 import net.ceedubs.ficus.Ficus._

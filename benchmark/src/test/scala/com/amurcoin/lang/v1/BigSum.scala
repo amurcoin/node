@@ -1,7 +1,7 @@
-package com.wavesplatform.lang.v1
+package com.amurcoin.lang.v1
 
-import com.wavesplatform.lang.v1.compiler.Terms.{CONST_LONG, EXPR, FUNCTION_CALL}
-import com.wavesplatform.lang.v1.evaluator.ctx.impl.PureContext
+import com.amurcoin.lang.v1.compiler.Terms.{CONST_LONG, EXPR, FUNCTION_CALL}
+import com.amurcoin.lang.v1.evaluator.ctx.impl.PureContext
 import org.openjdk.jmh.annotations.{Scope, State}
 
 @State(Scope.Benchmark)

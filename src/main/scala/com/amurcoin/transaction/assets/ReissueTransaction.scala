@@ -1,14 +1,14 @@
-package com.wavesplatform.transaction.assets
+package com.amurcoin.transaction.assets
 
 import cats.implicits._
 import com.google.common.primitives.{Bytes, Longs}
-import com.wavesplatform.state.ByteStr
+import com.amurcoin.state.ByteStr
 import monix.eval.Coeval
 import play.api.libs.json.{JsObject, Json}
-import com.wavesplatform.account.PublicKeyAccount
-import com.wavesplatform.transaction.validation._
-import com.wavesplatform.transaction.{AssetId, ProvenTransaction, ValidationError, _}
-import com.wavesplatform.crypto._
+import com.amurcoin.account.PublicKeyAccount
+import com.amurcoin.transaction.validation._
+import com.amurcoin.transaction.{AssetId, ProvenTransaction, ValidationError, _}
+import com.amurcoin.crypto._
 
 trait ReissueTransaction extends ProvenTransaction with VersionedTransaction {
   def assetId: ByteStr

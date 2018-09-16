@@ -1,10 +1,10 @@
-package com.wavesplatform.mining
+package com.amurcoin.mining
 
-import com.wavesplatform.state.Blockchain
-import com.wavesplatform.transaction.assets.exchange.ExchangeTransaction
-import com.wavesplatform.transaction.assets.{BurnTransaction, ReissueTransaction, SponsorFeeTransaction}
-import com.wavesplatform.transaction.transfer.{MassTransferTransaction, TransferTransaction}
-import com.wavesplatform.transaction.{Authorized, Transaction}
+import com.amurcoin.state.Blockchain
+import com.amurcoin.transaction.assets.exchange.ExchangeTransaction
+import com.amurcoin.transaction.assets.{BurnTransaction, ReissueTransaction, SponsorFeeTransaction}
+import com.amurcoin.transaction.transfer.{MassTransferTransaction, TransferTransaction}
+import com.amurcoin.transaction.{Authorized, Transaction}
 
 object TxEstimators {
   abstract class Fn extends ((Blockchain, Transaction) => Long) {

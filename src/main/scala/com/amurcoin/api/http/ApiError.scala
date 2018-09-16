@@ -1,11 +1,11 @@
-package com.wavesplatform.api.http
+package com.amurcoin.api.http
 
 import akka.http.scaladsl.model.{StatusCode, StatusCodes}
-import com.wavesplatform.lang.v1.evaluator.ctx.LazyVal
-import com.wavesplatform.state.diffs.TransactionDiffer.TransactionValidationError
+import com.amurcoin.lang.v1.evaluator.ctx.LazyVal
+import com.amurcoin.state.diffs.TransactionDiffer.TransactionValidationError
 import play.api.libs.json._
-import com.wavesplatform.account.{Address, AddressOrAlias, Alias}
-import com.wavesplatform.transaction.{Transaction, ValidationError}
+import com.amurcoin.account.{Address, AddressOrAlias, Alias}
+import com.amurcoin.transaction.{Transaction, ValidationError}
 
 case class ApiErrorResponse(error: Int, message: String)
 

@@ -1,10 +1,10 @@
-package com.wavesplatform.it.sync.network
+package com.amurcoin.it.sync.network
 
 import com.typesafe.config.{Config, ConfigFactory}
-import com.wavesplatform.it.NodeConfigs.Default
-import com.wavesplatform.it.ReportingTestName
-import com.wavesplatform.it.api.SyncHttpApi._
-import com.wavesplatform.it.transactions.NodesFromDocker
+import com.amurcoin.it.NodeConfigs.Default
+import com.amurcoin.it.ReportingTestName
+import com.amurcoin.it.api.SyncHttpApi._
+import com.amurcoin.it.transactions.NodesFromDocker
 import org.scalatest.{FreeSpec, Matchers}
 
 import scala.concurrent.duration._

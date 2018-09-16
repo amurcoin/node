@@ -1,12 +1,12 @@
-package com.wavesplatform.it
+package com.amurcoin.it
 
-import com.wavesplatform.it.api.AsyncHttpApi._
-import com.wavesplatform.it.util._
+import com.amurcoin.it.api.AsyncHttpApi._
+import com.amurcoin.it.util._
 import org.scalatest._
 import org.scalatest.concurrent.{IntegrationPatience, ScalaFutures}
-import com.wavesplatform.account.PrivateKeyAccount
-import com.wavesplatform.utils.ScorexLogging
-import com.wavesplatform.transaction.transfer._
+import com.amurcoin.account.PrivateKeyAccount
+import com.amurcoin.utils.ScorexLogging
+import com.amurcoin.transaction.transfer._
 
 import scala.concurrent.ExecutionContext.Implicits.global
 import scala.concurrent.Future.traverse

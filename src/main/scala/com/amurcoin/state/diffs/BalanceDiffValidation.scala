@@ -1,12 +1,12 @@
-package com.wavesplatform.state.diffs
+package com.amurcoin.state.diffs
 
 import cats.implicits._
-import com.wavesplatform.account.Address
-import com.wavesplatform.metrics.Instrumented
-import com.wavesplatform.settings.FunctionalitySettings
-import com.wavesplatform.state.{Blockchain, ByteStr, Diff, LeaseBalance, Portfolio}
-import com.wavesplatform.transaction.ValidationError.AccountBalanceError
-import com.wavesplatform.utils.ScorexLogging
+import com.amurcoin.account.Address
+import com.amurcoin.metrics.Instrumented
+import com.amurcoin.settings.FunctionalitySettings
+import com.amurcoin.state.{Blockchain, ByteStr, Diff, LeaseBalance, Portfolio}
+import com.amurcoin.transaction.ValidationError.AccountBalanceError
+import com.amurcoin.utils.ScorexLogging
 
 import scala.util.{Left, Right}
 

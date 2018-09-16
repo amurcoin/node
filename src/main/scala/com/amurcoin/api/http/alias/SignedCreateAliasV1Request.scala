@@ -1,11 +1,11 @@
-package com.wavesplatform.api.http.alias
+package com.amurcoin.api.http.alias
 
 import io.swagger.annotations.ApiModelProperty
 import play.api.libs.json.{Format, Json}
-import com.wavesplatform.account.{Alias, PublicKeyAccount}
-import com.wavesplatform.api.http.BroadcastRequest
-import com.wavesplatform.transaction.TransactionParsers.SignatureStringLength
-import com.wavesplatform.transaction.{CreateAliasTransactionV1, ValidationError}
+import com.amurcoin.account.{Alias, PublicKeyAccount}
+import com.amurcoin.api.http.BroadcastRequest
+import com.amurcoin.transaction.TransactionParsers.SignatureStringLength
+import com.amurcoin.transaction.{CreateAliasTransactionV1, ValidationError}
 
 case class SignedCreateAliasV1Request(@ApiModelProperty(value = "Base58 encoded sender public key", required = true)
                                       senderPublicKey: String,

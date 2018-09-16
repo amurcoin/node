@@ -1,14 +1,14 @@
-package com.wavesplatform.transaction
+package com.amurcoin.transaction
 
-import com.wavesplatform.TransactionGen
-import com.wavesplatform.state.{ByteStr, EitherExt2}
+import com.amurcoin.TransactionGen
+import com.amurcoin.state.{ByteStr, EitherExt2}
 import org.scalatest._
 import org.scalatest.prop.PropertyChecks
 import play.api.libs.json.Json
-import com.wavesplatform.account.{Address, PublicKeyAccount}
-import com.wavesplatform.transaction.transfer._
-import com.wavesplatform.state.diffs._
-import com.wavesplatform.utils.Base58
+import com.amurcoin.account.{Address, PublicKeyAccount}
+import com.amurcoin.transaction.transfer._
+import com.amurcoin.state.diffs._
+import com.amurcoin.utils.Base58
 
 class TransferTransactionV1Specification extends PropSpec with PropertyChecks with Matchers with TransactionGen {
 

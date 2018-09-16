@@ -1,12 +1,12 @@
-package com.wavesplatform.state
+package com.amurcoin.state
 
 import cats.Monoid
-import com.wavesplatform.block.Block
-import com.wavesplatform.db.WithState
-import com.wavesplatform.lagonaki.mocks.TestBlock
-import com.wavesplatform.mining.MiningConstraint
-import com.wavesplatform.settings.{FunctionalitySettings, TestFunctionalitySettings => TFS}
-import com.wavesplatform.transaction.{Transaction, ValidationError}
+import com.amurcoin.block.Block
+import com.amurcoin.db.WithState
+import com.amurcoin.lagonaki.mocks.TestBlock
+import com.amurcoin.mining.MiningConstraint
+import com.amurcoin.settings.{FunctionalitySettings, TestFunctionalitySettings => TFS}
+import com.amurcoin.transaction.{Transaction, ValidationError}
 import org.scalatest.Matchers
 
 package object diffs extends WithState with Matchers {

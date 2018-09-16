@@ -1,7 +1,7 @@
-package com.wavesplatform.settings
+package com.amurcoin.settings
 
 import com.typesafe.config.ConfigFactory
-import com.wavesplatform.matcher.MatcherSettings
+import com.amurcoin.matcher.MatcherSettings
 import org.scalatest.{FlatSpec, Matchers}
 
 import scala.concurrent.duration._

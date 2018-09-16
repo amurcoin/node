@@ -1,16 +1,16 @@
-package com.wavesplatform.transaction
+package com.amurcoin.transaction
 
-import com.wavesplatform.TransactionGen
-import com.wavesplatform.state.{ByteStr, EitherExt2}
+import com.amurcoin.TransactionGen
+import com.amurcoin.state.{ByteStr, EitherExt2}
 import org.scalacheck.Arbitrary
 import org.scalatest._
 import org.scalatest.prop.PropertyChecks
 import play.api.libs.json.Json
-import com.wavesplatform.account.PublicKeyAccount
-import com.wavesplatform.transaction.ValidationError.GenericError
-import com.wavesplatform.transaction.transfer.MassTransferTransaction.{MaxTransferCount, ParsedTransfer, Transfer}
-import com.wavesplatform.transaction.transfer._
-import com.wavesplatform.utils.Base58
+import com.amurcoin.account.PublicKeyAccount
+import com.amurcoin.transaction.ValidationError.GenericError
+import com.amurcoin.transaction.transfer.MassTransferTransaction.{MaxTransferCount, ParsedTransfer, Transfer}
+import com.amurcoin.transaction.transfer._
+import com.amurcoin.utils.Base58
 
 class MassTransferTransactionSpecification extends PropSpec with PropertyChecks with Matchers with TransactionGen {
 

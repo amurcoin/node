@@ -1,14 +1,14 @@
-package com.wavesplatform.generator.utils
+package com.amurcoin.generator.utils
 
 import java.util.concurrent.ThreadLocalRandom
 
-import com.wavesplatform.generator.utils.Implicits._
-import com.wavesplatform.state.{BinaryDataEntry, BooleanDataEntry, ByteStr, DataEntry, IntegerDataEntry, StringDataEntry}
-import com.wavesplatform.account.{Address, PrivateKeyAccount}
-import com.wavesplatform.transaction.smart.script.{Script, ScriptCompiler}
-import com.wavesplatform.transaction.transfer.MassTransferTransaction.ParsedTransfer
-import com.wavesplatform.transaction.transfer._
-import com.wavesplatform.transaction.{Proofs, Transaction}
+import com.amurcoin.generator.utils.Implicits._
+import com.amurcoin.state.{BinaryDataEntry, BooleanDataEntry, ByteStr, DataEntry, IntegerDataEntry, StringDataEntry}
+import com.amurcoin.account.{Address, PrivateKeyAccount}
+import com.amurcoin.transaction.smart.script.{Script, ScriptCompiler}
+import com.amurcoin.transaction.transfer.MassTransferTransaction.ParsedTransfer
+import com.amurcoin.transaction.transfer._
+import com.amurcoin.transaction.{Proofs, Transaction}
 import scorex.crypto.signatures.Curve25519._
 
 object Gen {

@@ -1,8 +1,8 @@
-package com.wavesplatform.settings
+package com.amurcoin.settings
 
 import com.typesafe.config.Config
-import com.wavesplatform.network.InvalidBlockStorageImpl.InvalidBlockStorageSettings
-import com.wavesplatform.settings.SynchronizationSettings._
+import com.amurcoin.network.InvalidBlockStorageImpl.InvalidBlockStorageSettings
+import com.amurcoin.settings.SynchronizationSettings._
 import net.ceedubs.ficus.Ficus._
 import net.ceedubs.ficus.readers.ArbitraryTypeReader._
 

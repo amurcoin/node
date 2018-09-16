@@ -1,12 +1,12 @@
-package com.wavesplatform.state.diffs
+package com.amurcoin.state.diffs
 
 import cats.implicits._
-import com.wavesplatform.state._
-import com.wavesplatform.account.Address
-import com.wavesplatform.transaction.ValidationError
-import com.wavesplatform.transaction.ValidationError.{GenericError, Validation}
-import com.wavesplatform.transaction.transfer.MassTransferTransaction.ParsedTransfer
-import com.wavesplatform.transaction.transfer._
+import com.amurcoin.state._
+import com.amurcoin.account.Address
+import com.amurcoin.transaction.ValidationError
+import com.amurcoin.transaction.ValidationError.{GenericError, Validation}
+import com.amurcoin.transaction.transfer.MassTransferTransaction.ParsedTransfer
+import com.amurcoin.transaction.transfer._
 
 object MassTransferTransactionDiff {
 

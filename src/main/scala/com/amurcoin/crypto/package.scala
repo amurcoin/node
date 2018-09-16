@@ -1,6 +1,6 @@
-package com.wavesplatform
+package com.amurcoin
 
-import com.wavesplatform.account.PrivateKeyAccount
+import com.amurcoin.account.PrivateKeyAccount
 import scorex.crypto.hash.{Blake2b256, Keccak256}
 import scorex.crypto.signatures.{Curve25519, PrivateKey, PublicKey, Signature}
 

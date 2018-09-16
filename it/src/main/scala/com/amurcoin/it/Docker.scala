@@ -1,4 +1,4 @@
-package com.wavesplatform.it
+package com.amurcoin.it
 
 import java.io.{FileOutputStream, IOException}
 import java.net.{InetAddress, InetSocketAddress, URL}
@@ -17,10 +17,10 @@ import com.spotify.docker.client.messages._
 import com.spotify.docker.client.{DefaultDockerClient, DockerClient}
 import com.typesafe.config.ConfigFactory._
 import com.typesafe.config.{Config, ConfigRenderOptions}
-import com.wavesplatform.it.api.AsyncHttpApi._
-import com.wavesplatform.it.util.GlobalTimer.{instance => timer}
-import com.wavesplatform.settings._
-import com.wavesplatform.state.EitherExt2
+import com.amurcoin.it.api.AsyncHttpApi._
+import com.amurcoin.it.util.GlobalTimer.{instance => timer}
+import com.amurcoin.settings._
+import com.amurcoin.state.EitherExt2
 import monix.eval.Coeval
 import net.ceedubs.ficus.Ficus._
 import net.ceedubs.ficus.readers.ArbitraryTypeReader._
@@ -28,9 +28,9 @@ import org.apache.commons.compress.archivers.ArchiveStreamFactory
 import org.apache.commons.compress.archivers.tar.TarArchiveEntry
 import org.apache.commons.io.IOUtils
 import org.asynchttpclient.Dsl._
-import com.wavesplatform.account.AddressScheme
-import com.wavesplatform.utils.ScorexLogging
-import com.wavesplatform.block.Block
+import com.amurcoin.account.AddressScheme
+import com.amurcoin.utils.ScorexLogging
+import com.amurcoin.block.Block
 
 import scala.collection.JavaConverters._
 import scala.concurrent.ExecutionContext.Implicits.global
@@ -257,7 +257,7 @@ class Docker(suiteConfig: Config = empty, tag: String = "", enableProfiling: Boo
 
       val containerConfig = ContainerConfig
         .builder()
-        .image("com.wavesplatform/it:latest")
+        .image("com.amurcoin/it:latest")
         .exposedPorts(s"$ProfilerPort", restApiPort, networkPort, matcherApiPort)
         .networkingConfig(ContainerConfig.NetworkingConfig.create(Map(
           wavesNetwork.name() -> endpointConfigFor(nodeName)
@@ -565,7 +565,7 @@ class Docker(suiteConfig: Config = empty, tag: String = "", enableProfiling: Boo
         "sh",
         "-c",
         s"""rm /opt/waves/start-waves.sh && echo '#!/bin/bash' >> /opt/waves/start-waves.sh &&
-             |echo 'java ${renderProperties(asProperties(genesisOverride))} -cp /opt/waves/waves.jar com.wavesplatform.matcher.MigrationTool /opt/waves/template.conf cb > /opt/waves/migration-tool.log' >> /opt/waves/start-waves.sh &&
+             |echo 'java ${renderProperties(asProperties(genesisOverride))} -cp /opt/waves/waves.jar com.amurcoin.matcher.MigrationTool /opt/waves/template.conf cb > /opt/waves/migration-tool.log' >> /opt/waves/start-waves.sh &&
              |echo 'less /opt/waves/migration-tool.log | grep -ir completed && cp /opt/waves/start-waves.sh.bk /opt/waves/start-waves.sh && chmod +x /opt/waves/start-waves.sh' >> /opt/waves/start-waves.sh &&
              |chmod +x /opt/waves/start-waves.sh
            """.stripMargin

@@ -1,14 +1,14 @@
-package com.wavesplatform.state.diffs.smart
+package com.amurcoin.state.diffs.smart
 
-import com.wavesplatform.lang.v1.compiler.CompilerV1
-import com.wavesplatform.lang.v1.evaluator.EvaluatorV1
-import com.wavesplatform.lang.v1.parser.Parser
-import com.wavesplatform.state.ByteStr
-import com.wavesplatform.transaction.DataTransaction
-import com.wavesplatform.transaction.smart.BlockchainContext
-import com.wavesplatform.transaction.smart.BlockchainContext.In
-import com.wavesplatform.transaction.transfer.TransferTransaction
-import com.wavesplatform.utils.dummyCompilerContext
+import com.amurcoin.lang.v1.compiler.CompilerV1
+import com.amurcoin.lang.v1.evaluator.EvaluatorV1
+import com.amurcoin.lang.v1.parser.Parser
+import com.amurcoin.state.ByteStr
+import com.amurcoin.transaction.DataTransaction
+import com.amurcoin.transaction.smart.BlockchainContext
+import com.amurcoin.transaction.smart.BlockchainContext.In
+import com.amurcoin.transaction.transfer.TransferTransaction
+import com.amurcoin.utils.dummyCompilerContext
 import fastparse.core.Parsed.Success
 import monix.eval.Coeval
 

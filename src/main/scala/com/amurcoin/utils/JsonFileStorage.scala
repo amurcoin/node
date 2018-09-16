@@ -1,4 +1,4 @@
-package com.wavesplatform.utils
+package com.amurcoin.utils
 
 import java.io.{File, PrintWriter}
 import javax.crypto.Cipher

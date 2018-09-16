@@ -1,9 +1,9 @@
-package com.wavesplatform.it.transactions
+package com.amurcoin.it.transactions
 
 import java.io.File
 
 import com.typesafe.config.{Config, ConfigFactory}
-import com.wavesplatform.it._
+import com.amurcoin.it._
 import monix.eval.Coeval
 import org.scalatest.{BeforeAndAfterAll, FunSuite}
 

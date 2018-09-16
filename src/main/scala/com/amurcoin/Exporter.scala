@@ -1,16 +1,16 @@
-package com.wavesplatform
+package com.amurcoin
 
 import java.io.{BufferedOutputStream, File, FileOutputStream, OutputStream}
 import java.nio.charset.StandardCharsets
 
 import com.google.common.primitives.Ints
 import com.typesafe.config.ConfigFactory
-import com.wavesplatform.account.AddressScheme
-import com.wavesplatform.db.openDB
-import com.wavesplatform.history.StorageFactory
-import com.wavesplatform.settings.{WavesSettings, loadConfig}
-import com.wavesplatform.state.Blockchain
-import com.wavesplatform.utils._
+import com.amurcoin.account.AddressScheme
+import com.amurcoin.db.openDB
+import com.amurcoin.history.StorageFactory
+import com.amurcoin.settings.{WavesSettings, loadConfig}
+import com.amurcoin.state.Blockchain
+import com.amurcoin.utils._
 import org.slf4j.bridge.SLF4JBridgeHandler
 
 import scala.util.{Failure, Success, Try}

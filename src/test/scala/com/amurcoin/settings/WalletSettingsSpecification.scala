@@ -1,7 +1,7 @@
-package com.wavesplatform.settings
+package com.amurcoin.settings
 
 import com.typesafe.config.ConfigFactory
-import com.wavesplatform.state.ByteStr
+import com.amurcoin.state.ByteStr
 import net.ceedubs.ficus.Ficus._
 import net.ceedubs.ficus.readers.ArbitraryTypeReader._
 import org.scalatest.{FlatSpec, Matchers}

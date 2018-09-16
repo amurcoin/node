@@ -1,12 +1,12 @@
-package com.wavesplatform.transaction.lease
+package com.amurcoin.transaction.lease
 
 import com.google.common.primitives.Bytes
-import com.wavesplatform.crypto
-import com.wavesplatform.state.ByteStr
+import com.amurcoin.crypto
+import com.amurcoin.state.ByteStr
 import monix.eval.Coeval
-import com.wavesplatform.account.{AddressOrAlias, PrivateKeyAccount, PublicKeyAccount}
-import com.wavesplatform.transaction._
-import com.wavesplatform.crypto.SignatureLength
+import com.amurcoin.account.{AddressOrAlias, PrivateKeyAccount, PublicKeyAccount}
+import com.amurcoin.transaction._
+import com.amurcoin.crypto.SignatureLength
 import scala.util.{Failure, Success, Try}
 
 case class LeaseTransactionV1 private (sender: PublicKeyAccount,

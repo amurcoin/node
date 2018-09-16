@@ -1,18 +1,18 @@
-package com.wavesplatform.api.http
+package com.amurcoin.api.http
 
 import akka.http.scaladsl.marshalling.ToResponseMarshallable
 import akka.http.scaladsl.server.{Route, StandardRoute}
-import com.wavesplatform.network._
-import com.wavesplatform.settings.RestAPISettings
-import com.wavesplatform.state.{Blockchain, ByteStr}
+import com.amurcoin.network._
+import com.amurcoin.settings.RestAPISettings
+import com.amurcoin.state.{Blockchain, ByteStr}
 import io.netty.channel.group.ChannelGroup
 import io.swagger.annotations._
 import javax.ws.rs.Path
 import monix.eval.Task
 import monix.execution.Scheduler.Implicits.global
 import play.api.libs.json._
-import com.wavesplatform.block.BlockHeader
-import com.wavesplatform.transaction._
+import com.amurcoin.block.BlockHeader
+import com.amurcoin.transaction._
 
 import scala.concurrent._
 import scala.util.Try
@@ -247,7 +247,7 @@ case class BlocksApiRoute(settings: RestAPISettings,
                            value = "Checkpoint message",
                            required = true,
                            paramType = "body",
-                           dataType = "com.wavesplatform.network.Checkpoint")
+                           dataType = "com.amurcoin.network.Checkpoint")
     ))
   @ApiResponses(
     Array(

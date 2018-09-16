@@ -1,9 +1,9 @@
-package com.wavesplatform.http
+package com.amurcoin.http
 
-import com.wavesplatform.api.http.ApiError
-import com.wavesplatform.network._
-import com.wavesplatform.transaction.{Transaction, ValidationError}
-import com.wavesplatform.utx.UtxPool
+import com.amurcoin.api.http.ApiError
+import com.amurcoin.network._
+import com.amurcoin.transaction.{Transaction, ValidationError}
+import com.amurcoin.utx.UtxPool
 import io.netty.channel.group.ChannelGroup
 
 import scala.concurrent.Future

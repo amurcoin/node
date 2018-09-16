@@ -1,8 +1,8 @@
-package com.wavesplatform.matcher.fixtures
+package com.amurcoin.matcher.fixtures
 
 import akka.persistence.PersistentActor
 
-import com.wavesplatform.matcher.fixtures.RestartableActor.{RestartActor, RestartActorException}
+import com.amurcoin.matcher.fixtures.RestartableActor.{RestartActor, RestartActorException}
 
 trait RestartableActor extends PersistentActor {
 

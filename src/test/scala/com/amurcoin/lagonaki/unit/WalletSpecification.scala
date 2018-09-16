@@ -1,11 +1,11 @@
-package com.wavesplatform.lagonaki.unit
+package com.amurcoin.lagonaki.unit
 
 import java.io.File
 import java.nio.file.Files
 
-import com.wavesplatform.settings.WalletSettings
-import com.wavesplatform.state.ByteStr
-import com.wavesplatform.wallet.Wallet
+import com.amurcoin.settings.WalletSettings
+import com.amurcoin.state.ByteStr
+import com.amurcoin.wallet.Wallet
 import org.scalatest.{FunSuite, Matchers}
 import cats.syntax.option._
 

@@ -1,3 +1,3 @@
-package com.wavesplatform.lang.v1.task
+package com.amurcoin.lang.v1.task
 
 object imports extends TaskMFunctions with TaskMInstances

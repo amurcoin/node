@@ -1,22 +1,22 @@
-package com.wavesplatform.matcher.market
+package com.amurcoin.matcher.market
 
 import akka.actor.{Actor, Props}
 import akka.http.scaladsl.model.{StatusCode, StatusCodes}
-import com.wavesplatform.account.Address
-import com.wavesplatform.matcher.MatcherSettings
-import com.wavesplatform.matcher.api.{BadMatcherResponse, DBUtils, MatcherResponse}
-import com.wavesplatform.matcher.market.OrderBookActor.CancelOrder
-import com.wavesplatform.matcher.market.OrderHistoryActor.{ExpirableOrderHistoryRequest, _}
-import com.wavesplatform.matcher.model.Events.{OrderAdded, OrderCanceled, OrderExecuted}
-import com.wavesplatform.matcher.model._
-import com.wavesplatform.metrics.TimerExt
-import com.wavesplatform.state.ByteStr
-import com.wavesplatform.transaction.AssetAcc
-import com.wavesplatform.transaction.ValidationError.GenericError
-import com.wavesplatform.transaction.assets.exchange.{AssetPair, Order}
-import com.wavesplatform.utils.NTP
-import com.wavesplatform.utx.UtxPool
-import com.wavesplatform.wallet.Wallet
+import com.amurcoin.account.Address
+import com.amurcoin.matcher.MatcherSettings
+import com.amurcoin.matcher.api.{BadMatcherResponse, DBUtils, MatcherResponse}
+import com.amurcoin.matcher.market.OrderBookActor.CancelOrder
+import com.amurcoin.matcher.market.OrderHistoryActor.{ExpirableOrderHistoryRequest, _}
+import com.amurcoin.matcher.model.Events.{OrderAdded, OrderCanceled, OrderExecuted}
+import com.amurcoin.matcher.model._
+import com.amurcoin.metrics.TimerExt
+import com.amurcoin.state.ByteStr
+import com.amurcoin.transaction.AssetAcc
+import com.amurcoin.transaction.ValidationError.GenericError
+import com.amurcoin.transaction.assets.exchange.{AssetPair, Order}
+import com.amurcoin.utils.NTP
+import com.amurcoin.utx.UtxPool
+import com.amurcoin.wallet.Wallet
 import kamon.Kamon
 import org.iq80.leveldb.DB
 import play.api.libs.json._

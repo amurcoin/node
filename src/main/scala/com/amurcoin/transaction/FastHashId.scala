@@ -1,7 +1,7 @@
-package com.wavesplatform.transaction
+package com.amurcoin.transaction
 
-import com.wavesplatform.crypto
-import com.wavesplatform.state.ByteStr
+import com.amurcoin.crypto
+import com.amurcoin.state.ByteStr
 import monix.eval.Coeval
 
 trait FastHashId extends ProvenTransaction {

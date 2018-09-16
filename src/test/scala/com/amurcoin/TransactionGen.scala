@@ -1,30 +1,30 @@
-package com.wavesplatform
+package com.amurcoin
 
 import cats.syntax.semigroup._
-import com.wavesplatform.lang.Global
-import com.wavesplatform.lang.v1.compiler.CompilerV1
-import com.wavesplatform.lang.v1.compiler.Terms._
-import com.wavesplatform.lang.v1.evaluator.ctx.impl.{CryptoContext, PureContext}
-import com.wavesplatform.lang.v1.testing.ScriptGen
-import com.wavesplatform.settings.Constants
-import com.wavesplatform.state._
-import com.wavesplatform.state.diffs.ENOUGH_AMT
+import com.amurcoin.lang.Global
+import com.amurcoin.lang.v1.compiler.CompilerV1
+import com.amurcoin.lang.v1.compiler.Terms._
+import com.amurcoin.lang.v1.evaluator.ctx.impl.{CryptoContext, PureContext}
+import com.amurcoin.lang.v1.testing.ScriptGen
+import com.amurcoin.settings.Constants
+import com.amurcoin.state._
+import com.amurcoin.state.diffs.ENOUGH_AMT
 import org.scalacheck.Gen.{alphaLowerChar, alphaUpperChar, frequency, numChar}
 import org.scalacheck.{Arbitrary, Gen}
 import org.scalatest.{BeforeAndAfterAll, Suite}
-import com.wavesplatform.account.PublicKeyAccount._
-import com.wavesplatform.account._
-import com.wavesplatform.transaction._
-import com.wavesplatform.transaction.assets._
-import com.wavesplatform.transaction.assets.exchange._
-import com.wavesplatform.transaction.lease._
-import com.wavesplatform.transaction.smart.SetScriptTransaction
-import com.wavesplatform.transaction.smart.script.Script
-import com.wavesplatform.transaction.smart.script.v1.ScriptV1
-import com.wavesplatform.transaction.transfer.MassTransferTransaction.ParsedTransfer
-import com.wavesplatform.transaction.transfer._
+import com.amurcoin.account.PublicKeyAccount._
+import com.amurcoin.account._
+import com.amurcoin.transaction._
+import com.amurcoin.transaction.assets._
+import com.amurcoin.transaction.assets.exchange._
+import com.amurcoin.transaction.lease._
+import com.amurcoin.transaction.smart.SetScriptTransaction
+import com.amurcoin.transaction.smart.script.Script
+import com.amurcoin.transaction.smart.script.v1.ScriptV1
+import com.amurcoin.transaction.transfer.MassTransferTransaction.ParsedTransfer
+import com.amurcoin.transaction.transfer._
 import MassTransferTransaction.MaxTransferCount
-import com.wavesplatform.utils.TimeImpl
+import com.amurcoin.utils.TimeImpl
 
 import scala.util.Random
 

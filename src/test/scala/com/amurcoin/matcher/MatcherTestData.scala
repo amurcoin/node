@@ -1,16 +1,16 @@
-package com.wavesplatform.matcher
+package com.amurcoin.matcher
 
 import com.google.common.primitives.{Bytes, Ints}
 import com.typesafe.config.ConfigFactory
-import com.wavesplatform.crypto
-import com.wavesplatform.matcher.model.MatcherModel.Price
-import com.wavesplatform.matcher.model.{BuyLimitOrder, SellLimitOrder}
-import com.wavesplatform.settings.loadConfig
-import com.wavesplatform.state.ByteStr
+import com.amurcoin.crypto
+import com.amurcoin.matcher.model.MatcherModel.Price
+import com.amurcoin.matcher.model.{BuyLimitOrder, SellLimitOrder}
+import com.amurcoin.settings.loadConfig
+import com.amurcoin.state.ByteStr
 import org.scalacheck.{Arbitrary, Gen}
-import com.wavesplatform.account.PrivateKeyAccount
-import com.wavesplatform.utils.NTP
-import com.wavesplatform.transaction.assets.exchange.{AssetPair, Order, OrderType}
+import com.amurcoin.account.PrivateKeyAccount
+import com.amurcoin.utils.NTP
+import com.amurcoin.transaction.assets.exchange.{AssetPair, Order, OrderType}
 
 trait MatcherTestData {
   private val signatureSize = 32

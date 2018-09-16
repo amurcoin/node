@@ -1,17 +1,17 @@
-package com.wavesplatform.it.sync.smartcontract
+package com.amurcoin.it.sync.smartcontract
 
-import com.wavesplatform.account.{AddressScheme, Alias}
-import com.wavesplatform.it.api.SyncHttpApi._
-import com.wavesplatform.it.sync.minFee
-import com.wavesplatform.it.transactions.BaseTransactionSuite
-import com.wavesplatform.lang.v1.FunctionHeader
-import com.wavesplatform.lang.v1.compiler.{CompilerV1, Terms}
-import com.wavesplatform.state._
-import com.wavesplatform.transaction.CreateAliasTransactionV2
-import com.wavesplatform.transaction.smart.SetScriptTransaction
-import com.wavesplatform.transaction.smart.script.v1.ScriptV1
-import com.wavesplatform.transaction.transfer.TransferTransactionV2
-import com.wavesplatform.utils.dummyCompilerContext
+import com.amurcoin.account.{AddressScheme, Alias}
+import com.amurcoin.it.api.SyncHttpApi._
+import com.amurcoin.it.sync.minFee
+import com.amurcoin.it.transactions.BaseTransactionSuite
+import com.amurcoin.lang.v1.FunctionHeader
+import com.amurcoin.lang.v1.compiler.{CompilerV1, Terms}
+import com.amurcoin.state._
+import com.amurcoin.transaction.CreateAliasTransactionV2
+import com.amurcoin.transaction.smart.SetScriptTransaction
+import com.amurcoin.transaction.smart.script.v1.ScriptV1
+import com.amurcoin.transaction.transfer.TransferTransactionV2
+import com.amurcoin.utils.dummyCompilerContext
 import org.scalatest.CancelAfterFailure
 import play.api.libs.json.JsNumber
 

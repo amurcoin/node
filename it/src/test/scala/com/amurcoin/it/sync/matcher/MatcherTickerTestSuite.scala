@@ -1,19 +1,19 @@
-package com.wavesplatform.it.sync.matcher
+package com.amurcoin.it.sync.matcher
 
 import com.typesafe.config.{Config, ConfigFactory}
-import com.wavesplatform.account.PrivateKeyAccount
-import com.wavesplatform.api.http.assets.SignedIssueV1Request
-import com.wavesplatform.it.ReportingTestName
-import com.wavesplatform.it.api.SyncHttpApi._
-import com.wavesplatform.it.api.SyncMatcherHttpApi
-import com.wavesplatform.it.api.SyncMatcherHttpApi._
-import com.wavesplatform.it.sync.CustomFeeTransactionSuite.defaultAssetQuantity
-import com.wavesplatform.it.transactions.NodesFromDocker
-import com.wavesplatform.it.util._
-import com.wavesplatform.transaction.AssetId
-import com.wavesplatform.transaction.assets.IssueTransactionV1
-import com.wavesplatform.transaction.assets.exchange.{AssetPair, OrderType}
-import com.wavesplatform.utils.Base58
+import com.amurcoin.account.PrivateKeyAccount
+import com.amurcoin.api.http.assets.SignedIssueV1Request
+import com.amurcoin.it.ReportingTestName
+import com.amurcoin.it.api.SyncHttpApi._
+import com.amurcoin.it.api.SyncMatcherHttpApi
+import com.amurcoin.it.api.SyncMatcherHttpApi._
+import com.amurcoin.it.sync.CustomFeeTransactionSuite.defaultAssetQuantity
+import com.amurcoin.it.transactions.NodesFromDocker
+import com.amurcoin.it.util._
+import com.amurcoin.transaction.AssetId
+import com.amurcoin.transaction.assets.IssueTransactionV1
+import com.amurcoin.transaction.assets.exchange.{AssetPair, OrderType}
+import com.amurcoin.utils.Base58
 import org.scalatest._
 
 import scala.util.Random
@@ -45,12 +45,12 @@ class MatcherTickerTestSuite
     }
 
     "status of empty orderbook" in {
-//    TODO: add error message after fix of https://wavesplatform.atlassian.net/browse/NODE-1151
+//    TODO: add error message after fix of https://amurcoin.atlassian.net/browse/NODE-1151
 //      SyncMatcherHttpApi.assertNotFoundAndMessage(matcherNode.marketStatus(wavesUsdPair), s"")
     }
 
     "error of non-existed order" in {
-      //TODO: add error message after fix of https://wavesplatform.atlassian.net/browse/NODE-1151
+      //TODO: add error message after fix of https://amurcoin.atlassian.net/browse/NODE-1151
 //      SyncMatcherHttpApi.assertNotFoundAndMessage(matcherNode.orderStatus(IssueUsdTx.id().toString, wavesUsdPair), s"")
     }
 
@@ -66,7 +66,7 @@ class MatcherTickerTestSuite
           .getHeader("Location")
           .contains(s"AMURCOIN/${usdWavesPair.amountAssetStr}"))
 
-      //TODO: add error message after fix of https://wavesplatform.atlassian.net/browse/NODE-1151
+      //TODO: add error message after fix of https://amurcoin.atlassian.net/browse/NODE-1151
 //      SyncMatcherHttpApi.assertNotFoundAndMessage(matcherNode.placeOrder(aliceNode, usdWavesPair, OrderType.BUY, 200, 1.waves), "")
     }
 
@@ -161,7 +161,7 @@ class MatcherTickerTestSuite
 object MatcherTickerTestSuite {
 
   import ConfigFactory._
-  import com.wavesplatform.it.NodeConfigs._
+  import com.amurcoin.it.NodeConfigs._
 
   private val ForbiddenAssetId = "FdbnAsset"
   val Decimals: Byte           = 2

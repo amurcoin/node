@@ -1,11 +1,11 @@
-package com.wavesplatform.state.diffs.smart.predef
+package com.amurcoin.state.diffs.smart.predef
 
-import com.wavesplatform.state._
-import com.wavesplatform.{NoShrink, TransactionGen}
+import com.amurcoin.state._
+import com.amurcoin.{NoShrink, TransactionGen}
 import org.scalatest.{Matchers, PropSpec}
 import org.scalatest.prop.PropertyChecks
 import scodec.bits.ByteVector
-import com.wavesplatform.account.Address
+import com.amurcoin.account.Address
 
 class AddressTest extends PropSpec with PropertyChecks with Matchers with TransactionGen with NoShrink {
   property("should calculate address from public key") {

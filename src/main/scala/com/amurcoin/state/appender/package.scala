@@ -1,18 +1,18 @@
-package com.wavesplatform.state
+package com.amurcoin.state
 
-import com.wavesplatform.consensus.{GeneratingBalanceProvider, PoSSelector, TransactionsOrdering}
-import com.wavesplatform.mining._
-import com.wavesplatform.network._
-import com.wavesplatform.settings.{FunctionalitySettings, WavesSettings}
-import com.wavesplatform.utx.UtxPool
+import com.amurcoin.consensus.{GeneratingBalanceProvider, PoSSelector, TransactionsOrdering}
+import com.amurcoin.mining._
+import com.amurcoin.network._
+import com.amurcoin.settings.{FunctionalitySettings, WavesSettings}
+import com.amurcoin.utx.UtxPool
 import io.netty.channel.Channel
 import io.netty.channel.group.ChannelGroup
 import monix.eval.Task
-import com.wavesplatform.block.Block
-import com.wavesplatform.transaction.ValidationError.{BlockAppendError, BlockFromFuture, GenericError}
-import com.wavesplatform.transaction._
+import com.amurcoin.block.Block
+import com.amurcoin.transaction.ValidationError.{BlockAppendError, BlockFromFuture, GenericError}
+import com.amurcoin.transaction._
 import cats.implicits._
-import com.wavesplatform.utils.{ScorexLogging, Time}
+import com.amurcoin.utils.{ScorexLogging, Time}
 
 import scala.util.{Left, Right}
 

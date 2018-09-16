@@ -1,11 +1,11 @@
-package com.wavesplatform.transaction.api.http.assets
+package com.amurcoin.transaction.api.http.assets
 
-import com.wavesplatform.state.{ByteStr, EitherExt2}
-import com.wavesplatform.utils.Base58
+import com.amurcoin.state.{ByteStr, EitherExt2}
+import com.amurcoin.utils.Base58
 import org.scalatest.{FunSuite, Matchers}
 import play.api.libs.json.Json
-import com.wavesplatform.api.http.assets._
-import com.wavesplatform.transaction.Proofs
+import com.amurcoin.api.http.assets._
+import com.amurcoin.transaction.Proofs
 
 class SignedRequestsTest extends FunSuite with Matchers {
 
@@ -163,7 +163,7 @@ class SignedRequestsTest extends FunSuite with Matchers {
   }
 
   test("SponsorFeeRequest json parsing works") {
-    import com.wavesplatform.api.http.assets.SponsorFeeRequest._
+    import com.amurcoin.api.http.assets.SponsorFeeRequest._
 
     val One = 100000000L
     val js1 = s"""{

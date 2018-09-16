@@ -1,11 +1,11 @@
-package com.wavesplatform.transaction
+package com.amurcoin.transaction
 
-import com.wavesplatform.TransactionGen
-import com.wavesplatform.state.EitherExt2
+import com.amurcoin.TransactionGen
+import com.amurcoin.state.EitherExt2
 import org.scalatest.prop.PropertyChecks
 import org.scalatest.{Matchers, PropSpec}
-import com.wavesplatform.account.PrivateKeyAccount
-import com.wavesplatform.transaction.transfer._
+import com.amurcoin.account.PrivateKeyAccount
+import com.amurcoin.transaction.transfer._
 
 class TransactionSpecification extends PropSpec with PropertyChecks with Matchers with TransactionGen {
 

@@ -1,14 +1,14 @@
-package com.wavesplatform.matcher.model
+package com.amurcoin.matcher.model
 
 import com.google.common.base.Charsets
-import com.wavesplatform.WithDB
-import com.wavesplatform.account.{Address, PrivateKeyAccount}
-import com.wavesplatform.matcher.MatcherTestData
-import com.wavesplatform.matcher.api.DBUtils
-import com.wavesplatform.matcher.model.Events.{OrderAdded, OrderCanceled, OrderExecuted}
-import com.wavesplatform.state.ByteStr
-import com.wavesplatform.transaction.AssetId
-import com.wavesplatform.transaction.assets.exchange.{AssetPair, Order}
+import com.amurcoin.WithDB
+import com.amurcoin.account.{Address, PrivateKeyAccount}
+import com.amurcoin.matcher.MatcherTestData
+import com.amurcoin.matcher.api.DBUtils
+import com.amurcoin.matcher.model.Events.{OrderAdded, OrderCanceled, OrderExecuted}
+import com.amurcoin.state.ByteStr
+import com.amurcoin.transaction.AssetId
+import com.amurcoin.transaction.assets.exchange.{AssetPair, Order}
 import org.scalatest._
 import org.scalatest.prop.PropertyChecks
 

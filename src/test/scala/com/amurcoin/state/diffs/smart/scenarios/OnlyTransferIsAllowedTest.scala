@@ -1,15 +1,15 @@
-package com.wavesplatform.state.diffs.smart.scenarios
+package com.amurcoin.state.diffs.smart.scenarios
 
-import com.wavesplatform.lang.v1.compiler.CompilerV1
-import com.wavesplatform.lang.v1.parser.Parser
-import com.wavesplatform.state._
-import com.wavesplatform.state.diffs._
-import com.wavesplatform.state.diffs.smart._
-import com.wavesplatform.utils.dummyCompilerContext
-import com.wavesplatform.{NoShrink, TransactionGen}
+import com.amurcoin.lang.v1.compiler.CompilerV1
+import com.amurcoin.lang.v1.parser.Parser
+import com.amurcoin.state._
+import com.amurcoin.state.diffs._
+import com.amurcoin.state.diffs.smart._
+import com.amurcoin.utils.dummyCompilerContext
+import com.amurcoin.{NoShrink, TransactionGen}
 import org.scalatest.prop.PropertyChecks
 import org.scalatest.{Matchers, PropSpec}
-import com.wavesplatform.lagonaki.mocks.TestBlock
+import com.amurcoin.lagonaki.mocks.TestBlock
 
 class OnlyTransferIsAllowedTest extends PropSpec with PropertyChecks with Matchers with TransactionGen with NoShrink {
 

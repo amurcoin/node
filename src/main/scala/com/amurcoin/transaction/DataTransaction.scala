@@ -1,12 +1,12 @@
-package com.wavesplatform.transaction
+package com.amurcoin.transaction
 
 import com.google.common.primitives.{Bytes, Longs, Shorts}
-import com.wavesplatform.crypto
-import com.wavesplatform.state._
+import com.amurcoin.crypto
+import com.amurcoin.state._
 import monix.eval.Coeval
 import play.api.libs.json._
-import com.wavesplatform.account.{PrivateKeyAccount, PublicKeyAccount}
-import com.wavesplatform.crypto._
+import com.amurcoin.account.{PrivateKeyAccount, PublicKeyAccount}
+import com.amurcoin.crypto._
 import scala.util.{Failure, Success, Try}
 
 case class DataTransaction private (version: Byte, sender: PublicKeyAccount, data: List[DataEntry[_]], fee: Long, timestamp: Long, proofs: Proofs)

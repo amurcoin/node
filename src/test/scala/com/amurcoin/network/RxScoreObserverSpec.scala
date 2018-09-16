@@ -1,7 +1,7 @@
-package com.wavesplatform.network
+package com.amurcoin.network
 
-import com.wavesplatform.network.RxScoreObserver.{BestChannel, SyncWith}
-import com.wavesplatform.{RxScheduler, TransactionGen}
+import com.amurcoin.network.RxScoreObserver.{BestChannel, SyncWith}
+import com.amurcoin.{RxScheduler, TransactionGen}
 import io.netty.channel.Channel
 import io.netty.channel.local.LocalChannel
 import monix.eval.Coeval

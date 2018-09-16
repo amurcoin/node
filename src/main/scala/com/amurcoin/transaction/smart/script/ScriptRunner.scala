@@ -1,15 +1,15 @@
-package com.wavesplatform.transaction.smart.script
+package com.amurcoin.transaction.smart.script
 
 import cats.implicits._
-import com.wavesplatform.lang.v1.evaluator.EvaluatorV1
-import com.wavesplatform.lang.v1.evaluator.ctx.EvaluationContext
-import com.wavesplatform.lang.ExecutionError
-import com.wavesplatform.state._
+import com.amurcoin.lang.v1.evaluator.EvaluatorV1
+import com.amurcoin.lang.v1.evaluator.ctx.EvaluationContext
+import com.amurcoin.lang.ExecutionError
+import com.amurcoin.state._
 import monix.eval.Coeval
-import com.wavesplatform.account.AddressScheme
-import com.wavesplatform.transaction.Transaction
-import com.wavesplatform.transaction.assets.exchange.Order
-import com.wavesplatform.transaction.smart.BlockchainContext
+import com.amurcoin.account.AddressScheme
+import com.amurcoin.transaction.Transaction
+import com.amurcoin.transaction.assets.exchange.Order
+import com.amurcoin.transaction.smart.BlockchainContext
 import shapeless._
 
 object ScriptRunner {

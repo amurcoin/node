@@ -1,6 +1,6 @@
-package com.wavesplatform.features
+package com.amurcoin.features
 
-import com.wavesplatform.state.Blockchain
+import com.amurcoin.state.Blockchain
 
 object FeatureProvider {
   implicit class FeatureProviderExt(provider: Blockchain) {

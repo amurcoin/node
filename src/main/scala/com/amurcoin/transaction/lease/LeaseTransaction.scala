@@ -1,11 +1,11 @@
-package com.wavesplatform.transaction.lease
+package com.amurcoin.transaction.lease
 
 import com.google.common.primitives.{Bytes, Longs}
 import monix.eval.Coeval
 import play.api.libs.json.{JsObject, Json}
-import com.wavesplatform.account.{Address, AddressOrAlias, PublicKeyAccount}
-import com.wavesplatform.transaction.{AssetId, ProvenTransaction, ValidationError, VersionedTransaction}
-import com.wavesplatform.crypto._
+import com.amurcoin.account.{Address, AddressOrAlias, PublicKeyAccount}
+import com.amurcoin.transaction.{AssetId, ProvenTransaction, ValidationError, VersionedTransaction}
+import com.amurcoin.crypto._
 import scala.util.Try
 
 trait LeaseTransaction extends ProvenTransaction with VersionedTransaction {

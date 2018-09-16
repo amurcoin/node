@@ -1,10 +1,10 @@
-package com.wavesplatform.lang.v1.evaluator.ctx.impl
+package com.amurcoin.lang.v1.evaluator.ctx.impl
 
-import com.wavesplatform.lang.v1.compiler.CompilerContext
-import com.wavesplatform.lang.v1.compiler.Types.{BOOLEAN, BYTEVECTOR, STRING}
-import com.wavesplatform.lang.v1.evaluator.FunctionIds._
-import com.wavesplatform.lang.v1.evaluator.ctx.{BaseFunction, EvaluationContext, NativeFunction}
-import com.wavesplatform.lang.v1.{BaseGlobal, CTX}
+import com.amurcoin.lang.v1.compiler.CompilerContext
+import com.amurcoin.lang.v1.compiler.Types.{BOOLEAN, BYTEVECTOR, STRING}
+import com.amurcoin.lang.v1.evaluator.FunctionIds._
+import com.amurcoin.lang.v1.evaluator.ctx.{BaseFunction, EvaluationContext, NativeFunction}
+import com.amurcoin.lang.v1.{BaseGlobal, CTX}
 import scodec.bits.ByteVector
 
 object CryptoContext {

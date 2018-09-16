@@ -1,4 +1,4 @@
-package com.wavesplatform.api.http
+package com.amurcoin.api.http
 
 import io.swagger.annotations.{ApiModel, ApiModelProperty}
 import play.api.libs.json.{Format, Json}

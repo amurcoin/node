@@ -1,9 +1,9 @@
-package com.wavesplatform.metrics
+package com.amurcoin.metrics
 
 import java.net.URI
 import java.util.concurrent.TimeUnit
 
-import com.wavesplatform.utils.{ScorexLogging, TimeImpl}
+import com.amurcoin.utils.{ScorexLogging, TimeImpl}
 import monix.eval.Task
 import monix.execution.Scheduler
 import monix.execution.schedulers.SchedulerService

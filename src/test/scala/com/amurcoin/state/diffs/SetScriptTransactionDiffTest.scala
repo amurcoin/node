@@ -1,15 +1,15 @@
-package com.wavesplatform.state.diffs
+package com.amurcoin.state.diffs
 
-import com.wavesplatform.features.BlockchainFeatures
-import com.wavesplatform.settings.TestFunctionalitySettings
-import com.wavesplatform.state._
-import com.wavesplatform.{NoShrink, TransactionGen, WithDB}
+import com.amurcoin.features.BlockchainFeatures
+import com.amurcoin.settings.TestFunctionalitySettings
+import com.amurcoin.state._
+import com.amurcoin.{NoShrink, TransactionGen, WithDB}
 import org.scalacheck.Gen
 import org.scalatest.prop.PropertyChecks
 import org.scalatest.{Matchers, PropSpec}
-import com.wavesplatform.lagonaki.mocks.TestBlock
-import com.wavesplatform.transaction.GenesisTransaction
-import com.wavesplatform.transaction.smart.SetScriptTransaction
+import com.amurcoin.lagonaki.mocks.TestBlock
+import com.amurcoin.transaction.GenesisTransaction
+import com.amurcoin.transaction.smart.SetScriptTransaction
 
 class SetScriptTransactionDiffTest extends PropSpec with PropertyChecks with Matchers with TransactionGen with NoShrink with WithDB {
 

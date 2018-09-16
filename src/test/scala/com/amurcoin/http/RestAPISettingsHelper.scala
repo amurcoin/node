@@ -1,9 +1,9 @@
-package com.wavesplatform.http
+package com.amurcoin.http
 
 import com.typesafe.config.ConfigFactory
-import com.wavesplatform.crypto
-import com.wavesplatform.settings.RestAPISettings
-import com.wavesplatform.utils.Base58
+import com.amurcoin.crypto
+import com.amurcoin.settings.RestAPISettings
+import com.amurcoin.utils.Base58
 
 trait RestAPISettingsHelper {
   def apiKey: String = "test_api_key"

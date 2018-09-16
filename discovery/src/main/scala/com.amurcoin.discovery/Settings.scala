@@ -1,4 +1,4 @@
-package com.wavesplatform.discovery
+package com.amurcoin.discovery
 
 import java.net.InetSocketAddress
 

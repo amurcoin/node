@@ -1,12 +1,12 @@
-package com.wavesplatform.matcher
+package com.amurcoin.matcher
 
 import java.io.File
 import java.nio.file.Files.createTempDirectory
 
 import akka.persistence.snapshot.SnapshotStoreSpec
 import com.typesafe.config.ConfigFactory.parseString
-import com.wavesplatform.TestHelpers.deleteRecursively
-import com.wavesplatform.settings.loadConfig
+import com.amurcoin.TestHelpers.deleteRecursively
+import com.amurcoin.settings.loadConfig
 
 class MatcherSnapshotStoreSpec
     extends SnapshotStoreSpec(loadConfig(parseString(s"""waves.matcher.snapshot-store.leveldb-dir = ${createTempDirectory("matcher").toAbsolutePath}

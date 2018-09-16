@@ -1,8 +1,8 @@
-package com.wavesplatform.lang.v1
+package com.amurcoin.lang.v1
 
 import cats.implicits._
-import com.wavesplatform.lang.v1.task.TaskM
-import com.wavesplatform.lang.v1.task.imports._
+import com.amurcoin.lang.v1.task.TaskM
+import com.amurcoin.lang.v1.task.imports._
 
 package object compiler {
   type CompileM[A] = TaskM[CompilerContext, CompilationError, A]

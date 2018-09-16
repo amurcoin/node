@@ -1,10 +1,10 @@
-package com.wavesplatform.network
+package com.amurcoin.network
 
 import com.google.common.primitives.{Bytes, Ints}
 import io.swagger.annotations.ApiModelProperty
 import play.api.libs.json._
-import com.wavesplatform.utils.Base58
-import com.wavesplatform.crypto._
+import com.amurcoin.utils.Base58
+import com.amurcoin.crypto._
 import scala.collection.immutable.Stream
 import scala.util.{Failure, Success}
 

@@ -1,8 +1,8 @@
-package com.wavesplatform.transaction.api.http.alias
+package com.amurcoin.transaction.api.http.alias
 
 import org.scalatest.{FunSuite, Matchers}
 import play.api.libs.json.Json
-import com.wavesplatform.api.http.alias.{CreateAliasV1Request, SignedCreateAliasV1Request}
+import com.amurcoin.api.http.alias.{CreateAliasV1Request, SignedCreateAliasV1Request}
 
 class AliasRequestTests extends FunSuite with Matchers {
   test("CreateAliasRequest") {

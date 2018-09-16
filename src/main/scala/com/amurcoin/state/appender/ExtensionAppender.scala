@@ -1,21 +1,21 @@
-package com.wavesplatform.state.appender
+package com.amurcoin.state.appender
 
-import com.wavesplatform.consensus.PoSSelector
-import com.wavesplatform.metrics.{BlockStats, Instrumented, Metrics}
-import com.wavesplatform.mining.Miner
-import com.wavesplatform.network.{InvalidBlockStorage, PeerDatabase, formatBlocks, id}
-import com.wavesplatform.settings.WavesSettings
-import com.wavesplatform.state._
-import com.wavesplatform.utils.{ScorexLogging, Time}
-import com.wavesplatform.utx.UtxPool
+import com.amurcoin.consensus.PoSSelector
+import com.amurcoin.metrics.{BlockStats, Instrumented, Metrics}
+import com.amurcoin.mining.Miner
+import com.amurcoin.network.{InvalidBlockStorage, PeerDatabase, formatBlocks, id}
+import com.amurcoin.settings.WavesSettings
+import com.amurcoin.state._
+import com.amurcoin.utils.{ScorexLogging, Time}
+import com.amurcoin.utx.UtxPool
 import io.netty.channel.Channel
 import io.netty.channel.group.ChannelGroup
 import monix.eval.{Coeval, Task}
 import monix.execution.Scheduler
 import org.influxdb.dto.Point
-import com.wavesplatform.block.Block
-import com.wavesplatform.transaction.ValidationError.GenericError
-import com.wavesplatform.transaction._
+import com.amurcoin.block.Block
+import com.amurcoin.transaction.ValidationError.GenericError
+import com.amurcoin.transaction._
 
 import scala.util.{Left, Right}
 

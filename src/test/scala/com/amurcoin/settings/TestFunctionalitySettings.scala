@@ -1,6 +1,6 @@
-package com.wavesplatform.settings
+package com.amurcoin.settings
 
-import com.wavesplatform.features.BlockchainFeatures
+import com.amurcoin.features.BlockchainFeatures
 
 object TestFunctionalitySettings {
   val Enabled = FunctionalitySettings(

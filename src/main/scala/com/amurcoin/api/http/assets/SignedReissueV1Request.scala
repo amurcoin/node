@@ -1,12 +1,12 @@
-package com.wavesplatform.api.http.assets
+package com.amurcoin.api.http.assets
 
 import io.swagger.annotations.ApiModelProperty
 import play.api.libs.json.{Format, Json}
-import com.wavesplatform.account.PublicKeyAccount
-import com.wavesplatform.api.http.BroadcastRequest
-import com.wavesplatform.transaction.TransactionParsers.SignatureStringLength
-import com.wavesplatform.transaction.assets.ReissueTransactionV1
-import com.wavesplatform.transaction.{AssetIdStringLength, ValidationError}
+import com.amurcoin.account.PublicKeyAccount
+import com.amurcoin.api.http.BroadcastRequest
+import com.amurcoin.transaction.TransactionParsers.SignatureStringLength
+import com.amurcoin.transaction.assets.ReissueTransactionV1
+import com.amurcoin.transaction.{AssetIdStringLength, ValidationError}
 
 object SignedReissueV1Request {
   implicit val assetReissueRequestReads: Format[SignedReissueV1Request] = Json.format

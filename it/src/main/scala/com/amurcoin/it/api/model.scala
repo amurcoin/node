@@ -1,4 +1,4 @@
-package com.wavesplatform.it.api
+package com.amurcoin.it.api
 
 import play.api.libs.json.{Format, Json}
 

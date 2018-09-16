@@ -1,9 +1,9 @@
-package com.wavesplatform.transaction
+package com.amurcoin.transaction
 
-import com.wavesplatform.state.ByteStr
+import com.amurcoin.state.ByteStr
 import monix.reactive.Observable
-import com.wavesplatform.block.Block.BlockId
-import com.wavesplatform.block.{Block, MicroBlock}
+import com.amurcoin.block.Block.BlockId
+import com.amurcoin.block.{Block, MicroBlock}
 
 trait BlockchainUpdater {
   def processBlock(block: Block): Either[ValidationError, Option[DiscardedTransactions]]

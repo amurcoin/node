@@ -1,22 +1,22 @@
-package com.wavesplatform.state
+package com.amurcoin.state
 
-import com.wavesplatform.account.{Address, PrivateKeyAccount}
-import com.wavesplatform.crypto.SignatureLength
-import com.wavesplatform.db.WithState
-import com.wavesplatform.features._
-import com.wavesplatform.features.BlockchainFeatures._
-import com.wavesplatform.lagonaki.mocks.TestBlock
-import com.wavesplatform.lang.v1.compiler.Terms.TRUE
-import com.wavesplatform.settings.{TestFunctionalitySettings, WavesSettings}
-import com.wavesplatform.state.reader.LeaseDetails
-import com.wavesplatform.transaction.ValidationError.AliasDoesNotExist
-import com.wavesplatform.transaction.assets.{IssueTransactionV1, ReissueTransactionV1}
-import com.wavesplatform.transaction.lease.{LeaseCancelTransactionV1, LeaseTransactionV1}
-import com.wavesplatform.transaction.smart.SetScriptTransaction
-import com.wavesplatform.transaction.smart.script.v1.ScriptV1
-import com.wavesplatform.transaction.transfer._
-import com.wavesplatform.transaction.{CreateAliasTransactionV1, DataTransaction, GenesisTransaction, Transaction}
-import com.wavesplatform.{NoShrink, TestTime, TransactionGen, history}
+import com.amurcoin.account.{Address, PrivateKeyAccount}
+import com.amurcoin.crypto.SignatureLength
+import com.amurcoin.db.WithState
+import com.amurcoin.features._
+import com.amurcoin.features.BlockchainFeatures._
+import com.amurcoin.lagonaki.mocks.TestBlock
+import com.amurcoin.lang.v1.compiler.Terms.TRUE
+import com.amurcoin.settings.{TestFunctionalitySettings, WavesSettings}
+import com.amurcoin.state.reader.LeaseDetails
+import com.amurcoin.transaction.ValidationError.AliasDoesNotExist
+import com.amurcoin.transaction.assets.{IssueTransactionV1, ReissueTransactionV1}
+import com.amurcoin.transaction.lease.{LeaseCancelTransactionV1, LeaseTransactionV1}
+import com.amurcoin.transaction.smart.SetScriptTransaction
+import com.amurcoin.transaction.smart.script.v1.ScriptV1
+import com.amurcoin.transaction.transfer._
+import com.amurcoin.transaction.{CreateAliasTransactionV1, DataTransaction, GenesisTransaction, Transaction}
+import com.amurcoin.{NoShrink, TestTime, TransactionGen, history}
 import org.scalacheck.Gen
 import org.scalatest.prop.PropertyChecks
 import org.scalatest.{FreeSpec, Matchers}
@@ -35,7 +35,7 @@ class RollbackSpec extends FreeSpec with Matchers with WithState with Transactio
     TransferTransactionV1.selfSigned(None, sender, recipient, amount, nextTs, None, 1, Array.empty[Byte]).explicitGet()
 
   private def randomOp(sender: PrivateKeyAccount, recipient: Address, amount: Long, op: Int) = {
-    import com.wavesplatform.transaction.transfer.MassTransferTransaction.ParsedTransfer
+    import com.amurcoin.transaction.transfer.MassTransferTransaction.ParsedTransfer
     op match {
       case 1 =>
         val lease = LeaseTransactionV1.selfSigned(sender, amount, 100000, nextTs, recipient).explicitGet()
@@ -75,7 +75,7 @@ class RollbackSpec extends FreeSpec with Matchers with WithState with Transactio
     "forget rollbacked transaction for querying" in forAll(accountGen, accountGen, Gen.nonEmptyListOf(Gen.choose(1, 10))) {
       case (sender, recipient, txCount) =>
         withDomain(createSettings(MassTransfer -> 0)) { d =>
-          d.appendBlock(genesisBlock(nextTs, sender, com.wavesplatform.state.diffs.ENOUGH_AMT))
+          d.appendBlock(genesisBlock(nextTs, sender, com.amurcoin.state.diffs.ENOUGH_AMT))
 
           val genesisSignature = d.lastBlockId
 

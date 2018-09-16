@@ -1,12 +1,12 @@
-package com.wavesplatform.history
+package com.amurcoin.history
 
-import com.wavesplatform.crypto
-import com.wavesplatform.db.{CheckpointCodec, PropertiesStorage, SubStorage}
-import com.wavesplatform.network.Checkpoint
-import com.wavesplatform.settings.CheckpointsSettings
+import com.amurcoin.crypto
+import com.amurcoin.db.{CheckpointCodec, PropertiesStorage, SubStorage}
+import com.amurcoin.network.Checkpoint
+import com.amurcoin.settings.CheckpointsSettings
 import org.iq80.leveldb.DB
-import com.wavesplatform.transaction.ValidationError.GenericError
-import com.wavesplatform.transaction.{CheckpointService, ValidationError}
+import com.amurcoin.transaction.ValidationError.GenericError
+import com.amurcoin.transaction.{CheckpointService, ValidationError}
 
 class CheckpointServiceImpl(db: DB, settings: CheckpointsSettings)
     extends SubStorage(db, "checkpoints")

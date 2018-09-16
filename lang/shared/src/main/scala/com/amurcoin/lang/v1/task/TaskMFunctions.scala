@@ -1,4 +1,4 @@
-package com.wavesplatform.lang.v1.task
+package com.amurcoin.lang.v1.task
 
 import cats.data.Kleisli
 import monix.eval.Coeval

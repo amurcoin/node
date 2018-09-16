@@ -1,11 +1,11 @@
-package com.wavesplatform.it.sync.transactions
+package com.amurcoin.it.sync.transactions
 
-import com.wavesplatform.it.api.SyncHttpApi._
-import com.wavesplatform.it.transactions.BaseTransactionSuite
-import com.wavesplatform.it.util._
+import com.amurcoin.it.api.SyncHttpApi._
+import com.amurcoin.it.transactions.BaseTransactionSuite
+import com.amurcoin.it.util._
 import org.scalatest.CancelAfterFailure
 import play.api.libs.json.Json
-import com.wavesplatform.it.sync._
+import com.amurcoin.it.sync._
 
 class LeasingTransactionsSuite extends BaseTransactionSuite with CancelAfterFailure {
 
@@ -45,7 +45,7 @@ class LeasingTransactionsSuite extends BaseTransactionSuite with CancelAfterFail
   }
 
   test("lease cancellation reverts eff.b. changes; lessor pays fee for both lease and cancellation") {
-    import com.wavesplatform.transaction.lease.LeaseTransaction.Status._
+    import com.amurcoin.transaction.lease.LeaseTransaction.Status._
 
     def getStatus(txId: String): String = {
       val r = sender.get(s"/transactions/info/$txId")

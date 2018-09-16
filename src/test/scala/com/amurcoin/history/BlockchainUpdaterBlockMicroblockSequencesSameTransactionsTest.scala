@@ -1,15 +1,15 @@
-package com.wavesplatform.history
+package com.amurcoin.history
 
-import com.wavesplatform.state._
-import com.wavesplatform.state.diffs._
-import com.wavesplatform.{NoShrink, TransactionGen}
+import com.amurcoin.state._
+import com.amurcoin.state.diffs._
+import com.amurcoin.{NoShrink, TransactionGen}
 import org.scalacheck.Gen
 import org.scalatest._
 import org.scalatest.prop.PropertyChecks
-import com.wavesplatform.account.PrivateKeyAccount
-import com.wavesplatform.block.{Block, MicroBlock}
-import com.wavesplatform.transaction._
-import com.wavesplatform.transaction.transfer._
+import com.amurcoin.account.PrivateKeyAccount
+import com.amurcoin.block.{Block, MicroBlock}
+import com.amurcoin.transaction._
+import com.amurcoin.transaction.transfer._
 
 class BlockchainUpdaterBlockMicroblockSequencesSameTransactionsTest
     extends PropSpec

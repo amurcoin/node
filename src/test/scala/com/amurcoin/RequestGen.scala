@@ -1,16 +1,16 @@
-package com.wavesplatform
+package com.amurcoin
 
 import org.scalacheck.Gen.{alphaNumChar, choose, listOfN, oneOf}
 import org.scalacheck.{Arbitrary, Gen => G}
 import org.scalatest.Suite
-import com.wavesplatform.account.Alias
-import com.wavesplatform.api.http.alias.SignedCreateAliasV1Request
-import com.wavesplatform.api.http.assets._
-import com.wavesplatform.api.http.leasing.{SignedLeaseCancelV1Request, SignedLeaseV1Request}
-import com.wavesplatform.utils.Base58
-import com.wavesplatform.transaction.assets._
-import com.wavesplatform.transaction.transfer._
-import com.wavesplatform.crypto._
+import com.amurcoin.account.Alias
+import com.amurcoin.api.http.alias.SignedCreateAliasV1Request
+import com.amurcoin.api.http.assets._
+import com.amurcoin.api.http.leasing.{SignedLeaseCancelV1Request, SignedLeaseV1Request}
+import com.amurcoin.utils.Base58
+import com.amurcoin.transaction.assets._
+import com.amurcoin.transaction.transfer._
+import com.amurcoin.crypto._
 
 trait RequestGen extends TransactionGen { _: Suite =>
   val nonPositiveLong: G[Long] = choose(Long.MinValue, 0).label("non-positive value")

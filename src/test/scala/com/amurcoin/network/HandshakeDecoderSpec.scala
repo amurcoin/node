@@ -1,9 +1,9 @@
-package com.wavesplatform.network
+package com.amurcoin.network
 
 import java.nio.charset.StandardCharsets
 
 import com.google.common.primitives.{Ints, Longs}
-import com.wavesplatform.{NoShrink, TransactionGen}
+import com.amurcoin.{NoShrink, TransactionGen}
 import io.netty.buffer.Unpooled
 import io.netty.channel.embedded.EmbeddedChannel
 import io.netty.channel.{ChannelHandlerContext, ChannelInboundHandlerAdapter}

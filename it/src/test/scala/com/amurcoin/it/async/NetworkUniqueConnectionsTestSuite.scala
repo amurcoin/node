@@ -1,8 +1,8 @@
-package com.wavesplatform.it.async
+package com.amurcoin.it.async
 
 import com.typesafe.config.{Config, ConfigFactory}
-import com.wavesplatform.it.api.AsyncHttpApi._
-import com.wavesplatform.it.{DockerBased, NodeConfigs}
+import com.amurcoin.it.api.AsyncHttpApi._
+import com.amurcoin.it.{DockerBased, NodeConfigs}
 import org.scalatest.{FreeSpec, Matchers}
 
 import scala.concurrent.ExecutionContext.Implicits.global
@@ -11,7 +11,7 @@ import scala.concurrent.duration.DurationInt
 
 class NetworkUniqueConnectionsTestSuite extends FreeSpec with Matchers with DockerBased {
 
-  import com.wavesplatform.it.async.NetworkUniqueConnectionsTestSuite._
+  import com.amurcoin.it.async.NetworkUniqueConnectionsTestSuite._
 
   "nodes should up and connect with each other" in {
     val firstNode = docker.startNode(FirstNodeConfig)

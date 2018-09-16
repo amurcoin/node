@@ -1,15 +1,15 @@
-package com.wavesplatform.lagonaki.unit
+package com.amurcoin.lagonaki.unit
 
-import com.wavesplatform.mining.Miner
-import com.wavesplatform.state._
-import com.wavesplatform.state.diffs.produce
+import com.amurcoin.mining.Miner
+import com.amurcoin.state._
+import com.amurcoin.state.diffs.produce
 import org.scalamock.scalatest.MockFactory
 import org.scalatest.words.ShouldVerb
 import org.scalatest.{FunSuite, Matchers}
-import com.wavesplatform.account.PrivateKeyAccount
-import com.wavesplatform.block.{Block, MicroBlock}
-import com.wavesplatform.transaction._
-import com.wavesplatform.transaction.transfer._
+import com.amurcoin.account.PrivateKeyAccount
+import com.amurcoin.block.{Block, MicroBlock}
+import com.amurcoin.transaction._
+import com.amurcoin.transaction.transfer._
 
 import scala.util.Random
 

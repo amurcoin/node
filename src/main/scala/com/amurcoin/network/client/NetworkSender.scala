@@ -1,12 +1,12 @@
-package com.wavesplatform.network.client
+package com.amurcoin.network.client
 
 import java.io.IOException
 import java.net.InetSocketAddress
 import java.nio.channels.ClosedChannelException
 import java.util.concurrent.atomic.AtomicLong
 
-import com.wavesplatform.network.RawBytes
-import com.wavesplatform.utils.ScorexLogging
+import com.amurcoin.network.RawBytes
+import com.amurcoin.utils.ScorexLogging
 import io.netty.channel.Channel
 import io.netty.channel.group.DefaultChannelGroup
 import io.netty.util.concurrent.GlobalEventExecutor

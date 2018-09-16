@@ -1,14 +1,14 @@
-package com.wavesplatform.transaction
+package com.amurcoin.transaction
 
-import com.wavesplatform.TransactionGen
-import com.wavesplatform.account.PublicKeyAccount
-import com.wavesplatform.features.BlockchainFeatures._
-import com.wavesplatform.lagonaki.mocks.TestBlock.{create => block}
-import com.wavesplatform.settings.{Constants, TestFunctionalitySettings}
-import com.wavesplatform.state.diffs._
-import com.wavesplatform.state.{ByteStr, EitherExt2}
-import com.wavesplatform.transaction.assets.{IssueTransactionV1, SponsorFeeTransaction}
-import com.wavesplatform.transaction.transfer.TransferTransactionV1
+import com.amurcoin.TransactionGen
+import com.amurcoin.account.PublicKeyAccount
+import com.amurcoin.features.BlockchainFeatures._
+import com.amurcoin.lagonaki.mocks.TestBlock.{create => block}
+import com.amurcoin.settings.{Constants, TestFunctionalitySettings}
+import com.amurcoin.state.diffs._
+import com.amurcoin.state.{ByteStr, EitherExt2}
+import com.amurcoin.transaction.assets.{IssueTransactionV1, SponsorFeeTransaction}
+import com.amurcoin.transaction.transfer.TransferTransactionV1
 import org.scalacheck.Gen
 import org.scalatest._
 import org.scalatest.prop.PropertyChecks

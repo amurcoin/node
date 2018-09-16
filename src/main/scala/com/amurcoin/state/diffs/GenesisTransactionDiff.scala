@@ -1,8 +1,8 @@
-package com.wavesplatform.state.diffs
+package com.amurcoin.state.diffs
 
-import com.wavesplatform.state.{Diff, LeaseBalance, Portfolio}
-import com.wavesplatform.transaction.ValidationError.GenericError
-import com.wavesplatform.transaction.{GenesisTransaction, ValidationError}
+import com.amurcoin.state.{Diff, LeaseBalance, Portfolio}
+import com.amurcoin.transaction.ValidationError.GenericError
+import com.amurcoin.transaction.{GenesisTransaction, ValidationError}
 
 import scala.util.{Left, Right}
 

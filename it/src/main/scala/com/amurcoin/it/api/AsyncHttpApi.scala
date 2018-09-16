@@ -1,23 +1,23 @@
-package com.wavesplatform.it.api
+package com.amurcoin.it.api
 
 import java.io.IOException
 import java.net.InetSocketAddress
 import java.util.concurrent.TimeoutException
 
-import com.wavesplatform.api.http.alias.CreateAliasV1Request
-import com.wavesplatform.api.http.assets._
-import com.wavesplatform.api.http.leasing.{LeaseCancelV1Request, LeaseV1Request, SignedLeaseCancelV1Request, SignedLeaseV1Request}
-import com.wavesplatform.api.http.{AddressApiRoute, ConnectReq, DataRequest}
-import com.wavesplatform.features.api.ActivationStatus
-import com.wavesplatform.http.DebugApiRoute._
-import com.wavesplatform.http.DebugMessage._
-import com.wavesplatform.http.{DebugMessage, RollbackParams, api_key}
-import com.wavesplatform.it.Node
-import com.wavesplatform.it.util.GlobalTimer.{instance => timer}
-import com.wavesplatform.it.util._
-import com.wavesplatform.state.{DataEntry, Portfolio}
-import com.wavesplatform.transaction.transfer.MassTransferTransaction.Transfer
-import com.wavesplatform.transaction.transfer._
+import com.amurcoin.api.http.alias.CreateAliasV1Request
+import com.amurcoin.api.http.assets._
+import com.amurcoin.api.http.leasing.{LeaseCancelV1Request, LeaseV1Request, SignedLeaseCancelV1Request, SignedLeaseV1Request}
+import com.amurcoin.api.http.{AddressApiRoute, ConnectReq, DataRequest}
+import com.amurcoin.features.api.ActivationStatus
+import com.amurcoin.http.DebugApiRoute._
+import com.amurcoin.http.DebugMessage._
+import com.amurcoin.http.{DebugMessage, RollbackParams, api_key}
+import com.amurcoin.it.Node
+import com.amurcoin.it.util.GlobalTimer.{instance => timer}
+import com.amurcoin.it.util._
+import com.amurcoin.state.{DataEntry, Portfolio}
+import com.amurcoin.transaction.transfer.MassTransferTransaction.Transfer
+import com.amurcoin.transaction.transfer._
 import org.asynchttpclient.Dsl.{get => _get, post => _post}
 import org.asynchttpclient._
 import org.asynchttpclient.util.HttpConstants

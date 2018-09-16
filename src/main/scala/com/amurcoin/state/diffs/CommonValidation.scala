@@ -1,18 +1,18 @@
-package com.wavesplatform.state.diffs
+package com.amurcoin.state.diffs
 
 import cats._
-import com.wavesplatform.features.FeatureProvider._
-import com.wavesplatform.features.{BlockchainFeature, BlockchainFeatures}
-import com.wavesplatform.settings.FunctionalitySettings
-import com.wavesplatform.state._
-import com.wavesplatform.account.Address
-import com.wavesplatform.transaction.ValidationError._
-import com.wavesplatform.transaction._
-import com.wavesplatform.transaction.assets._
-import com.wavesplatform.transaction.assets.exchange._
-import com.wavesplatform.transaction.lease._
-import com.wavesplatform.transaction.smart.SetScriptTransaction
-import com.wavesplatform.transaction.transfer._
+import com.amurcoin.features.FeatureProvider._
+import com.amurcoin.features.{BlockchainFeature, BlockchainFeatures}
+import com.amurcoin.settings.FunctionalitySettings
+import com.amurcoin.state._
+import com.amurcoin.account.Address
+import com.amurcoin.transaction.ValidationError._
+import com.amurcoin.transaction._
+import com.amurcoin.transaction.assets._
+import com.amurcoin.transaction.assets.exchange._
+import com.amurcoin.transaction.lease._
+import com.amurcoin.transaction.smart.SetScriptTransaction
+import com.amurcoin.transaction.transfer._
 
 import scala.concurrent.duration._
 import scala.util.{Left, Right}

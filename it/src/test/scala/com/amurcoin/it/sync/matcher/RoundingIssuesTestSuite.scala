@@ -1,19 +1,19 @@
-package com.wavesplatform.it.sync.matcher
+package com.amurcoin.it.sync.matcher
 
 import com.typesafe.config.{Config, ConfigFactory}
-import com.wavesplatform.account.PrivateKeyAccount
-import com.wavesplatform.api.http.assets.SignedIssueV1Request
-import com.wavesplatform.it.ReportingTestName
-import com.wavesplatform.it.api.LevelResponse
-import com.wavesplatform.it.api.SyncHttpApi._
-import com.wavesplatform.it.api.SyncMatcherHttpApi._
-import com.wavesplatform.it.sync.CustomFeeTransactionSuite.defaultAssetQuantity
-import com.wavesplatform.it.transactions.NodesFromDocker
-import com.wavesplatform.it.util._
-import com.wavesplatform.transaction.AssetId
-import com.wavesplatform.transaction.assets.IssueTransactionV1
-import com.wavesplatform.transaction.assets.exchange.{AssetPair, OrderType}
-import com.wavesplatform.utils.Base58
+import com.amurcoin.account.PrivateKeyAccount
+import com.amurcoin.api.http.assets.SignedIssueV1Request
+import com.amurcoin.it.ReportingTestName
+import com.amurcoin.it.api.LevelResponse
+import com.amurcoin.it.api.SyncHttpApi._
+import com.amurcoin.it.api.SyncMatcherHttpApi._
+import com.amurcoin.it.sync.CustomFeeTransactionSuite.defaultAssetQuantity
+import com.amurcoin.it.transactions.NodesFromDocker
+import com.amurcoin.it.util._
+import com.amurcoin.transaction.AssetId
+import com.amurcoin.transaction.assets.IssueTransactionV1
+import com.amurcoin.transaction.assets.exchange.{AssetPair, OrderType}
+import com.amurcoin.utils.Base58
 import org.scalatest.{BeforeAndAfterAll, CancelAfterFailure, FreeSpec, Matchers}
 
 import scala.concurrent.duration._
@@ -118,7 +118,7 @@ class RoundingIssuesTestSuite
 object RoundingIssuesTestSuite {
 
   import ConfigFactory._
-  import com.wavesplatform.it.NodeConfigs._
+  import com.amurcoin.it.NodeConfigs._
 
   private val ForbiddenAssetId = "FdbnAsset"
   private val Decimals: Byte   = 2

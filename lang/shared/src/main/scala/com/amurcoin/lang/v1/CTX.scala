@@ -1,9 +1,9 @@
-package com.wavesplatform.lang.v1
+package com.amurcoin.lang.v1
 
 import cats.Monoid
-import com.wavesplatform.lang.v1.compiler.CompilerContext
-import com.wavesplatform.lang.v1.compiler.Types.FINAL
-import com.wavesplatform.lang.v1.evaluator.ctx._
+import com.amurcoin.lang.v1.compiler.CompilerContext
+import com.amurcoin.lang.v1.compiler.Types.FINAL
+import com.amurcoin.lang.v1.evaluator.ctx._
 
 case class CTX(types: Seq[DefinedType], vars: Map[String, (FINAL, LazyVal)], functions: Seq[BaseFunction]) {
   lazy val typeDefs = types.map(t => t.name -> t).toMap

@@ -1,4 +1,4 @@
-package com.wavesplatform.transaction.assets
+package com.amurcoin.transaction.assets
 
 import java.nio.charset.StandardCharsets
 
@@ -6,12 +6,12 @@ import cats.implicits._
 import com.google.common.primitives.{Bytes, Longs}
 import monix.eval.Coeval
 import play.api.libs.json.Json
-import com.wavesplatform.account.PublicKeyAccount
-import com.wavesplatform.serialization.Deser
-import com.wavesplatform.transaction.smart.script.Script
-import com.wavesplatform.transaction.validation._
-import com.wavesplatform.transaction.{AssetId, ProvenTransaction, ValidationError, VersionedTransaction}
-import com.wavesplatform.crypto._
+import com.amurcoin.account.PublicKeyAccount
+import com.amurcoin.serialization.Deser
+import com.amurcoin.transaction.smart.script.Script
+import com.amurcoin.transaction.validation._
+import com.amurcoin.transaction.{AssetId, ProvenTransaction, ValidationError, VersionedTransaction}
+import com.amurcoin.crypto._
 
 trait IssueTransaction extends ProvenTransaction with VersionedTransaction {
   def name: Array[Byte]

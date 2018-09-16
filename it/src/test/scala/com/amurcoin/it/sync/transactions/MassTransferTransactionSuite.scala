@@ -1,18 +1,18 @@
-package com.wavesplatform.it.sync.transactions
+package com.amurcoin.it.sync.transactions
 
-import com.wavesplatform.it.api.SyncHttpApi._
-import com.wavesplatform.it.sync._
-import com.wavesplatform.it.transactions.BaseTransactionSuite
-import com.wavesplatform.it.util._
-import com.wavesplatform.state.EitherExt2
-import com.wavesplatform.utils.Base58
+import com.amurcoin.it.api.SyncHttpApi._
+import com.amurcoin.it.sync._
+import com.amurcoin.it.transactions.BaseTransactionSuite
+import com.amurcoin.it.util._
+import com.amurcoin.state.EitherExt2
+import com.amurcoin.utils.Base58
 import org.scalatest.CancelAfterFailure
 import play.api.libs.json._
-import com.wavesplatform.account.Alias
-import com.wavesplatform.api.http.assets.{MassTransferRequest, SignedMassTransferRequest}
-import com.wavesplatform.transaction.transfer.MassTransferTransaction.{MaxTransferCount, Transfer}
-import com.wavesplatform.transaction.transfer.TransferTransaction.MaxAttachmentSize
-import com.wavesplatform.transaction.transfer._
+import com.amurcoin.account.Alias
+import com.amurcoin.api.http.assets.{MassTransferRequest, SignedMassTransferRequest}
+import com.amurcoin.transaction.transfer.MassTransferTransaction.{MaxTransferCount, Transfer}
+import com.amurcoin.transaction.transfer.TransferTransaction.MaxAttachmentSize
+import com.amurcoin.transaction.transfer._
 
 import scala.concurrent.duration._
 import scala.util.Random
@@ -97,7 +97,7 @@ class MassTransferTransactionSuite extends BaseTransactionSuite with CancelAfter
   }
 
   test("invalid transfer should not be in UTX or blockchain") {
-    import com.wavesplatform.transaction.transfer._
+    import com.amurcoin.transaction.transfer._
 
     def request(version: Byte = MassTransferTransaction.version,
                 transfers: List[Transfer] = List(Transfer(secondAddress, transferAmount)),

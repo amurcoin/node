@@ -1,6 +1,6 @@
-package com.wavesplatform.lang.v1.traits
+package com.amurcoin.lang.v1.traits
 
-import com.wavesplatform.lang.v1.traits.domain._
+import com.amurcoin.lang.v1.traits.domain._
 import shapeless._
 
 trait Environment {

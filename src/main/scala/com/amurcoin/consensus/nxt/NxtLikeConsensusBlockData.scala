@@ -1,5 +1,5 @@
-package com.wavesplatform.consensus.nxt
+package com.amurcoin.consensus.nxt
 
-import com.wavesplatform.state.ByteStr
+import com.amurcoin.state.ByteStr
 
 case class NxtLikeConsensusBlockData(baseTarget: Long, generationSignature: ByteStr)

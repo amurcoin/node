@@ -1,12 +1,12 @@
-package com.wavesplatform.network.peer
+package com.amurcoin.network.peer
 
 import java.io.File
 import java.net.InetSocketAddress
 import java.nio.file.Files
 
 import com.typesafe.config.ConfigFactory
-import com.wavesplatform.network.PeerDatabaseImpl
-import com.wavesplatform.settings.NetworkSettings
+import com.amurcoin.network.PeerDatabaseImpl
+import com.amurcoin.settings.NetworkSettings
 import net.ceedubs.ficus.Ficus._
 import org.scalatest.{Matchers, path}
 

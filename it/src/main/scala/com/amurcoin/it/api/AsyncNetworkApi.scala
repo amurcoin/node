@@ -1,8 +1,8 @@
-package com.wavesplatform.it.api
+package com.amurcoin.it.api
 
-import com.wavesplatform.it.Node
-import com.wavesplatform.network.RawBytes
-import com.wavesplatform.network.client.NetworkSender
+import com.amurcoin.it.Node
+import com.amurcoin.network.RawBytes
+import com.amurcoin.network.client.NetworkSender
 
 import scala.concurrent.Future
 

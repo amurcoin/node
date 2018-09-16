@@ -1,9 +1,9 @@
-package com.wavesplatform.history
+package com.amurcoin.history
 
-import com.wavesplatform.state._
-import com.wavesplatform.account.Address
-import com.wavesplatform.block.Block
-import com.wavesplatform.transaction.BlockchainUpdater
+import com.amurcoin.state._
+import com.amurcoin.account.Address
+import com.amurcoin.block.Block
+import com.amurcoin.transaction.BlockchainUpdater
 
 case class Domain(blockchainUpdater: BlockchainUpdater with NG) {
   def effBalance(a: Address): Long          = blockchainUpdater.effectiveBalance(a, blockchainUpdater.height, 1000)

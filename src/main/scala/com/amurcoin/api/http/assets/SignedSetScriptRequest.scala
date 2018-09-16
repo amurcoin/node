@@ -1,13 +1,13 @@
-package com.wavesplatform.api.http.assets
+package com.amurcoin.api.http.assets
 
 import cats.implicits._
 import io.swagger.annotations.{ApiModel, ApiModelProperty}
 import play.api.libs.json.{Json, OFormat}
-import com.wavesplatform.account.PublicKeyAccount
-import com.wavesplatform.api.http.BroadcastRequest
-import com.wavesplatform.transaction.smart.SetScriptTransaction
-import com.wavesplatform.transaction.smart.script.Script
-import com.wavesplatform.transaction.{Proofs, ValidationError}
+import com.amurcoin.account.PublicKeyAccount
+import com.amurcoin.api.http.BroadcastRequest
+import com.amurcoin.transaction.smart.SetScriptTransaction
+import com.amurcoin.transaction.smart.script.Script
+import com.amurcoin.transaction.{Proofs, ValidationError}
 
 object SignedSetScriptRequest {
   implicit val jsonFormat: OFormat[SignedSetScriptRequest] = Json.format

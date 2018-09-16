@@ -1,23 +1,23 @@
-package com.wavesplatform.utx
+package com.amurcoin.utx
 
 import java.time.Duration
 import java.time.temporal.ChronoUnit
 import java.util.concurrent.ConcurrentHashMap
 
 import cats._
-import com.wavesplatform.account.Address
-import com.wavesplatform.consensus.TransactionsOrdering
-import com.wavesplatform.metrics.Instrumented
-import com.wavesplatform.mining.MultiDimensionalMiningConstraint
-import com.wavesplatform.settings.{FunctionalitySettings, UtxSettings}
-import com.wavesplatform.state.diffs.TransactionDiffer
-import com.wavesplatform.state.reader.CompositeBlockchain.composite
-import com.wavesplatform.state.{Blockchain, ByteStr, Diff, Portfolio}
-import com.wavesplatform.transaction.ValidationError.{GenericError, SenderIsBlacklisted}
-import com.wavesplatform.transaction._
-import com.wavesplatform.transaction.assets.ReissueTransaction
-import com.wavesplatform.transaction.transfer._
-import com.wavesplatform.utils.{ScorexLogging, Time}
+import com.amurcoin.account.Address
+import com.amurcoin.consensus.TransactionsOrdering
+import com.amurcoin.metrics.Instrumented
+import com.amurcoin.mining.MultiDimensionalMiningConstraint
+import com.amurcoin.settings.{FunctionalitySettings, UtxSettings}
+import com.amurcoin.state.diffs.TransactionDiffer
+import com.amurcoin.state.reader.CompositeBlockchain.composite
+import com.amurcoin.state.{Blockchain, ByteStr, Diff, Portfolio}
+import com.amurcoin.transaction.ValidationError.{GenericError, SenderIsBlacklisted}
+import com.amurcoin.transaction._
+import com.amurcoin.transaction.assets.ReissueTransaction
+import com.amurcoin.transaction.transfer._
+import com.amurcoin.utils.{ScorexLogging, Time}
 import kamon.Kamon
 import kamon.metric.MeasurementUnit
 import monix.eval.Task
@@ -35,7 +35,7 @@ class UtxPoolImpl(time: Time, blockchain: Blockchain, feeCalculator: FeeCalculat
     with UtxPool {
   outer =>
 
-  import com.wavesplatform.utx.UtxPoolImpl._
+  import com.amurcoin.utx.UtxPoolImpl._
 
   private implicit val scheduler: SchedulerService = Scheduler.singleThread("utx-pool-cleanup")
 

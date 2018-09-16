@@ -1,12 +1,12 @@
-package com.wavesplatform.generator
+package com.amurcoin.generator
 
 import java.util.concurrent.atomic.AtomicReference
 
 import cats.Show
-import com.wavesplatform.generator.DynamicWideTransactionGenerator.Settings
-import com.wavesplatform.generator.utils.Gen
-import com.wavesplatform.account.PrivateKeyAccount
-import com.wavesplatform.transaction.Transaction
+import com.amurcoin.generator.DynamicWideTransactionGenerator.Settings
+import com.amurcoin.generator.utils.Gen
+import com.amurcoin.account.PrivateKeyAccount
+import com.amurcoin.transaction.Transaction
 
 class DynamicWideTransactionGenerator(settings: Settings, accounts: Seq[PrivateKeyAccount]) extends TransactionGenerator {
   require(accounts.nonEmpty)

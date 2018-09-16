@@ -1,14 +1,14 @@
-package com.wavesplatform.transaction
+package com.amurcoin.transaction
 
-import com.wavesplatform.settings.FunctionalitySettings
-import com.wavesplatform.state._
-import com.wavesplatform.transaction.FeeCalculator._
-import com.wavesplatform.transaction.ValidationError.InsufficientFee
-import com.wavesplatform.transaction.assets._
-import com.wavesplatform.transaction.assets.exchange.ExchangeTransaction
-import com.wavesplatform.transaction.lease.{LeaseCancelTransaction, LeaseTransaction}
-import com.wavesplatform.transaction.smart.SetScriptTransaction
-import com.wavesplatform.transaction.transfer._
+import com.amurcoin.settings.FunctionalitySettings
+import com.amurcoin.state._
+import com.amurcoin.transaction.FeeCalculator._
+import com.amurcoin.transaction.ValidationError.InsufficientFee
+import com.amurcoin.transaction.assets._
+import com.amurcoin.transaction.assets.exchange.ExchangeTransaction
+import com.amurcoin.transaction.lease.{LeaseCancelTransaction, LeaseTransaction}
+import com.amurcoin.transaction.smart.SetScriptTransaction
+import com.amurcoin.transaction.transfer._
 
 class FeeCalculator(blockchain: Blockchain) {
 

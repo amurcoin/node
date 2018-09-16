@@ -1,4 +1,4 @@
-package com.wavesplatform.db
+package com.amurcoin.db
 
 import java.nio.charset.StandardCharsets
 

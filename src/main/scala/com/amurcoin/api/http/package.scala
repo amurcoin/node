@@ -1,4 +1,4 @@
-package com.wavesplatform.api
+package com.amurcoin.api
 
 import play.api.libs.json._
 

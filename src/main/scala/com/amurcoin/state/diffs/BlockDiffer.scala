@@ -1,21 +1,21 @@
-package com.wavesplatform.state.diffs
+package com.amurcoin.state.diffs
 
 import cats.Monoid
 import cats.implicits._
 import cats.syntax.either.catsSyntaxEitherId
-import com.wavesplatform.features.BlockchainFeatures
-import com.wavesplatform.features.FeatureProvider._
-import com.wavesplatform.metrics.Instrumented
-import com.wavesplatform.mining.MiningConstraint
-import com.wavesplatform.settings.FunctionalitySettings
-import com.wavesplatform.state._
-import com.wavesplatform.state.patch.{CancelAllLeases, CancelInvalidLeaseIn, CancelLeaseOverflow}
-import com.wavesplatform.state.reader.CompositeBlockchain.composite
-import com.wavesplatform.account.Address
-import com.wavesplatform.utils.ScorexLogging
-import com.wavesplatform.block.{Block, MicroBlock}
-import com.wavesplatform.transaction.ValidationError.ActivationError
-import com.wavesplatform.transaction.{Transaction, ValidationError}
+import com.amurcoin.features.BlockchainFeatures
+import com.amurcoin.features.FeatureProvider._
+import com.amurcoin.metrics.Instrumented
+import com.amurcoin.mining.MiningConstraint
+import com.amurcoin.settings.FunctionalitySettings
+import com.amurcoin.state._
+import com.amurcoin.state.patch.{CancelAllLeases, CancelInvalidLeaseIn, CancelLeaseOverflow}
+import com.amurcoin.state.reader.CompositeBlockchain.composite
+import com.amurcoin.account.Address
+import com.amurcoin.utils.ScorexLogging
+import com.amurcoin.block.{Block, MicroBlock}
+import com.amurcoin.transaction.ValidationError.ActivationError
+import com.amurcoin.transaction.{Transaction, ValidationError}
 
 object BlockDiffer extends ScorexLogging with Instrumented {
 

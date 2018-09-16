@@ -1,8 +1,8 @@
-package com.wavesplatform.lang.v1.compiler
+package com.amurcoin.lang.v1.compiler
 
 import cats.Show
-import com.wavesplatform.lang.v1.compiler.Types._
-import com.wavesplatform.lang.v1.evaluator.ctx.FunctionTypeSignature
+import com.amurcoin.lang.v1.compiler.Types._
+import com.amurcoin.lang.v1.evaluator.ctx.FunctionTypeSignature
 
 sealed trait CompilationError {
   def start: Int

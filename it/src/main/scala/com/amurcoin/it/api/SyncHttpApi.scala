@@ -1,14 +1,14 @@
-package com.wavesplatform.it.api
+package com.amurcoin.it.api
 
 import akka.http.scaladsl.model.StatusCodes
 import akka.http.scaladsl.model.StatusCodes.BadRequest
-import com.wavesplatform.api.http.AddressApiRoute
-import com.wavesplatform.api.http.assets.SignedIssueV1Request
-import com.wavesplatform.features.api.ActivationStatus
-import com.wavesplatform.http.DebugMessage
-import com.wavesplatform.it.Node
-import com.wavesplatform.state.DataEntry
-import com.wavesplatform.transaction.transfer.MassTransferTransaction.Transfer
+import com.amurcoin.api.http.AddressApiRoute
+import com.amurcoin.api.http.assets.SignedIssueV1Request
+import com.amurcoin.features.api.ActivationStatus
+import com.amurcoin.http.DebugMessage
+import com.amurcoin.it.Node
+import com.amurcoin.state.DataEntry
+import com.amurcoin.transaction.transfer.MassTransferTransaction.Transfer
 import org.asynchttpclient.Response
 import org.scalactic.source.Position
 import org.scalatest.{Assertion, Assertions, Matchers}
@@ -60,7 +60,7 @@ object SyncHttpApi extends Assertions {
 
   implicit class NodeExtSync(n: Node) extends Assertions with Matchers {
 
-    import com.wavesplatform.it.api.AsyncHttpApi.{NodeAsyncHttpApi => async}
+    import com.amurcoin.it.api.AsyncHttpApi.{NodeAsyncHttpApi => async}
 
     private val RequestAwaitTime = 15.seconds
 
@@ -239,7 +239,7 @@ object SyncHttpApi extends Assertions {
 
   implicit class NodesExtSync(nodes: Seq[Node]) {
 
-    import com.wavesplatform.it.api.AsyncHttpApi.{NodesAsyncHttpApi => async}
+    import com.amurcoin.it.api.AsyncHttpApi.{NodesAsyncHttpApi => async}
 
     private val TxInBlockchainAwaitTime = 8 * nodes.head.blockDelay
     private val ConditionAwaitTime      = 5.minutes
@@ -264,7 +264,7 @@ object SyncHttpApi extends Assertions {
     def rollback(height: Int, returnToUTX: Boolean = true): Unit = {
       Await.result(
         Future.traverse(nodes) { node =>
-          com.wavesplatform.it.api.AsyncHttpApi.NodeAsyncHttpApi(node).rollback(height, returnToUTX)
+          com.amurcoin.it.api.AsyncHttpApi.NodeAsyncHttpApi(node).rollback(height, returnToUTX)
         },
         ConditionAwaitTime
       )
@@ -273,7 +273,7 @@ object SyncHttpApi extends Assertions {
     def waitForHeight(height: Int): Unit = {
       Await.result(
         Future.traverse(nodes) { node =>
-          com.wavesplatform.it.api.AsyncHttpApi.NodeAsyncHttpApi(node).waitForHeight(height)
+          com.amurcoin.it.api.AsyncHttpApi.NodeAsyncHttpApi(node).waitForHeight(height)
         },
         ConditionAwaitTime
       )

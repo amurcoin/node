@@ -1,3 +1,3 @@
-package com.wavesplatform.transaction
+package com.amurcoin.transaction
 
 class StateCheckFailed(m: String) extends Error(m)

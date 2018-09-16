@@ -1,13 +1,13 @@
-package com.wavesplatform.state.diffs
+package com.amurcoin.state.diffs
 
-import com.wavesplatform.features.BlockchainFeatures
-import com.wavesplatform.features.FeatureProvider._
-import com.wavesplatform.settings.FunctionalitySettings
-import com.wavesplatform.state.{AssetInfo, Blockchain, Diff, LeaseBalance, Portfolio, SponsorshipValue}
-import com.wavesplatform.account.PublicKeyAccount
-import com.wavesplatform.transaction.ValidationError.GenericError
-import com.wavesplatform.transaction.assets._
-import com.wavesplatform.transaction.{AssetId, ProvenTransaction, ValidationError}
+import com.amurcoin.features.BlockchainFeatures
+import com.amurcoin.features.FeatureProvider._
+import com.amurcoin.settings.FunctionalitySettings
+import com.amurcoin.state.{AssetInfo, Blockchain, Diff, LeaseBalance, Portfolio, SponsorshipValue}
+import com.amurcoin.account.PublicKeyAccount
+import com.amurcoin.transaction.ValidationError.GenericError
+import com.amurcoin.transaction.assets._
+import com.amurcoin.transaction.{AssetId, ProvenTransaction, ValidationError}
 
 import scala.util.{Left, Right}
 

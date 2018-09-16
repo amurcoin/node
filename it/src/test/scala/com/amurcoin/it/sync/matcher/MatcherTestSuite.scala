@@ -1,14 +1,14 @@
-package com.wavesplatform.it.sync.matcher
+package com.amurcoin.it.sync.matcher
 
 import com.typesafe.config.{Config, ConfigFactory}
-import com.wavesplatform.it.ReportingTestName
-import com.wavesplatform.it.api.SyncHttpApi._
-import com.wavesplatform.it.api.SyncMatcherHttpApi._
-import com.wavesplatform.it.api.{AssetDecimalsInfo, LevelResponse}
-import com.wavesplatform.it.transactions.NodesFromDocker
-import com.wavesplatform.it.util._
-import com.wavesplatform.state.ByteStr
-import com.wavesplatform.transaction.assets.exchange.{AssetPair, Order, OrderType}
+import com.amurcoin.it.ReportingTestName
+import com.amurcoin.it.api.SyncHttpApi._
+import com.amurcoin.it.api.SyncMatcherHttpApi._
+import com.amurcoin.it.api.{AssetDecimalsInfo, LevelResponse}
+import com.amurcoin.it.transactions.NodesFromDocker
+import com.amurcoin.it.util._
+import com.amurcoin.state.ByteStr
+import com.amurcoin.transaction.assets.exchange.{AssetPair, Order, OrderType}
 import org.scalatest.{BeforeAndAfterAll, CancelAfterFailure, FreeSpec, Matchers}
 
 import scala.concurrent.duration._
@@ -397,7 +397,7 @@ class MatcherTestSuite extends FreeSpec with Matchers with BeforeAndAfterAll wit
 object MatcherTestSuite {
 
   import ConfigFactory._
-  import com.wavesplatform.it.NodeConfigs._
+  import com.amurcoin.it.NodeConfigs._
 
   private val ForbiddenAssetId = "FdbnAsset"
   private val AssetQuantity    = 1000

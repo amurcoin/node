@@ -1,12 +1,12 @@
-package com.wavesplatform.it.sync.matcher
+package com.amurcoin.it.sync.matcher
 
 import com.typesafe.config.{Config, ConfigFactory}
-import com.wavesplatform.it._
-import com.wavesplatform.it.api.SyncHttpApi._
-import com.wavesplatform.it.api.SyncMatcherHttpApi._
-import com.wavesplatform.it.transactions.NodesFromDocker
-import com.wavesplatform.state.ByteStr
-import com.wavesplatform.transaction.assets.exchange.{AssetPair, Order, OrderType}
+import com.amurcoin.it._
+import com.amurcoin.it.api.SyncHttpApi._
+import com.amurcoin.it.api.SyncMatcherHttpApi._
+import com.amurcoin.it.transactions.NodesFromDocker
+import com.amurcoin.state.ByteStr
+import com.amurcoin.transaction.assets.exchange.{AssetPair, Order, OrderType}
 import org.scalatest.{BeforeAndAfterAll, CancelAfterFailure, FreeSpec, Matchers}
 
 import scala.concurrent.duration._

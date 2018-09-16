@@ -1,4 +1,4 @@
-package com.wavesplatform.utils
+package com.amurcoin.utils
 
 import org.scalacheck.Gen
 import org.scalatest.{Matchers, PropSpec}

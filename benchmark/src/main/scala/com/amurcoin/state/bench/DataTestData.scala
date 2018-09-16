@@ -1,8 +1,8 @@
-package com.wavesplatform.state.bench
+package com.amurcoin.state.bench
 
 import java.nio.charset.StandardCharsets
 
-import com.wavesplatform.lang.v1.traits.DataType
+import com.amurcoin.lang.v1.traits.DataType
 import scodec._
 import scodec.bits._
 import scodec.codecs._

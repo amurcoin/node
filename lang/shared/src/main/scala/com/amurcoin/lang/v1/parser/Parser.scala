@@ -1,14 +1,14 @@
-package com.wavesplatform.lang.v1.parser
+package com.amurcoin.lang.v1.parser
 
-import com.wavesplatform.lang.v1.parser.BinaryOperation._
-import com.wavesplatform.lang.v1.parser.Expressions._
-import com.wavesplatform.lang.v1.parser.UnaryOperation._
+import com.amurcoin.lang.v1.parser.BinaryOperation._
+import com.amurcoin.lang.v1.parser.Expressions._
+import com.amurcoin.lang.v1.parser.UnaryOperation._
 import fastparse.{WhitespaceApi, core}
 import scodec.bits.ByteVector
 
 object Parser {
 
-  private val Global                 = com.wavesplatform.lang.hacks.Global // Hack for IDEA
+  private val Global                 = com.amurcoin.lang.hacks.Global // Hack for IDEA
   private val Whitespaces: Set[Char] = " \t\r\n".toSet
 
   private val White = WhitespaceApi.Wrapper {

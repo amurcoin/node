@@ -1,16 +1,16 @@
-package com.wavesplatform.state.reader
+package com.amurcoin.state.reader
 
 import cats.implicits._
 import cats.kernel.Monoid
-import com.wavesplatform.account.{Address, Alias}
-import com.wavesplatform.block.{Block, BlockHeader}
-import com.wavesplatform.state._
-import com.wavesplatform.transaction.Transaction.Type
-import com.wavesplatform.transaction.ValidationError.{AliasDoesNotExist, AliasIsDisabled}
-import com.wavesplatform.transaction.assets.IssueTransaction
-import com.wavesplatform.transaction.lease.LeaseTransaction
-import com.wavesplatform.transaction.smart.script.Script
-import com.wavesplatform.transaction.{AssetId, Transaction, ValidationError}
+import com.amurcoin.account.{Address, Alias}
+import com.amurcoin.block.{Block, BlockHeader}
+import com.amurcoin.state._
+import com.amurcoin.transaction.Transaction.Type
+import com.amurcoin.transaction.ValidationError.{AliasDoesNotExist, AliasIsDisabled}
+import com.amurcoin.transaction.assets.IssueTransaction
+import com.amurcoin.transaction.lease.LeaseTransaction
+import com.amurcoin.transaction.smart.script.Script
+import com.amurcoin.transaction.{AssetId, Transaction, ValidationError}
 
 class CompositeBlockchain(inner: Blockchain, maybeDiff: => Option[Diff], carry: Long = 0) extends Blockchain {
 

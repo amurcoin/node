@@ -1,14 +1,14 @@
-package com.wavesplatform.generator
+package com.amurcoin.generator
 
 import cats.Show
-import com.wavesplatform.account.PrivateKeyAccount
-import com.wavesplatform.generator.utils.Gen
-import com.wavesplatform.it.util._
-import com.wavesplatform.state._
-import com.wavesplatform.transaction.smart.SetScriptTransaction
-import com.wavesplatform.transaction.smart.script.Script
-import com.wavesplatform.transaction.transfer.TransferTransactionV2
-import com.wavesplatform.transaction.{Transaction}
+import com.amurcoin.account.PrivateKeyAccount
+import com.amurcoin.generator.utils.Gen
+import com.amurcoin.it.util._
+import com.amurcoin.state._
+import com.amurcoin.transaction.smart.SetScriptTransaction
+import com.amurcoin.transaction.smart.script.Script
+import com.amurcoin.transaction.transfer.TransferTransactionV2
+import com.amurcoin.transaction.{Transaction}
 
 class SetScriptsTransactionGenerator(settings: SetScriptsTransactionGenerator.Settings, val accounts: Seq[PrivateKeyAccount])
     extends TransactionGenerator {

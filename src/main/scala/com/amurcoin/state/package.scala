@@ -1,10 +1,10 @@
-package com.wavesplatform
+package com.amurcoin
 
-import com.wavesplatform.account.{Address, AddressOrAlias, Alias}
-import com.wavesplatform.block.Block
-import com.wavesplatform.transaction.ValidationError.{AliasDoesNotExist, GenericError}
-import com.wavesplatform.transaction._
-import com.wavesplatform.transaction.lease.{LeaseTransaction, LeaseTransactionV1}
+import com.amurcoin.account.{Address, AddressOrAlias, Alias}
+import com.amurcoin.block.Block
+import com.amurcoin.transaction.ValidationError.{AliasDoesNotExist, GenericError}
+import com.amurcoin.transaction._
+import com.amurcoin.transaction.lease.{LeaseTransaction, LeaseTransactionV1}
 
 import scala.reflect.ClassTag
 import scala.util.Try

@@ -1,4 +1,4 @@
-package com.wavesplatform
+package com.amurcoin
 
 import org.scalacheck.Shrink
 

@@ -1,12 +1,12 @@
-package com.wavesplatform.api.http
+package com.amurcoin.api.http
 
 import java.net.{InetAddress, InetSocketAddress}
 import java.util.concurrent.ConcurrentMap
 import java.util.stream.Collectors
 
 import akka.http.scaladsl.server.Route
-import com.wavesplatform.network.{PeerDatabase, PeerInfo}
-import com.wavesplatform.settings.RestAPISettings
+import com.amurcoin.network.{PeerDatabase, PeerInfo}
+import com.amurcoin.settings.RestAPISettings
 import io.netty.channel.Channel
 import io.swagger.annotations._
 import javax.ws.rs.Path
@@ -85,7 +85,7 @@ case class PeersApiRoute(settings: RestAPISettings,
         value = "Json with data",
         required = true,
         paramType = "body",
-        dataType = "com.wavesplatform.api.http.ConnectReq"
+        dataType = "com.amurcoin.api.http.ConnectReq"
       )
     ))
   def connect: Route = (path("connect") & post & withAuth) {

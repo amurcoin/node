@@ -1,28 +1,28 @@
-package com.wavesplatform.matcher.market
+package com.amurcoin.matcher.market
 
 import akka.actor.{ActorRef, Cancellable, Props, Stash}
 import akka.http.scaladsl.model.StatusCodes
 import akka.persistence._
 import com.google.common.cache.CacheBuilder
-import com.wavesplatform.account.PublicKeyAccount
-import com.wavesplatform.matcher.MatcherSettings
-import com.wavesplatform.matcher.api.MatcherResponse
-import com.wavesplatform.matcher.market.MatcherActor.{Shutdown, ShutdownComplete}
-import com.wavesplatform.matcher.market.OrderBookActor._
-import com.wavesplatform.matcher.market.OrderHistoryActor._
-import com.wavesplatform.matcher.model.Events.{Event, ExchangeTransactionCreated, OrderAdded, OrderExecuted}
-import com.wavesplatform.matcher.model.MatcherModel.{Level, Price}
-import com.wavesplatform.matcher.model._
-import com.wavesplatform.metrics.TimerExt
-import com.wavesplatform.network._
-import com.wavesplatform.settings.FunctionalitySettings
-import com.wavesplatform.state.{Blockchain, ByteStr}
-import com.wavesplatform.transaction.ValidationError
-import com.wavesplatform.transaction.ValidationError.{AccountBalanceError, GenericError, NegativeAmount, OrderValidationError}
-import com.wavesplatform.transaction.assets.exchange._
-import com.wavesplatform.utils.{NTP, ScorexLogging}
-import com.wavesplatform.utx.UtxPool
-import com.wavesplatform.wallet.Wallet
+import com.amurcoin.account.PublicKeyAccount
+import com.amurcoin.matcher.MatcherSettings
+import com.amurcoin.matcher.api.MatcherResponse
+import com.amurcoin.matcher.market.MatcherActor.{Shutdown, ShutdownComplete}
+import com.amurcoin.matcher.market.OrderBookActor._
+import com.amurcoin.matcher.market.OrderHistoryActor._
+import com.amurcoin.matcher.model.Events.{Event, ExchangeTransactionCreated, OrderAdded, OrderExecuted}
+import com.amurcoin.matcher.model.MatcherModel.{Level, Price}
+import com.amurcoin.matcher.model._
+import com.amurcoin.metrics.TimerExt
+import com.amurcoin.network._
+import com.amurcoin.settings.FunctionalitySettings
+import com.amurcoin.state.{Blockchain, ByteStr}
+import com.amurcoin.transaction.ValidationError
+import com.amurcoin.transaction.ValidationError.{AccountBalanceError, GenericError, NegativeAmount, OrderValidationError}
+import com.amurcoin.transaction.assets.exchange._
+import com.amurcoin.utils.{NTP, ScorexLogging}
+import com.amurcoin.utx.UtxPool
+import com.amurcoin.wallet.Wallet
 import io.netty.channel.group.ChannelGroup
 import kamon.Kamon
 import play.api.libs.json._

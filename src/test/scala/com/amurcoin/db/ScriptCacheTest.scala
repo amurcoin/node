@@ -1,19 +1,19 @@
-package com.wavesplatform.db
+package com.amurcoin.db
 
 import com.typesafe.config.ConfigFactory
-import com.wavesplatform.database.LevelDBWriter
-import com.wavesplatform.settings.{TestFunctionalitySettings, WavesSettings, loadConfig}
-import com.wavesplatform.state.{BlockchainUpdaterImpl, _}
-import com.wavesplatform.{TransactionGen, WithDB}
+import com.amurcoin.database.LevelDBWriter
+import com.amurcoin.settings.{TestFunctionalitySettings, WavesSettings, loadConfig}
+import com.amurcoin.state.{BlockchainUpdaterImpl, _}
+import com.amurcoin.{TransactionGen, WithDB}
 import org.scalacheck.Gen
 import org.scalatest.{FreeSpec, Matchers}
-import com.wavesplatform.account.PrivateKeyAccount
-import com.wavesplatform.utils.{Time, TimeImpl}
-import com.wavesplatform.block.Block
-import com.wavesplatform.lagonaki.mocks.TestBlock
-import com.wavesplatform.transaction.smart.SetScriptTransaction
-import com.wavesplatform.transaction.smart.script.{Script, ScriptCompiler}
-import com.wavesplatform.transaction.{BlockchainUpdater, GenesisTransaction}
+import com.amurcoin.account.PrivateKeyAccount
+import com.amurcoin.utils.{Time, TimeImpl}
+import com.amurcoin.block.Block
+import com.amurcoin.lagonaki.mocks.TestBlock
+import com.amurcoin.transaction.smart.SetScriptTransaction
+import com.amurcoin.transaction.smart.script.{Script, ScriptCompiler}
+import com.amurcoin.transaction.{BlockchainUpdater, GenesisTransaction}
 
 class ScriptCacheTest extends FreeSpec with Matchers with WithDB with TransactionGen {
 

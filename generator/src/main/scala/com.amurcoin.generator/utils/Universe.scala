@@ -1,7 +1,7 @@
-package com.wavesplatform.generator.utils
+package com.amurcoin.generator.utils
 
-import com.wavesplatform.account.PrivateKeyAccount
-import com.wavesplatform.state.ByteStr
+import com.amurcoin.account.PrivateKeyAccount
+import com.amurcoin.state.ByteStr
 
 object Universe {
   var AccountsWithBalances: List[(PrivateKeyAccount, Long)] = Nil

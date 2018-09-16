@@ -1,13 +1,13 @@
-package com.wavesplatform.mining
+package com.amurcoin.mining
 
-import com.wavesplatform.TransactionGen
-import com.wavesplatform.lang.v1.compiler.Terms
-import com.wavesplatform.state.{AssetDescription, Blockchain, ByteStr, EitherExt2}
+import com.amurcoin.TransactionGen
+import com.amurcoin.lang.v1.compiler.Terms
+import com.amurcoin.state.{AssetDescription, Blockchain, ByteStr, EitherExt2}
 import org.scalamock.scalatest.PathMockFactory
 import org.scalatest.{FreeSpec, Matchers}
-import com.wavesplatform.account.{Address, PrivateKeyAccount}
-import com.wavesplatform.transaction.smart.script.v1.ScriptV1
-import com.wavesplatform.transaction.transfer.TransferTransactionV1
+import com.amurcoin.account.{Address, PrivateKeyAccount}
+import com.amurcoin.transaction.smart.script.v1.ScriptV1
+import com.amurcoin.transaction.transfer.TransferTransactionV1
 
 class TxEstimatorsSuite extends FreeSpec with Matchers with PathMockFactory with TransactionGen {
   "scriptRunNumber" - {

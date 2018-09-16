@@ -1,9 +1,9 @@
-package com.wavesplatform.utx
+package com.amurcoin.utx
 
-import com.wavesplatform.mining.MultiDimensionalMiningConstraint
-import com.wavesplatform.state.{ByteStr, Diff, Portfolio}
-import com.wavesplatform.account.Address
-import com.wavesplatform.transaction._
+import com.amurcoin.mining.MultiDimensionalMiningConstraint
+import com.amurcoin.state.{ByteStr, Diff, Portfolio}
+import com.amurcoin.account.Address
+import com.amurcoin.transaction._
 
 trait UtxPool extends AutoCloseable {
   self =>

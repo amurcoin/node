@@ -1,7 +1,7 @@
-package com.wavesplatform.lang.v1
+package com.amurcoin.lang.v1
 
 import cats.data.EitherT
-import com.wavesplatform.lang.v1.compiler.Terms._
+import com.amurcoin.lang.v1.compiler.Terms._
 import monix.eval.Coeval
 
 object ScriptEstimator {

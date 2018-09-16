@@ -1,7 +1,7 @@
-package com.wavesplatform.settings
+package com.amurcoin.settings
 
 import com.typesafe.config.Config
-import com.wavesplatform.mining.Miner
+import com.amurcoin.mining.Miner
 
 import scala.concurrent.duration.FiniteDuration
 

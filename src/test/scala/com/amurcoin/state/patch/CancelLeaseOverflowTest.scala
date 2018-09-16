@@ -1,15 +1,15 @@
-package com.wavesplatform.state.patch
+package com.amurcoin.state.patch
 
-import com.wavesplatform.settings.TestFunctionalitySettings
-import com.wavesplatform.state.EitherExt2
-import com.wavesplatform.state.diffs._
-import com.wavesplatform.{NoShrink, TransactionGen}
+import com.amurcoin.settings.TestFunctionalitySettings
+import com.amurcoin.state.EitherExt2
+import com.amurcoin.state.diffs._
+import com.amurcoin.{NoShrink, TransactionGen}
 import org.scalatest.prop.PropertyChecks
 import org.scalatest.{Matchers, PropSpec}
-import com.wavesplatform.lagonaki.mocks.TestBlock
-import com.wavesplatform.transaction.GenesisTransaction
-import com.wavesplatform.transaction.lease.LeaseTransactionV1
-import com.wavesplatform.transaction.transfer._
+import com.amurcoin.lagonaki.mocks.TestBlock
+import com.amurcoin.transaction.GenesisTransaction
+import com.amurcoin.transaction.lease.LeaseTransactionV1
+import com.amurcoin.transaction.transfer._
 
 class CancelLeaseOverflowTest extends PropSpec with PropertyChecks with Matchers with TransactionGen with NoShrink {
 

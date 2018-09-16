@@ -1,10 +1,10 @@
-package com.wavesplatform.it.sync.transactions
+package com.amurcoin.it.sync.transactions
 
-import com.wavesplatform.it.api.SyncHttpApi._
-import com.wavesplatform.it.transactions.BaseTransactionSuite
-import com.wavesplatform.it.util._
+import com.amurcoin.it.api.SyncHttpApi._
+import com.amurcoin.it.transactions.BaseTransactionSuite
+import com.amurcoin.it.util._
 import org.scalatest.prop.TableDrivenPropertyChecks
-import com.wavesplatform.it.sync._
+import com.amurcoin.it.sync._
 
 import scala.util.Random
 

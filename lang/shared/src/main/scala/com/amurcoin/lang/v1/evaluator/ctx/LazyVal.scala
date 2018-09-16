@@ -1,9 +1,9 @@
-package com.wavesplatform.lang.v1.evaluator.ctx
+package com.amurcoin.lang.v1.evaluator.ctx
 
 import cats.data.EitherT
 import cats.implicits._
-import com.wavesplatform.lang.TrampolinedExecResult
-import com.wavesplatform.lang.v1.task.CoevalRef
+import com.amurcoin.lang.TrampolinedExecResult
+import com.amurcoin.lang.v1.task.CoevalRef
 import monix.eval.Coeval
 
 sealed trait LazyVal {

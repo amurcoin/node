@@ -1,13 +1,13 @@
-package com.wavesplatform.lang
+package com.amurcoin.lang
 
 import cats.kernel.Monoid
-import com.wavesplatform.lang.Common._
-import com.wavesplatform.lang.v1.compiler.Terms._
-import com.wavesplatform.lang.v1.evaluator.ctx.EvaluationContext._
-import com.wavesplatform.lang.v1.evaluator.ctx._
-import com.wavesplatform.lang.v1.evaluator.ctx.impl.PureContext
-import com.wavesplatform.lang.v1.evaluator.ctx.impl.PureContext._
-import com.wavesplatform.lang.v1.testing.ScriptGen
+import com.amurcoin.lang.Common._
+import com.amurcoin.lang.v1.compiler.Terms._
+import com.amurcoin.lang.v1.evaluator.ctx.EvaluationContext._
+import com.amurcoin.lang.v1.evaluator.ctx._
+import com.amurcoin.lang.v1.evaluator.ctx.impl.PureContext
+import com.amurcoin.lang.v1.evaluator.ctx.impl.PureContext._
+import com.amurcoin.lang.v1.testing.ScriptGen
 import org.scalatest.prop.PropertyChecks
 import org.scalatest.{Matchers, PropSpec}
 

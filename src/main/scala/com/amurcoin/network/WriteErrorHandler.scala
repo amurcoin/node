@@ -1,8 +1,8 @@
-package com.wavesplatform.network
+package com.amurcoin.network
 
 import java.nio.channels.ClosedChannelException
 
-import com.wavesplatform.utils.ScorexLogging
+import com.amurcoin.utils.ScorexLogging
 import io.netty.channel.ChannelHandler.Sharable
 import io.netty.channel._
 

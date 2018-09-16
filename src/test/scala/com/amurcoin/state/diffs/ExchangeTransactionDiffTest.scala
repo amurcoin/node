@@ -1,26 +1,26 @@
-package com.wavesplatform.state.diffs
+package com.amurcoin.state.diffs
 
 import cats.{Order => _, _}
-import com.wavesplatform.OrderOps._
-import com.wavesplatform.account.{AddressScheme, PrivateKeyAccount}
-import com.wavesplatform.features.BlockchainFeatures
-import com.wavesplatform.lagonaki.mocks.TestBlock
-import com.wavesplatform.lang.directives.DirectiveParser
-import com.wavesplatform.lang.v1.ScriptEstimator
-import com.wavesplatform.lang.v1.compiler.{CompilerContext, CompilerV1}
-import com.wavesplatform.settings.{Constants, TestFunctionalitySettings}
-import com.wavesplatform.state._
-import com.wavesplatform.state.diffs.TransactionDiffer.TransactionValidationError
-import com.wavesplatform.transaction.ValidationError.AccountBalanceError
-import com.wavesplatform.transaction.assets.exchange.{Order, _}
-import com.wavesplatform.transaction.assets.{IssueTransaction, IssueTransactionV1, IssueTransactionV2}
-import com.wavesplatform.transaction.smart.SetScriptTransaction
-import com.wavesplatform.transaction.smart.script.v1.ScriptV1
-import com.wavesplatform.transaction.smart.script.{Script, ScriptCompiler}
-import com.wavesplatform.transaction.transfer.TransferTransaction
-import com.wavesplatform.transaction.{GenesisTransaction, Proofs, Transaction, ValidationError}
-import com.wavesplatform.utils.functionCosts
-import com.wavesplatform.{NoShrink, TransactionGen, crypto}
+import com.amurcoin.OrderOps._
+import com.amurcoin.account.{AddressScheme, PrivateKeyAccount}
+import com.amurcoin.features.BlockchainFeatures
+import com.amurcoin.lagonaki.mocks.TestBlock
+import com.amurcoin.lang.directives.DirectiveParser
+import com.amurcoin.lang.v1.ScriptEstimator
+import com.amurcoin.lang.v1.compiler.{CompilerContext, CompilerV1}
+import com.amurcoin.settings.{Constants, TestFunctionalitySettings}
+import com.amurcoin.state._
+import com.amurcoin.state.diffs.TransactionDiffer.TransactionValidationError
+import com.amurcoin.transaction.ValidationError.AccountBalanceError
+import com.amurcoin.transaction.assets.exchange.{Order, _}
+import com.amurcoin.transaction.assets.{IssueTransaction, IssueTransactionV1, IssueTransactionV2}
+import com.amurcoin.transaction.smart.SetScriptTransaction
+import com.amurcoin.transaction.smart.script.v1.ScriptV1
+import com.amurcoin.transaction.smart.script.{Script, ScriptCompiler}
+import com.amurcoin.transaction.transfer.TransferTransaction
+import com.amurcoin.transaction.{GenesisTransaction, Proofs, Transaction, ValidationError}
+import com.amurcoin.utils.functionCosts
+import com.amurcoin.{NoShrink, TransactionGen, crypto}
 import org.scalacheck.Gen
 import org.scalatest.prop.PropertyChecks
 import org.scalatest.{Inside, Matchers, PropSpec}

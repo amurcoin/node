@@ -1,11 +1,11 @@
-package com.wavesplatform.it.sync
+package com.amurcoin.it.sync
 
 import com.typesafe.config.Config
-import com.wavesplatform.it.NodeConfigs
-import com.wavesplatform.it.api.SyncHttpApi._
-import com.wavesplatform.it.transactions.NodesFromDocker
-import com.wavesplatform.state.Sponsorship
-import com.wavesplatform.utils.ScorexLogging
+import com.amurcoin.it.NodeConfigs
+import com.amurcoin.it.api.SyncHttpApi._
+import com.amurcoin.it.transactions.NodesFromDocker
+import com.amurcoin.state.Sponsorship
+import com.amurcoin.utils.ScorexLogging
 import org.scalatest.{CancelAfterFailure, FreeSpec, Matchers}
 
 class MicroblocksSponsoredFeeTestSuite extends FreeSpec with Matchers with CancelAfterFailure with NodesFromDocker with ScorexLogging {

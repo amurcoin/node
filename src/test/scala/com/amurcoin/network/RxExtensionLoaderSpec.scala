@@ -1,9 +1,9 @@
-package com.wavesplatform.network
+package com.amurcoin.network
 
-import com.wavesplatform.network.RxExtensionLoader.ExtensionBlocks
-import com.wavesplatform.network.RxScoreObserver.{BestChannel, ChannelClosedAndSyncWith}
-import com.wavesplatform.state.ByteStr
-import com.wavesplatform.{BlockGen, RxScheduler, TransactionGen}
+import com.amurcoin.network.RxExtensionLoader.ExtensionBlocks
+import com.amurcoin.network.RxScoreObserver.{BestChannel, ChannelClosedAndSyncWith}
+import com.amurcoin.state.ByteStr
+import com.amurcoin.{BlockGen, RxScheduler, TransactionGen}
 import io.netty.channel.Channel
 import io.netty.channel.embedded.EmbeddedChannel
 import io.netty.channel.local.LocalChannel
@@ -11,9 +11,9 @@ import monix.eval.{Coeval, Task}
 import monix.reactive.Observable
 import monix.reactive.subjects.{PublishSubject => PS}
 import org.scalatest.{FreeSpec, Matchers}
-import com.wavesplatform.block.Block
-import com.wavesplatform.transaction.ValidationError
-import com.wavesplatform.transaction.ValidationError.GenericError
+import com.amurcoin.block.Block
+import com.amurcoin.transaction.ValidationError
+import com.amurcoin.transaction.ValidationError.GenericError
 
 import scala.concurrent.duration._
 

@@ -1,17 +1,17 @@
-package com.wavesplatform.api.http
+package com.amurcoin.api.http
 
 import java.nio.charset.StandardCharsets
 
-import com.wavesplatform.http.ApiMarshallers._
-import com.wavesplatform.http.{RestAPISettingsHelper, RouteSpec}
-import com.wavesplatform.state.{AssetDescription, Blockchain, ByteStr}
-import com.wavesplatform.utx.UtxPool
-import com.wavesplatform.{NoShrink, TestTime, TestWallet, TransactionGen}
+import com.amurcoin.http.ApiMarshallers._
+import com.amurcoin.http.{RestAPISettingsHelper, RouteSpec}
+import com.amurcoin.state.{AssetDescription, Blockchain, ByteStr}
+import com.amurcoin.utx.UtxPool
+import com.amurcoin.{NoShrink, TestTime, TestWallet, TransactionGen}
 import io.netty.channel.group.ChannelGroup
 import org.scalamock.scalatest.PathMockFactory
 import org.scalatest.prop.PropertyChecks
 import play.api.libs.json._
-import com.wavesplatform.api.http.assets.AssetsApiRoute
+import com.amurcoin.api.http.assets.AssetsApiRoute
 
 class AssetsApiRouteSpec
     extends RouteSpec("/assets")

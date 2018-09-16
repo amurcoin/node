@@ -1,8 +1,8 @@
-package com.wavesplatform.settings
+package com.amurcoin.settings
 
 import com.typesafe.config.Config
-import com.wavesplatform.matcher.MatcherSettings
-import com.wavesplatform.metrics.Metrics
+import com.amurcoin.matcher.MatcherSettings
+import com.amurcoin.metrics.Metrics
 import net.ceedubs.ficus.Ficus._
 import net.ceedubs.ficus.readers.ArbitraryTypeReader._
 

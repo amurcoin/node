@@ -1,7 +1,7 @@
-package com.wavesplatform.transaction
+package com.amurcoin.transaction
 
-import com.wavesplatform.network.{BlockCheckpoint, Checkpoint}
-import com.wavesplatform.state.ByteStr
+import com.amurcoin.network.{BlockCheckpoint, Checkpoint}
+import com.amurcoin.state.ByteStr
 
 trait CheckpointService {
 

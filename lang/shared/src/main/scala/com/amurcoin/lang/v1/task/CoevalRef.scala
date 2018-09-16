@@ -1,4 +1,4 @@
-package com.wavesplatform.lang.v1.task
+package com.amurcoin.lang.v1.task
 
 import monix.eval.Coeval
 import monix.execution.atomic.{Atomic, _}

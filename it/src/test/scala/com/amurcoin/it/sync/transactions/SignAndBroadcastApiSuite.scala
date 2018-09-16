@@ -1,16 +1,16 @@
-package com.wavesplatform.it.sync.transactions
+package com.amurcoin.it.sync.transactions
 
-import com.wavesplatform.account.PublicKeyAccount
-import com.wavesplatform.api.http.assets.SignedTransferV1Request
-import com.wavesplatform.crypto
-import com.wavesplatform.it.api.SyncHttpApi._
-import com.wavesplatform.it.sync.{someAssetAmount, _}
-import com.wavesplatform.it.transactions.BaseTransactionSuite
-import com.wavesplatform.it.util._
-import com.wavesplatform.state._
-import com.wavesplatform.transaction.assets.exchange.{AssetPair, Order, _}
-import com.wavesplatform.transaction.transfer.MassTransferTransaction.Transfer
-import com.wavesplatform.utils.{Base58, NTP}
+import com.amurcoin.account.PublicKeyAccount
+import com.amurcoin.api.http.assets.SignedTransferV1Request
+import com.amurcoin.crypto
+import com.amurcoin.it.api.SyncHttpApi._
+import com.amurcoin.it.sync.{someAssetAmount, _}
+import com.amurcoin.it.transactions.BaseTransactionSuite
+import com.amurcoin.it.util._
+import com.amurcoin.state._
+import com.amurcoin.transaction.assets.exchange.{AssetPair, Order, _}
+import com.amurcoin.transaction.transfer.MassTransferTransaction.Transfer
+import com.amurcoin.utils.{Base58, NTP}
 import org.asynchttpclient.util.HttpConstants
 import play.api.libs.json._
 

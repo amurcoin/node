@@ -1,14 +1,14 @@
-package com.wavesplatform.utx
+package com.amurcoin.utx
 
 import akka.event.EventStream
 import cats.kernel.Monoid
-import com.wavesplatform.matcher.MatcherSettings
-import com.wavesplatform.matcher.model.Events.BalanceChanged
-import com.wavesplatform.mining.MultiDimensionalMiningConstraint
-import com.wavesplatform.state.{ByteStr, Diff, Portfolio}
-import com.wavesplatform.account.Address
-import com.wavesplatform.utils.ScorexLogging
-import com.wavesplatform.transaction.{AssetId, Authorized, Transaction, ValidationError}
+import com.amurcoin.matcher.MatcherSettings
+import com.amurcoin.matcher.model.Events.BalanceChanged
+import com.amurcoin.mining.MultiDimensionalMiningConstraint
+import com.amurcoin.state.{ByteStr, Diff, Portfolio}
+import com.amurcoin.account.Address
+import com.amurcoin.utils.ScorexLogging
+import com.amurcoin.transaction.{AssetId, Authorized, Transaction, ValidationError}
 
 import scala.collection.mutable
 

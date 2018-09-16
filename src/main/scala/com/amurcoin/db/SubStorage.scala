@@ -1,4 +1,4 @@
-package com.wavesplatform.db
+package com.amurcoin.db
 
 import com.google.common.primitives.{Bytes, Ints}
 import org.iq80.leveldb.{DB, WriteBatch}

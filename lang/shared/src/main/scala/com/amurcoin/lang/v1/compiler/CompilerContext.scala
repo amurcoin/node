@@ -1,10 +1,10 @@
-package com.wavesplatform.lang.v1.compiler
+package com.amurcoin.lang.v1.compiler
 
 import cats.Monoid
-import com.wavesplatform.lang.v1.FunctionHeader
-import com.wavesplatform.lang.v1.compiler.CompilerContext._
-import com.wavesplatform.lang.v1.compiler.Types.{CASETYPEREF, FINAL}
-import com.wavesplatform.lang.v1.evaluator.ctx.{BaseFunction, CaseType, DefinedType, FunctionTypeSignature}
+import com.amurcoin.lang.v1.FunctionHeader
+import com.amurcoin.lang.v1.compiler.CompilerContext._
+import com.amurcoin.lang.v1.compiler.Types.{CASETYPEREF, FINAL}
+import com.amurcoin.lang.v1.evaluator.ctx.{BaseFunction, CaseType, DefinedType, FunctionTypeSignature}
 import shapeless._
 
 case class CompilerContext(predefTypes: Map[String, DefinedType], varDefs: VariableTypes, functionDefs: FunctionTypes, tmpArgsIdx: Int = 0) {

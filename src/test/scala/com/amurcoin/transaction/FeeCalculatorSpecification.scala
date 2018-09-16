@@ -1,12 +1,12 @@
-package com.wavesplatform.transaction
+package com.amurcoin.transaction
 
-import com.wavesplatform.TransactionGen
-import com.wavesplatform.account.Address
-import com.wavesplatform.state._
-import com.wavesplatform.transaction.assets._
-import com.wavesplatform.transaction.lease.{LeaseCancelTransaction, LeaseTransaction}
-import com.wavesplatform.transaction.smart.script.Script
-import com.wavesplatform.transaction.transfer._
+import com.amurcoin.TransactionGen
+import com.amurcoin.account.Address
+import com.amurcoin.state._
+import com.amurcoin.transaction.assets._
+import com.amurcoin.transaction.lease.{LeaseCancelTransaction, LeaseTransaction}
+import com.amurcoin.transaction.smart.script.Script
+import com.amurcoin.transaction.transfer._
 import org.scalamock.scalatest.MockFactory
 import org.scalatest.prop.PropertyChecks
 import org.scalatest.{Assertion, Matchers, PropSpec}

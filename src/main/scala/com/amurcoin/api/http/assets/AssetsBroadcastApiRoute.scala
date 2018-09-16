@@ -1,16 +1,16 @@
-package com.wavesplatform.api.http.assets
+package com.amurcoin.api.http.assets
 
 import akka.http.scaladsl.server.Route
-import com.wavesplatform.network._
-import com.wavesplatform.settings.RestAPISettings
-import com.wavesplatform.state.diffs.TransactionDiffer.TransactionValidationError
-import com.wavesplatform.utx.UtxPool
+import com.amurcoin.network._
+import com.amurcoin.settings.RestAPISettings
+import com.amurcoin.state.diffs.TransactionDiffer.TransactionValidationError
+import com.amurcoin.utx.UtxPool
 import io.netty.channel.group.ChannelGroup
 import io.swagger.annotations._
 import javax.ws.rs.Path
-import com.wavesplatform.api.http._
-import com.wavesplatform.http.BroadcastRoute
-import com.wavesplatform.transaction.{Transaction, ValidationError}
+import com.amurcoin.api.http._
+import com.amurcoin.http.BroadcastRoute
+import com.amurcoin.transaction.{Transaction, ValidationError}
 
 import scala.concurrent.ExecutionContext.Implicits.global
 import scala.concurrent.Future
@@ -39,7 +39,7 @@ case class AssetsBroadcastApiRoute(settings: RestAPISettings, utx: UtxPool, allC
         value = "Json with signed Issue transaction",
         required = true,
         paramType = "body",
-        dataType = "com.wavesplatform.api.http.assets.SignedIssueV1Request"
+        dataType = "com.amurcoin.api.http.assets.SignedIssueV1Request"
       )))
   @ApiResponses(
     Array(
@@ -67,7 +67,7 @@ case class AssetsBroadcastApiRoute(settings: RestAPISettings, utx: UtxPool, allC
         value = "Json with signed Reissue transaction",
         required = true,
         paramType = "body",
-        dataType = "com.wavesplatform.api.http.assets.SignedReissueV1Request"
+        dataType = "com.amurcoin.api.http.assets.SignedReissueV1Request"
       )))
   @ApiResponses(
     Array(
@@ -94,7 +94,7 @@ case class AssetsBroadcastApiRoute(settings: RestAPISettings, utx: UtxPool, allC
                            value = "Json with signed Burn transaction",
                            required = true,
                            paramType = "body",
-                           dataType = "com.wavesplatform.api.http.assets.SignedBurnV1Request")))
+                           dataType = "com.amurcoin.api.http.assets.SignedBurnV1Request")))
   @ApiResponses(
     Array(
       new ApiResponse(code = 200, message = "Json with signed Asset burn transaction"),
@@ -119,7 +119,7 @@ case class AssetsBroadcastApiRoute(settings: RestAPISettings, utx: UtxPool, allC
         value = "Array json with data",
         required = true,
         paramType = "body",
-        dataType = "com.wavesplatform.api.http.assets.SignedTransferV2Request",
+        dataType = "com.amurcoin.api.http.assets.SignedTransferV2Request",
         allowMultiple = true,
         defaultValue =
           "[{\n  \"assetId\": \"E9yZC4cVhCDfbjFJCc9CqkAtkoFy5KaCe64iaxHM2adG\",\n  \"senderPublicKey\": \"CRxqEuxhdZBEHX42MU4FfyJxuHmbDBTaHMhM3Uki7pLw\",\n  \"recipient\": \"3Mx2afTZ2KbRrLNbytyzTtXukZvqEB8SkW7\",\n  \"fee\": 100000,\n  \"amount\": 5500000000,\n  \"attachment\": \"BJa6cfyGUmzBFTj3vvvaew\",\n  \"timestamp\": 1479222433704, \n  \"signature\": \"2TyN8pNS7mS9gfCbX2ktpkWVYckoAmRmDZzKH3K35DKs6sUoXHArzukV5hvveK9t79uzT3cA8CYZ9z3Utj6CnCEo\"\n, {\n  \"assetId\": \"E9yZC4cVhCDfbjFJCc9CqkAtkoFy5KaCe64iaxHM2adG\",\n  \"senderPublicKey\": \"CRxqEuxhdZBEHX42MU4FfyJxuHmbDBTaHMhM3Uki7pLw\",\n  \"recipient\": \"3Mx2afTZ2KbRrLNbytyzTtXukZvqEB8SkW7\",\n  \"fee\": 100000,\n  \"amount\": 5500000000,\n  \"attachment\": \"BJa6cfyGUmzBFTj3vvvaew\",\n  \"timestamp\": 1479222433704, \n  \"signature\": \"2TyN8pNS7mS9gfCbX2ktpkWVYckoAmRmDZzKH3K35DKs6sUoXHArzukV5hvveK9t79uzT3cA8CYZ9z3Utj6CnCEo\"\n}]"
@@ -184,7 +184,7 @@ case class AssetsBroadcastApiRoute(settings: RestAPISettings, utx: UtxPool, allC
         value = "Json with signed Transfer transaction",
         required = true,
         paramType = "body",
-        dataType = "com.wavesplatform.api.http.assets.SignedTransferV2Request"
+        dataType = "com.amurcoin.api.http.assets.SignedTransferV2Request"
       )))
   @ApiResponses(
     Array(
@@ -220,7 +220,7 @@ case class AssetsBroadcastApiRoute(settings: RestAPISettings, utx: UtxPool, allC
         value = "Json with signed Transfer transaction",
         required = true,
         paramType = "body",
-        dataType = "com.wavesplatform.api.http.assets.SignedExchangeRequest"
+        dataType = "com.amurcoin.api.http.assets.SignedExchangeRequest"
       )))
   @ApiResponses(
     Array(

@@ -1,7 +1,7 @@
-package com.wavesplatform.settings
+package com.amurcoin.settings
 
 import java.io.File
 
-import com.wavesplatform.state.ByteStr
+import com.amurcoin.state.ByteStr
 
 case class WalletSettings(file: Option[File], password: Option[String], seed: Option[ByteStr])

@@ -1,11 +1,11 @@
-package com.wavesplatform.state
+package com.amurcoin.state
 
 import java.nio.charset.StandardCharsets.UTF_8
 
 import com.google.common.primitives.{Longs, Shorts}
-import com.wavesplatform.state.DataEntry._
+import com.amurcoin.state.DataEntry._
 import play.api.libs.json._
-import com.wavesplatform.serialization.Deser
+import com.amurcoin.serialization.Deser
 
 sealed abstract class DataEntry[T](val key: String, val value: T) {
   def valueBytes: Array[Byte]

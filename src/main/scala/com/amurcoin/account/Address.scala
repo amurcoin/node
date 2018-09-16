@@ -1,12 +1,12 @@
-package com.wavesplatform.account
+package com.amurcoin.account
 
 import java.nio.ByteBuffer
 
-import com.wavesplatform.crypto
-import com.wavesplatform.state.ByteStr
-import com.wavesplatform.utils.{Base58, ScorexLogging, base58Length}
-import com.wavesplatform.transaction.ValidationError
-import com.wavesplatform.transaction.ValidationError.InvalidAddress
+import com.amurcoin.crypto
+import com.amurcoin.state.ByteStr
+import com.amurcoin.utils.{Base58, ScorexLogging, base58Length}
+import com.amurcoin.transaction.ValidationError
+import com.amurcoin.transaction.ValidationError.InvalidAddress
 
 sealed trait Address extends AddressOrAlias {
   val bytes: ByteStr

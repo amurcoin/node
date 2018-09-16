@@ -1,7 +1,7 @@
-package com.wavesplatform.state.diffs
+package com.amurcoin.state.diffs
 
-import com.wavesplatform.state._
-import com.wavesplatform.transaction.{DataTransaction, ValidationError}
+import com.amurcoin.state._
+import com.amurcoin.transaction.{DataTransaction, ValidationError}
 
 object DataTransactionDiff {
 

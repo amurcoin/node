@@ -1,10 +1,10 @@
-package com.wavesplatform.consensus
+package com.amurcoin.consensus
 
-import com.wavesplatform.features.BlockchainFeatures
-import com.wavesplatform.settings.FunctionalitySettings
-import com.wavesplatform.state.Blockchain
-import com.wavesplatform.account.Address
-import com.wavesplatform.block.Block
+import com.amurcoin.features.BlockchainFeatures
+import com.amurcoin.settings.FunctionalitySettings
+import com.amurcoin.state.Blockchain
+import com.amurcoin.account.Address
+import com.amurcoin.block.Block
 
 object GeneratingBalanceProvider {
   private val MinimalEffectiveBalanceForGenerator1: Long = 1000000000000L

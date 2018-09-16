@@ -1,11 +1,11 @@
-package com.wavesplatform.generator
+package com.amurcoin.generator
 
 import java.net.InetSocketAddress
 
 import cats.Show
 import cats.implicits.showInterpolator
-import com.wavesplatform.state.EitherExt2
-import com.wavesplatform.account.PrivateKeyAccount
+import com.amurcoin.state.EitherExt2
+import com.amurcoin.account.PrivateKeyAccount
 
 case class GeneratorSettings(chainId: String,
                              accounts: Seq[String],

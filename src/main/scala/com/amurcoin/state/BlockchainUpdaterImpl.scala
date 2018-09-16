@@ -1,26 +1,26 @@
-package com.wavesplatform.state
+package com.amurcoin.state
 
 import cats.implicits._
-import com.wavesplatform.features.BlockchainFeatures
-import com.wavesplatform.features.FeatureProvider._
-import com.wavesplatform.metrics.{Instrumented, TxsInBlockchainStats}
-import com.wavesplatform.mining.{MiningConstraint, MiningConstraints, MultiDimensionalMiningConstraint}
-import com.wavesplatform.settings.WavesSettings
-import com.wavesplatform.state.diffs.BlockDiffer
-import com.wavesplatform.state.reader.{CompositeBlockchain, LeaseDetails}
-import com.wavesplatform.utils.{ScorexLogging, Time, UnsupportedFeature, forceStopApplication}
+import com.amurcoin.features.BlockchainFeatures
+import com.amurcoin.features.FeatureProvider._
+import com.amurcoin.metrics.{Instrumented, TxsInBlockchainStats}
+import com.amurcoin.mining.{MiningConstraint, MiningConstraints, MultiDimensionalMiningConstraint}
+import com.amurcoin.settings.WavesSettings
+import com.amurcoin.state.diffs.BlockDiffer
+import com.amurcoin.state.reader.{CompositeBlockchain, LeaseDetails}
+import com.amurcoin.utils.{ScorexLogging, Time, UnsupportedFeature, forceStopApplication}
 import kamon.Kamon
 import kamon.metric.MeasurementUnit
 import monix.reactive.Observable
 import monix.reactive.subjects.ConcurrentSubject
-import com.wavesplatform.account.{Address, Alias}
-import com.wavesplatform.block.Block.BlockId
-import com.wavesplatform.block.{Block, BlockHeader, MicroBlock}
-import com.wavesplatform.transaction.Transaction.Type
-import com.wavesplatform.transaction.ValidationError.{BlockAppendError, GenericError, MicroBlockAppendError}
-import com.wavesplatform.transaction._
-import com.wavesplatform.transaction.lease._
-import com.wavesplatform.transaction.smart.script.Script
+import com.amurcoin.account.{Address, Alias}
+import com.amurcoin.block.Block.BlockId
+import com.amurcoin.block.{Block, BlockHeader, MicroBlock}
+import com.amurcoin.transaction.Transaction.Type
+import com.amurcoin.transaction.ValidationError.{BlockAppendError, GenericError, MicroBlockAppendError}
+import com.amurcoin.transaction._
+import com.amurcoin.transaction.lease._
+import com.amurcoin.transaction.smart.script.Script
 
 class BlockchainUpdaterImpl(blockchain: Blockchain, settings: WavesSettings, time: Time)
     extends BlockchainUpdater
@@ -28,7 +28,7 @@ class BlockchainUpdaterImpl(blockchain: Blockchain, settings: WavesSettings, tim
     with ScorexLogging
     with Instrumented {
 
-  import com.wavesplatform.state.BlockchainUpdaterImpl._
+  import com.amurcoin.state.BlockchainUpdaterImpl._
   import settings.blockchainSettings.functionalitySettings
 
   private lazy val maxBlockReadinessAge = settings.minerSettings.intervalAfterLastBlockThenGenerationIsAllowed.toMillis

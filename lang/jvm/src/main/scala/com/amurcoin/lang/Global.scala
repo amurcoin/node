@@ -1,7 +1,7 @@
-package com.wavesplatform.lang
+package com.amurcoin.lang
 
-import com.wavesplatform.lang.v1.BaseGlobal
-import com.wavesplatform.utils.{Base58, Base64}
+import com.amurcoin.lang.v1.BaseGlobal
+import com.amurcoin.utils.{Base58, Base64}
 import scorex.crypto.hash.{Blake2b256, Keccak256, Sha256}
 import scorex.crypto.signatures.{Curve25519, PublicKey, Signature}
 

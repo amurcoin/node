@@ -1,12 +1,12 @@
-package com.wavesplatform.transaction.lease
+package com.amurcoin.transaction.lease
 
 import com.google.common.primitives.Bytes
-import com.wavesplatform.crypto
-import com.wavesplatform.state.ByteStr
+import com.amurcoin.crypto
+import com.amurcoin.state.ByteStr
 import monix.eval.Coeval
-import com.wavesplatform.account.{PrivateKeyAccount, PublicKeyAccount}
-import com.wavesplatform.transaction._
-import com.wavesplatform.crypto._
+import com.amurcoin.account.{PrivateKeyAccount, PublicKeyAccount}
+import com.amurcoin.transaction._
+import com.amurcoin.crypto._
 import scala.util.{Failure, Success, Try}
 
 case class LeaseCancelTransactionV1 private (sender: PublicKeyAccount, leaseId: ByteStr, fee: Long, timestamp: Long, signature: ByteStr)

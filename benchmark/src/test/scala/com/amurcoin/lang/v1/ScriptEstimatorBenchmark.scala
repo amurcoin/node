@@ -1,9 +1,9 @@
-package com.wavesplatform.lang.v1
+package com.amurcoin.lang.v1
 
 import java.util.concurrent.TimeUnit
 
-import com.wavesplatform.lang.v1.ScriptEstimatorBenchmark.St
-import com.wavesplatform.utils
+import com.amurcoin.lang.v1.ScriptEstimatorBenchmark.St
+import com.amurcoin.utils
 import monix.eval.Coeval
 import org.openjdk.jmh.annotations._
 import org.openjdk.jmh.infra.Blackhole

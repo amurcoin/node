@@ -1,17 +1,17 @@
-package com.wavesplatform.state.diffs
+package com.amurcoin.state.diffs
 
 import java.util.concurrent.ThreadLocalRandom
 
-import com.wavesplatform.BlockGen
-import com.wavesplatform.account.PrivateKeyAccount
-import com.wavesplatform.block.Block
-import com.wavesplatform.db.WithState
-import com.wavesplatform.lagonaki.mocks.TestBlock
-import com.wavesplatform.settings.FunctionalitySettings
-import com.wavesplatform.state.{Blockchain, Diff, EitherExt2}
-import com.wavesplatform.transaction.GenesisTransaction
+import com.amurcoin.BlockGen
+import com.amurcoin.account.PrivateKeyAccount
+import com.amurcoin.block.Block
+import com.amurcoin.db.WithState
+import com.amurcoin.lagonaki.mocks.TestBlock
+import com.amurcoin.settings.FunctionalitySettings
+import com.amurcoin.state.{Blockchain, Diff, EitherExt2}
+import com.amurcoin.transaction.GenesisTransaction
 import org.scalatest.{FreeSpecLike, Matchers}
-import com.wavesplatform.crypto._
+import com.amurcoin.crypto._
 
 class BlockDifferTest extends FreeSpecLike with Matchers with BlockGen with WithState {
 

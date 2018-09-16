@@ -1,19 +1,19 @@
-package com.wavesplatform.generator
+package com.amurcoin.generator
 
 import java.util.concurrent.Executors
 
 import cats.implicits.showInterpolator
 import com.typesafe.config.ConfigFactory
-import com.wavesplatform.account.AddressScheme
-import com.wavesplatform.generator.Preconditions.{PGenSettings, UniverseHolder}
-import com.wavesplatform.generator.cli.ScoptImplicits
-import com.wavesplatform.generator.config.FicusImplicits
-import com.wavesplatform.generator.utils.Universe
-import com.wavesplatform.network.RawBytes
-import com.wavesplatform.network.client.NetworkSender
-import com.wavesplatform.settings.inetSocketAddressReader
-import com.wavesplatform.transaction.Transaction
-import com.wavesplatform.utils.LoggerFacade
+import com.amurcoin.account.AddressScheme
+import com.amurcoin.generator.Preconditions.{PGenSettings, UniverseHolder}
+import com.amurcoin.generator.cli.ScoptImplicits
+import com.amurcoin.generator.config.FicusImplicits
+import com.amurcoin.generator.utils.Universe
+import com.amurcoin.network.RawBytes
+import com.amurcoin.network.client.NetworkSender
+import com.amurcoin.settings.inetSocketAddressReader
+import com.amurcoin.transaction.Transaction
+import com.amurcoin.utils.LoggerFacade
 import net.ceedubs.ficus.Ficus._
 import net.ceedubs.ficus.readers.ArbitraryTypeReader._
 import net.ceedubs.ficus.readers.{EnumerationReader, NameMapper}

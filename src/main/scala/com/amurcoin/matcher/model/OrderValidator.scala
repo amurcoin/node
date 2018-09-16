@@ -1,21 +1,21 @@
-package com.wavesplatform.matcher.model
+package com.amurcoin.matcher.model
 
 import cats.implicits._
-import com.wavesplatform.account.PublicKeyAccount
-import com.wavesplatform.matcher.MatcherSettings
-import com.wavesplatform.matcher.market.OrderBookActor.CancelOrder
-import com.wavesplatform.matcher.model.Events.OrderAdded
-import com.wavesplatform.matcher.model.OrderHistory.OrderInfoChange
-import com.wavesplatform.metrics.TimerExt
-import com.wavesplatform.state._
-import com.wavesplatform.transaction.AssetAcc
-import com.wavesplatform.transaction.ValidationError.GenericError
-import com.wavesplatform.transaction.assets.exchange.Validation.booleanOperators
-import com.wavesplatform.transaction.assets.exchange.{Order, Validation}
-import com.wavesplatform.transaction.smart.Verifier
-import com.wavesplatform.utils.NTP
-import com.wavesplatform.utx.UtxPool
-import com.wavesplatform.wallet.Wallet
+import com.amurcoin.account.PublicKeyAccount
+import com.amurcoin.matcher.MatcherSettings
+import com.amurcoin.matcher.market.OrderBookActor.CancelOrder
+import com.amurcoin.matcher.model.Events.OrderAdded
+import com.amurcoin.matcher.model.OrderHistory.OrderInfoChange
+import com.amurcoin.metrics.TimerExt
+import com.amurcoin.state._
+import com.amurcoin.transaction.AssetAcc
+import com.amurcoin.transaction.ValidationError.GenericError
+import com.amurcoin.transaction.assets.exchange.Validation.booleanOperators
+import com.amurcoin.transaction.assets.exchange.{Order, Validation}
+import com.amurcoin.transaction.smart.Verifier
+import com.amurcoin.utils.NTP
+import com.amurcoin.utx.UtxPool
+import com.amurcoin.wallet.Wallet
 import kamon.Kamon
 
 trait OrderValidator {

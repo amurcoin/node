@@ -1,9 +1,9 @@
-package com.wavesplatform.account
+package com.amurcoin.account
 
-import com.wavesplatform.state.ByteStr
-import com.wavesplatform.serialization.Deser
-import com.wavesplatform.transaction.ValidationError
-import com.wavesplatform.transaction.ValidationError.GenericError
+import com.amurcoin.state.ByteStr
+import com.amurcoin.serialization.Deser
+import com.amurcoin.transaction.ValidationError
+import com.amurcoin.transaction.ValidationError.GenericError
 
 sealed trait Alias extends AddressOrAlias {
   lazy val stringRepr: String = Alias.Prefix + networkByte.toChar + ":" + name

@@ -1,18 +1,18 @@
-package com.wavesplatform.lang.compiler
+package com.amurcoin.lang.compiler
 
-import com.wavesplatform.lang.Common.{NoShrink, multiplierFunction, produce}
-import com.wavesplatform.lang.v1.compiler.CompilerV1
-import com.wavesplatform.lang.v1.parser.BinaryOperation.SUM_OP
-import com.wavesplatform.lang.v1.parser.Expressions
-import com.wavesplatform.lang.v1.parser.Expressions.Pos.AnyPos
-import com.wavesplatform.lang.v1.testing.ScriptGen
+import com.amurcoin.lang.Common.{NoShrink, multiplierFunction, produce}
+import com.amurcoin.lang.v1.compiler.CompilerV1
+import com.amurcoin.lang.v1.parser.BinaryOperation.SUM_OP
+import com.amurcoin.lang.v1.parser.Expressions
+import com.amurcoin.lang.v1.parser.Expressions.Pos.AnyPos
+import com.amurcoin.lang.v1.testing.ScriptGen
 import org.scalatest.prop.PropertyChecks
 import org.scalatest.{Matchers, PropSpec}
 import scodec.bits.ByteVector
 
 class ErrorTest extends PropSpec with PropertyChecks with Matchers with ScriptGen with NoShrink {
 
-  import com.wavesplatform.lang.v1.parser.Expressions._
+  import com.amurcoin.lang.v1.parser.Expressions._
 
   errorTests(
     "can't define LET with the same name as already defined in scope" -> "already defined in the scope" -> BLOCK(

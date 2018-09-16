@@ -1,12 +1,12 @@
-package com.wavesplatform.discovery.actors
+package com.amurcoin.discovery.actors
 
 import java.net.{InetAddress, InetSocketAddress}
 import java.util.concurrent.TimeUnit
 
 import akka.actor.Actor
-import com.wavesplatform.discovery._
-import com.wavesplatform.discovery.network._
-import com.wavesplatform.network.{GetPeers, Handshake, KnownPeers, LegacyFrameCodec, PeerDatabase, PipelineInitializer}
+import com.amurcoin.discovery._
+import com.amurcoin.discovery.network._
+import com.amurcoin.network.{GetPeers, Handshake, KnownPeers, LegacyFrameCodec, PeerDatabase, PipelineInitializer}
 import io.netty.bootstrap.Bootstrap
 import io.netty.channel.Channel
 import io.netty.channel.nio.NioEventLoopGroup

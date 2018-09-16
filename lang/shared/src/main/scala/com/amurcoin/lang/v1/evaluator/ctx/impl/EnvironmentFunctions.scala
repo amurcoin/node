@@ -1,11 +1,11 @@
-package com.wavesplatform.lang.v1.evaluator.ctx.impl
+package com.amurcoin.lang.v1.evaluator.ctx.impl
 
-import com.wavesplatform.lang.ExecutionError
-import com.wavesplatform.lang.v1.evaluator.ctx.CaseObj
-import com.wavesplatform.lang.v1.evaluator.ctx.impl.waves.Types
-import com.wavesplatform.lang.v1.traits.domain.Recipient
-import com.wavesplatform.lang.v1.traits.domain.Recipient.{Address, Alias}
-import com.wavesplatform.lang.v1.traits.{DataType, Environment}
+import com.amurcoin.lang.ExecutionError
+import com.amurcoin.lang.v1.evaluator.ctx.CaseObj
+import com.amurcoin.lang.v1.evaluator.ctx.impl.waves.Types
+import com.amurcoin.lang.v1.traits.domain.Recipient
+import com.amurcoin.lang.v1.traits.domain.Recipient.{Address, Alias}
+import com.amurcoin.lang.v1.traits.{DataType, Environment}
 import scodec.bits.ByteVector
 
 class EnvironmentFunctions(environment: Environment) {

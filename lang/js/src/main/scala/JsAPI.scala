@@ -1,14 +1,14 @@
 import cats.kernel.Monoid
-import com.wavesplatform.lang.Global
-import com.wavesplatform.lang.v1.FunctionHeader.{Native, User}
-import com.wavesplatform.lang.v1.Serde
-import com.wavesplatform.lang.v1.compiler.CompilerV1
-import com.wavesplatform.lang.v1.compiler.Terms._
-import com.wavesplatform.lang.v1.evaluator.ctx.impl.waves.WavesContext
-import com.wavesplatform.lang.v1.evaluator.ctx.impl.{CryptoContext, PureContext}
-import com.wavesplatform.lang.v1.parser.{Expressions, Parser}
-import com.wavesplatform.lang.v1.traits.domain.{Ord, Recipient, Tx}
-import com.wavesplatform.lang.v1.traits.{DataType, Environment}
+import com.amurcoin.lang.Global
+import com.amurcoin.lang.v1.FunctionHeader.{Native, User}
+import com.amurcoin.lang.v1.Serde
+import com.amurcoin.lang.v1.compiler.CompilerV1
+import com.amurcoin.lang.v1.compiler.Terms._
+import com.amurcoin.lang.v1.evaluator.ctx.impl.waves.WavesContext
+import com.amurcoin.lang.v1.evaluator.ctx.impl.{CryptoContext, PureContext}
+import com.amurcoin.lang.v1.parser.{Expressions, Parser}
+import com.amurcoin.lang.v1.traits.domain.{Ord, Recipient, Tx}
+import com.amurcoin.lang.v1.traits.{DataType, Environment}
 import fastparse.core.Parsed.{Failure, Success}
 import shapeless.{:+:, CNil}
 

@@ -1,17 +1,17 @@
-package com.wavesplatform.lagonaki.unit
+package com.amurcoin.lagonaki.unit
 
-import com.wavesplatform.metrics.Instrumented
-import com.wavesplatform.state._
-import com.wavesplatform.state.diffs.produce
-import com.wavesplatform.{NoShrink, TransactionGen, crypto}
+import com.amurcoin.metrics.Instrumented
+import com.amurcoin.state._
+import com.amurcoin.state.diffs.produce
+import com.amurcoin.{NoShrink, TransactionGen, crypto}
 import org.scalacheck.Arbitrary.arbitrary
 import org.scalacheck.Gen
 import org.scalatest._
 import org.scalatest.prop.PropertyChecks
-import com.wavesplatform.block.Block
-import com.wavesplatform.consensus.nxt.NxtLikeConsensusBlockData
-import com.wavesplatform.transaction._
-import com.wavesplatform.transaction.transfer._
+import com.amurcoin.block.Block
+import com.amurcoin.consensus.nxt.NxtLikeConsensusBlockData
+import com.amurcoin.transaction._
+import com.amurcoin.transaction.transfer._
 
 class BlockSpecification extends PropSpec with PropertyChecks with TransactionGen with Matchers with NoShrink {
 

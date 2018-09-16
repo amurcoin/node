@@ -1,15 +1,15 @@
-package com.wavesplatform
+package com.amurcoin
 
 import java.nio.charset.StandardCharsets
 
-import com.wavesplatform.state.ByteStr
+import com.amurcoin.state.ByteStr
 import org.scalatest.matchers.{HavePropertyMatchResult, HavePropertyMatcher}
 import play.api.libs.json._
 import play.api.libs.functional.syntax._
-import com.wavesplatform.account.{AddressOrAlias, PublicKeyAccount}
-import com.wavesplatform.utils.Base58
-import com.wavesplatform.transaction.{AssetId, Proofs}
-import com.wavesplatform.transaction.transfer._
+import com.amurcoin.account.{AddressOrAlias, PublicKeyAccount}
+import com.amurcoin.utils.Base58
+import com.amurcoin.transaction.{AssetId, Proofs}
+import com.amurcoin.transaction.transfer._
 import shapeless.{:+:, CNil, Coproduct}
 
 import scala.reflect.ClassTag

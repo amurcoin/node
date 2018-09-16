@@ -1,4 +1,4 @@
-package com.wavesplatform.generator
+package com.amurcoin.generator
 
 import scala.collection.immutable.TreeMap
 

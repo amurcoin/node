@@ -1,26 +1,26 @@
-package com.wavesplatform.utx
+package com.amurcoin.utx
 
 import com.typesafe.config.ConfigFactory
-import com.wavesplatform._
-import com.wavesplatform.account.{Address, PrivateKeyAccount, PublicKeyAccount}
-import com.wavesplatform.block.Block
-import com.wavesplatform.features.BlockchainFeatures
-import com.wavesplatform.history.StorageFactory
-import com.wavesplatform.lagonaki.mocks.TestBlock
-import com.wavesplatform.lang.v1.compiler.Terms.EXPR
-import com.wavesplatform.lang.v1.compiler.{CompilerContext, CompilerV1}
-import com.wavesplatform.mining._
-import com.wavesplatform.settings._
-import com.wavesplatform.state.diffs._
-import com.wavesplatform.state.{ByteStr, EitherExt2, _}
-import com.wavesplatform.transaction.ValidationError.SenderIsBlacklisted
-import com.wavesplatform.transaction.smart.SetScriptTransaction
-import com.wavesplatform.transaction.smart.script.Script
-import com.wavesplatform.transaction.smart.script.v1.ScriptV1
-import com.wavesplatform.transaction.transfer.MassTransferTransaction.ParsedTransfer
-import com.wavesplatform.transaction.transfer._
-import com.wavesplatform.transaction.{FeeCalculator, Transaction}
-import com.wavesplatform.utils.Time
+import com.amurcoin._
+import com.amurcoin.account.{Address, PrivateKeyAccount, PublicKeyAccount}
+import com.amurcoin.block.Block
+import com.amurcoin.features.BlockchainFeatures
+import com.amurcoin.history.StorageFactory
+import com.amurcoin.lagonaki.mocks.TestBlock
+import com.amurcoin.lang.v1.compiler.Terms.EXPR
+import com.amurcoin.lang.v1.compiler.{CompilerContext, CompilerV1}
+import com.amurcoin.mining._
+import com.amurcoin.settings._
+import com.amurcoin.state.diffs._
+import com.amurcoin.state.{ByteStr, EitherExt2, _}
+import com.amurcoin.transaction.ValidationError.SenderIsBlacklisted
+import com.amurcoin.transaction.smart.SetScriptTransaction
+import com.amurcoin.transaction.smart.script.Script
+import com.amurcoin.transaction.smart.script.v1.ScriptV1
+import com.amurcoin.transaction.transfer.MassTransferTransaction.ParsedTransfer
+import com.amurcoin.transaction.transfer._
+import com.amurcoin.transaction.{FeeCalculator, Transaction}
+import com.amurcoin.utils.Time
 import org.scalacheck.Gen
 import org.scalacheck.Gen._
 import org.scalamock.scalatest.MockFactory

@@ -1,9 +1,9 @@
-package com.wavesplatform.account
+package com.amurcoin.account
 
-import com.wavesplatform.utils.base58Length
-import com.wavesplatform.utils.Base58
-import com.wavesplatform.transaction.ValidationError.InvalidAddress
-import com.wavesplatform.crypto._
+import com.amurcoin.utils.base58Length
+import com.amurcoin.utils.Base58
+import com.amurcoin.transaction.ValidationError.InvalidAddress
+import com.amurcoin.crypto._
 
 trait PublicKeyAccount {
   def publicKey: Array[Byte]

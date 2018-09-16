@@ -1,16 +1,16 @@
-package com.wavesplatform.state.diffs
+package com.amurcoin.state.diffs
 
-import com.wavesplatform.metrics._
-import com.wavesplatform.settings.FunctionalitySettings
-import com.wavesplatform.state._
-import com.wavesplatform.transaction.ValidationError.UnsupportedTransactionType
-import com.wavesplatform.transaction._
-import com.wavesplatform.transaction.assets._
-import com.wavesplatform.transaction.assets.exchange.ExchangeTransaction
-import com.wavesplatform.transaction.lease.{LeaseCancelTransaction, LeaseTransaction}
-import com.wavesplatform.transaction.smart.{SetScriptTransaction, Verifier}
-import com.wavesplatform.transaction.transfer._
-import com.wavesplatform.utils.ScorexLogging
+import com.amurcoin.metrics._
+import com.amurcoin.settings.FunctionalitySettings
+import com.amurcoin.state._
+import com.amurcoin.transaction.ValidationError.UnsupportedTransactionType
+import com.amurcoin.transaction._
+import com.amurcoin.transaction.assets._
+import com.amurcoin.transaction.assets.exchange.ExchangeTransaction
+import com.amurcoin.transaction.lease.{LeaseCancelTransaction, LeaseTransaction}
+import com.amurcoin.transaction.smart.{SetScriptTransaction, Verifier}
+import com.amurcoin.transaction.transfer._
+import com.amurcoin.utils.ScorexLogging
 
 object TransactionDiffer extends Instrumented with ScorexLogging {
 

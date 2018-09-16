@@ -1,7 +1,7 @@
-package com.wavesplatform.settings
+package com.amurcoin.settings
 
 import com.typesafe.config.ConfigFactory
-import com.wavesplatform.state.ByteStr
+import com.amurcoin.state.ByteStr
 import org.scalatest.{FlatSpec, Matchers}
 
 class CheckpointsSettingsSpecification extends FlatSpec with Matchers {

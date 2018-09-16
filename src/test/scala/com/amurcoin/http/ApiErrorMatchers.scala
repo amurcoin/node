@@ -1,10 +1,10 @@
-package com.wavesplatform.http
+package com.amurcoin.http
 
 import akka.http.scaladsl.testkit.RouteTest
 import org.scalatest.matchers.{MatchResult, Matcher}
 import play.api.libs.json._
-import com.wavesplatform.http.ApiMarshallers._
-import com.wavesplatform.api.http.ApiError
+import com.amurcoin.http.ApiMarshallers._
+import com.amurcoin.api.http.ApiError
 
 trait ApiErrorMatchers { this: RouteTest =>
   class ProduceError(error: ApiError) extends Matcher[RouteTestResult] {

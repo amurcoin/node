@@ -1,12 +1,12 @@
-package com.wavesplatform.matcher
+package com.amurcoin.matcher
 
 import com.google.common.base.Charsets
 import com.typesafe.config.ConfigFactory
-import com.wavesplatform.account.PublicKeyAccount
-import com.wavesplatform.settings.loadConfig
-import com.wavesplatform.state.diffs.produce
-import com.wavesplatform.state.{AssetDescription, Blockchain, ByteStr}
-import com.wavesplatform.transaction.assets.exchange.AssetPair
+import com.amurcoin.account.PublicKeyAccount
+import com.amurcoin.settings.loadConfig
+import com.amurcoin.state.diffs.produce
+import com.amurcoin.state.{AssetDescription, Blockchain, ByteStr}
+import com.amurcoin.transaction.assets.exchange.AssetPair
 import org.scalamock.scalatest.MockFactory
 import org.scalatest.prop.TableDrivenPropertyChecks._
 import org.scalatest.{FreeSpec, Matchers}

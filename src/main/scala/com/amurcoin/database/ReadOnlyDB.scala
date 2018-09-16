@@ -1,4 +1,4 @@
-package com.wavesplatform.database
+package com.amurcoin.database
 
 import org.iq80.leveldb.{DB, ReadOptions}
 

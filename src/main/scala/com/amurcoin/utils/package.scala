@@ -1,20 +1,20 @@
-package com.wavesplatform
+package com.amurcoin
 
 import java.security.SecureRandom
 
 import cats.kernel.Monoid
 import com.google.common.base.Throwables
-import com.wavesplatform.account.AddressScheme
-import com.wavesplatform.db.{Storage, VersionedStorage}
-import com.wavesplatform.lang.Global
-import com.wavesplatform.lang.v1.compiler.CompilerContext
-import com.wavesplatform.lang.v1.compiler.CompilerContext._
-import com.wavesplatform.lang.v1.compiler.Terms.TRUE
-import com.wavesplatform.lang.v1.evaluator.ctx._
-import com.wavesplatform.lang.v1.evaluator.ctx.impl.waves.WavesContext
-import com.wavesplatform.lang.v1.evaluator.ctx.impl.{CryptoContext, PureContext}
-import com.wavesplatform.lang.v1.{FunctionHeader, ScriptEstimator}
-import com.wavesplatform.transaction.smart.{BlockchainContext, WavesEnvironment}
+import com.amurcoin.account.AddressScheme
+import com.amurcoin.db.{Storage, VersionedStorage}
+import com.amurcoin.lang.Global
+import com.amurcoin.lang.v1.compiler.CompilerContext
+import com.amurcoin.lang.v1.compiler.CompilerContext._
+import com.amurcoin.lang.v1.compiler.Terms.TRUE
+import com.amurcoin.lang.v1.evaluator.ctx._
+import com.amurcoin.lang.v1.evaluator.ctx.impl.waves.WavesContext
+import com.amurcoin.lang.v1.evaluator.ctx.impl.{CryptoContext, PureContext}
+import com.amurcoin.lang.v1.{FunctionHeader, ScriptEstimator}
+import com.amurcoin.transaction.smart.{BlockchainContext, WavesEnvironment}
 import monix.eval.Coeval
 import monix.execution.UncaughtExceptionReporter
 import org.joda.time.Duration

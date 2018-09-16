@@ -1,12 +1,12 @@
-package com.wavesplatform.transaction
+package com.amurcoin.transaction
 
 import java.io.ByteArrayOutputStream
 import java.nio.ByteBuffer
 
 import com.google.common.primitives.{Bytes, Ints}
-import com.wavesplatform.network.TransactionSpec
+import com.amurcoin.network.TransactionSpec
 import play.api.libs.json.{JsArray, JsObject, Json}
-import com.wavesplatform.block.BlockField
+import com.amurcoin.block.BlockField
 
 trait TransactionsBlockField extends BlockField[Seq[Transaction]]
 

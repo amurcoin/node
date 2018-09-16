@@ -1,4 +1,4 @@
-package com.wavesplatform.db
+package com.amurcoin.db
 
 trait VersionedStorage {
   this: PropertiesStorage =>

@@ -1,21 +1,21 @@
-package com.wavesplatform.state
+package com.amurcoin.state
 
 import java.io.File
 import java.nio.file.Files
 
-import com.wavesplatform.TransactionGenBase
-import com.wavesplatform.database.LevelDBWriter
-import com.wavesplatform.db.LevelDBFactory
-import com.wavesplatform.mining.MiningConstraint
-import com.wavesplatform.settings.FunctionalitySettings
-import com.wavesplatform.state.diffs.BlockDiffer
+import com.amurcoin.TransactionGenBase
+import com.amurcoin.database.LevelDBWriter
+import com.amurcoin.db.LevelDBFactory
+import com.amurcoin.mining.MiningConstraint
+import com.amurcoin.settings.FunctionalitySettings
+import com.amurcoin.state.diffs.BlockDiffer
 import org.iq80.leveldb.{DB, Options}
 import org.openjdk.jmh.annotations.{Setup, TearDown}
 import org.scalacheck.Gen
-import com.wavesplatform.account.PrivateKeyAccount
-import com.wavesplatform.block.Block
-import com.wavesplatform.lagonaki.mocks.TestBlock
-import com.wavesplatform.transaction.{GenesisTransaction, Transaction}
+import com.amurcoin.account.PrivateKeyAccount
+import com.amurcoin.block.Block
+import com.amurcoin.lagonaki.mocks.TestBlock
+import com.amurcoin.transaction.{GenesisTransaction, Transaction}
 
 trait BaseState extends TransactionGenBase {
   import BaseState._

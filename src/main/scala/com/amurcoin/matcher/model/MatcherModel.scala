@@ -1,10 +1,10 @@
-package com.wavesplatform.matcher.model
+package com.amurcoin.matcher.model
 
-import com.wavesplatform.account.Address
-import com.wavesplatform.matcher.model.MatcherModel.Price
-import com.wavesplatform.state.{ByteStr, Portfolio}
-import com.wavesplatform.transaction.assets.exchange._
-import com.wavesplatform.transaction.{AssetAcc, AssetId}
+import com.amurcoin.account.Address
+import com.amurcoin.matcher.model.MatcherModel.Price
+import com.amurcoin.state.{ByteStr, Portfolio}
+import com.amurcoin.transaction.assets.exchange._
+import com.amurcoin.transaction.{AssetAcc, AssetId}
 import play.api.libs.json.{JsObject, JsValue, Json}
 
 import scala.math.BigDecimal.RoundingMode

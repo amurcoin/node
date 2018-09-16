@@ -1,23 +1,23 @@
-package com.wavesplatform.lang
+package com.amurcoin.lang
 
 import java.nio.ByteBuffer
 
 import cats.data.EitherT
 import cats.kernel.Monoid
-import com.wavesplatform.lang.Common._
-import com.wavesplatform.lang.v1.compiler.CompilerV1
-import com.wavesplatform.lang.v1.compiler.Terms._
-import com.wavesplatform.lang.v1.compiler.Types._
-import com.wavesplatform.lang.v1.evaluator.EvaluatorV1
-import com.wavesplatform.lang.v1.evaluator.FunctionIds._
-import com.wavesplatform.lang.v1.evaluator.ctx._
-import com.wavesplatform.lang.v1.evaluator.ctx.impl.PureContext._
-import com.wavesplatform.lang.v1.evaluator.ctx.impl.waves.WavesContext
-import com.wavesplatform.lang.v1.evaluator.ctx.impl.{CryptoContext, EnvironmentFunctions, PureContext}
-import com.wavesplatform.lang.v1.testing.ScriptGen
-import com.wavesplatform.lang.v1.traits.Environment
-import com.wavesplatform.lang.v1.{CTX, FunctionHeader}
-import com.wavesplatform.utils.{Base58, Base64}
+import com.amurcoin.lang.Common._
+import com.amurcoin.lang.v1.compiler.CompilerV1
+import com.amurcoin.lang.v1.compiler.Terms._
+import com.amurcoin.lang.v1.compiler.Types._
+import com.amurcoin.lang.v1.evaluator.EvaluatorV1
+import com.amurcoin.lang.v1.evaluator.FunctionIds._
+import com.amurcoin.lang.v1.evaluator.ctx._
+import com.amurcoin.lang.v1.evaluator.ctx.impl.PureContext._
+import com.amurcoin.lang.v1.evaluator.ctx.impl.waves.WavesContext
+import com.amurcoin.lang.v1.evaluator.ctx.impl.{CryptoContext, EnvironmentFunctions, PureContext}
+import com.amurcoin.lang.v1.testing.ScriptGen
+import com.amurcoin.lang.v1.traits.Environment
+import com.amurcoin.lang.v1.{CTX, FunctionHeader}
+import com.amurcoin.utils.{Base58, Base64}
 import org.scalacheck.{Arbitrary, Gen}
 import org.scalatest.prop.PropertyChecks
 import org.scalatest.{Matchers, PropSpec}

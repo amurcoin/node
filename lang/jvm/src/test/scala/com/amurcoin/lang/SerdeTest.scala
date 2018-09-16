@@ -1,12 +1,12 @@
-package com.wavesplatform.lang
+package com.amurcoin.lang
 
-import com.wavesplatform.lang.Common._
-import com.wavesplatform.lang.v1.compiler.CompilerV1
-import com.wavesplatform.lang.v1.compiler.Terms._
-import com.wavesplatform.lang.v1.evaluator.ctx.impl.PureContext
-import com.wavesplatform.lang.v1.parser.Expressions
-import com.wavesplatform.lang.v1.testing.ScriptGen
-import com.wavesplatform.lang.v1.{FunctionHeader, Serde}
+import com.amurcoin.lang.Common._
+import com.amurcoin.lang.v1.compiler.CompilerV1
+import com.amurcoin.lang.v1.compiler.Terms._
+import com.amurcoin.lang.v1.evaluator.ctx.impl.PureContext
+import com.amurcoin.lang.v1.parser.Expressions
+import com.amurcoin.lang.v1.testing.ScriptGen
+import com.amurcoin.lang.v1.{FunctionHeader, Serde}
 import org.scalatest.prop.PropertyChecks
 import org.scalatest.{Assertion, FreeSpec, Matchers}
 import scodec.bits.ByteVector

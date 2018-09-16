@@ -1,6 +1,6 @@
-package com.wavesplatform.account
+package com.amurcoin.account
 
-import com.wavesplatform.{NoShrink, TransactionGen}
+import com.amurcoin.{NoShrink, TransactionGen}
 import org.scalatest.prop.PropertyChecks
 import org.scalatest.{Matchers, PropSpec}
 

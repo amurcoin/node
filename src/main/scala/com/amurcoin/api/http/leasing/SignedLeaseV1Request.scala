@@ -1,12 +1,12 @@
-package com.wavesplatform.api.http.leasing
+package com.amurcoin.api.http.leasing
 
 import io.swagger.annotations.ApiModelProperty
 import play.api.libs.json.{Format, Json}
-import com.wavesplatform.account.{AddressOrAlias, PublicKeyAccount}
-import com.wavesplatform.api.http.BroadcastRequest
-import com.wavesplatform.transaction.TransactionParsers.SignatureStringLength
-import com.wavesplatform.transaction.ValidationError
-import com.wavesplatform.transaction.lease.LeaseTransactionV1
+import com.amurcoin.account.{AddressOrAlias, PublicKeyAccount}
+import com.amurcoin.api.http.BroadcastRequest
+import com.amurcoin.transaction.TransactionParsers.SignatureStringLength
+import com.amurcoin.transaction.ValidationError
+import com.amurcoin.transaction.lease.LeaseTransactionV1
 
 case class SignedLeaseV1Request(@ApiModelProperty(value = "Base58 encoded sender public key", required = true)
                                 senderPublicKey: String,

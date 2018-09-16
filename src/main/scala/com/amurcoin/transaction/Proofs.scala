@@ -1,11 +1,11 @@
-package com.wavesplatform.transaction
+package com.amurcoin.transaction
 
-import com.wavesplatform.state._
-import com.wavesplatform.utils.base58Length
+import com.amurcoin.state._
+import com.amurcoin.utils.base58Length
 import monix.eval.Coeval
-import com.wavesplatform.utils.Base58
-import com.wavesplatform.serialization.Deser
-import com.wavesplatform.transaction.ValidationError.GenericError
+import com.amurcoin.utils.Base58
+import com.amurcoin.serialization.Deser
+import com.amurcoin.transaction.ValidationError.GenericError
 
 import scala.util.Try
 

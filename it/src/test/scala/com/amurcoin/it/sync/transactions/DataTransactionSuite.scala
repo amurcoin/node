@@ -1,16 +1,16 @@
-package com.wavesplatform.it.sync.transactions
+package com.amurcoin.it.sync.transactions
 
-import com.wavesplatform.it.api.SyncHttpApi._
-import com.wavesplatform.it.api.UnexpectedStatusCodeException
-import com.wavesplatform.it.sync.{calcDataFee, minFee}
-import com.wavesplatform.it.transactions.BaseTransactionSuite
-import com.wavesplatform.it.util._
-import com.wavesplatform.state.{BinaryDataEntry, BooleanDataEntry, ByteStr, DataEntry, EitherExt2, IntegerDataEntry, StringDataEntry}
-import com.wavesplatform.utils.Base58
+import com.amurcoin.it.api.SyncHttpApi._
+import com.amurcoin.it.api.UnexpectedStatusCodeException
+import com.amurcoin.it.sync.{calcDataFee, minFee}
+import com.amurcoin.it.transactions.BaseTransactionSuite
+import com.amurcoin.it.util._
+import com.amurcoin.state.{BinaryDataEntry, BooleanDataEntry, ByteStr, DataEntry, EitherExt2, IntegerDataEntry, StringDataEntry}
+import com.amurcoin.utils.Base58
 import org.scalatest.{Assertion, Assertions}
 import play.api.libs.json._
-import com.wavesplatform.api.http.SignedDataRequest
-import com.wavesplatform.transaction.DataTransaction
+import com.amurcoin.api.http.SignedDataRequest
+import com.amurcoin.transaction.DataTransaction
 
 import scala.concurrent.duration._
 import scala.util.{Failure, Random, Try}

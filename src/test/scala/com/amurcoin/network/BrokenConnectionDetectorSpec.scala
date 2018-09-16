@@ -1,6 +1,6 @@
-package com.wavesplatform.network
+package com.amurcoin.network
 
-import com.wavesplatform.TransactionGen
+import com.amurcoin.TransactionGen
 import io.netty.channel.embedded.EmbeddedChannel
 import org.scalamock.scalatest.MockFactory
 import org.scalatest.prop.PropertyChecks

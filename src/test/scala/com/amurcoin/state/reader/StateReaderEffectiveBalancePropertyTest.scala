@@ -1,13 +1,13 @@
-package com.wavesplatform.state.reader
+package com.amurcoin.state.reader
 
-import com.wavesplatform.state.EitherExt2
-import com.wavesplatform.state.diffs._
-import com.wavesplatform.{NoShrink, TransactionGen}
+import com.amurcoin.state.EitherExt2
+import com.amurcoin.state.diffs._
+import com.amurcoin.{NoShrink, TransactionGen}
 import org.scalacheck.Gen
 import org.scalatest.prop.PropertyChecks
 import org.scalatest.{Matchers, PropSpec}
-import com.wavesplatform.lagonaki.mocks.TestBlock
-import com.wavesplatform.transaction.GenesisTransaction
+import com.amurcoin.lagonaki.mocks.TestBlock
+import com.amurcoin.transaction.GenesisTransaction
 
 class StateReaderEffectiveBalancePropertyTest extends PropSpec with PropertyChecks with Matchers with TransactionGen with NoShrink {
   val setup: Gen[(GenesisTransaction, Int, Int, Int)] = for {
