@@ -3,7 +3,7 @@ package com.amurcoin.state
 import com.amurcoin.consensus.{GeneratingBalanceProvider, PoSSelector, TransactionsOrdering}
 import com.amurcoin.mining._
 import com.amurcoin.network._
-import com.amurcoin.settings.{FunctionalitySettings, WavesSettings}
+import com.amurcoin.settings.{FunctionalitySettings, AmurcoinSettings}
 import com.amurcoin.utx.UtxPool
 import io.netty.channel.Channel
 import io.netty.channel.group.ChannelGroup
@@ -53,7 +53,7 @@ package object appender extends ScorexLogging {
                                     utxStorage: UtxPool,
                                     pos: PoSSelector,
                                     time: Time,
-                                    settings: WavesSettings)(block: Block): Either[ValidationError, Option[Int]] =
+                                    settings: AmurcoinSettings)(block: Block): Either[ValidationError, Option[Int]] =
     for {
       _ <- Either.cond(
         checkpoint.isBlockValid(block.signerData.signature, blockchainUpdater.height + 1),
@@ -87,7 +87,7 @@ package object appender extends ScorexLogging {
       maybeDiscardedTxs.map(_ => baseHeight)
     }
 
-  private def blockConsensusValidation(blockchain: Blockchain, settings: WavesSettings, pos: PoSSelector, currentTs: Long, block: Block)(
+  private def blockConsensusValidation(blockchain: Blockchain, settings: AmurcoinSettings, pos: PoSSelector, currentTs: Long, block: Block)(
       genBalance: Int => Either[String, Long]): Either[ValidationError, Unit] = {
 
     val blockTime = block.timestamp

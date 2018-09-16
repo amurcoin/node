@@ -15,7 +15,7 @@ import com.amurcoin.wallet.Wallet
 @Path("/amurcoin")
 @Api(value = "amurcoin")
 @Deprecated
-case class WavesApiRoute(settings: RestAPISettings, wallet: Wallet, utx: UtxPool, allChannels: ChannelGroup, time: Time)
+case class AmurcoinApiRoute(settings: RestAPISettings, wallet: Wallet, utx: UtxPool, allChannels: ChannelGroup, time: Time)
     extends ApiRoute
     with BroadcastRoute {
 

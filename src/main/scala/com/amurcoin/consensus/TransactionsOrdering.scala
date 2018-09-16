@@ -3,7 +3,7 @@ package com.amurcoin.consensus
 import com.amurcoin.transaction.Transaction
 
 object TransactionsOrdering {
-  trait WavesOrdering extends Ordering[Transaction] {
+  trait AmurcoinOrdering extends Ordering[Transaction] {
     def txTimestampOrder(ts: Long): Long
     private def orderBy(t: Transaction): (Long, Long, String) = {
       val byFee       = if (t.assetFee._1.nonEmpty) 0 else -t.assetFee._2
@@ -17,12 +17,12 @@ object TransactionsOrdering {
     }
   }
 
-  object InBlock extends WavesOrdering {
+  object InBlock extends AmurcoinOrdering {
     // sorting from network start
     override def txTimestampOrder(ts: Long): Long = -ts
   }
 
-  object InUTXPool extends WavesOrdering {
+  object InUTXPool extends AmurcoinOrdering {
     override def txTimestampOrder(ts: Long): Long = ts
   }
 }

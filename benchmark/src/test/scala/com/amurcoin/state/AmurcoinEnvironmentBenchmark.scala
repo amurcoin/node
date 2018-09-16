@@ -9,10 +9,10 @@ import com.amurcoin.database.LevelDBWriter
 import com.amurcoin.db.LevelDBFactory
 import com.amurcoin.lang.v1.traits.Environment
 import com.amurcoin.lang.v1.traits.domain.Recipient
-import com.amurcoin.settings.{WavesSettings, loadConfig}
-import com.amurcoin.state.WavesEnvironmentBenchmark._
+import com.amurcoin.settings.{AmurcoinSettings, loadConfig}
+import com.amurcoin.state.AmurcoinEnvironmentBenchmark._
 import com.amurcoin.state.bench.DataTestData
-import com.amurcoin.transaction.smart.WavesEnvironment
+import com.amurcoin.transaction.smart.AmurcoinEnvironment
 import com.amurcoin.utils.Base58
 import monix.eval.Coeval
 import org.iq80.leveldb.{DB, Options}
@@ -25,7 +25,7 @@ import scala.io.Codec
 /**
   * Tests over real database. How to test:
   * 1. Download a database
-  * 2. Import it: https://github.com/amurcoin/Waves/wiki/Export-and-import-of-the-blockchain#import-blocks-from-the-binary-file
+  * 2. Import it: https://github.com/amurcoin/Amurcoin/wiki/Export-and-import-of-the-blockchain#import-blocks-from-the-binary-file
   * 3. Run ExtractInfo to collect queries for tests
   * 4. Make Caches.MaxSize = 1
   * 5. Run this test
@@ -36,7 +36,7 @@ import scala.io.Codec
 @Fork(1)
 @Warmup(iterations = 10)
 @Measurement(iterations = 10)
-class WavesEnvironmentBenchmark {
+class AmurcoinEnvironmentBenchmark {
 
   @Benchmark
   def resolveAddress_test(st: ResolveAddressSt, bh: Blackhole): Unit = {
@@ -54,7 +54,7 @@ class WavesEnvironmentBenchmark {
   }
 
   @Benchmark
-  def accountBalanceOf_amurcoin_test(st: AccountBalanceOfWavesSt, bh: Blackhole): Unit = {
+  def accountBalanceOf_amurcoin_test(st: AccountBalanceOfAmurcoinSt, bh: Blackhole): Unit = {
     bh.consume(st.environment.accountBalanceOf(Recipient.Address(ByteVector(st.accounts.random)), None))
   }
 
@@ -71,7 +71,7 @@ class WavesEnvironmentBenchmark {
 
 }
 
-object WavesEnvironmentBenchmark {
+object AmurcoinEnvironmentBenchmark {
 
   @State(Scope.Benchmark)
   class ResolveAddressSt extends BaseSt {
@@ -87,12 +87,12 @@ object WavesEnvironmentBenchmark {
   class TransactionHeightByIdSt extends TransactionByIdSt
 
   @State(Scope.Benchmark)
-  class AccountBalanceOfWavesSt extends BaseSt {
+  class AccountBalanceOfAmurcoinSt extends BaseSt {
     val accounts: Vector[Array[Byte]] = load("accounts", benchSettings.accountsFile)(x => AddressOrAlias.fromString(x).explicitGet().bytes.arr)
   }
 
   @State(Scope.Benchmark)
-  class AccountBalanceOfAssetSt extends AccountBalanceOfWavesSt {
+  class AccountBalanceOfAssetSt extends AccountBalanceOfAmurcoinSt {
     val assets: Vector[Array[Byte]] = load("assets", benchSettings.assetsFile)(x => Base58.decode(x).get)
   }
 
@@ -106,9 +106,9 @@ object WavesEnvironmentBenchmark {
   @State(Scope.Benchmark)
   class BaseSt {
     protected val benchSettings: Settings = Settings.fromConfig(ConfigFactory.load())
-    private val amurcoinSettings: WavesSettings = {
+    private val amurcoinSettings: AmurcoinSettings = {
       val config = loadConfig(ConfigFactory.parseFile(new File(benchSettings.networkConfigFile)))
-      WavesSettings.fromConfig(config)
+      AmurcoinSettings.fromConfig(config)
     }
 
     AddressScheme.current = new AddressScheme {
@@ -123,7 +123,7 @@ object WavesEnvironmentBenchmark {
 
     val environment: Environment = {
       val state = new LevelDBWriter(db, amurcoinSettings.blockchainSettings.functionalitySettings)
-      new WavesEnvironment(
+      new AmurcoinEnvironment(
         AddressScheme.current.chainId,
         Coeval.raiseError(new NotImplementedError("tx is not implemented")),
         Coeval(state.height),

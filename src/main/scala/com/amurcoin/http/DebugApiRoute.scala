@@ -15,7 +15,7 @@ import com.amurcoin.block.Block.BlockId
 import com.amurcoin.crypto
 import com.amurcoin.mining.{Miner, MinerDebugInfo}
 import com.amurcoin.network.{LocalScoreChanged, PeerDatabase, PeerInfo, _}
-import com.amurcoin.settings.WavesSettings
+import com.amurcoin.settings.AmurcoinSettings
 import com.amurcoin.state.diffs.TransactionDiffer
 import com.amurcoin.state.{Blockchain, ByteStr, LeaseBalance, NG, Portfolio}
 import com.amurcoin.transaction._
@@ -35,7 +35,7 @@ import scala.util.{Failure, Success}
 
 @Path("/debug")
 @Api(value = "/debug")
-case class DebugApiRoute(ws: WavesSettings,
+case class DebugApiRoute(ws: AmurcoinSettings,
                          blockchain: Blockchain,
                          wallet: Wallet,
                          ng: NG,
@@ -61,7 +61,7 @@ case class DebugApiRoute(ws: WavesSettings,
 
   override val settings = ws.restAPISettings
   override lazy val route: Route = pathPrefix("debug") {
-    blocks ~ state ~ info ~ stateWaves ~ rollback ~ rollbackTo ~ blacklist ~ portfolios ~ minerInfo ~ historyInfo ~ configInfo ~ print ~ validate
+    blocks ~ state ~ info ~ stateAmurcoin ~ rollback ~ rollbackTo ~ blacklist ~ portfolios ~ minerInfo ~ historyInfo ~ configInfo ~ print ~ validate
   }
 
   @Path("/blocks/{howMany}")
@@ -146,13 +146,13 @@ case class DebugApiRoute(ws: WavesSettings,
     complete(ng.amurcoinDistribution(ng.height).map { case (a, b) => a.stringRepr -> b })
   }
 
-  @Path("/stateWaves/{height}")
+  @Path("/stateAmurcoin/{height}")
   @ApiOperation(value = "State at block", notes = "Get state at specified height", httpMethod = "GET")
   @ApiImplicitParams(
     Array(
       new ApiImplicitParam(name = "height", value = "height", required = true, dataType = "integer", paramType = "path")
     ))
-  def stateWaves: Route = (path("stateWaves" / IntNumber) & get & withAuth) { height =>
+  def stateAmurcoin: Route = (path("stateAmurcoin" / IntNumber) & get & withAuth) { height =>
     complete(ng.amurcoinDistribution(height).map { case (a, b) => a.stringRepr -> b })
   }
 

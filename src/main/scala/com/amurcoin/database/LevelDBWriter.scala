@@ -224,12 +224,12 @@ class LevelDBWriter(writableDB: DB, fs: FunctionalitySettings, val maxCacheSize:
 
     val threshold = height - 2000
 
-    val newAddressesForWaves = ArrayBuffer.empty[BigInt]
+    val newAddressesForAmurcoin = ArrayBuffer.empty[BigInt]
     val updatedBalanceAddresses = for ((addressId, balance) <- amurcoinBalances) yield {
       val kwbh = Keys.amurcoinBalanceHistory(addressId)
       val wbh  = rw.get(kwbh)
       if (wbh.isEmpty) {
-        newAddressesForWaves += addressId
+        newAddressesForAmurcoin += addressId
       }
       rw.put(Keys.amurcoinBalance(addressId)(height), balance)
       expiredKeys ++= updateHistory(rw, wbh, kwbh, threshold, Keys.amurcoinBalance(addressId))
@@ -238,10 +238,10 @@ class LevelDBWriter(writableDB: DB, fs: FunctionalitySettings, val maxCacheSize:
 
     val changedAddresses = (addressTransactions.keys ++ updatedBalanceAddresses)
 
-    if (newAddressesForWaves.nonEmpty) {
-      val newSeqNr = rw.get(Keys.addressesForWavesSeqNr) + 1
-      rw.put(Keys.addressesForWavesSeqNr, newSeqNr)
-      rw.put(Keys.addressesForWaves(newSeqNr), newAddressesForWaves)
+    if (newAddressesForAmurcoin.nonEmpty) {
+      val newSeqNr = rw.get(Keys.addressesForAmurcoinSeqNr) + 1
+      rw.put(Keys.addressesForAmurcoinSeqNr, newSeqNr)
+      rw.put(Keys.addressesForAmurcoin(newSeqNr), newAddressesForAmurcoin)
     }
 
     for ((addressId, leaseBalance) <- leaseBalances) {
@@ -651,8 +651,8 @@ class LevelDBWriter(writableDB: DB, fs: FunctionalitySettings, val maxCacheSize:
 
   override def amurcoinDistribution(height: Int): Map[Address, Long] = readOnly { db =>
     (for {
-      seqNr     <- (1 to db.get(Keys.addressesForWavesSeqNr)).par
-      addressId <- db.get(Keys.addressesForWaves(seqNr)).par
+      seqNr     <- (1 to db.get(Keys.addressesForAmurcoinSeqNr)).par
+      addressId <- db.get(Keys.addressesForAmurcoin(seqNr)).par
       history = db.get(Keys.amurcoinBalanceHistory(addressId))
       actualHeight <- history.partition(_ > height)._2.headOption
       balance = db.get(Keys.amurcoinBalance(addressId)(actualHeight))

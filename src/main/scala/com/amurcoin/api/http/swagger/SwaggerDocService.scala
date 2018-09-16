@@ -16,12 +16,12 @@ class SwaggerDocService(val actorSystem: ActorSystem, val materializer: ActorMat
 
   override val host: String = settings.bindAddress + ":" + settings.port
   override val info: Info = Info(
-    "The Web Interface to the Waves Full Node API",
+    "The Web Interface to the Amurcoin Full Node API",
     Version.VersionString,
-    "Waves Full Node",
+    "Amurcoin Full Node",
     "License: Apache License, Version 2.0",
     None,
-    Some(License("Apache License, Version 2.0", "https://github.com/amurcoin/Waves/blob/master/LICENSE"))
+    Some(License("Apache License, Version 2.0", "https://github.com/amurcoin/Amurcoin/blob/master/LICENSE"))
   )
 
   //Let swagger-ui determine the host and port

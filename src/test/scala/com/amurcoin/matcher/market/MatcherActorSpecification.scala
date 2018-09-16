@@ -206,7 +206,7 @@ class MatcherActorSpecification
       val json =
         GetMarketsResponse(Array(), Seq(MarketData(pair1, a1Name, amurcoin, now, None, None), MarketData(pair2, a1Name, a2Name, now, None, None))).json
 
-      ((json \ "markets")(0) \ "priceAsset").as[String] shouldBe AssetPair.WavesName
+      ((json \ "markets")(0) \ "priceAsset").as[String] shouldBe AssetPair.AmurcoinName
       ((json \ "markets")(0) \ "priceAssetName").as[String] shouldBe amurcoin
       ((json \ "markets")(0) \ "amountAsset").as[String] shouldBe a1.get.base58
       ((json \ "markets")(0) \ "amountAssetName").as[String] shouldBe a1Name

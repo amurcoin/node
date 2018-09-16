@@ -28,8 +28,8 @@ class BlockchainUpdaterMicroblockSunnyDayTest
     fee    <- smallFeeGen
     genesis: GenesisTransaction = GenesisTransaction.create(master, ENOUGH_AMT, ts).explicitGet()
     masterToAlice: TransferTransactionV1 <- amurcoinTransferGeneratorP(master, alice)
-    aliceToBob  = createWavesTransfer(alice, bob, masterToAlice.amount - fee - 1, fee, ts).explicitGet()
-    aliceToBob2 = createWavesTransfer(alice, bob, masterToAlice.amount - fee - 1, fee, ts + 1).explicitGet()
+    aliceToBob  = createAmurcoinTransfer(alice, bob, masterToAlice.amount - fee - 1, fee, ts).explicitGet()
+    aliceToBob2 = createAmurcoinTransfer(alice, bob, masterToAlice.amount - fee - 1, fee, ts + 1).explicitGet()
   } yield (genesis, masterToAlice, aliceToBob, aliceToBob2)
 
   property("all txs in different blocks: B0 <- B1 <- B2 <- B3!") {
@@ -47,7 +47,7 @@ class BlockchainUpdaterMicroblockSunnyDayTest
   }
 
   property("all txs in one block: B0 <- B0m1 <- B0m2 <- B0m3!") {
-    scenario(preconditionsAndPayments, MicroblocksActivatedAt0WavesSettings) {
+    scenario(preconditionsAndPayments, MicroblocksActivatedAt0AmurcoinSettings) {
       case (domain, (genesis, masterToAlice, aliceToBob, aliceToBob2)) =>
         val (block, microBlocks) = chainBaseAndMicro(randomSig, genesis, Seq(masterToAlice, aliceToBob, aliceToBob2).map(Seq(_)))
         domain.blockchainUpdater.processBlock(block).explicitGet()
@@ -63,7 +63,7 @@ class BlockchainUpdaterMicroblockSunnyDayTest
   }
 
   property("block references microBlock: B0 <- B1 <- B1m1 <- B2!") {
-    scenario(preconditionsAndPayments, MicroblocksActivatedAt0WavesSettings) {
+    scenario(preconditionsAndPayments, MicroblocksActivatedAt0AmurcoinSettings) {
       case (domain, (genesis, masterToAlice, aliceToBob, aliceToBob2)) =>
         val (block, microBlocks) = chainBaseAndMicro(randomSig, genesis, Seq(masterToAlice, aliceToBob, aliceToBob2).map(Seq(_)))
         domain.blockchainUpdater.processBlock(block).explicitGet()
@@ -78,7 +78,7 @@ class BlockchainUpdaterMicroblockSunnyDayTest
   }
 
   property("discards some of microBlocks: B0 <- B0m1 <- B0m2; B0m1 <- B1") {
-    scenario(preconditionsAndPayments, MicroblocksActivatedAt0WavesSettings) {
+    scenario(preconditionsAndPayments, MicroblocksActivatedAt0AmurcoinSettings) {
       case (domain, (genesis, masterToAlice, aliceToBob, aliceToBob2)) =>
         val (block0, microBlocks0) = chainBaseAndMicro(randomSig, genesis, Seq(masterToAlice, aliceToBob).map(Seq(_)))
         val block1                 = buildBlockOfTxs(microBlocks0.head.totalResBlockSig, Seq(aliceToBob2))
@@ -94,7 +94,7 @@ class BlockchainUpdaterMicroblockSunnyDayTest
   }
 
   property("discards all microBlocks: B0 <- B1 <- B1m1; B1 <- B2") {
-    scenario(preconditionsAndPayments, MicroblocksActivatedAt0WavesSettings) {
+    scenario(preconditionsAndPayments, MicroblocksActivatedAt0AmurcoinSettings) {
       case (domain, (genesis, masterToAlice, aliceToBob, aliceToBob2)) =>
         val block0                 = buildBlockOfTxs(randomSig, Seq(genesis))
         val (block1, microBlocks1) = chainBaseAndMicro(block0.uniqueId, masterToAlice, Seq(Seq(aliceToBob)))
@@ -111,7 +111,7 @@ class BlockchainUpdaterMicroblockSunnyDayTest
   }
 
   property("doesn't discard liquid block if competitor is not better: B0 <- B1 <- B1m1; B0 <- B2!") {
-    scenario(preconditionsAndPayments, MicroblocksActivatedAt0WavesSettings) {
+    scenario(preconditionsAndPayments, MicroblocksActivatedAt0AmurcoinSettings) {
       case (domain, (genesis, masterToAlice, aliceToBob, aliceToBob2)) =>
         val block0                 = buildBlockOfTxs(randomSig, Seq(genesis))
         val (block1, microBlocks1) = chainBaseAndMicro(block0.uniqueId, masterToAlice, Seq(Seq(aliceToBob)))
@@ -128,7 +128,7 @@ class BlockchainUpdaterMicroblockSunnyDayTest
   }
 
   property("discards liquid block if competitor is better: B0 <- B1 <- B1m1; B0 <- B2") {
-    scenario(preconditionsAndPayments, MicroblocksActivatedAt0WavesSettings) {
+    scenario(preconditionsAndPayments, MicroblocksActivatedAt0AmurcoinSettings) {
       case (domain, (genesis, masterToAlice, aliceToBob, aliceToBob2)) =>
         val block0                 = buildBlockOfTxs(randomSig, Seq(genesis))
         val (block1, microBlocks1) = chainBaseAndMicro(block0.uniqueId, masterToAlice, Seq(Seq(aliceToBob)))
@@ -150,7 +150,7 @@ class BlockchainUpdaterMicroblockSunnyDayTest
       case ((genesis, masterToAlice, aliceToBob, aliceToBob2), miner) =>
         val ts = genesis.timestamp
 
-        val minerABalance = withDomain(MicroblocksActivatedAt0WavesSettings) { da =>
+        val minerABalance = withDomain(MicroblocksActivatedAt0AmurcoinSettings) { da =>
           val block0a                  = customBuildBlockOfTxs(randomSig, Seq(genesis), miner, 3: Byte, ts)
           val (block1a, microBlocks1a) = chainBaseAndMicro(block0a.uniqueId, Seq(masterToAlice), Seq(Seq(aliceToBob)), miner, 3: Byte, ts)
           val block2a                  = customBuildBlockOfTxs(block1a.uniqueId, Seq(aliceToBob2), miner, 3: Byte, ts)
@@ -164,7 +164,7 @@ class BlockchainUpdaterMicroblockSunnyDayTest
           da.portfolio(miner).balance
         }
 
-        val minerBBalance = withDomain(MicroblocksActivatedAt0WavesSettings) { db =>
+        val minerBBalance = withDomain(MicroblocksActivatedAt0AmurcoinSettings) { db =>
           val block0b = customBuildBlockOfTxs(randomSig, Seq(genesis), miner, 3: Byte, ts)
           val block1b = customBuildBlockOfTxs(block0b.uniqueId, Seq(masterToAlice), miner, 3: Byte, ts)
           val block2b = customBuildBlockOfTxs(block1b.uniqueId, Seq(aliceToBob2), miner, 3: Byte, ts)

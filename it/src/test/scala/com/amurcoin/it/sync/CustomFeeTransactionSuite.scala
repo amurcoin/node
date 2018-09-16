@@ -55,7 +55,7 @@ class CustomFeeTransactionSuite extends BaseTransactionSuite with CancelAfterFai
     val sponsoredId = sender.transfer(senderAddress, secondAddress, 1, transferFee, Some(issuedAssetId), Some(issuedAssetId)).id
     nodes.waitForHeightAriseAndTxPresent(sponsoredId)
 
-    val sponsorship = Sponsorship.toWaves(transferFee, assetToken)
+    val sponsorship = Sponsorship.toAmurcoin(transferFee, assetToken)
     notMiner.assertBalances(senderAddress, balance1 - fees - sponsorship, eff1 - fees - sponsorship)
     notMiner.assertBalances(secondAddress, balance2, eff2)
     notMiner.assertBalances(minerAddress, balance3 + fees + sponsorship, balance3 + fees + sponsorship)

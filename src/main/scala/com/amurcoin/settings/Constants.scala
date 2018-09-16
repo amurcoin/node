@@ -8,8 +8,8 @@ import com.amurcoin.utils.ScorexLogging
   */
 object Constants extends ScorexLogging {
   val ApplicationName = "amurcoin"
-  val AgentName       = s"Waves v${Version.VersionString}"
+  val AgentName       = s"Amurcoin v${Version.VersionString}"
 
   val UnitsInWave = 100000000L
-  val TotalWaves  = 100000000L
+  val TotalAmurcoin  = 100000000L
 }

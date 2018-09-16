@@ -11,10 +11,10 @@ import com.amurcoin.lang.v1.compiler.CompilerContext
 import com.amurcoin.lang.v1.compiler.CompilerContext._
 import com.amurcoin.lang.v1.compiler.Terms.TRUE
 import com.amurcoin.lang.v1.evaluator.ctx._
-import com.amurcoin.lang.v1.evaluator.ctx.impl.amurcoin.WavesContext
+import com.amurcoin.lang.v1.evaluator.ctx.impl.amurcoin.AmurcoinContext
 import com.amurcoin.lang.v1.evaluator.ctx.impl.{CryptoContext, PureContext}
 import com.amurcoin.lang.v1.{FunctionHeader, ScriptEstimator}
-import com.amurcoin.transaction.smart.{BlockchainContext, WavesEnvironment}
+import com.amurcoin.transaction.smart.{BlockchainContext, AmurcoinEnvironment}
 import monix.eval.Coeval
 import monix.execution.UncaughtExceptionReporter
 import org.joda.time.Duration
@@ -113,7 +113,7 @@ package object utils extends ScorexLogging {
     Monoid.combineAll(
       Seq(
         CryptoContext.compilerContext(Global),
-        WavesContext.build(new WavesEnvironment(dummyNetworkByte, Coeval(???), Coeval(???), null)).compilerContext,
+        AmurcoinContext.build(new AmurcoinEnvironment(dummyNetworkByte, Coeval(???), Coeval(???), null)).compilerContext,
         PureContext.compilerContext
       ))
 

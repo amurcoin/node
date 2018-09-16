@@ -22,12 +22,12 @@
 
 * peers.dat format changed. Delete old version.
 * Different HTTP status codes in replies in HTTP API were implemented
-* Waves' Scorex v1.3.2
+* Amurcoin' Scorex v1.3.2
 
 **0.2.0**
 
 * Peers blacklist ttl configuration via "p2p"/"blacklistResidenceTimeMilliseconds"
-* Upgrade to Waves' Scorex v1.3.1
+* Upgrade to Amurcoin' Scorex v1.3.1
 
 **0.2.0-RC7**
 

@@ -5,7 +5,7 @@ import com.amurcoin.consensus.PoSSelector
 import com.amurcoin.metrics._
 import com.amurcoin.mining.Miner
 import com.amurcoin.network._
-import com.amurcoin.settings.WavesSettings
+import com.amurcoin.settings.AmurcoinSettings
 import com.amurcoin.state.Blockchain
 import com.amurcoin.utils.{ScorexLogging, Time}
 import com.amurcoin.utx.UtxPool
@@ -27,7 +27,7 @@ object BlockAppender extends ScorexLogging with Instrumented {
             time: Time,
             utxStorage: UtxPool,
             pos: PoSSelector,
-            settings: WavesSettings,
+            settings: AmurcoinSettings,
             scheduler: Scheduler)(newBlock: Block): Task[Either[ValidationError, Option[BigInt]]] =
     Task {
       measureSuccessful(
@@ -48,7 +48,7 @@ object BlockAppender extends ScorexLogging with Instrumented {
             time: Time,
             utxStorage: UtxPool,
             pos: PoSSelector,
-            settings: WavesSettings,
+            settings: AmurcoinSettings,
             allChannels: ChannelGroup,
             peerDatabase: PeerDatabase,
             miner: Miner,

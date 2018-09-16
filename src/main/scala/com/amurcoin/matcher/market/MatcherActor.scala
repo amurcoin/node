@@ -64,7 +64,7 @@ class MatcherActor(orderHistory: ActorRef,
   private def orderBook(pair: AssetPair) = Option(orderBooks.get()).flatMap(_.get(pair))
 
   def getAssetName(asset: Option[AssetId], desc: Option[AssetDescription]): String =
-    asset.fold(AssetPair.WavesName) { _ =>
+    asset.fold(AssetPair.AmurcoinName) { _ =>
       desc.fold("Unknown")(d => new String(d.name, Charsets.UTF_8))
     }
 

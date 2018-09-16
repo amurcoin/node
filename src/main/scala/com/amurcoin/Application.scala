@@ -21,7 +21,7 @@ import com.amurcoin.consensus.nxt.api.http.NxtConsensusApiRoute
 import com.amurcoin.db.openDB
 import com.amurcoin.features.api.ActivationApiRoute
 import com.amurcoin.history.{CheckpointServiceImpl, StorageFactory}
-import com.amurcoin.http.{DebugApiRoute, NodeApiRoute, WavesApiRoute}
+import com.amurcoin.http.{DebugApiRoute, NodeApiRoute, AmurcoinApiRoute}
 import com.amurcoin.matcher.Matcher
 import com.amurcoin.metrics.Metrics
 import com.amurcoin.mining.{Miner, MinerImpl}
@@ -52,7 +52,7 @@ import scala.concurrent.duration._
 import scala.reflect.runtime.universe._
 import scala.util.Try
 
-class Application(val actorSystem: ActorSystem, val settings: WavesSettings, configRoot: ConfigObject) extends ScorexLogging {
+class Application(val actorSystem: ActorSystem, val settings: AmurcoinSettings, configRoot: ConfigObject) extends ScorexLogging {
 
   import monix.execution.Scheduler.Implicits.{global => scheduler}
 
@@ -262,7 +262,7 @@ class Application(val actorSystem: ActorSystem, val settings: WavesSettings, con
           scoreStatsReporter,
           configRoot
         ),
-        WavesApiRoute(settings.restAPISettings, wallet, utxStorage, allChannels, time),
+        AmurcoinApiRoute(settings.restAPISettings, wallet, utxStorage, allChannels, time),
         AssetsApiRoute(settings.restAPISettings, wallet, utxStorage, allChannels, blockchainUpdater, time),
         ActivationApiRoute(settings.restAPISettings, settings.blockchainSettings.functionalitySettings, settings.featuresSettings, blockchainUpdater),
         AssetsBroadcastApiRoute(settings.restAPISettings, utxStorage, allChannels),
@@ -283,7 +283,7 @@ class Application(val actorSystem: ActorSystem, val settings: WavesSettings, con
         typeOf[PeersApiRoute],
         typeOf[AddressApiRoute],
         typeOf[DebugApiRoute],
-        typeOf[WavesApiRoute],
+        typeOf[AmurcoinApiRoute],
         typeOf[AssetsApiRoute],
         typeOf[ActivationApiRoute],
         typeOf[AssetsBroadcastApiRoute],
@@ -384,7 +384,7 @@ object Application extends ScorexLogging {
         if (!cfg.hasPath("amurcoin")) {
           log.error("Malformed configuration file was provided! Aborting!")
           log.error("Please, read following article about configuration file format:")
-          log.error("https://github.com/amurcoin/Waves/wiki/Waves-Node-configuration-file")
+          log.error("https://github.com/amurcoin/Amurcoin/wiki/Amurcoin-Node-configuration-file")
           forceStopApplication()
         }
         loadConfig(cfg)
@@ -419,7 +419,7 @@ object Application extends ScorexLogging {
       SystemInformationReporter.report(config)
     }
 
-    val settings = WavesSettings.fromConfig(config)
+    val settings = AmurcoinSettings.fromConfig(config)
     if (config.getBoolean("kamon.enable")) {
       log.info("Aggregated metrics are enabled")
       Kamon.reconfigure(config)

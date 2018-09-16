@@ -41,7 +41,7 @@ class MatcherTickerTestSuite
 
   "matcher ticker validation" - {
     "get tickers for unavailable asset should produce error" in {
-      SyncMatcherHttpApi.assertNotFoundAndMessage(matcherNode.marketStatus(wctWavesPair), s"Invalid Asset ID: ${IssueEightDigitAssetTx.id()}")
+      SyncMatcherHttpApi.assertNotFoundAndMessage(matcherNode.marketStatus(wctAmurcoinPair), s"Invalid Asset ID: ${IssueEightDigitAssetTx.id()}")
     }
 
     "status of empty orderbook" in {
@@ -55,19 +55,19 @@ class MatcherTickerTestSuite
     }
 
     "try to work with incorrect pair" in {
-      val usdWavesPair = AssetPair(
+      val usdAmurcoinPair = AssetPair(
         amountAsset = Some(UsdId),
         priceAsset = None
       )
 
       assert(
         matcherNode
-          .matcherGet(s"/matcher/orderbook/${usdWavesPair.amountAssetStr}/${usdWavesPair.priceAssetStr}/status", statusCode = 301)
+          .matcherGet(s"/matcher/orderbook/${usdAmurcoinPair.amountAssetStr}/${usdAmurcoinPair.priceAssetStr}/status", statusCode = 301)
           .getHeader("Location")
-          .contains(s"AMURCOIN/${usdWavesPair.amountAssetStr}"))
+          .contains(s"AMURCOIN/${usdAmurcoinPair.amountAssetStr}"))
 
       //TODO: add error message after fix of https://amurcoin.atlassian.net/browse/NODE-1151
-//      SyncMatcherHttpApi.assertNotFoundAndMessage(matcherNode.placeOrder(aliceNode, usdWavesPair, OrderType.BUY, 200, 1.amurcoin), "")
+//      SyncMatcherHttpApi.assertNotFoundAndMessage(matcherNode.placeOrder(aliceNode, usdAmurcoinPair, OrderType.BUY, 200, 1.amurcoin), "")
     }
 
     "issue tokens" in {
@@ -95,10 +95,10 @@ class MatcherTickerTestSuite
     }
 
     "place ask order for second pair" in {
-      matcherNode.placeOrder(bobNode, wctWavesPair, OrderType.SELL, askPrice, askAmount)
-      val bobOrder = matcherNode.placeOrder(bobNode, wctWavesPair, OrderType.SELL, askPrice, askAmount).message.id
-      matcherNode.waitOrderStatus(wctWavesPair, bobOrder, "Accepted")
-      val r = matcherNode.marketStatus(wctWavesPair)
+      matcherNode.placeOrder(bobNode, wctAmurcoinPair, OrderType.SELL, askPrice, askAmount)
+      val bobOrder = matcherNode.placeOrder(bobNode, wctAmurcoinPair, OrderType.SELL, askPrice, askAmount).message.id
+      matcherNode.waitOrderStatus(wctAmurcoinPair, bobOrder, "Accepted")
+      val r = matcherNode.marketStatus(wctAmurcoinPair)
       r.lastPrice shouldBe None
       r.lastSide shouldBe None
       r.bid shouldBe None
@@ -224,7 +224,7 @@ object MatcherTickerTestSuite {
     priceAsset = Some(UsdId)
   )
 
-  val wctWavesPair = AssetPair(
+  val wctAmurcoinPair = AssetPair(
     amountAsset = Some(EightDigitAssetId),
     priceAsset = None
   )

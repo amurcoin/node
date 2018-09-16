@@ -32,11 +32,11 @@ object BalanceDiffValidation extends ScorexLogging with Instrumented {
         } else if (negativeAssetBalance) {
           Some(s"negative asset balance: $acc, new portfolio: ${negativeAssetsInfo(newPortfolio)}")
         } else if (negativeEffectiveBalance) {
-          Some(s"negative effective balance: $acc, old: ${leaseWavesInfo(oldPortfolio)}, new: ${leaseWavesInfo(newPortfolio)}")
+          Some(s"negative effective balance: $acc, old: ${leaseAmurcoinInfo(oldPortfolio)}, new: ${leaseAmurcoinInfo(newPortfolio)}")
         } else if (leasedMoreThanOwn && oldPortfolio.lease.out == newPortfolio.lease.out) {
           Some(s"$acc trying to spend leased money")
         } else if (leasedMoreThanOwn) {
-          Some(s"leased being more than own: $acc, old: ${leaseWavesInfo(oldPortfolio)}, new: ${leaseWavesInfo(newPortfolio)}")
+          Some(s"leased being more than own: $acc, old: ${leaseAmurcoinInfo(oldPortfolio)}, new: ${leaseAmurcoinInfo(newPortfolio)}")
         } else None
         err.map(acc -> _)
       })
@@ -49,7 +49,7 @@ object BalanceDiffValidation extends ScorexLogging with Instrumented {
     }
   }
 
-  private def leaseWavesInfo(p: Portfolio): (Long, LeaseBalance) = (p.balance, p.lease)
+  private def leaseAmurcoinInfo(p: Portfolio): (Long, LeaseBalance) = (p.balance, p.lease)
 
   private def negativeAssetsInfo(p: Portfolio): Map[ByteStr, Long] = p.assets.filter(_._2 < 0)
 }

@@ -6,7 +6,7 @@ import com.amurcoin.block.Block
 import com.amurcoin.consensus.nxt.NxtLikeConsensusBlockData
 import com.amurcoin.database.LevelDBWriter
 import com.amurcoin.lagonaki.mocks.TestBlock
-import com.amurcoin.settings.{WavesSettings, _}
+import com.amurcoin.settings.{AmurcoinSettings, _}
 import com.amurcoin.state._
 import com.amurcoin.state.diffs.{ENOUGH_AMT, ProduceError}
 import com.amurcoin.transaction.{BlockchainUpdater, GenesisTransaction}
@@ -202,7 +202,7 @@ class FPPoSSelectorTest extends FreeSpec with Matchers with WithDB with Transact
   def withEnv(gen: Time => Gen[(Seq[PrivateKeyAccount], Seq[Block])])(f: Env => Unit): Unit = {
     val time          = new TimeImpl
     val defaultWriter = new LevelDBWriter(db, TestFunctionalitySettings.Stub)
-    val settings0     = WavesSettings.fromConfig(loadConfig(ConfigFactory.load()))
+    val settings0     = AmurcoinSettings.fromConfig(loadConfig(ConfigFactory.load()))
     val settings      = settings0.copy(featuresSettings = settings0.featuresSettings.copy(autoShutdownOnUnsupportedFeature = false))
     val bcu           = new BlockchainUpdaterImpl(defaultWriter, settings, time)
     val pos           = new PoSSelector(bcu, settings.blockchainSettings)

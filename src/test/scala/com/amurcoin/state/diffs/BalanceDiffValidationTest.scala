@@ -23,8 +23,8 @@ class BalanceDiffValidationTest extends PropSpec with PropertyChecks with Matche
       gen2: GenesisTransaction = GenesisTransaction.create(master2, Long.MaxValue - 1, ts).explicitGet()
       fee    <- smallFeeGen
       amount <- Gen.choose(Long.MaxValue / 2, Long.MaxValue - fee - 1)
-      transfer1 = createWavesTransfer(master, recipient, amount, fee, ts).explicitGet()
-      transfer2 = createWavesTransfer(master2, recipient, amount, fee, ts).explicitGet()
+      transfer1 = createAmurcoinTransfer(master, recipient, amount, fee, ts).explicitGet()
+      transfer2 = createAmurcoinTransfer(master2, recipient, amount, fee, ts).explicitGet()
     } yield (gen1, gen2, transfer1, transfer2)
 
     forAll(preconditionsAndPayment) {
@@ -66,11 +66,11 @@ class BalanceDiffValidationTest extends PropSpec with PropertyChecks with Matche
     amt    <- positiveLongGen
     fee    <- smallFeeGen
     genesis: GenesisTransaction                   = GenesisTransaction.create(master, ENOUGH_AMT, ts).explicitGet()
-    masterTransfersToAlice: TransferTransactionV1 = createWavesTransfer(master, alice, amt, fee, ts).explicitGet()
+    masterTransfersToAlice: TransferTransactionV1 = createAmurcoinTransfer(master, alice, amt, fee, ts).explicitGet()
     (aliceLeasesToBob, _)    <- leaseAndCancelGeneratorP(alice, bob, alice) suchThat (_._1.amount < amt)
     (masterLeasesToAlice, _) <- leaseAndCancelGeneratorP(master, alice, master) suchThat (_._1.amount > aliceLeasesToBob.amount)
     transferAmt              <- Gen.choose(amt - fee - aliceLeasesToBob.amount, amt - fee)
-    aliceTransfersMoreThanOwnsMinusLeaseOut = createWavesTransfer(alice, cooper, transferAmt, fee, ts).explicitGet()
+    aliceTransfersMoreThanOwnsMinusLeaseOut = createAmurcoinTransfer(alice, cooper, transferAmt, fee, ts).explicitGet()
 
   } yield (genesis, masterTransfersToAlice, aliceLeasesToBob, masterLeasesToAlice, aliceTransfersMoreThanOwnsMinusLeaseOut)
 

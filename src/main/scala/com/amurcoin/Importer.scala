@@ -10,7 +10,7 @@ import com.amurcoin.consensus.PoSSelector
 import com.amurcoin.db.openDB
 import com.amurcoin.history.{CheckpointServiceImpl, StorageFactory}
 import com.amurcoin.mining.MultiDimensionalMiningConstraint
-import com.amurcoin.settings.{WavesSettings, loadConfig}
+import com.amurcoin.settings.{AmurcoinSettings, loadConfig}
 import com.amurcoin.state.ByteStr
 import com.amurcoin.state.appender.BlockAppender
 import com.amurcoin.transaction.Transaction
@@ -30,7 +30,7 @@ object Importer extends ScorexLogging {
 
     val configFilename = Try(args(0)).toOption.getOrElse("amurcoin-testnet.conf")
     val config         = loadConfig(ConfigFactory.parseFile(new File(configFilename)))
-    val settings       = WavesSettings.fromConfig(config)
+    val settings       = AmurcoinSettings.fromConfig(config)
     AddressScheme.current = new AddressScheme {
       override val chainId: Byte = settings.blockchainSettings.addressSchemeCharacter.toByte
     }

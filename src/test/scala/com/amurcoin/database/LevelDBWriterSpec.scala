@@ -6,7 +6,7 @@ import com.amurcoin.block.Block
 import com.amurcoin.features.BlockchainFeatures
 import com.amurcoin.lagonaki.mocks.TestBlock
 import com.amurcoin.lang.v1.compiler.Terms
-import com.amurcoin.settings.{TestFunctionalitySettings, WavesSettings, loadConfig}
+import com.amurcoin.settings.{TestFunctionalitySettings, AmurcoinSettings, loadConfig}
 import com.amurcoin.state.diffs.ENOUGH_AMT
 import com.amurcoin.state.{BlockchainUpdaterImpl, EitherExt2}
 import com.amurcoin.transaction.smart.SetScriptTransaction
@@ -103,7 +103,7 @@ class LevelDBWriterSpec extends FreeSpec with Matchers with WithDB with RequestG
   def baseTest(gen: Time => Gen[(PrivateKeyAccount, Seq[Block])])(f: (LevelDBWriter, PrivateKeyAccount) => Unit): Unit = {
     val time          = new TimeImpl
     val defaultWriter = new LevelDBWriter(db, TestFunctionalitySettings.Stub)
-    val settings0     = WavesSettings.fromConfig(loadConfig(ConfigFactory.load()))
+    val settings0     = AmurcoinSettings.fromConfig(loadConfig(ConfigFactory.load()))
     val settings      = settings0.copy(featuresSettings = settings0.featuresSettings.copy(autoShutdownOnUnsupportedFeature = false))
     val bcu           = new BlockchainUpdaterImpl(defaultWriter, settings, time)
     try {

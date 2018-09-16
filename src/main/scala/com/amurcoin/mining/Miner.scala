@@ -7,7 +7,7 @@ import com.amurcoin.features.BlockchainFeatures
 import com.amurcoin.features.FeatureProvider._
 import com.amurcoin.metrics.{BlockStats, HistogramExt, Instrumented}
 import com.amurcoin.network._
-import com.amurcoin.settings.{FunctionalitySettings, WavesSettings}
+import com.amurcoin.settings.{FunctionalitySettings, AmurcoinSettings}
 import com.amurcoin.state._
 import com.amurcoin.state.appender.{BlockAppender, MicroblockAppender}
 import com.amurcoin.utx.UtxPool
@@ -56,7 +56,7 @@ object MinerDebugInfo {
 class MinerImpl(allChannels: ChannelGroup,
                 blockchainUpdater: BlockchainUpdater with NG,
                 checkpoint: CheckpointService,
-                settings: WavesSettings,
+                settings: AmurcoinSettings,
                 timeService: Time,
                 utx: UtxPool,
                 wallet: Wallet,

@@ -7,7 +7,7 @@ import com.typesafe.config.ConfigFactory
 import com.amurcoin.database.LevelDBWriter
 import com.amurcoin.db.LevelDBFactory
 import com.amurcoin.lang.v1.traits.DataType
-import com.amurcoin.settings.{WavesSettings, loadConfig}
+import com.amurcoin.settings.{AmurcoinSettings, loadConfig}
 import com.amurcoin.state.bench.DataTestData
 import org.iq80.leveldb.{DB, Options}
 import scodec.bits.{BitVector, ByteVector}
@@ -35,7 +35,7 @@ object ExtractInfo extends App with ScorexLogging {
   val benchSettings = Settings.fromConfig(ConfigFactory.load())
   val amurcoinSettings = {
     val config = loadConfig(ConfigFactory.parseFile(new File(args.head)))
-    WavesSettings.fromConfig(config)
+    AmurcoinSettings.fromConfig(config)
   }
 
   AddressScheme.current = new AddressScheme {

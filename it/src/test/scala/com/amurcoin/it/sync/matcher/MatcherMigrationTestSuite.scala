@@ -42,22 +42,22 @@ class MatcherMigrationTestSuite
     val t1           = aliceNode.transfer(aliceNode.address, matcherNode.address, aliceBalance - minFee - 250000, minFee, None, None).id
     nodes.waitForHeightAriseAndTxPresent(t1)
 
-    val aliceWavesPair = AssetPair(ByteStr.decodeBase58(aliceAsset).toOption, None)
+    val aliceAmurcoinPair = AssetPair(ByteStr.decodeBase58(aliceAsset).toOption, None)
 
     "place order and run migration tool" in {
       // Alice places sell order
       val aliceOrder = matcherNode
-        .placeOrder(aliceNode, aliceWavesPair, OrderType.SELL, 3000000, 3000000)
+        .placeOrder(aliceNode, aliceAmurcoinPair, OrderType.SELL, 3000000, 3000000)
       aliceOrder.status shouldBe "OrderAccepted"
       val firstOrder = aliceOrder.message.id
 
       // check order status
-      matcherNode.orderStatus(firstOrder, aliceWavesPair).status shouldBe "Accepted"
+      matcherNode.orderStatus(firstOrder, aliceAmurcoinPair).status shouldBe "Accepted"
 
       // sell order should be in the aliceNode orderbook
       matcherNode.fullOrderHistory(aliceNode).head.status shouldBe "Accepted"
 
-      val tbBefore = matcherNode.tradableBalance(aliceNode, aliceWavesPair)
+      val tbBefore = matcherNode.tradableBalance(aliceNode, aliceAmurcoinPair)
       val rbBefore = matcherNode.reservedBalance(aliceNode)
 
       // stop node, run migration tool and start node again
@@ -67,10 +67,10 @@ class MatcherMigrationTestSuite
       val height = nodes.map(_.height).max
 
       matcherNode.waitForHeight(height + 1, 40.seconds)
-      matcherNode.orderStatus(firstOrder, aliceWavesPair).status shouldBe "Accepted"
+      matcherNode.orderStatus(firstOrder, aliceAmurcoinPair).status shouldBe "Accepted"
       matcherNode.fullOrderHistory(aliceNode).head.status shouldBe "Accepted"
 
-      val tbAfter = matcherNode.tradableBalance(aliceNode, aliceWavesPair)
+      val tbAfter = matcherNode.tradableBalance(aliceNode, aliceAmurcoinPair)
       val rbAfter = matcherNode.reservedBalance(aliceNode)
 
 //      TODO: @monroid uncomment this after merge with version-0.13.x

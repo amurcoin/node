@@ -7,7 +7,7 @@ import com.amurcoin.features._
 import com.amurcoin.features.BlockchainFeatures._
 import com.amurcoin.lagonaki.mocks.TestBlock
 import com.amurcoin.lang.v1.compiler.Terms.TRUE
-import com.amurcoin.settings.{TestFunctionalitySettings, WavesSettings}
+import com.amurcoin.settings.{TestFunctionalitySettings, AmurcoinSettings}
 import com.amurcoin.state.reader.LeaseDetails
 import com.amurcoin.transaction.ValidationError.AliasDoesNotExist
 import com.amurcoin.transaction.assets.{IssueTransactionV1, ReissueTransactionV1}
@@ -339,14 +339,14 @@ class RollbackSpec extends FreeSpec with Matchers with WithState with Transactio
         }
     }
 
-    def createSettings(preActivatedFeatures: (BlockchainFeature, Int)*): WavesSettings = {
+    def createSettings(preActivatedFeatures: (BlockchainFeature, Int)*): AmurcoinSettings = {
       val tfs = TestFunctionalitySettings.Enabled.copy(
         preActivatedFeatures = preActivatedFeatures.map { case (k, v) => k.id -> v }(collection.breakOut),
         blocksForFeatureActivation = 1,
         featureCheckBlocksPeriod = 1
       )
 
-      history.DefaultWavesSettings.copy(blockchainSettings = history.DefaultWavesSettings.blockchainSettings.copy(functionalitySettings = tfs))
+      history.DefaultAmurcoinSettings.copy(blockchainSettings = history.DefaultAmurcoinSettings.blockchainSettings.copy(functionalitySettings = tfs))
     }
 
     "asset sponsorship" in forAll(for {

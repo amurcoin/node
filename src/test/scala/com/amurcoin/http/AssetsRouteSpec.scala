@@ -42,8 +42,8 @@ class AssetsRouteSpec extends RouteSpec("/assets") with RequestGen with PathMock
       val req = TransferV1Request(
         assetId = None,
         feeAssetId = None,
-        amount = 1 * Waves,
-        fee = Waves / 3,
+        amount = 1 * Amurcoin,
+        fee = Amurcoin / 3,
         sender = senderPrivateKey.address,
         attachment = Some("attachment"),
         recipient = receiverPrivateKey.address,
@@ -60,9 +60,9 @@ class AssetsRouteSpec extends RouteSpec("/assets") with RequestGen with PathMock
       val req = TransferV2Request(
         version = 2,
         assetId = None,
-        amount = 1 * Waves,
+        amount = 1 * Amurcoin,
         feeAssetId = None,
-        fee = Waves / 3,
+        fee = Amurcoin / 3,
         sender = senderPrivateKey.address,
         attachment = None,
         recipient = receiverPrivateKey.address,

@@ -423,8 +423,8 @@ class ExchangeTransactionDiffTest extends PropSpec with PropertyChecks with Matc
       seller <- accountGen
       ts     <- timestampGen
       genesis = GenesisTransaction.create(master, Long.MaxValue, ts).explicitGet()
-      tr1     = createWavesTransfer(master, buyer.toAddress, Long.MaxValue / 3, enoughFee, ts + 1).explicitGet()
-      tr2     = createWavesTransfer(master, seller.toAddress, Long.MaxValue / 3, enoughFee, ts + 2).explicitGet()
+      tr1     = createAmurcoinTransfer(master, buyer.toAddress, Long.MaxValue / 3, enoughFee, ts + 1).explicitGet()
+      tr2     = createAmurcoinTransfer(master, seller.toAddress, Long.MaxValue / 3, enoughFee, ts + 2).explicitGet()
       asset1 = IssueTransactionV2
         .selfSigned(2: Byte, chainId, buyer, "Asset#1".getBytes, "".getBytes, 1000000, 8, false, None, enoughFee, ts + 3)
         .explicitGet()

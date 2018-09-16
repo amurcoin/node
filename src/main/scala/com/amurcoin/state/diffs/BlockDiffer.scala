@@ -111,7 +111,7 @@ object BlockDiffer extends ScorexLogging with Instrumented {
               portfolio.assets.map {
                 case (assetId, assetFee) =>
                   val baseFee = blockchain.assetDescription(assetId).get.sponsorship
-                  Sponsorship.toWaves(assetFee, baseFee)
+                  Sponsorship.toAmurcoin(assetFee, baseFee)
               }.sum)
         else portfolio
 

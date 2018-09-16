@@ -34,7 +34,7 @@ class MatcherRestartTestSuite
       aliceNode.issue(aliceNode.address, "DisconnectCoin", "Alice's coin for disconnect tests", AssetQuantity, 0, reissuable = false, 100000000L).id
     nodes.waitForHeightAriseAndTxPresent(aliceAsset)
 
-    val aliceWavesPair = AssetPair(ByteStr.decodeBase58(aliceAsset).toOption, None)
+    val aliceAmurcoinPair = AssetPair(ByteStr.decodeBase58(aliceAsset).toOption, None)
     // check assets's balances
     aliceNode.assertAssetBalance(aliceNode.address, aliceAsset, AssetQuantity)
     aliceNode.assertAssetBalance(matcherNode.address, aliceAsset, 0)
@@ -42,15 +42,15 @@ class MatcherRestartTestSuite
     "make order and after matcher's restart try to cancel it" in {
       // Alice places sell order
       val aliceOrder = matcherNode
-        .placeOrder(aliceNode, aliceWavesPair, OrderType.SELL, 2.amurcoin * Order.PriceConstant, 500)
+        .placeOrder(aliceNode, aliceAmurcoinPair, OrderType.SELL, 2.amurcoin * Order.PriceConstant, 500)
       aliceOrder.status shouldBe "OrderAccepted"
       val firstOrder = aliceOrder.message.id
 
       // check order status
-      matcherNode.orderStatus(firstOrder, aliceWavesPair).status shouldBe "Accepted"
+      matcherNode.orderStatus(firstOrder, aliceAmurcoinPair).status shouldBe "Accepted"
 
       // check that order is correct
-      val orders = matcherNode.orderBook(aliceWavesPair)
+      val orders = matcherNode.orderBook(aliceAmurcoinPair)
       orders.asks.head.amount shouldBe 500
       orders.asks.head.price shouldBe 2.amurcoin * Order.PriceConstant
 
@@ -64,28 +64,28 @@ class MatcherRestartTestSuite
       val height = nodes.map(_.height).max
 
       matcherNode.waitForHeight(height + 1, 40.seconds)
-      matcherNode.orderStatus(firstOrder, aliceWavesPair).status shouldBe "Accepted"
+      matcherNode.orderStatus(firstOrder, aliceAmurcoinPair).status shouldBe "Accepted"
       matcherNode.fullOrderHistory(aliceNode).head.status shouldBe "Accepted"
 
-      val orders1 = matcherNode.orderBook(aliceWavesPair)
+      val orders1 = matcherNode.orderBook(aliceAmurcoinPair)
       orders1.asks.head.amount shouldBe 500
       orders1.asks.head.price shouldBe 2.amurcoin * Order.PriceConstant
 
       val aliceSecondOrder = matcherNode
-        .placeOrder(aliceNode, aliceWavesPair, OrderType.SELL, 2.amurcoin * Order.PriceConstant, 500, version = 1: Byte, 5.minutes)
+        .placeOrder(aliceNode, aliceAmurcoinPair, OrderType.SELL, 2.amurcoin * Order.PriceConstant, 500, version = 1: Byte, 5.minutes)
       aliceSecondOrder.status shouldBe "OrderAccepted"
 
-      val orders2 = matcherNode.orderBook(aliceWavesPair)
+      val orders2 = matcherNode.orderBook(aliceAmurcoinPair)
       orders2.asks.head.amount shouldBe 1000
       orders2.asks.head.price shouldBe 2.amurcoin * Order.PriceConstant
 
-      val cancel = matcherNode.cancelOrder(aliceNode, aliceWavesPair, Some(firstOrder))
+      val cancel = matcherNode.cancelOrder(aliceNode, aliceAmurcoinPair, Some(firstOrder))
       cancel.status should be("OrderCanceled")
 
-      val orders3 = matcherNode.orderBook(aliceWavesPair)
+      val orders3 = matcherNode.orderBook(aliceAmurcoinPair)
       orders3.asks.head.amount shouldBe 500
 
-      matcherNode.orderStatus(firstOrder, aliceWavesPair).status should be("Cancelled")
+      matcherNode.orderStatus(firstOrder, aliceAmurcoinPair).status should be("Cancelled")
       matcherNode.fullOrderHistory(aliceNode).head.status shouldBe "Accepted"
     }
   }

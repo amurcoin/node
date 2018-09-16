@@ -12,7 +12,7 @@ import com.amurcoin.lang.v1.evaluator.EvaluatorV1
 import com.amurcoin.lang.v1.evaluator.FunctionIds._
 import com.amurcoin.lang.v1.evaluator.ctx._
 import com.amurcoin.lang.v1.evaluator.ctx.impl.PureContext._
-import com.amurcoin.lang.v1.evaluator.ctx.impl.amurcoin.WavesContext
+import com.amurcoin.lang.v1.evaluator.ctx.impl.amurcoin.AmurcoinContext
 import com.amurcoin.lang.v1.evaluator.ctx.impl.{CryptoContext, EnvironmentFunctions, PureContext}
 import com.amurcoin.lang.v1.testing.ScriptGen
 import com.amurcoin.lang.v1.traits.Environment
@@ -35,7 +35,7 @@ class EvaluatorV1Test extends PropSpec with PropertyChecks with Matchers with Sc
     Seq(
       defaultCryptoContext,
       PureContext.ctx,
-      WavesContext.build(environment)
+      AmurcoinContext.build(environment)
     )
   )
 

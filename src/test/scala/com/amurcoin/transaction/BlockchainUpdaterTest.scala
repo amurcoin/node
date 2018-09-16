@@ -17,20 +17,20 @@ class BlockchainUpdaterTest extends FreeSpec with Matchers with HistoryTest with
 
   private val ApprovalPeriod = 100
 
-  private val WavesSettings = history.DefaultWavesSettings.copy(
-    blockchainSettings = history.DefaultWavesSettings.blockchainSettings.copy(
-      functionalitySettings = history.DefaultWavesSettings.blockchainSettings.functionalitySettings.copy(
+  private val AmurcoinSettings = history.DefaultAmurcoinSettings.copy(
+    blockchainSettings = history.DefaultAmurcoinSettings.blockchainSettings.copy(
+      functionalitySettings = history.DefaultAmurcoinSettings.blockchainSettings.functionalitySettings.copy(
         featureCheckBlocksPeriod = ApprovalPeriod,
         blocksForFeatureActivation = (ApprovalPeriod * 0.9).toInt,
         preActivatedFeatures = Map.empty
       )
     ),
-    featuresSettings = history.DefaultWavesSettings.featuresSettings.copy(autoShutdownOnUnsupportedFeature = true)
+    featuresSettings = history.DefaultAmurcoinSettings.featuresSettings.copy(autoShutdownOnUnsupportedFeature = true)
   )
 
-  private val WavesSettingsWithDoubling = WavesSettings.copy(
-    blockchainSettings = WavesSettings.blockchainSettings.copy(
-      functionalitySettings = WavesSettings.blockchainSettings.functionalitySettings.copy(
+  private val AmurcoinSettingsWithDoubling = AmurcoinSettings.copy(
+    blockchainSettings = AmurcoinSettings.blockchainSettings.copy(
+      functionalitySettings = AmurcoinSettings.blockchainSettings.functionalitySettings.copy(
         doubleFeaturesPeriodsAfterHeight = 300,
         preActivatedFeatures = Map.empty
       )
@@ -40,7 +40,7 @@ class BlockchainUpdaterTest extends FreeSpec with Matchers with HistoryTest with
     blockchainUpdater.processBlock(block)
   }
 
-  "features approved and accepted as height grows" in withDomain(WavesSettings) { domain =>
+  "features approved and accepted as height grows" in withDomain(AmurcoinSettings) { domain =>
     val b = domain.blockchainUpdater
 
     b.processBlock(genesisBlock)
@@ -77,7 +77,7 @@ class BlockchainUpdaterTest extends FreeSpec with Matchers with HistoryTest with
     b.featureStatus(3, 3 * ApprovalPeriod) shouldBe BlockchainFeatureStatus.Undefined
   }
 
-  "features rollback with block rollback" in withDomain(WavesSettings) { domain =>
+  "features rollback with block rollback" in withDomain(AmurcoinSettings) { domain =>
     val b = domain.blockchainUpdater
     b.processBlock(genesisBlock)
 
@@ -131,7 +131,7 @@ class BlockchainUpdaterTest extends FreeSpec with Matchers with HistoryTest with
     b.featureStatus(2, ApprovalPeriod - 1) shouldBe BlockchainFeatureStatus.Undefined
   }
 
-  "feature activation height is not overriden with further periods" in withDomain(WavesSettings) { domain =>
+  "feature activation height is not overriden with further periods" in withDomain(AmurcoinSettings) { domain =>
     val b = domain.blockchainUpdater
 
     b.processBlock(genesisBlock)
@@ -153,7 +153,7 @@ class BlockchainUpdaterTest extends FreeSpec with Matchers with HistoryTest with
     b.featureActivationHeight(1) shouldBe Some(ApprovalPeriod * 2)
   }
 
-  "feature activated only by 90% of blocks" in withDomain(WavesSettings) { domain =>
+  "feature activated only by 90% of blocks" in withDomain(AmurcoinSettings) { domain =>
     val b = domain.blockchainUpdater
 
     b.processBlock(genesisBlock)
@@ -176,7 +176,7 @@ class BlockchainUpdaterTest extends FreeSpec with Matchers with HistoryTest with
     b.featureStatus(1, ApprovalPeriod * 3) shouldBe BlockchainFeatureStatus.Activated
   }
 
-  "features votes resets when voting window changes" in withDomain(WavesSettings) { domain =>
+  "features votes resets when voting window changes" in withDomain(AmurcoinSettings) { domain =>
     val b = domain.blockchainUpdater
 
     b.processBlock(genesisBlock)
@@ -199,7 +199,7 @@ class BlockchainUpdaterTest extends FreeSpec with Matchers with HistoryTest with
   }
 
   "block processing should fail if unimplemented feature was activated on blockchain when autoShutdownOnUnsupportedFeature = yes and exit with code 38" in withDomain(
-    WavesSettings) { domain =>
+    AmurcoinSettings) { domain =>
     val b      = domain.blockchainUpdater
     val signal = new Semaphore(1)
     signal.acquire()
@@ -230,7 +230,7 @@ class BlockchainUpdaterTest extends FreeSpec with Matchers with HistoryTest with
     System.setSecurityManager(null)
   }
 
-  "sunny day test when known feature activated" in withDomain(WavesSettings) { domain =>
+  "sunny day test when known feature activated" in withDomain(AmurcoinSettings) { domain =>
     val b = domain.blockchainUpdater
     b.processBlock(genesisBlock)
 
@@ -243,7 +243,7 @@ class BlockchainUpdaterTest extends FreeSpec with Matchers with HistoryTest with
     b.featureStatus(1, b.height) should be(BlockchainFeatureStatus.Activated)
   }
 
-  "empty blocks should not disable activation" in withDomain(WavesSettings) { domain =>
+  "empty blocks should not disable activation" in withDomain(AmurcoinSettings) { domain =>
     val b = domain.blockchainUpdater
 
     b.processBlock(genesisBlock)
@@ -283,7 +283,7 @@ class BlockchainUpdaterTest extends FreeSpec with Matchers with HistoryTest with
     b.featureStatus(2, b.height) should be(BlockchainFeatureStatus.Activated)
   }
 
-  "doubling of feature periods works in the middle of activation period" in withDomain(WavesSettingsWithDoubling) { domain =>
+  "doubling of feature periods works in the middle of activation period" in withDomain(AmurcoinSettingsWithDoubling) { domain =>
     val b = domain.blockchainUpdater
 
     b.processBlock(genesisBlock)
@@ -313,7 +313,7 @@ class BlockchainUpdaterTest extends FreeSpec with Matchers with HistoryTest with
     b.featureStatus(2, b.height) should be(BlockchainFeatureStatus.Activated)
   }
 
-  "doubling of feature periods should work after defined height" in withDomain(WavesSettingsWithDoubling) { domain =>
+  "doubling of feature periods should work after defined height" in withDomain(AmurcoinSettingsWithDoubling) { domain =>
     val b = domain.blockchainUpdater
 
     b.processBlock(genesisBlock)

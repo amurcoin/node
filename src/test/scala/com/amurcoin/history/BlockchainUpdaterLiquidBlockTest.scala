@@ -46,7 +46,7 @@ class BlockchainUpdaterLiquidBlockTest extends PropSpec with PropertyChecks with
   }
 
   property("liquid block can't be overfilled") {
-    withDomain(MicroblocksActivatedAt0WavesSettings) { d =>
+    withDomain(MicroblocksActivatedAt0AmurcoinSettings) { d =>
       val (prevBlock, keyBlock, microBlocks) = preconditionsAndPayments.sample.get
 
       val blocksApplied = for {

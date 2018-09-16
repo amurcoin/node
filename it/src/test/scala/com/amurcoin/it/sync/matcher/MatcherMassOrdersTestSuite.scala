@@ -41,8 +41,8 @@ class MatcherMassOrdersTestSuite
       .id
     nodes.waitForHeightAriseAndTxPresent(aliceSecondAsset)
 
-    val aliceWavesPair       = AssetPair(ByteStr.decodeBase58(aliceAsset).toOption, None)
-    val aliceSecondWavesPair = AssetPair(ByteStr.decodeBase58(aliceSecondAsset).toOption, None)
+    val aliceAmurcoinPair       = AssetPair(ByteStr.decodeBase58(aliceAsset).toOption, None)
+    val aliceSecondAmurcoinPair = AssetPair(ByteStr.decodeBase58(aliceSecondAsset).toOption, None)
 
     // Check balances on Alice's account
     aliceNode.assertAssetBalance(aliceNode.address, aliceAsset, AssetQuantity)
@@ -60,33 +60,33 @@ class MatcherMassOrdersTestSuite
 
     // Alice places sell orders
     val aliceOrderIdFill = matcherNode
-      .placeOrder(aliceNode, aliceSecondWavesPair, OrderType.SELL, Order.PriceConstant, 3, orderVersion, 10.minutes)
+      .placeOrder(aliceNode, aliceSecondAmurcoinPair, OrderType.SELL, Order.PriceConstant, 3, orderVersion, 10.minutes)
       .message
       .id
 
     val alicePartialOrderId = matcherNode
-      .placeOrder(aliceNode, aliceSecondWavesPair, OrderType.SELL, Order.PriceConstant, 3, orderVersion, 10.minute)
+      .placeOrder(aliceNode, aliceSecondAmurcoinPair, OrderType.SELL, Order.PriceConstant, 3, orderVersion, 10.minute)
       .message
       .id
 
     val aliceOrderToCancelId =
       matcherNode
-        .placeOrder(aliceNode, aliceSecondWavesPair, OrderType.SELL, Order.PriceConstant, 3, orderVersion, 70.second)
+        .placeOrder(aliceNode, aliceSecondAmurcoinPair, OrderType.SELL, Order.PriceConstant, 3, orderVersion, 70.second)
         .message
         .id
 
     val aliceActiveOrderId = matcherNode
-      .placeOrder(aliceNode, aliceSecondWavesPair, OrderType.SELL, Order.PriceConstant + 1, 3, orderVersion, 10.minute)
+      .placeOrder(aliceNode, aliceSecondAmurcoinPair, OrderType.SELL, Order.PriceConstant + 1, 3, orderVersion, 10.minute)
       .message
       .id
 
-    matcherNode.waitOrderStatus(aliceSecondWavesPair, aliceOrderToCancelId, "Cancelled", 2.minutes)
+    matcherNode.waitOrderStatus(aliceSecondAmurcoinPair, aliceOrderToCancelId, "Cancelled", 2.minutes)
 
     //Bob orders should partially fill one Alice order and fill another
-    ordersRequestsGen(2, bobNode, aliceSecondWavesPair, OrderType.BUY, 2)
+    ordersRequestsGen(2, bobNode, aliceSecondAmurcoinPair, OrderType.BUY, 2)
 
     //check orders after filling
-    matcherNode.waitOrderStatus(aliceSecondWavesPair, alicePartialOrderId, "PartiallyFilled")
+    matcherNode.waitOrderStatus(aliceSecondAmurcoinPair, alicePartialOrderId, "PartiallyFilled")
 
     orderStatus(aliceNode, aliceOrderIdFill) shouldBe "Filled"
     orderStatus(aliceNode, alicePartialOrderId) shouldBe "PartiallyFilled"
@@ -102,11 +102,11 @@ class MatcherMassOrdersTestSuite
 
       orderIds should contain(aliceActiveOrderId)
 
-      ordersRequestsGen(orderLimit, aliceNode, aliceWavesPair, OrderType.SELL, 3)
+      ordersRequestsGen(orderLimit, aliceNode, aliceAmurcoinPair, OrderType.SELL, 3)
       //wait for some orders cancelled
       Thread.sleep(100000)
       /*val bobsOrderIds = */
-      ordersRequestsGen(orderLimit, bobNode, aliceWavesPair, OrderType.BUY, 2)
+      ordersRequestsGen(orderLimit, bobNode, aliceAmurcoinPair, OrderType.BUY, 2)
 
       // Alice check that order Active order is still in list
       val orderIdsAfterMatching = matcherNode.fullOrderHistory(aliceNode).map(_.id)
@@ -114,11 +114,11 @@ class MatcherMassOrdersTestSuite
       orderIdsAfterMatching should contain(aliceActiveOrderId)
       orderIdsAfterMatching should contain(alicePartialOrderId)
 
-      matcherNode.waitOrderStatus(aliceSecondWavesPair, aliceActiveOrderId, "Accepted")
-      matcherNode.waitOrderStatus(aliceSecondWavesPair, alicePartialOrderId, "PartiallyFilled")
+      matcherNode.waitOrderStatus(aliceSecondAmurcoinPair, aliceActiveOrderId, "Accepted")
+      matcherNode.waitOrderStatus(aliceSecondAmurcoinPair, alicePartialOrderId, "PartiallyFilled")
 
 //      matcherNode.fullOrderHistory(bobNode).map(_.id) should contain(bobsOrderIds)
-//      matcherNode.orderHistoryByPair(bobNode, aliceWavesPair).map(_.id) should contain(bobsOrderIds)
+//      matcherNode.orderHistoryByPair(bobNode, aliceAmurcoinPair).map(_.id) should contain(bobsOrderIds)
     }
 
     "Filled and Cancelled orders should be after Partial And Accepted" in {

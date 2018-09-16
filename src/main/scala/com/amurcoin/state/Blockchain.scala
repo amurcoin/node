@@ -54,7 +54,7 @@ trait Blockchain {
 
   def filledVolumeAndFee(orderId: ByteStr): VolumeAndFee
 
-  /** Retrieves Waves balance snapshot in the [from, to] range (inclusive) */
+  /** Retrieves Amurcoin balance snapshot in the [from, to] range (inclusive) */
   def balanceSnapshots(address: Address, from: Int, to: Int): Seq[BalanceSnapshot]
 
   def accountScript(address: Address): Option[Script]
@@ -72,7 +72,7 @@ trait Blockchain {
   def allActiveLeases: Set[LeaseTransaction]
 
   /** Builds a new portfolio map by applying a partial function to all portfolios on which the function is defined.
-    * @note Portfolios passed to `pf` only contain Waves and Leasing balances to improve performance */
+    * @note Portfolios passed to `pf` only contain Amurcoin and Leasing balances to improve performance */
   def collectLposPortfolios[A](pf: PartialFunction[(Address, Portfolio), A]): Map[Address, A]
 
   def append(diff: Diff, carryFee: Long, block: Block): Unit

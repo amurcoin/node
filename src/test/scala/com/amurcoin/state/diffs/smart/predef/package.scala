@@ -92,7 +92,7 @@ package object predef {
        |
        | let pure = basic && ne && gteLong && getListSize && unary && frAction && bytesOps && strOps
        |
-       | # Waves context
+       | # Amurcoin context
        | let txById = match tx {
        |     case d: DataTransaction => true
        |     case d: TransferTransaction =>

@@ -110,8 +110,8 @@ inConfig(Test)(
 inConfig(Linux)(
   Seq(
     maintainer := "amurcoin.io",
-    packageSummary := "Waves node",
-    packageDescription := "Waves node"
+    packageSummary := "Amurcoin node",
+    packageDescription := "Amurcoin node"
   ))
 
 bashScriptExtraDefines += s"""addJava "-Damurcoin.directory=/var/lib/${normalizedName.value}""""

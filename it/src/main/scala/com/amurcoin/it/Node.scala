@@ -5,7 +5,7 @@ import java.net.{InetSocketAddress, URL}
 import com.typesafe.config.Config
 import com.amurcoin.account.{PrivateKeyAccount, PublicKeyAccount}
 import com.amurcoin.it.util.GlobalTimer
-import com.amurcoin.settings.WavesSettings
+import com.amurcoin.settings.AmurcoinSettings
 import com.amurcoin.state.EitherExt2
 import com.amurcoin.transaction.FeeCalculator
 import com.amurcoin.utils.{Base58, LoggerFacade}
@@ -19,7 +19,7 @@ abstract class Node(config: Config) extends AutoCloseable {
   lazy val log: LoggerFacade =
     LoggerFacade(LoggerFactory.getLogger(s"${getClass.getCanonicalName}.${this.name}"))
 
-  val settings: WavesSettings = WavesSettings.fromConfig(config)
+  val settings: AmurcoinSettings = AmurcoinSettings.fromConfig(config)
   val client: AsyncHttpClient = asyncHttpClient(
     clientConfig()
       .setKeepAlive(false)

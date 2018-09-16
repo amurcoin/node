@@ -266,15 +266,15 @@ class SponsorshipDiffTest extends PropSpec with PropertyChecks with Matchers wit
         .selfSigned(None, master, recipient, 99800000, ts + 4, None, 100000, Array.emptyByteArray)
         .right
         .get
-      backWavesTransfer = TransferTransactionV1
+      backAmurcoinTransfer = TransferTransactionV1
         .selfSigned(None, recipient, master, 100000, ts + 5, Some(assetId), 100, Array.emptyByteArray)
         .right
         .get
-    } yield (genesis, issue, sponsor, assetTransfer, amurcoinTransfer, backWavesTransfer)
+    } yield (genesis, issue, sponsor, assetTransfer, amurcoinTransfer, backAmurcoinTransfer)
 
     forAll(setup) {
-      case (genesis, issue, sponsor, assetTransfer, amurcoinTransfer, backWavesTransfer) =>
-        assertDiffAndState(Seq(block(Seq(genesis, issue, sponsor, assetTransfer, amurcoinTransfer))), block(Seq(backWavesTransfer)), s) {
+      case (genesis, issue, sponsor, assetTransfer, amurcoinTransfer, backAmurcoinTransfer) =>
+        assertDiffAndState(Seq(block(Seq(genesis, issue, sponsor, assetTransfer, amurcoinTransfer))), block(Seq(backAmurcoinTransfer)), s) {
           case (diff, state) =>
             val portfolio = state.portfolio(genesis.recipient)
             portfolio.balance shouldBe 0

@@ -1,7 +1,7 @@
 package com.amurcoin.history
 
 import com.amurcoin.database.{Keys, LevelDBWriter, RW}
-import com.amurcoin.settings.WavesSettings
+import com.amurcoin.settings.AmurcoinSettings
 import com.amurcoin.state.{BlockchainUpdaterImpl, NG}
 import com.amurcoin.transaction.BlockchainUpdater
 import com.amurcoin.utils.{ScorexLogging, Time, UnsupportedFeature, forceStopApplication}
@@ -10,7 +10,7 @@ import org.iq80.leveldb.DB
 object StorageFactory extends ScorexLogging {
   private val StorageVersion = 2
 
-  def apply(settings: WavesSettings, db: DB, time: Time): BlockchainUpdater with NG = {
+  def apply(settings: AmurcoinSettings, db: DB, time: Time): BlockchainUpdater with NG = {
     checkVersion(db)
     val levelDBWriter = new LevelDBWriter(db, settings.blockchainSettings.functionalitySettings, settings.maxCacheSize)
     new BlockchainUpdaterImpl(levelDBWriter, settings, time)

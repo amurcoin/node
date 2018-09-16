@@ -6,7 +6,7 @@ import com.amurcoin.block.{Block, MicroBlock}
 import com.amurcoin.consensus.nxt.NxtLikeConsensusBlockData
 import com.amurcoin.features.BlockchainFeatures
 import com.amurcoin.lagonaki.mocks.TestBlock
-import com.amurcoin.settings.{BlockchainSettings, TestFunctionalitySettings, WavesSettings}
+import com.amurcoin.settings.{BlockchainSettings, TestFunctionalitySettings, AmurcoinSettings}
 import com.amurcoin.state._
 import com.amurcoin.transaction.Transaction
 import com.amurcoin.crypto._
@@ -22,14 +22,14 @@ package object history {
   )
 
   val config   = ConfigFactory.load()
-  val settings = WavesSettings.fromConfig(config)
+  val settings = AmurcoinSettings.fromConfig(config)
 
   val MicroblocksActivatedAt0BlockchainSettings: BlockchainSettings = DefaultBlockchainSettings.copy(
     functionalitySettings = DefaultBlockchainSettings.functionalitySettings.copy(preActivatedFeatures = Map(BlockchainFeatures.NG.id -> 0)))
 
-  val MicroblocksActivatedAt0WavesSettings: WavesSettings = settings.copy(blockchainSettings = MicroblocksActivatedAt0BlockchainSettings)
+  val MicroblocksActivatedAt0AmurcoinSettings: AmurcoinSettings = settings.copy(blockchainSettings = MicroblocksActivatedAt0BlockchainSettings)
 
-  val DefaultWavesSettings: WavesSettings = settings.copy(blockchainSettings = DefaultBlockchainSettings,
+  val DefaultAmurcoinSettings: AmurcoinSettings = settings.copy(blockchainSettings = DefaultBlockchainSettings,
                                                           featuresSettings = settings.featuresSettings.copy(autoShutdownOnUnsupportedFeature = false))
 
   val defaultSigner       = PrivateKeyAccount(Array.fill(KeyLength)(0))

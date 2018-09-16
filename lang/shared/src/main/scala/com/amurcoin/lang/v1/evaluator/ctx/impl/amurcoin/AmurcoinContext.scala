@@ -14,7 +14,7 @@ import com.amurcoin.lang.v1.{CTX, FunctionHeader}
 import monix.eval.Coeval
 import scodec.bits.ByteVector
 
-object WavesContext {
+object AmurcoinContext {
 
   import Bindings._
   import Types._

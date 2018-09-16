@@ -44,20 +44,20 @@ class SeveralPartialOrdersTestSuite
 
   "Alice and Bob trade AMURCOIN-USD" - {
     nodes.waitForHeightArise()
-    val bobWavesBalanceBefore = matcherNode.accountBalances(bobNode.address)._1
+    val bobAmurcoinBalanceBefore = matcherNode.accountBalances(bobNode.address)._1
 
     val price           = 238
     val buyOrderAmount  = 425532L
     val sellOrderAmount = 840340L
 
     "place usd-amurcoin order" in {
-      // Alice wants to sell USD for Waves
+      // Alice wants to sell USD for Amurcoin
 
       val bobOrder   = matcherNode.prepareOrder(bobNode, amurcoinUsdPair, OrderType.SELL, price, sellOrderAmount)
       val bobOrderId = matcherNode.placeOrder(bobOrder).message.id
       matcherNode.waitOrderStatus(amurcoinUsdPair, bobOrderId, "Accepted", 1.minute)
       matcherNode.reservedBalance(bobNode)("AMURCOIN") shouldBe sellOrderAmount + matcherFee
-      matcherNode.tradableBalance(bobNode, amurcoinUsdPair)("AMURCOIN") shouldBe bobWavesBalanceBefore - (sellOrderAmount + matcherFee)
+      matcherNode.tradableBalance(bobNode, amurcoinUsdPair)("AMURCOIN") shouldBe bobAmurcoinBalanceBefore - (sellOrderAmount + matcherFee)
 
       val aliceOrder   = matcherNode.prepareOrder(aliceNode, amurcoinUsdPair, OrderType.BUY, price, buyOrderAmount)
       val aliceOrderId = matcherNode.placeOrder(aliceOrder).message.id

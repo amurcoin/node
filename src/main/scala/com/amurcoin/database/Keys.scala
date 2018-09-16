@@ -81,8 +81,8 @@ object Keys {
   def sponsorshipHistory(assetId: ByteStr): Key[Seq[Int]]               = historyKey(35, assetId.arr)
   def sponsorship(assetId: ByteStr)(height: Int): Key[SponsorshipValue] = Key(hBytes(36, height, assetId.arr), readSponsorship, writeSponsorship)
 
-  val addressesForWavesSeqNr: Key[Int]                = intKey(37)
-  def addressesForWaves(seqNr: Int): Key[Seq[BigInt]] = Key(h(38, seqNr), readBigIntSeq, writeBigIntSeq)
+  val addressesForAmurcoinSeqNr: Key[Int]                = intKey(37)
+  def addressesForAmurcoin(seqNr: Int): Key[Seq[BigInt]] = Key(h(38, seqNr), readBigIntSeq, writeBigIntSeq)
 
   def addressesForAssetSeqNr(assetId: ByteStr): Key[Int]                = bytesSeqNr(39, assetId.arr)
   def addressesForAsset(assetId: ByteStr, seqNr: Int): Key[Seq[BigInt]] = Key(hBytes(40, seqNr, assetId.arr), readBigIntSeq, writeBigIntSeq)

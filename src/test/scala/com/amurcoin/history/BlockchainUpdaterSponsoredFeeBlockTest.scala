@@ -2,7 +2,7 @@ package com.amurcoin.history
 
 import com.amurcoin.TransactionGen
 import com.amurcoin.features.BlockchainFeatures
-import com.amurcoin.settings.{BlockchainSettings, WavesSettings}
+import com.amurcoin.settings.{BlockchainSettings, AmurcoinSettings}
 import com.amurcoin.state._
 import com.amurcoin.state.diffs._
 import org.scalacheck.Gen
@@ -36,21 +36,21 @@ class BlockchainUpdaterSponsoredFeeBlockTest
 
     master                      <- accountGen
     ts                          <- timestampGen
-    transferAssetWavesFee       <- smallFeeGen
+    transferAssetAmurcoinFee       <- smallFeeGen
     sponsor                     <- accountGen
     alice                       <- accountGen
     bob                         <- accountGen
     (feeAsset, sponsorTx, _, _) <- sponsorFeeCancelSponsorFeeGen(alice)
-    amurcoinFee                    = Sponsorship.toWaves(sponsorTx.minSponsoredAssetFee.get, sponsorTx.minSponsoredAssetFee.get)
+    amurcoinFee                    = Sponsorship.toAmurcoin(sponsorTx.minSponsoredAssetFee.get, sponsorTx.minSponsoredAssetFee.get)
     genesis: GenesisTransaction = GenesisTransaction.create(master, ENOUGH_AMT, ts).explicitGet()
     masterToAlice: TransferTransactionV1 = TransferTransactionV1
       .selfSigned(None,
                   master,
                   alice,
-                  feeAsset.fee + sponsorTx.fee + transferAssetWavesFee + amurcoinFee,
+                  feeAsset.fee + sponsorTx.fee + transferAssetAmurcoinFee + amurcoinFee,
                   ts + 1,
                   None,
-                  transferAssetWavesFee,
+                  transferAssetAmurcoinFee,
                   Array.emptyByteArray)
       .right
       .get
@@ -62,7 +62,7 @@ class BlockchainUpdaterSponsoredFeeBlockTest
         feeAsset.quantity / 2,
         ts + 2,
         None,
-        transferAssetWavesFee,
+        transferAssetAmurcoinFee,
         Array.emptyByteArray
       )
       .right
@@ -101,10 +101,10 @@ class BlockchainUpdaterSponsoredFeeBlockTest
             blocksForFeatureActivation = 1,
             preActivatedFeatures = Map(BlockchainFeatures.FeeSponsorship.id -> 0, BlockchainFeatures.NG.id -> 0)))
 
-  val SponsoredActivatedAt0WavesSettings: WavesSettings = settings.copy(blockchainSettings = SponsoredFeeActivatedAt0BlockchainSettings)
+  val SponsoredActivatedAt0AmurcoinSettings: AmurcoinSettings = settings.copy(blockchainSettings = SponsoredFeeActivatedAt0BlockchainSettings)
 
   property("not enough amurcoin to sponsor sponsored tx") {
-    scenario(sponsorPreconditions, SponsoredActivatedAt0WavesSettings) {
+    scenario(sponsorPreconditions, SponsoredActivatedAt0AmurcoinSettings) {
       case (domain, (genesis, masterToAlice, feeAsset, sponsor, aliceToBob, bobToMaster, bobToMaster2)) =>
         val (block0, microBlocks) = chainBaseAndMicro(randomSig, genesis, Seq(masterToAlice, feeAsset, sponsor).map(Seq(_)))
         val block1 = customBuildBlockOfTxs(microBlocks.last.totalResBlockSig,

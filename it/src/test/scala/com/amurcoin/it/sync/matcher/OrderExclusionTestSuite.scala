@@ -34,7 +34,7 @@ class OrderExclusionTestSuite
     val aliceAsset =
       aliceNode.issue(aliceNode.address, "AliceCoin", "AliceCoin for matcher's tests", AssetQuantity, 0, reissuable = false, 100000000L).id
     nodes.waitForHeightAriseAndTxPresent(aliceAsset)
-    val aliceWavesPair = AssetPair(ByteStr.decodeBase58(aliceAsset).toOption, None)
+    val aliceAmurcoinPair = AssetPair(ByteStr.decodeBase58(aliceAsset).toOption, None)
 
     // check assets's balances
     aliceNode.assertAssetBalance(aliceNode.address, aliceAsset, AssetQuantity)
@@ -43,18 +43,18 @@ class OrderExclusionTestSuite
     "sell order could be placed and status it's correct" in {
       // Alice places sell order
       val aliceOrder = matcherNode
-        .placeOrder(aliceNode, aliceWavesPair, OrderType.SELL, 2.amurcoin * Order.PriceConstant, 500, 2: Byte, 70.seconds)
+        .placeOrder(aliceNode, aliceAmurcoinPair, OrderType.SELL, 2.amurcoin * Order.PriceConstant, 500, 2: Byte, 70.seconds)
 
       aliceOrder.status shouldBe "OrderAccepted"
 
       val orderId = aliceOrder.message.id
 
       // Alice checks that the order in order book
-      matcherNode.orderStatus(orderId, aliceWavesPair).status shouldBe "Accepted"
+      matcherNode.orderStatus(orderId, aliceAmurcoinPair).status shouldBe "Accepted"
       matcherNode.fullOrderHistory(aliceNode).head.status shouldBe "Accepted"
 
       // Alice check that order is correct
-      val orders = matcherNode.orderBook(aliceWavesPair)
+      val orders = matcherNode.orderBook(aliceAmurcoinPair)
       orders.asks.head.amount shouldBe 500
       orders.asks.head.price shouldBe 2.amurcoin * Order.PriceConstant
 
@@ -62,7 +62,7 @@ class OrderExclusionTestSuite
       matcherNode.fullOrderHistory(aliceNode).head.status shouldBe "Accepted"
 
       //wait for expiration of order
-      matcherNode.waitOrderStatus(aliceWavesPair, orderId, "Cancelled", 2.minutes)
+      matcherNode.waitOrderStatus(aliceAmurcoinPair, orderId, "Cancelled", 2.minutes)
       matcherNode.fullOrderHistory(aliceNode).head.status shouldBe "Cancelled"
     }
   }
@@ -103,7 +103,7 @@ object OrderExclusionTestSuite {
   val MatcherFee: Long     = 300000
   val TransactionFee: Long = 300000
 
-  // val Waves: Long = 100000000L
+  // val Amurcoin: Long = 100000000L
 
   private val Configs: Seq[Config] = {
     val notMatchingNodes = Random.shuffle(Default.init).take(3)
