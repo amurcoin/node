@@ -15,6 +15,8 @@ sudo apt-get install apt-transport-https
 sudo apt-get update
 sudo apt-get install sbt
 git clone https://github.com/amurcoin/node.git
+sbt "test:runMain tools.GenesisBlockGenerator src/test/resources/genesis.example.conf"
+
 
 For further information please refer the official [documentation](https://docs.amurcoin.io).
 
